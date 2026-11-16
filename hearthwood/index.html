@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Hearthwood founding families</title>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="style.css">
+<style>
+  [hidden]{display:none !important}
+  html,body{margin:0;background:#f4f4f1;color:#2b2f2a}
+  .gate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
+  .gate form{background:#fff;border:1px solid #e6e5df;border-radius:14px;padding:28px;width:100%;max-width:360px;display:flex;flex-direction:column;gap:12px}
+  .gate h1{font-family:"HW Cormorant",Georgia,serif;font-weight:500;font-size:2rem;color:#1f3a2e;margin:0}
+  .gate p{margin:0;color:#6b6f66;font-size:14px}
+  .gate input{font:inherit;font-size:16px;padding:10px 12px;border:1px solid #d6d5cd;border-radius:8px}
+  .gate input:focus{outline:2px solid #1f3a2e;outline-offset:1px}
+  .gate button{font:inherit;font-weight:600;padding:11px;border:0;border-radius:8px;background:#1f3a2e;color:#fff;cursor:pointer}
+  .gate button:disabled{opacity:.6;cursor:default}
+  .gate .err{color:#a8432f;min-height:1.2em}
+</style>
+</head>
+<body>
+<div class="gate" id="gate">
+  <form id="gate-form" autocomplete="on">
+    <h1>Founding families</h1>
+    <p>Hearthwood Village dashboard. Enter the password to open it.</p>
+    <input type="password" id="pw" name="password" autocomplete="current-password" aria-label="Password" placeholder="Password" required>
+    <button type="submit" id="go">Open dashboard</button>
+    <p class="err" id="err" role="alert"></p>
+  </form>
+</div>
+<div id="dash-root" hidden>
+
+<div class="hw">
+  <header class="hw-sec" id="top">
+    <div class="hw-head">
+      <span class="hw-eyebrow">Hearthwood Village</span>
+      <h1>Founding families</h1>
+    </div>
+    <p class="hw-lead" data-draw="takeaway">—</p>
+    <p class="hw-updated">Families update live every time this page opens. Ad spend and visitors are refreshed each morning, last up to <span data-draw="through" data-source="spend" data-field="through" data-row="0">—</span>.</p>
+    <nav class="hw-jump" aria-label="Jump to">
+      <a href="#ads">Ads</a><a href="#map-section">Map and sites</a><a href="#answers-section">Answers</a><a href="#suggestions">Suggestions</a><a href="#estate">Estate charge</a><a href="#timeline-section">Each day</a><a href="#regions-section">Areas</a><a href="#notes">Notes</a>
+    </nav>
+  </header>
+
+  <section class="hw-sec" id="headline">
+    <div class="hw-tiles">
+      <div class="hw-tile">
+        <span class="hw-lbl">Founding families
+          <span class="hw-info"><button type="button" aria-label="What is a founding family?">i</button>
+            <span class="pop" role="tooltip">A founding family is a household that finished the Hearthwood quiz and left their details to join the founding families list. It's free and commits them to nothing. They hear first about the village and get priority when homes are released. Test sign-ups by the team are left out.</span></span>
+        </span>
+        <span class="hw-big" data-draw="k-families" data-source="kpi" data-field="families" data-row="0">—</span>
+        <span class="hw-sub"><span data-draw="k-last7" data-source="kpi" data-field="last7" data-row="0">—</span> in the last 7 days</span>
+      </div>
+      <div class="hw-tile">
+        <span class="hw-lbl">Cost per family
+          <span class="hw-info"><button type="button" aria-label="How cost per family is worked out">i</button>
+            <span class="pop" role="tooltip">All ad spend so far divided by the families who came from those ads, both counted up to the same day. Families from Instagram, direct visits and shared links cost nothing and aren't in this figure.</span></span>
+        </span>
+        <span class="hw-big" data-draw="c-cpl" data-source="cost" data-field="cpl_all" data-row="0">—</span>
+        <span class="hw-sub"><span data-draw="c-spend" data-source="cost" data-field="spend_all" data-row="0">—</span> spent on ads</span>
+      </div>
+      <div class="hw-tile">
+        <span class="hw-lbl">Cost per family, Meta</span>
+        <span class="hw-big" data-draw="c-cplm" data-source="cost" data-field="cpl_meta" data-row="0">—</span>
+        <span class="hw-sub"><span data-draw="c-fm" data-source="cost" data-field="families_meta" data-row="0">—</span> families from <span data-draw="c-sm" data-source="cost" data-field="spend_meta" data-row="0">—</span></span>
+      </div>
+      <div class="hw-tile">
+        <span class="hw-lbl">Confirmed their email</span>
+        <span class="hw-big" data-draw="k-conf" data-source="kpi" data-field="confirmed_pct" data-row="0">—</span>
+        <span class="hw-sub"><span data-draw="k-confn" data-source="kpi" data-field="confirmed" data-row="0">—</span> families sent the brochure</span>
+      </div>
+      <div class="hw-tile">
+        <span class="hw-lbl">Hot leads</span>
+        <span class="hw-big" data-draw="k-hot" data-source="kpi" data-field="hot" data-row="0">—</span>
+        <span class="hw-sub"><span data-draw="k-warm" data-source="kpi" data-field="warm" data-row="0">—</span> warm, <span data-draw="k-cold" data-source="kpi" data-field="cold" data-row="0">—</span> cold</span>
+      </div>
+    </div>
+    <div class="hw-tiles">
+      <div class="hw-tile"><span class="hw-lbl">Children per family</span><span class="hw-mid" data-draw="k-kids" data-source="kpi" data-field="avg_children" data-row="0">—</span><span class="hw-sub">on average</span></div>
+      <div class="hw-tile"><span class="hw-lbl">Typical budget</span><span class="hw-mid" data-draw="k-budget" data-source="kpi" data-field="median_budget" data-row="0">—</span><span class="hw-sub"><span data-draw="k-big" data-source="kpi" data-field="over_700k_pct" data-row="0">—</span> could spend £700k or more</span></div>
+      <div class="hw-tile"><span class="hw-lbl">Own a home with £500k+ equity</span><span class="hw-mid" data-draw="k-equity" data-source="kpi" data-field="equity_pct" data-row="0">—</span><span class="hw-sub">of families who answered</span></div>
+      <div class="hw-tile"><span class="hw-lbl">Already pay for school</span><span class="hw-mid" data-draw="k-indep" data-source="kpi" data-field="indep_pct" data-row="0">—</span><span class="hw-sub">independent or a mix</span></div>
+    </div>
+  </section>
+
+  <section class="hw-sec" id="ads">
+    <div class="hw-head"><span class="hw-eyebrow">Ads</span><h2>What to do with each ad</h2></div>
+    <p class="hw-muted">Each ad is judged against the Meta average of <b data-draw="c-cplm2" data-source="cost" data-field="cpl_meta" data-row="0">—</b> per family. An ad needs at least 3 families before its cost is reliable. Meta splits the budget between ads in the same ad set itself, so some ads get almost no spend. A cheap early result on a low-spend ad can mean it deserves more budget, not that it's failing.</p>
+    <div class="hw-advice" data-draw="advice" data-source="adstats"></div>
+    <div class="hw-tablewrap">
+      <table data-source="adstats" data-row-key="ad">
+        <thead><tr><th data-field="verdict">Verdict</th><th data-field="ad_name">Ad</th><th data-field="campaign">Campaign</th><th class="num" data-field="spend">Spent</th><th class="num" data-field="families">Families</th><th class="num" data-field="cpl">Cost per family</th><th class="num" data-field="confirmed">Confirmed email</th></tr></thead>
+        <tbody data-draw="ad-rows"></tbody>
+      </table>
+    </div>
+    <p class="hw-muted">Free channels so far: <span data-draw="free">—</span>. Ads that are switched off with no spend aren't listed.</p>
+
+    <div class="hw-head" style="margin-top:18px"><h3>When Meta spends your money</h3></div>
+    <p class="hw-muted">Spend per hour across 13 to 15 Nov (UK time), with the Meta families who joined in that hour. Hover over a bar for the numbers.</p>
+    <div class="hw-card hw-chart" id="hourly-chart" data-draw="hourly" data-source="byhour"></div>
+    <div class="hw-tablewrap">
+      <table data-source="hourblocks" data-row-key="block">
+        <thead><tr><th data-field="block">Time of day</th><th class="num" data-field="spend">Spent</th><th class="num" data-field="share">Share of spend</th><th class="num" data-field="families">Families</th><th class="num" data-field="cpl">Cost per family</th></tr></thead>
+        <tbody data-draw="block-rows"></tbody>
+      </table>
+    </div>
+    <p class="hw-muted">Meta spends more in the early morning and late evening because that's when people scroll most, and it does bring families then. The one gap is midnight to 5am: <b data-draw="blk" data-block="Midnight to 5am" data-f="spend_txt" data-source="hourblocks" data-field="spend_txt" data-where="block=Midnight%20to%205am">—</b> spent and <b data-draw="blk" data-block="Midnight to 5am" data-f="families" data-source="hourblocks" data-field="families" data-where="block=Midnight%20to%205am">—</b> families. Daily budgets can't be switched off for set hours. A lifetime budget can, so that's the fix if the pattern holds. It's only 3 days of data, so give it a week before changing anything.</p>
+
+    <div class="hw-head" style="margin-top:18px"><h3>Who's seeing the ads</h3></div>
+    <p class="hw-muted">Meta's split of spend by gender and age group, all campaigns, 13 to 15 Nov. "Families (Meta count)" is what Meta could see: it only counts people who accept cookies, so it finds about two in three of the real families. Use it to compare groups, not as a total.</p>
+    <div class="hw-demo">
+      <div class="hw-tablewrap">
+        <table data-source="demo_gender" data-row-key="group">
+          <thead><tr><th data-field="group">Gender</th><th data-field="spend_share">Share of spend</th><th class="num" data-field="spend">Spent</th><th class="num" data-field="leads">Families (Meta count)</th><th class="num" data-field="cpl">Cost per family</th></tr></thead>
+          <tbody data-draw="demo-gender"></tbody>
+        </table>
+      </div>
+      <div class="hw-tablewrap">
+        <table data-source="demo_age" data-row-key="group">
+          <thead><tr><th data-field="group">Age</th><th data-field="spend_share">Share of spend</th><th class="num" data-field="spend">Spent</th><th class="num" data-field="leads">Families (Meta count)</th><th class="num" data-field="cpl">Cost per family</th></tr></thead>
+          <tbody data-draw="demo-age"></tbody>
+        </table>
+      </div>
+    </div>
+    <p class="hw-muted" data-draw="demo-note">—</p>
+  </section>
+
+  <section class="hw-sec" id="estate">
+    <div class="hw-head"><span class="hw-eyebrow">Price</span><h2>What the estate charge covers</h2></div>
+    <p class="hw-muted">Planned yearly charges from the financial model. These are placeholders to test with families, and the quiz answers are beside them.</p>
+    <div class="hw-tablewrap">
+      <table data-source="estate" data-row-key="home">
+        <thead><tr><th data-field="home">Home</th><th class="num" data-field="homes">Homes</th><th class="num" data-field="estate_fee">Estate &amp; amenity fee</th><th class="num" data-field="club">Residents' club</th><th class="num" data-field="heat">Heat network</th><th class="num" data-field="total">Total a year</th><th class="num" data-field="per_month">Per month</th></tr></thead>
+        <tbody data-draw="estate-rows"></tbody>
+      </table>
+    </div>
+    <div class="hw-idea">
+      <h3>What families said is fair</h3>
+      <p class="hw-lead" data-draw="estate-fair">—</p>
+    </div>
+    <div class="hw-adv" style="max-width:none">
+      <h3>Included in the estate charge</h3>
+      <ul class="hw-list">
+        <li><b>Estate &amp; amenity fee:</b> 24-hour security and gatehouse, parkland and woodland walks, play areas and sports pitches, roads, paths and lighting, waste and recycling, water and drainage, full family access to the main pool and slides, village events, the planted boundary, shared building insurance, a reserve fund and estate management.</li>
+        <li><b>Residents' club:</b> a calm residents-only pool for lane swimming, a gym and studio, and a club lounge.</li>
+        <li><b>Heat network:</b> upkeep of the shared ground-source heat network (regulated by Ofgem), and smart meters with one monthly bill.</li>
+        <li><b>Not included:</b> the energy you use (billed at local rates, generally cheaper because most is made on the estate), council tax, school fees, and extras such as private lessons and food.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="hw-sec" id="map-section">
+    <div class="hw-head"><span class="hw-eyebrow">Location</span><h2>Where families live, and the 7 possible sites</h2></div>
+    <p class="hw-muted">Hover over a site to see where it is, and click it to zoom in. Site 1 (Shottle), the one we're focusing on, is in red. The dashed rings show about an hour's drive (45 miles) and about two hours (90 miles). Green dots are families. Postcodes were only asked from 14 Nov, so <span data-draw="m-mapped" data-source="kpi" data-field="with_postcode" data-row="0">—</span> of <span data-draw="m-total" data-source="kpi" data-field="families" data-row="0">—</span> families are on the map.</p>
+    <div class="hw-mapgrid">
+      <div class="hw-map" id="uk-map" data-draw="map" data-source="places sites reach"></div>
+      <div class="hw-sec" style="gap:12px">
+        <div class="hw-sitelist" data-draw="sitelist" data-source="reach"></div>
+        <div class="hw-card hw-detail" id="site-detail" data-draw="sitedetail" data-source="reach places"></div>
+      </div>
+    </div>
+    <div class="hw-tablewrap">
+      <table data-source="reach" data-row-key="site">
+        <thead><tr><th data-field="site">Site</th><th data-field="name">Where</th><th class="num" data-field="within_1h">Within an hour</th><th class="num" data-field="within_2h">Within two hours</th><th class="num" data-field="would_move">Would move this far</th><th class="num" data-field="nearest">Closest site for</th></tr></thead>
+        <tbody data-draw="reach-rows"></tbody>
+      </table>
+    </div>
+    <p class="hw-muted">"Would move this far" uses each family's own answer: up to an hour counts 45 miles, up to two hours 90 miles, and anywhere in England counts every site. Straight-line miles, so a rough guide.</p>
+  </section>
+
+  <section class="hw-sec" id="answers-section">
+    <div class="hw-head"><span class="hw-eyebrow">The quiz</span><h2>What families answered</h2></div>
+    <p class="hw-muted">Answers run from most to least picked, except where they have a natural order, like budget bands. Percentages are of families who answered. Where they could pick several, the numbers add up to more than 100%.</p>
+    <div class="hw-qgrid" data-draw="questions" data-source="answers"></div>
+  </section>
+
+
+  <section class="hw-sec" id="suggestions">
+    <div class="hw-head"><span class="hw-eyebrow">Next steps</span><h2>What the data suggests</h2></div>
+    <p class="hw-muted">Written by Claude on 16 Nov 2026 from 53 families. The percentages update live. Ask Claude to rewrite the ideas as more families join.</p>
+
+    <div class="hw-idea">
+      <div class="hw-idea-head"><span class="hw-num">1</span><div><h3>Refresh the main carousel around time and freedom</h3><p class="hw-muted">These are the two things almost every family picked. Each slide below shows a headline, what to photograph, and the answer behind it.</p></div></div>
+      <div class="hw-carousel"><figure class="hw-slide">
+          <div class="hw-frame"><span class="lbl">Cover</span><span class="hl">Car-free streets. More time together.</span></div>
+          <figcaption><span class="show">Show: children cycling down a quiet lane, parents walking behind</span><span class="hw-stat"><b data-draw="ans" data-q="childhood" data-a="More time together as a family" data-source="answers" data-field="pct" data-where="q=childhood&amp;answer=More%20time%20together%20as%20a%20family">—</b> want more time together</span></figcaption>
+        </figure><figure class="hw-slide">
+          <div class="hw-frame"><span class="lbl">Slide 2</span><span class="hl">Walk them to school. No traffic.</span></div>
+          <figcaption><span class="show">Show: a parent and child walking hand in hand to the school gate</span><span class="hw-stat"><b data-draw="ans" data-q="childhood" data-a="A great education, a walk away" data-source="answers" data-field="pct" data-where="q=childhood&amp;answer=A%20great%20education%2C%20a%20walk%20away">—</b> want school a walk away</span></figcaption>
+        </figure><figure class="hw-slide">
+          <div class="hw-frame"><span class="lbl">Slide 3</span><span class="hl">Swimming after school, five minutes away.</span></div>
+          <figcaption><span class="show">Show: children jumping into the indoor pool</span><span class="hw-stat"><b data-draw="ans" data-q="kids_love" data-a="Go swimming" data-source="answers" data-field="pct" data-where="q=kids_love&amp;answer=Go%20swimming">—</b> say their children would love swimming</span></figcaption>
+        </figure><figure class="hw-slide">
+          <div class="hw-frame"><span class="lbl">Slide 4</span><span class="hl">Dens in the woods. Home for tea.</span></div>
+          <figcaption><span class="show">Show: two children building a den between trees</span><span class="hw-stat"><b data-draw="ans" data-q="kids_love" data-a="Build dens in the woods" data-source="answers" data-field="pct" data-where="q=kids_love&amp;answer=Build%20dens%20in%20the%20woods">—</b> picked dens in the woods</span></figcaption>
+        </figure><figure class="hw-slide">
+          <div class="hw-frame end"><span class="lbl">End</span><span class="hl">Could you live here? Register your interest.</span></div>
+          <figcaption><span class="show">Show: the village green at golden hour</span><span class="hw-stat ghost">Call to action</span></figcaption>
+        </figure></div>
+    </div>
+
+    <div class="hw-idea">
+      <div class="hw-idea-head"><span class="hw-num">2</span><div><h3>Make the school carousel next</h3><p class="hw-muted">School is the gap in the launch set, and it's one of the top answers.</p></div></div>
+      <div class="hw-carousel"><figure class="hw-slide">
+          <div class="hw-frame"><span class="lbl">Cover</span><span class="hl">A school at the end of the lane.</span></div>
+          <figcaption><span class="show">Show: a child with a backpack walking up a tree-lined lane</span><span class="hw-stat"><b data-draw="ans" data-q="priorities" data-a="Independent school" data-source="answers" data-field="pct" data-where="q=priorities&amp;answer=Independent%20school">—</b> say an independent school matters most</span></figcaption>
+        </figure><figure class="hw-slide">
+          <div class="hw-frame"><span class="lbl">Slide 2</span><span class="hl">No school run.</span></div>
+          <figcaption><span class="show">Show: children cycling to school together, no cars in sight</span><span class="hw-stat"><b data-draw="ans" data-q="childhood" data-a="Safe to roam free, with no cars" data-source="answers" data-field="pct" data-where="q=childhood&amp;answer=Safe%20to%20roam%20free%2C%20with%20no%20cars">—</b> want them safe to roam</span></figcaption>
+        </figure><figure class="hw-slide">
+          <div class="hw-frame"><span class="lbl">Slide 3</span><span class="hl">Lessons, then clubs, sport and adventure.</span></div>
+          <figcaption><span class="show">Show: after-school football on the playing field</span><span class="hw-stat"><b data-draw="ans" data-q="childhood" data-a="Sport, clubs and adventure" data-source="answers" data-field="pct" data-where="q=childhood&amp;answer=Sport%2C%20clubs%20and%20adventure">—</b> want sport, clubs and adventure</span></figcaption>
+        </figure><figure class="hw-slide">
+          <div class="hw-frame"><span class="lbl">Slide 4</span><span class="hl">A lodge in the woods for the grandparents.</span></div>
+          <figcaption><span class="show">Show: grandparents arriving at a woodland lodge, children running to meet them</span><span class="hw-stat"><b data-draw="ans" data-q="rooms" data-a="A guest room for grandparents" data-source="answers" data-field="pct" data-where="q=rooms&amp;answer=A%20guest%20room%20for%20grandparents">—</b> want room for grandparents</span></figcaption>
+        </figure><figure class="hw-slide">
+          <div class="hw-frame end"><span class="lbl">End</span><span class="hl">Could you live here? Register your interest.</span></div>
+          <figcaption><span class="show">Show: the school building across the green</span><span class="hw-stat ghost">Call to action</span></figcaption>
+        </figure></div>
+    </div>
+
+    <div class="hw-idea">
+      <div class="hw-idea-head"><span class="hw-num">3</span><div><h3>Answer the biggest worries on the website</h3><p class="hw-muted">Each worry, the change to make, and example wording. The examples reuse what the site and FAQs already say. Lines in [brackets] need Eren.</p></div></div>
+      <div class="hw-fixes"><div class="hw-fix">
+        <div class="hw-fix-stat"><span class="n"><b data-draw="ans" data-q="worry" data-a="The location" data-source="answers" data-field="pct" data-where="q=worry&amp;answer=The%20location">—</b></span><span class="w">worry about the location</span></div>
+        <div class="hw-fix-body"><h4>Move "Where will it be?" up, right under the first screen</h4>
+          <div class="hw-snippet"><span class="tag">Example</span><b>Where will it be?</b><p>In the English countryside, within easy reach of major cities by train. We're choosing between several sites, and your postcode helps us decide. Founding families hear first.</p></div></div>
+      </div><div class="hw-fix">
+        <div class="hw-fix-stat"><span class="n"><b data-draw="ans" data-q="worry" data-a="The price and the charge" data-source="answers" data-field="pct" data-where="q=worry&amp;answer=The%20price%20and%20the%20charge">—</b></span><span class="w">worry about the price and the charge</span></div>
+        <div class="hw-fix-body"><h4>Put what the charge covers right next to the price</h4>
+          <div class="hw-snippet"><span class="tag">Example</span><b>Homes from £700k to £1.5m, plus an estate charge that covers:</b><p>The residents' club · parkland and play areas · estate care and security · upkeep of gardens, paths and shared spaces.</p></div></div>
+      </div><div class="hw-fix">
+        <div class="hw-fix-stat"><span class="n"><b data-draw="ans" data-q="worry" data-a="Schools and the move" data-source="answers" data-field="pct" data-where="q=worry&amp;answer=Schools%20and%20the%20move">—</b></span><span class="w">worry about schools and the move</span></div>
+        <div class="hw-fix-body"><h4>Add a short school places answer to the school section</h4>
+          <div class="hw-snippet"><span class="tag">Example</span><b>How do school places work?</b><p>Resident families get priority for places at Hearthwood School. [Eren to add how a mid-year move would work.]</p></div></div>
+      </div><div class="hw-fix">
+        <div class="hw-fix-stat"><span class="n"><b data-draw="ans" data-q="worry" data-a="Rules about how we live" data-source="answers" data-field="pct" data-where="q=worry&amp;answer=Rules%20about%20how%20we%20live">—</b></span><span class="w">worry about rules (and <b data-draw="ans" data-q="worry" data-a="Resale value later" data-source="answers" data-field="pct" data-where="q=worry&amp;answer=Resale%20value%20later">—</b> about resale)</span></div>
+        <div class="hw-fix-body"><h4>Add two FAQs: village rules and selling later</h4>
+          <div class="hw-snippet"><span class="tag">Example</span><b>Are there lots of rules? / Can we sell our home later?</b><p>[Eren to write both answers. Keep them short and plain.]</p></div></div>
+      </div></div>
+    </div>
+
+    <div class="hw-idea">
+      <div class="hw-idea-head"><span class="hw-num">4</span><div><h3>For the plan</h3><p class="hw-muted">Points to share with Eren.</p></div></div>
+      <div class="hw-tiles">
+        <div class="hw-tile"><span class="hw-big"><b data-draw="ans" data-q="budget" data-a="£700,000 to £900,000" data-source="answers" data-field="pct" data-where="q=budget&amp;answer=%C2%A3700%2C000%20to%20%C2%A3900%2C000">—</b></span><span class="hw-sub">chose £700k to £900k, and <b data-draw="ans" data-q="budget" data-a="£900,000 to £1.2 million" data-source="answers" data-field="pct" data-where="q=budget&amp;answer=%C2%A3900%2C000%20to%20%C2%A31.2%20million">—</b> £900k to £1.2m. That fits the £700k to £1.5m the site shows.</span></div>
+        <div class="hw-tile"><span class="hw-big"><b data-draw="ans" data-q="rooms" data-a="A guest room for grandparents" data-source="answers" data-field="pct" data-where="q=rooms&amp;answer=A%20guest%20room%20for%20grandparents">—</b></span><span class="hw-sub">want a guest room for grandparents in the home. The site offers a lodge in the woods instead. Worth checking which they mean.</span></div>
+        <div class="hw-tile"><span class="hw-big"><b data-draw="ans" data-q="rooms" data-a="A home office" data-source="answers" data-field="pct" data-where="q=rooms&amp;answer=A%20home%20office">—</b></span><span class="hw-sub">want a home office, and <b data-draw="ans" data-q="rooms" data-a="A playroom or snug" data-source="answers" data-field="pct" data-where="q=rooms&amp;answer=A%20playroom%20or%20snug">—</b> a playroom or snug.</span></div>
+        <div class="hw-tile"><span class="hw-big"><b data-draw="ans" data-q="move_far" data-a="Up to an hour away" data-source="answers" data-field="pct" data-where="q=move_far&amp;answer=Up%20to%20an%20hour%20away">—</b></span><span class="hw-sub">would only move up to an hour away, so the site choice decides who joins. See the map.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hw-sec" id="timeline-section">
+    <div class="hw-head"><span class="hw-eyebrow">Momentum</span><h2>Families joining each day</h2></div>
+    <div class="hw-card hw-chart" id="daily-chart" data-draw="daily" data-source="daily"></div>
+    <p>On the days with full tracking, <b data-draw="f-vis" data-source="funnel" data-field="visitors" data-row="0">—</b> people visited, <b data-draw="f-open" data-source="funnel" data-field="opened" data-row="0">—</b> opened the quiz (<b data-draw="f-openpct" data-source="funnel" data-field="open_pct" data-row="0">—</b>) and <b data-draw="f-join" data-source="funnel" data-field="joined" data-row="0">—</b> joined (<b data-draw="f-joinpct" data-source="funnel" data-field="join_pct" data-row="0">—</b> of those who opened it).</p>
+    <p class="hw-muted"><span data-draw="k-ms" data-source="kpi" data-field="ms_confirm_pct" data-row="0">—</span> of families with Hotmail, Outlook or Live addresses confirmed their email, against <span data-draw="k-nonms" data-source="kpi" data-field="other_confirm_pct" data-row="0">—</span> for everyone else. The confirmation email most likely lands in their Junk folder.</p>
+  </section>
+
+  <section class="hw-sec" id="regions-section">
+    <div class="hw-head"><span class="hw-eyebrow">Areas</span><h2>Where the most families live</h2></div>
+    <div class="hw-tablewrap">
+      <table data-source="areas" data-row-key="area">
+        <thead><tr><th data-field="area">Area</th><th data-field="districts">Postcode districts</th><th class="num" data-field="n">Families</th></tr></thead>
+        <tbody data-draw="area-rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <details class="hw-sec" id="notes">
+    <summary>What's counted and what's left out</summary>
+    <ul>
+      <li>The site only saves people once they finish the quiz, so families who stopped partway aren't counted.</li>
+      <li>Test sign-ups are left out: every one marked as a test, plus 6 of Aaron's and the team's that weren't marked.</li>
+      <li>Names, emails and phone numbers never reach this page. Locations are postcode districts only (like RH12).</li>
+      <li>Cost per family uses spend and families up to the same day, so families who joined today count from tomorrow.</li>
+      <li>Visitor numbers are the Plausible figures from the 9am Slack digest.</li>
+      <li>Sites 1, 2, 5 and 6 sit by the named place. Sites 3, 4 and 7 have no spot chosen yet, so their pins sit in the middle of the area.</li>
+    </ul>
+  </details>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="dash-shim.js"></script>
+<script src="uk.js"></script>
+<script src="app.js"></script>
+<script>
+(() => {
+  const form = document.getElementById('gate-form'), pw = document.getElementById('pw'), err = document.getElementById('err'), go = document.getElementById('go');
+  const open = async (p, quiet) => {
+    go.disabled = true; err.textContent = quiet ? '' : 'Loading…';
+    try {
+      await window.HW_LOAD(p);
+      try { sessionStorage.setItem('hw-pw', p); } catch (e) {}
+      document.getElementById('gate').hidden = true;
+      document.getElementById('dash-root').hidden = false;
+      window.HW_RENDER();
+    } catch (e) {
+      try { sessionStorage.removeItem('hw-pw'); } catch (x) {}
+      err.textContent = quiet ? '' : e.message; go.disabled = false; pw.focus();
+    }
+  };
+  form.addEventListener('submit', (e) => { e.preventDefault(); open(pw.value, false); });
+  let saved = null; try { saved = sessionStorage.getItem('hw-pw'); } catch (e) {}
+  if (saved) open(saved, true); else pw.focus();
+})();
+</script>
+</body>
+</html>
