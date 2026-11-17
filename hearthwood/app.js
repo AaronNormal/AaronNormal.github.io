@@ -209,8 +209,9 @@ dash.calc('adstats', {
     const out = [];
     for (const s of spend) {
       const amount = +s.spend;
-      if (!(amount > 0)) continue;
-      const mine = leads.filter((r) => r.ad === s.ad && String(r.joined).slice(0, 10) <= s.through);
+      if (!(amount > 0) && s.status !== 'Starting') continue;
+      // Match on campaign too: Top towns and Launch both use the ad tag ad2_v2.
+      const mine = leads.filter((r) => r.ad === s.ad && (r.campaign || '') === s.campaign && String(r.joined).slice(0, 10) <= s.through);
       const fam = mine.length;
       const conf = mine.filter((r) => r.confirmed === true || r.confirmed === 'true').length;
       out.push({ad: s.ad, ad_name: s.ad_name, channel: s.channel, campaign: s.campaign, status: s.status, spend: amount, families: fam, confirmed: conf,
@@ -223,7 +224,8 @@ dash.calc('adstats', {
     const order = {scale: 1, more: 2, keep: 3, watch: 4, early: 5, cut: 6, paused: 7};
     for (const a of out) {
       let v;
-      if (a.status === 'Paused' || a.status === 'Off') v = a.families && avg && a.cpl > avg * 2 ? ['paused', 'Paused, too expensive'] : ['paused', 'Paused'];
+      if (a.status === 'Starting') v = ['early', 'Just started'];
+      else if (a.status === 'Paused' || a.status === 'Off') v = a.families && avg && a.cpl > avg * 2 ? ['paused', 'Paused, too expensive'] : ['paused', 'Paused'];
       else if (avg == null) v = ['early', 'Too early to tell'];
       else if (a.families >= 3) v = a.cpl <= avg ? ['scale', 'Scale up'] : a.cpl <= avg * 1.5 ? ['keep', 'Keep running'] : ['cut', 'Cut back'];
       else if (a.families >= 1) v = a.cpl <= avg ? ['more', 'Give it more spend'] : ['watch', 'Watch'];
@@ -329,6 +331,8 @@ dash.draw('advice', (el) => {
   }
 });
 
+const hwCampaign = (c) => (c.startsWith('cmpn_') ? 'ChatGPT' : c.startsWith('areas_') ? 'Top towns' : {launch: 'Launch', christmas: 'Christmas', reel: 'Reel', areas: 'Areas'}[c] || c);
+
 dash.draw('ad-rows', (tb) => {
   const d = dash.data('adstats');
   tb.replaceChildren();
@@ -336,7 +340,7 @@ dash.draw('ad-rows', (tb) => {
   for (const a of d.data) {
     const tr = tb.insertRow(); tr.dataset.key = encodeURIComponent(a.ad);
     const vc = tr.insertCell(); const chip = document.createElement('span'); chip.className = 'hw-chip ' + a.verdict_key; chip.textContent = a.verdict; vc.append(chip);
-    [a.ad_name, a.campaign.startsWith('cmpn_') ? 'ChatGPT' : a.campaign, gbp(a.spend), a.families, a.families ? gbp(a.cpl) : 'none yet', a.confirmed]
+    [a.ad_name, hwCampaign(a.campaign), gbp(a.spend), a.families, a.families ? gbp(a.cpl) : 'none yet', a.confirmed]
       .forEach((v, i) => { const td = tr.insertCell(); td.textContent = v; if (i >= 2) td.className = 'num'; if (i === 0) td.className = 'strong'; });
   }
 });
