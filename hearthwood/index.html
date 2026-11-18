@@ -39,6 +39,9 @@
       <span class="hw-eyebrow">Hearthwood Village</span>
       <h1>Founding families</h1>
     </div>
+    <div class="hw-quiz" role="group" aria-label="Which quiz">
+      <button type="button" data-q="all" aria-pressed="true">All <b>—</b></button><button type="button" data-q="1" aria-pressed="false">Quiz 1 <b>—</b></button><button type="button" data-q="2" aria-pressed="false">Quiz 2 <b>—</b></button>
+    </div>
     <p class="hw-lead" data-draw="takeaway">—</p>
     <p class="hw-updated">Families update live every time this page opens. Ad spend and visitors are refreshed each morning, last up to <span data-draw="through" data-source="spend" data-field="through" data-row="0">—</span>.</p>
     <nav class="hw-jump" aria-label="Jump to">
@@ -307,6 +310,7 @@
     }
   };
   form.addEventListener('submit', (e) => { e.preventDefault(); open(pw.value, false); });
+  document.querySelectorAll('.hw-quiz button').forEach((b) => b.addEventListener('click', () => window.HW_SET_QUIZ && window.HW_SET_QUIZ(b.dataset.q)));
   let saved = null; try { saved = sessionStorage.getItem('hw-pw'); } catch (e) {}
   if (saved) open(saved, true); else pw.focus();
 })();

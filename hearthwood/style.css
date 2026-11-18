@@ -168,3 +168,10 @@
 .hw-sitebtn.focus .t small{color:#b3261e}
 .hw-ring.focus{stroke:#b3261e}
 .hw-ring.r2.focus{stroke:#d98c84}
+
+/* 18 Nov: quiz switch */
+.hw-quiz{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:rgba(31,58,46,.08);align-self:flex-start;flex-wrap:wrap}
+.hw-quiz button{border:0;background:transparent;color:#1F3A2E;font:600 14px/1 system-ui,sans-serif;padding:9px 14px;border-radius:999px;cursor:pointer}
+.hw-quiz button b{font-weight:500;opacity:.7;margin-left:4px}
+.hw-quiz button[aria-pressed=true]{background:#1F3A2E;color:#fff}
+.hw-quiz button:focus-visible{outline:2px solid #B9772E;outline-offset:2px}

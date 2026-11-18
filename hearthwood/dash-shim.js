@@ -83,7 +83,17 @@
       for (const k of LISTS) { const v = o[k]; o[k] = Array.isArray(v) ? v.join(' | ') : v == null ? null : String(v); }
       return o;
     });
-    raw.leads = {status: 'ok', data: leads, columns: leads[0] ? Object.keys(leads[0]) : [], message: '', refreshing: false, truncated: false, meta: null};
+    // 18 Nov: Quiz 2 split test. Every family carries quiz '1' or '2'; the switch at the top filters all charts.
+    window.HW_ALL = leads.map((l) => ({...l, quiz: l.quiz ? String(l.quiz) : '1'}));
+    window.HW_SET_QUIZ = (q, quiet) => {
+      window.HW_QUIZ = q;
+      const rows = q === 'all' ? window.HW_ALL : window.HW_ALL.filter((l) => l.quiz === q);
+      raw.leads = {status: 'ok', data: rows, columns: rows[0] ? Object.keys(rows[0]) : Object.keys(window.HW_ALL[0] || {}), message: '', refreshing: false, truncated: false, meta: null};
+      const n = {all: window.HW_ALL.length, '1': window.HW_ALL.filter((l) => l.quiz === '1').length, '2': window.HW_ALL.filter((l) => l.quiz === '2').length};
+      document.querySelectorAll('.hw-quiz button').forEach((b) => { b.setAttribute('aria-pressed', String(b.dataset.q === q)); const c = b.querySelector('b'); if (c) c.textContent = n[b.dataset.q]; });
+      if (!quiet) render();
+    };
+    window.HW_SET_QUIZ(window.HW_QUIZ || 'all', true);
     for (const [id, text] of Object.entries(body.files)) {
       const {rows, cols} = parseCsv(text);
       raw[id] = {status: 'ok', data: rows, columns: cols, message: '', refreshing: false, truncated: false, meta: null};
