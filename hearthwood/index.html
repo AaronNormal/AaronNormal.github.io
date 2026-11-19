@@ -264,6 +264,16 @@
     <div class="hw-card hw-chart" id="daily-chart" data-draw="daily" data-source="daily"></div>
     <p>On the days with full tracking, <b data-draw="f-vis" data-source="funnel" data-field="visitors" data-row="0">—</b> people visited, <b data-draw="f-open" data-source="funnel" data-field="opened" data-row="0">—</b> opened the quiz (<b data-draw="f-openpct" data-source="funnel" data-field="open_pct" data-row="0">—</b>) and <b data-draw="f-join" data-source="funnel" data-field="joined" data-row="0">—</b> joined (<b data-draw="f-joinpct" data-source="funnel" data-field="join_pct" data-row="0">—</b> of those who opened it).</p>
     <p class="hw-muted"><span data-draw="k-ms" data-source="kpi" data-field="ms_confirm_pct" data-row="0">—</span> of families with Hotmail, Outlook or Live addresses confirmed their email, against <span data-draw="k-nonms" data-source="kpi" data-field="other_confirm_pct" data-row="0">—</span> for everyone else. The confirmation email most likely lands in their Junk folder.</p>
+    <div class="hw-head" style="margin-top:18px"><h2>Every figure, day by day</h2></div>
+    <div class="hw-trend-pick" role="group" aria-label="Which figure to chart" data-draw="trend-pick" data-source="trend"></div>
+    <div class="hw-card hw-chart" data-draw="trend" data-source="trend"></div>
+    <div class="hw-tablewrap">
+      <table data-source="trend" data-row-key="day">
+        <thead><tr><th data-field="day">Day</th><th class="num" data-field="visitors">Visitors</th><th class="num" data-field="opened">Opened quiz</th><th class="num" data-field="open_pct">Open rate</th><th class="num" data-field="families">Families</th><th class="num" data-field="join_pct">Join rate</th><th class="num" data-field="confirm_pct">Confirmed</th></tr></thead>
+        <tbody data-draw="trend-rows"></tbody>
+      </table>
+    </div>
+    <p class="hw-muted">▲ up or ▼ down on the day before. Visitors and quiz opens come from the 9am Slack digest for the whole site; families and confirmations are live and follow the quiz switch at the top. Open rate = opened ÷ visitors, join rate = families ÷ opened, confirmed = families who confirmed their email.</p>
   </section>
 
   <section class="hw-sec" id="regions-section">

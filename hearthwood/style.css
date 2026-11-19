@@ -175,3 +175,9 @@
 .hw-quiz button b{font-weight:500;opacity:.7;margin-left:4px}
 .hw-quiz button[aria-pressed=true]{background:#1F3A2E;color:#fff}
 .hw-quiz button:focus-visible{outline:2px solid #B9772E;outline-offset:2px}
+
+/* 19 Nov: day-by-day trends */
+.hw-trend-pick{display:flex;flex-wrap:wrap;gap:6px}
+.hw-trend-pick button{border:1px solid var(--hw-line);background:var(--hw-card);color:#1F3A2E;font:600 13px/1 system-ui,sans-serif;padding:8px 12px;border-radius:999px;cursor:pointer}
+.hw-trend-pick button[aria-pressed=true]{background:#1F3A2E;color:#fff;border-color:#1F3A2E}
+.hw-up{color:#2e7d4f;font-size:10px}.hw-down{color:#b5432f;font-size:10px}

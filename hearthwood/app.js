@@ -795,3 +795,82 @@ dash.draw('estate-fair', (el) => {
   const under3 = n(['Under £3,000']), mid = n(['£3,000 to £6,000']), over6 = n(['£6,000 to £10,000', '£10,000 to £15,000']);
   el.textContent = `Of ${base} families who answered, ${under3 + mid} (${Math.round((100 * (under3 + mid)) / base)}%) said under £6,000 a year is fair, and ${over6} said £6,000 or more. The planned charge for the smallest home is £7,450 a year, so the gap is the main thing to test.`;
 });
+
+// ----- 19 Nov (Aaron): every figure day by day, up or down -----
+window.HW_TREND = window.HW_TREND || 'visitors';
+const HW_TREND_M = [
+  {k: 'visitors', l: 'Visitors', pct: false},
+  {k: 'opened', l: 'Opened the quiz', pct: false},
+  {k: 'open_pct', l: 'Open rate', pct: true},
+  {k: 'families', l: 'Families joined', pct: false},
+  {k: 'join_pct', l: 'Join rate', pct: true},
+  {k: 'confirm_pct', l: 'Confirmed email', pct: true},
+];
+dash.calc('trend', {
+  inputs: ['visitors', 'leads'],
+  title: 'Every figure, day by day',
+  description: 'Visitors and quiz opens from the 9am Slack digest; families and confirmations live from the database (follow the quiz switch at the top). Rates: opened ÷ visitors, families ÷ opened, confirmed ÷ families.',
+  fn: (visitors, leads) => {
+    const fam = new Map(), conf = new Map();
+    for (const r of leads) { const d = String(r.joined).slice(0, 10); fam.set(d, (fam.get(d) || 0) + 1); if (r.confirmed === true || r.confirmed === 'true') conf.set(d, (conf.get(d) || 0) + 1); }
+    const vis = new Map(visitors.map((v) => [v.day, v]));
+    const days = [...new Set([...vis.keys(), ...fam.keys()])].filter((d) => d >= '2026-11-13').sort();
+    const r1 = (a, b) => (b ? Math.round((1000 * a) / b) / 10 : null);
+    return days.map((d) => {
+      const v = vis.get(d) || {}, n = fam.get(d) || 0, c = conf.get(d) || 0;
+      const visitors_ = v.visitors == null || v.visitors === '' ? null : +v.visitors;
+      const opened = v.quiz_opened == null || v.quiz_opened === '' ? null : +v.quiz_opened;
+      return {day: d, visitors: visitors_, opened, open_pct: opened != null && visitors_ ? r1(opened, visitors_) : null,
+        families: n, join_pct: opened ? r1(n, opened) : null, confirmed: c, confirm_pct: n ? r1(c, n) : null};
+    });
+  }
+});
+const hwFmt = (v, pct) => (v == null ? '—' : pct ? v.toFixed(0) + '%' : String(v));
+dash.draw('trend-pick', (el) => {
+  el.replaceChildren();
+  for (const m of HW_TREND_M) {
+    const b = document.createElement('button'); b.type = 'button'; b.textContent = m.l; b.setAttribute('aria-pressed', String(window.HW_TREND === m.k));
+    b.onclick = () => { window.HW_TREND = m.k; dash.draw('trend-pick'); dash.draw('trend'); };
+    el.append(b);
+  }
+});
+dash.draw('trend', (el) => {
+  const d = dash.data('trend');
+  el.replaceChildren();
+  if (d.status !== 'ok') { el.textContent = d.status === 'error' ? 'Failed to load' : '—'; return; }
+  const m = HW_TREND_M.find((x) => x.k === window.HW_TREND) || HW_TREND_M[0];
+  const today = new Intl.DateTimeFormat('en-CA', {timeZone: 'Europe/London'}).format(new Date());
+  const pts = d.data.filter((r) => r[m.k] != null && r.day !== today);
+  if (!pts.length) { el.textContent = 'No data yet for this figure.'; return; }
+  const W = el.clientWidth || 600, H = 220, mg = {t: 22, r: 14, b: 24, l: 34};
+  const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', `Line chart of ${m.l} each day`);
+  const x = d3.scalePoint().domain(d.data.filter((r) => r.day !== today).map((r) => r.day)).range([mg.l + 10, W - mg.r - 10]);
+  const y = d3.scaleLinear().domain([0, (d3.max(pts, (r) => r[m.k]) || 1) * 1.15]).nice().range([H - mg.b, mg.t]);
+  svg.append('g').attr('transform', `translate(${mg.l},0)`).call(d3.axisLeft(y).ticks(4).tickSize(-(W - mg.l - mg.r)).tickFormat((v) => (m.pct ? v + '%' : d3.format('d')(v))))
+    .call((g) => { g.select('.domain').remove(); g.selectAll('line').style('stroke', '#ecebe6'); });
+  svg.append('g').attr('transform', `translate(0,${H - mg.b})`).call(d3.axisBottom(x).tickFormat((s) => d3.utcFormat('%-d %b')(new Date(s + 'T00:00:00Z'))))
+    .call((g) => g.selectAll('line,.domain').style('stroke', '#c9cfc9'));
+  svg.append('path').datum(pts).attr('fill', 'none').attr('stroke', '#1f3a2e').attr('stroke-width', 2).attr('d', d3.line().x((r) => x(r.day)).y((r) => y(r[m.k])));
+  svg.append('g').selectAll('circle').data(pts).join('circle').attr('cx', (r) => x(r.day)).attr('cy', (r) => y(r[m.k])).attr('r', 4).style('fill', '#1f3a2e');
+  svg.append('g').selectAll('text').data(pts).join('text').attr('x', (r) => x(r.day)).attr('y', (r) => y(r[m.k]) - 9).attr('text-anchor', 'middle').style('fill', '#1f3a2e').style('font-weight', 600).text((r) => hwFmt(r[m.k], m.pct));
+});
+dash.draw('trend-rows', (tb) => {
+  const d = dash.data('trend');
+  tb.replaceChildren();
+  if (d.status !== 'ok') return;
+  const rows = d.data.slice().reverse();
+  const today = new Intl.DateTimeFormat('en-CA', {timeZone: 'Europe/London'}).format(new Date());
+  rows.forEach((r, i) => {
+    const prev = rows[i + 1];
+    const tr = document.createElement('tr');
+    const td = (html, cls) => { const c = document.createElement('td'); if (cls) c.className = cls; c.innerHTML = html; tr.append(c); };
+    td(d3.utcFormat('%a %-d %b')(new Date(r.day + 'T00:00:00Z')) + (r.day === today ? ' <span class="hw-muted">so far</span>' : ''));
+    for (const m of HW_TREND_M) {
+      const v = r[m.k], p = prev ? prev[m.k] : null;
+      let arrow = '';
+      if (r.day !== today && v != null && p != null && v !== p) arrow = v > p ? ' <span class="hw-up" aria-label="up">▲</span>' : ' <span class="hw-down" aria-label="down">▼</span>';
+      td(hwFmt(v, m.pct) + arrow, 'num');
+    }
+    tb.append(tr);
+  });
+});
