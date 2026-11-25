@@ -350,6 +350,19 @@ footer.f .soc{display:flex;gap:10px}
 .ccx.live .tag,.cc2.live .tag{position:absolute!important;top:18px;left:18px;margin:0;background:rgba(7,9,15,.62)!important;color:#fff!important;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .ccx.live h3,.cc2.live h2{color:#fff}
 .ccx.live p,.cc2.live p{color:#c9cfdf!important}
+
+/* phone hero: fills the screen, text sits in the dark bottom area, clean line breaks (25 Nov) */
+@container (max-width:599px){
+ .hero{min-height:100svh!important}
+ .hero .body{padding-bottom:max(24px,env(safe-area-inset-bottom,0px))!important}
+ .hero .copy{gap:14px!important}
+ .hero h1{font-size:clamp(33px,10.2cqi,42px)!important;line-height:1.03!important;letter-spacing:-.035em}
+ .hero h1 .l{display:block}
+ .hero .lead{font-size:16px!important;line-height:1.45}
+ .hero .badges .badge{height:50px}
+ .hero .trust{gap:6px 14px!important;font-size:13px!important}
+ .hero .notcity{font-size:14px!important;margin-top:0!important}
+}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip--><div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
 <div class="stage" id="stage"><div class="site"><nav class="jnav"><div class="in"><a class="logo" href="/everlweb/" aria-label="Everl home"><span class="sw"></span>everl</a><span class="sp"></span><div class="links"><a href="/everlweb/#how">How it works</a><a href="/everlweb/safety">Safety</a><a href="/everlweb/cities">Cities</a><a href="/everlweb/blog" class="on">Journal</a><a href="/everlweb/more">Up for more</a></div><a class="btn dark" href="/everlweb/#get">Get the app</a><button class="mnu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button></div></nav>
 <main class="in" id="main" tabindex="-1">
