@@ -22,7 +22,7 @@ if(LIVE){
   posthog.init("phc_mhNGqThhz7VJ9RYzS2PUY8BRBB2QWWs7yTY4D4soPgCf",{api_host:"/rl",ui_host:"https://eu.posthog.com",persistence:'memory',autocapture:true,capture_pageview:true,capture_pageleave:true,respect_dnt:true,session_recording:{maskAllInputs:true},capture_exceptions:true});
  }
 }
-function track(ev,props){props=props||{};
+function track(ev,props){props=props||{};if(W.EV_HERO&&!props.hero)props.hero=W.EV_HERO;
  if(DBG)try{console.log('[track]',ev,JSON.stringify(props))}catch(e){}
  if(!LIVE)return;
  try{W.plausible(ev,{props:props})}catch(e){}
@@ -92,7 +92,7 @@ function ready(){
 if(D.readyState==='loading')D.addEventListener('DOMContentLoaded',ready);else ready();
 })();</script><!--/ev:head-->
 <title>The Leeds dating app for right now | Everl</title>
-<meta name="robots" content="noindex, nofollow"><link rel="preload" as="image" href="/everlweb/img/hero-w-climb2-1920.webp" media="(min-width:900px)"><link rel="preload" as="image" href="/everlweb/img/hero-m-climb2-1116.webp" media="(max-width:899px)">
+<meta name="robots" content="noindex, nofollow"><link rel="preload" as="image" href="/everlweb/img/hero-w-glance-1920.webp" media="(min-width:900px)"><link rel="preload" as="image" href="/everlweb/img/hero-m-glance-1116.webp" media="(max-width:899px)">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Outfit:wght@600&display=swap">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 <style>
@@ -837,6 +837,12 @@ a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
 
 /* phones: the two store buttons share the width evenly (Eren: looked off-centre) */
 @container (max-width:599px){.badges{display:grid!important;grid-template-columns:1fr 1fr;gap:10px!important;width:100%}.badges .badge{justify-content:center;min-width:0}}
+
+/* glance hero photo (25 Nov): keep both faces in frame */
+@container (min-width:1000px){.hero-b .hero .ph{background-position:96% 40%!important}}
+@container (max-width:999px){.hero-b .hero .ph{background-size:cover!important;background-position:50% 20%!important}}
+.badge b,.badge small{white-space:nowrap}
+@container (max-width:399px){.badges .badge b{font-size:17px}.badges .badge{padding-inline:10px}}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip-->
 
 <div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>

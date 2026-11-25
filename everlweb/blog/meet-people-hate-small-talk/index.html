@@ -22,7 +22,7 @@ if(LIVE){
   posthog.init("phc_mhNGqThhz7VJ9RYzS2PUY8BRBB2QWWs7yTY4D4soPgCf",{api_host:"/rl",ui_host:"https://eu.posthog.com",persistence:'memory',autocapture:true,capture_pageview:true,capture_pageleave:true,respect_dnt:true,session_recording:{maskAllInputs:true},capture_exceptions:true});
  }
 }
-function track(ev,props){props=props||{};
+function track(ev,props){props=props||{};if(W.EV_HERO&&!props.hero)props.hero=W.EV_HERO;
  if(DBG)try{console.log('[track]',ev,JSON.stringify(props))}catch(e){}
  if(!LIVE)return;
  try{W.plausible(ev,{props:props})}catch(e){}
@@ -439,6 +439,12 @@ a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
 
 /* phones: the two store buttons share the width evenly (Eren: looked off-centre) */
 @container (max-width:599px){.badges{display:grid!important;grid-template-columns:1fr 1fr;gap:10px!important;width:100%}.badges .badge{justify-content:center;min-width:0}}
+
+/* glance hero photo (25 Nov): keep both faces in frame */
+@container (min-width:1000px){.hero-b .hero .ph{background-position:96% 40%!important}}
+@container (max-width:999px){.hero-b .hero .ph{background-size:cover!important;background-position:50% 20%!important}}
+.badge b,.badge small{white-space:nowrap}
+@container (max-width:399px){.badges .badge b{font-size:17px}.badges .badge{padding-inline:10px}}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip--><div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
 <div class="stage" id="stage"><div class="site"><nav class="jnav"><div class="in"><a class="logo" href="/everlweb/" aria-label="Everl home"><span class="sw"></span>everl</a><span class="sp"></span><div class="links"><a href="/everlweb/#how">How it works</a><a href="/everlweb/safety">Safety</a><a href="/everlweb/cities">Cities</a><a href="/everlweb/blog" class="on">Journal</a><a href="/everlweb/more">Up for more</a></div><a class="btn dark" href="/everlweb/#get">Get Everl</a><button class="mnu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button></div></nav>
 <main class="in" id="main" tabindex="-1">
