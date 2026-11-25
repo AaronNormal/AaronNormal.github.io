@@ -387,6 +387,32 @@ footer.f .soc{display:flex;gap:10px}
 #nform button[type=submit]{grid-column:2;grid-row:auto;width:auto!important;height:48px;margin:0!important;padding:0 22px}
 #nform #nother{grid-column:1/-1}
 #nform .tick{font-size:13px}
+
+/* Safety page redesign (25 Nov): hero photo, alternating feature rows, three quiet points */
+.sfx-hero{display:grid;gap:28px;align-items:center}
+.sfx-hcopy{display:flex;flex-direction:column;gap:14px}
+.sfx-hph{border-radius:var(--r,28px);overflow:hidden;aspect-ratio:4/3;background:#e9ebf1}
+.sfx-hph img{width:100%;height:100%;object-fit:cover;display:block}
+@container (min-width:900px){.sfx-hero{grid-template-columns:1.05fr 1fr;gap:64px}.sfx-hero h1{font-size:clamp(44px,4.4cqi,64px)}}
+.sfx{display:grid;gap:clamp(56px,8cqi,104px);margin-top:clamp(40px,6cqi,80px)}
+.sfx-row{display:grid;gap:24px;align-items:center}
+@container (min-width:760px){.sfx-row{grid-template-columns:1fr 1fr;gap:clamp(40px,6cqi,88px)}.sfx-row.flip .sfx-pic{order:2}}
+.sfx-pic{border-radius:var(--r,28px);overflow:hidden;aspect-ratio:4/3;background:#eef0f4}
+.sfx-pic img{width:100%;height:100%;object-fit:cover;display:block}
+.sfx-pic.flat{display:flex;justify-content:center;align-items:flex-start;padding:36px 36px 0;position:relative}
+.sfx-pic.flat img{width:min(300px,72%);height:auto;object-fit:contain;border-radius:28px 28px 0 0;box-shadow:0 24px 60px rgba(14,19,34,.2)}
+.sfx-pic.flat::after{content:"";position:absolute;left:0;right:0;bottom:0;height:56px;background:linear-gradient(0deg,#eef0f4,rgba(238,240,244,0))}
+.sfx-tx{display:flex;flex-direction:column;gap:12px;max-width:46ch}
+.sfx-tx h2{font-size:clamp(28px,3.4cqi,40px);line-height:1.05;letter-spacing:-.03em;margin:0}
+.sfx-tx p{color:var(--ink2);font-size:17px;line-height:1.55;margin:0}
+.sfx-ico{width:44px;height:44px;border-radius:12px;background:#eef0f4;display:grid;place-items:center;flex:none}
+.sfx-ico svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sfx-three{list-style:none;margin:0;padding:0;display:grid;gap:32px}
+@container (min-width:760px){.sfx-three{grid-template-columns:repeat(3,1fr);gap:40px}}
+.sfx-three li{display:flex;flex-direction:column;gap:10px}
+.sfx-three h3{font-size:20px;letter-spacing:-.02em;margin:4px 0 0}
+.sfx-three p{color:var(--ink2);font-size:16px;line-height:1.55;margin:0}
+.sfx + .alert{margin-top:clamp(56px,8cqi,96px)}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip--><div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
 <div class="stage" id="stage"><div class="site"><nav class="jnav"><div class="in"><a class="logo" href="/everlweb/" aria-label="Everl home"><span class="sw"></span>everl</a><span class="sp"></span><div class="links"><a href="/everlweb/#how">How it works</a><a href="/everlweb/safety">Safety</a><a href="/everlweb/cities">Cities</a><a href="/everlweb/blog" class="on">Journal</a><a href="/everlweb/more">Up for more</a></div><a class="btn dark" href="/everlweb/#get">Get the app</a><button class="mnu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button></div></nav>
 <main class="in" id="main" tabindex="-1">
