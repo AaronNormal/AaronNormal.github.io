@@ -733,13 +733,17 @@ footer.f .soc{display:flex;gap:10px}
 @container (min-width:760px){.cf-track{--cw:300px;gap:20px}}
 @container (min-width:1100px){.cf-track{--cw:330px;gap:24px}}
 @media (prefers-reduced-motion:reduce){.cf-card{transition:none}}
-.ccx.live{position:relative;isolation:isolate;overflow:hidden;background:var(--img) center/cover no-repeat #0e1322!important;justify-content:flex-end;min-height:340px}
-.ccx.live::before{content:""!important;position:absolute!important;inset:0!important;z-index:-1!important;display:block!important;background:linear-gradient(0deg,rgba(7,9,15,.95) 0%,rgba(7,9,15,.78) 38%,rgba(7,9,15,.25) 75%,rgba(7,9,15,.1) 100%)!important;border-radius:inherit}
-.ccx.live .tag{background:rgba(7,9,15,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);position:absolute;top:22px;left:22px;margin:0}
-.ccx.live p{color:#e3e6f0}
 .ccx.next{justify-content:flex-start}
 .ccx-else{grid-column:1/-1;text-align:center;font-size:16px;color:var(--ink2);margin:10px 0 0}
 .ccx-else a{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+
+/* Manchester "Live now" card: photo on top, text on solid dark below (homepage .ccx + cities page .cc2) */
+.ccx.live,.cc2.live{position:relative;overflow:hidden;justify-content:flex-start!important;min-height:0!important;
+ background:var(--img) center top/100% auto no-repeat,#0e1322!important;padding:calc(50% + 24px) 28px 28px!important;color:#fff}
+.ccx.live::before,.ccx.live::after,.cc2.live::before,.cc2.live::after{display:none!important}
+.ccx.live .tag,.cc2.live .tag{position:absolute!important;top:18px;left:18px;margin:0;background:rgba(7,9,15,.62)!important;color:#fff!important;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.ccx.live h3,.cc2.live h2{color:#fff}
+.ccx.live p,.cc2.live p{color:#c9cfdf!important}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip-->
 
 <div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
@@ -845,7 +849,7 @@ footer.f .soc{display:flex;gap:10px}
 <!-- CITIES (typographic) -->
 <section class="cities3 sec" id="cities"><div class="in">
   <div class="head rv"><h2 class="h2">Opening city by city.</h2><p class="lead">Manchester is live and Leeds is next. Every other city&rsquo;s list is open, and the one with the most sign-ups opens after that.</p></div>
-  <div class="ccw rv"><article class="ccx live" style="--img:url(/everlweb/img/w2-drinks.jpg)"><span class="tag"><span class="sw sm"></span>Live now</span><h3>Manchester</h3><p>Switch on tonight and Everl tells you when someone nearby is up for the same thing.</p><a class="btn" href="#get">Get the app</a></article><article class="ccx next"><span class="tag">Next</span><h3>Leeds</h3><p>Be there on Leeds night one. We’ll email you once, when it opens.</p><form class="lf" id="lform" novalidate><input class="inp" type="email" required autocomplete="email" placeholder="Email address" aria-label="Email address" name="email"><label class="tick"><input type="checkbox" required name="consent"><span>I’m 18+ and agree to the <a href="/everlweb/terms">Terms</a> and <a href="/everlweb/privacy">Privacy policy</a>.</span></label><!--ev:upd--><label class="tick upd"><input type="checkbox" name="updates" value="yes"><span>Send me the occasional Everl update. Unsubscribe any time.</span></label><!--/ev:upd--><button class="btn dark" type="submit" aria-label="Join the Leeds list">Join</button><!--ev:fx--><input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" hidden aria-hidden="true"><input type="hidden" name="list" value="leeds"><div class="ts" data-sitekey=""></div><!--/ev:fx--></form></article><p class="ccx-else">Somewhere else? <a href="/everlweb/cities#notify">Join your city&rsquo;s list</a></p></div>
+  <div class="ccw rv"><article class="ccx live" style="--img:url(/everlweb/img/blog-spontaneity-last-minute-plans-1100.webp)"><span class="tag"><span class="sw sm"></span>Live now</span><h3>Manchester</h3><p>Switch on tonight and Everl tells you when someone nearby is up for the same thing.</p><a class="btn" href="#get">Get the app</a></article><article class="ccx next"><span class="tag">Next</span><h3>Leeds</h3><p>Be there on Leeds night one. We’ll email you once, when it opens.</p><form class="lf" id="lform" novalidate><input class="inp" type="email" required autocomplete="email" placeholder="Email address" aria-label="Email address" name="email"><label class="tick"><input type="checkbox" required name="consent"><span>I’m 18+ and agree to the <a href="/everlweb/terms">Terms</a> and <a href="/everlweb/privacy">Privacy policy</a>.</span></label><!--ev:upd--><label class="tick upd"><input type="checkbox" name="updates" value="yes"><span>Send me the occasional Everl update. Unsubscribe any time.</span></label><!--/ev:upd--><button class="btn dark" type="submit" aria-label="Join the Leeds list">Join</button><!--ev:fx--><input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" hidden aria-hidden="true"><input type="hidden" name="list" value="leeds"><div class="ts" data-sitekey=""></div><!--/ev:fx--></form></article><p class="ccx-else">Somewhere else? <a href="/everlweb/cities#notify">Join your city&rsquo;s list</a></p></div>
 </div></section>
 
 <!-- 8 FAQ -->
