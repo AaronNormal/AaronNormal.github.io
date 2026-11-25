@@ -436,6 +436,9 @@ main p a:not(.btn):not(.badge):not(.cj),.lead a,.sub a,.faq p a{text-decoration:
 .share .btn{background:#fff;color:#0b0f1c;border:0}
 .share .btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
 a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
+
+/* phones: the two store buttons share the width evenly (Eren: looked off-centre) */
+@container (max-width:599px){.badges{display:grid!important;grid-template-columns:1fr 1fr;gap:10px!important;width:100%}.badges .badge{justify-content:center;min-width:0}}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip--><div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
 <div class="stage" id="stage"><div class="site"><nav class="jnav"><div class="in"><a class="logo" href="/everlweb/" aria-label="Everl home"><span class="sw"></span>everl</a><span class="sp"></span><div class="links"><a href="/everlweb/#how">How it works</a><a href="/everlweb/safety">Safety</a><a href="/everlweb/cities">Cities</a><a href="/everlweb/blog" class="on">Journal</a><a href="/everlweb/more">Up for more</a></div><a class="btn dark" href="/everlweb/#get">Get Everl</a><button class="mnu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button></div></nav>
 <main class="in" id="main" tabindex="-1">
