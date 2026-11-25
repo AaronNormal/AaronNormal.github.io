@@ -1,0 +1,238 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Run clubs are the new dating apps, and why it works</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Outfit:wght@600&display=swap">
+<style>
+/* Layout: built from Aaron's picks. Dark photo hero, light middle, dark closer. One radius, one rhythm, one accent. */
+:root{
+  --night:#0e1322; --night2:#171d30; --ink:#0b0f1c; --ink2:#5b6275; --line:#e6e8ee; --paper:#ffffff; --mist:#f4f5f8;
+  --on:#f6f7fb; --on2:#aab2c7; --green:#34C759; --more:#8b5cf6; --moreBg:#15112a;
+  --r:28px; --f:"Geist",-apple-system,"SF Pro Display",system-ui,sans-serif; --word:"Outfit","Geist",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;background:#06080f}
+body{font:17px/1.5 var(--f);color:var(--ink);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+button{font:inherit;cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:2px solid #0a84ff;outline-offset:3px}
+h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.04em;text-wrap:balance}
+p{margin:0}
+
+/* preview bar */
+.pbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:90;background:#06080f;border-bottom:1px solid #1b2136;padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:14px;color:#aab2c7}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:95;background:#06080f}
+.pbar b{color:#fff;font-weight:600}.pbar .sp{flex:1}
+.seg{display:inline-flex;background:#141a2b;border-radius:99px;padding:3px}
+.seg button{border:0;background:none;color:#aab2c7;padding:6px 14px;border-radius:99px;font-size:14px;font-weight:500}
+.seg button[aria-pressed="true"]{background:#fff;color:#121212}
+.ghost{border:1px solid #2a3150;background:none;color:#fff;padding:6px 14px;border-radius:99px;font-size:14px}
+.stage.phone{padding:28px 16px 60px}
+.site{container-type:inline-size;margin:0 auto;background:var(--paper);overflow:clip;position:relative}
+.stage.phone .site{width:402px;max-width:100%;border-radius:40px;box-shadow:0 40px 80px rgba(0,0,0,.5)}
+.in{max-width:1200px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+@container (min-width:760px){.in{padding-left:48px;padding-right:48px}}
+.sec{padding-block:96px}
+@container (min-width:900px){.sec{padding-block:140px}}
+.h2{font-size:clamp(36px,6.2cqi,68px);line-height:1}
+.lead{font-size:19px;line-height:1.5;color:var(--ink2);max-width:38ch;text-wrap:pretty}
+.center{text-align:center;margin-inline:auto}
+.head{display:flex;flex-direction:column;gap:16px;margin-bottom:56px}
+.head.center{align-items:center}
+
+/* bits */
+.logo{display:inline-flex;align-items:center;gap:9px;font-family:var(--word);font-weight:600;font-size:24px;letter-spacing:-.02em;color:inherit;text-decoration:none}
+.sw{width:40px;height:24px;border-radius:99px;background:var(--green);position:relative;flex:none;display:inline-block;vertical-align:middle}
+.sw::after{content:"";position:absolute;top:2px;left:18px;width:20px;height:20px;border-radius:50%;background:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 24px;border-radius:14px;background:#fff;color:#111;font-weight:600;font-size:17px;border:0;text-decoration:none}
+.btn.dark{background:var(--ink);color:#fff}
+.badges{display:flex;gap:10px;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 18px 0 14px;border-radius:12px;background:#000;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.22)}
+.badge svg{width:22px;height:22px;fill:#fff}
+.badge span{display:flex;flex-direction:column;line-height:1.05}
+.badge small{font-size:10.5px;opacity:.85}.badge b{font-size:18px;font-weight:600;letter-spacing:-.01em}
+.badges.sm .badge{height:40px;padding:0 12px 0 10px;border-radius:10px}.badges.sm .badge b{font-size:14px}.badges.sm .badge small{font-size:9px}.badges.sm .badge svg{width:17px;height:17px}
+.lap{display:none}
+@container (min-width:900px){.lap,.hero .scan{display:flex}.mob{display:none!important}}
+
+/* iPhone frame */
+.iphone{container-type:inline-size;position:relative;width:280px;aspect-ratio:433/905;border-radius:14.6%/7%;padding:.9%;
+  background:linear-gradient(140deg,#6c6e73 0%,#2c2d30 18%,#1b1c1e 50%,#3a3b3e 82%,#77797e 100%);
+  box-shadow:0 1px 0 rgba(255,255,255,.25) inset,0 40px 70px -30px rgba(0,0,0,.6)}
+.iphone::before{content:"";position:absolute;right:-.8%;top:27%;width:1%;height:14%;border-radius:0 3px 3px 0;background:#3a3b3e}
+.iphone::after{content:"";position:absolute;left:-.8%;top:17%;width:1%;height:27%;border-radius:3px 0 0 3px;background:linear-gradient(180deg,#3a3b3e 0 20%,transparent 20% 34%,#3a3b3e 34% 62%,transparent 62% 70%,#3a3b3e 70% 100%)}
+.bez{height:100%;border-radius:14.6cqi;background:#000;padding:2.75cqi;position:relative}
+.scr{height:100%;border-radius:11.9cqi;overflow:hidden;background:#0e1322}
+.scr img{width:100%;height:100%;object-fit:cover;object-position:top}
+.island{position:absolute;left:50%;top:5.4cqi;transform:translateX(-50%);width:28.5cqi;height:8.4cqi;border-radius:99px;background:#000;z-index:2}
+
+
+body{background:var(--paper)}
+.site{background:var(--paper)}
+.jnav{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:20}
+.jnav .in{display:flex;align-items:center;gap:28px;height:72px}
+.jnav .logo{color:var(--ink)}.jnav .sp{flex:1}
+.jnav .links{display:none;gap:26px;font-size:15px;color:var(--ink2)}.jnav .links a{text-decoration:none}.jnav .links a.on{color:var(--ink);font-weight:600}
+.jnav .btn{height:40px;padding:0 16px;border-radius:12px;font-size:15px}
+@container (min-width:760px){.jnav .links{display:flex}}
+.btn.dark{background:var(--ink);color:#fff}
+.jhead{padding-block:64px 28px}
+.jhead h1{font-size:clamp(48px,9cqi,104px);line-height:.95;letter-spacing:-.05em}
+.jhead p{color:var(--ink2);font-size:19px;margin-top:14px;max-width:46ch}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
+.tabs button{border:1px solid var(--line);background:#fff;border-radius:99px;padding:8px 16px;font-size:15px;font-weight:500;color:var(--ink)}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.meta{font-size:13px;font-weight:600;color:var(--ink2);display:flex;gap:10px;align-items:center}
+.meta .cat{color:var(--ink)}
+.lead-st{display:grid;gap:24px;text-decoration:none;color:inherit;margin-bottom:56px}
+@container (min-width:900px){.lead-st{grid-template-columns:1.5fr 1fr;align-items:end}}
+.lead-st .pic{border-radius:28px;overflow:hidden;aspect-ratio:16/10;background:var(--mist)}
+.lead-st .pic img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.lead-st:hover .pic img{transform:scale(1.02)}
+.lead-st h2{font-size:clamp(30px,4cqi,44px);line-height:1.05;margin:10px 0}
+.lead-st p{color:var(--ink2);font-size:18px}
+.jbody{display:grid;gap:48px;padding-bottom:96px}
+@container (min-width:1000px){.jbody{grid-template-columns:1fr 320px}}
+.jgrid{display:grid;gap:32px 20px;grid-template-columns:1fr}
+@container (min-width:640px){.jgrid{grid-template-columns:1fr 1fr}}
+.card{text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:10px}
+.card .pic{border-radius:22px;overflow:hidden;aspect-ratio:4/5;background:var(--mist)}
+.card.wide{grid-column:1/-1}.card.wide .pic{aspect-ratio:16/8}
+.card .pic img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.card:hover .pic img{transform:scale(1.03)}
+.card h3{font-size:21px;line-height:1.2;letter-spacing:-.02em}
+.latest h4{font-size:15px;margin:0 0 6px;color:var(--ink2);font-weight:600}
+.latest a{display:block;text-decoration:none;color:inherit;padding:16px 0;border-bottom:1px solid var(--line)}
+.latest a b{display:block;font-size:17px;line-height:1.3;letter-spacing:-.01em;margin-top:6px}
+.jcta{background:var(--night);color:#fff;border-radius:28px;padding:40px 28px;display:flex;flex-direction:column;gap:16px;align-items:flex-start;margin-bottom:96px}
+@container (min-width:900px){.jcta{padding:56px;flex-direction:row;align-items:center;justify-content:space-between}}
+.jcta h3{font-size:clamp(28px,3.6cqi,40px);line-height:1.05}
+.jcta p{color:var(--on2)}
+.hidden-card{display:none!important}
+footer.f{background:var(--night);color:var(--on2);font-size:14px}
+footer.f .in{display:flex;flex-wrap:wrap;align-items:center;gap:16px 26px;padding-top:36px;padding-bottom:36px}
+footer.f a{text-decoration:none;color:var(--on2)}footer.f .logo{color:#fff;margin-right:auto}footer.f .copy{opacity:.7;flex-basis:100%;text-align:right}
+@container (max-width:759px){footer.f .in{display:grid;grid-template-columns:1fr 1fr}footer.f .logo{grid-column:1/-1}footer.f .copy{text-align:left}}
+/* article */
+.ahead{max-width:760px;margin:0 auto;padding-block:56px 32px}
+.ahead h1{font-size:clamp(38px,6.4cqi,68px);line-height:1;letter-spacing:-.04em;margin:14px 0}
+.ahead .dek{font-size:20px;color:var(--ink2)}
+.ahead .by{margin-top:22px;font-size:14px;color:var(--ink2);display:flex;align-items:center;gap:10px}
+.ahead .by .sw{width:30px;height:18px}.ahead .by .sw::after{width:14px;height:14px;left:14px}
+.ahero{border-radius:28px;overflow:hidden;aspect-ratio:16/8;margin-bottom:56px}
+.ahero img{width:100%;height:100%;object-fit:cover}
+.abody{max-width:680px;margin:0 auto;font-size:19px;line-height:1.65;color:#1c2233}
+.abody h2{font-size:30px;line-height:1.15;margin:44px 0 12px;letter-spacing:-.03em}
+.abody p{margin:0 0 18px}
+.abody .draft{font-size:14px;background:#fff7e0;color:#7a5a00;border-radius:12px;padding:12px 16px;margin-bottom:28px}
+.inline-cta{background:var(--mist);border-radius:22px;padding:24px;margin:36px 0;display:flex;flex-direction:column;gap:12px}
+.inline-cta b{font-size:20px;letter-spacing:-.02em}
+.inline-cta .badges .badge{background:var(--ink);border-color:var(--ink);height:46px}
+.related{max-width:1100px;margin:80px auto 0;padding-bottom:96px}
+.related h2{font-size:28px;margin-bottom:22px}
+.rgrid{display:grid;gap:20px}
+@container (min-width:760px){.rgrid{grid-template-columns:repeat(3,1fr)}}
+.rgrid .card .pic{aspect-ratio:4/3}
+
+.abody details{border-bottom:1px solid var(--line)}
+.abody summary{list-style:none;cursor:pointer;padding:18px 0;font-weight:600;font-size:18px;display:flex;justify-content:space-between;gap:16px}
+.abody summary::-webkit-details-marker{display:none}
+.abody summary::after{content:"+";font-weight:400;color:var(--ink2)}
+.abody details[open] summary::after{content:"2"}
+.abody details p{font-size:17px;color:var(--ink2)}
+.abody .src{font-size:15px;color:var(--ink2);padding-left:18px}
+.abody .src a{color:var(--ink2)}
+/* phone rows */
+@container (max-width:639px){
+  .jgrid{gap:18px}
+  .jgrid .card{display:grid;grid-template-columns:96px 1fr;grid-template-rows:auto 1fr;column-gap:14px;row-gap:6px;align-items:start}
+  .jgrid .card .pic,.jgrid .card.wide .pic{grid-row:1/3;aspect-ratio:1;border-radius:16px}
+  .jgrid .card h3{font-size:17px}
+  .rgrid .card{display:grid;grid-template-columns:96px 1fr;grid-template-rows:auto 1fr;column-gap:14px;row-gap:6px}
+  .rgrid .card .pic{grid-row:1/3;aspect-ratio:1;border-radius:16px}
+  .rgrid .card h3{font-size:17px}
+  .jhead{padding-block:40px 20px}
+  .ahero{aspect-ratio:4/3;border-radius:22px;margin-bottom:36px}
+  .abody{font-size:17px}
+  .abody h2{font-size:25px}
+}
+body{background:#06080f}
+footer.f .ig{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);color:#fff}
+footer.f .ig:hover{background:rgba(255,255,255,.16)}
+footer.f .ig svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8}
+footer.f .soc{display:flex;gap:10px}
+@container (max-width:759px){footer.f .soc{grid-column:1/-1}}
+
+@container (max-width:759px){.jnav .in{gap:10px}}
+.mnu{display:inline-grid;align-content:center;justify-items:center;gap:5px;width:42px;height:40px;border-radius:12px;border:1px solid var(--line);background:#fff;padding:0}
+.mnu span{display:block;width:18px;height:2px;border-radius:2px;background:var(--ink);transition:transform .2s}
+.jnav.open .mnu span:first-child{transform:translateY(3.5px) rotate(45deg)}.jnav.open .mnu span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+.msheet{display:none;border-top:1px solid var(--line);background:#fff;padding:4px 20px 16px;box-shadow:0 24px 40px -24px rgba(14,19,34,.25)}
+.jnav.open .msheet{display:block}
+.msheet a{display:flex;justify-content:space-between;align-items:center;padding:15px 2px;border-bottom:1px solid var(--line);font-size:19px;font-weight:600;letter-spacing:-.02em;text-decoration:none}
+.msheet a:last-child{border-bottom:0}.msheet a span{color:var(--ink2);font-weight:400}
+@container (min-width:760px){.mnu,.msheet{display:none!important}}
+.crumb{display:flex;width:max-content;align-items:center;gap:4px;margin:0 0 18px -4px;font-size:15px;font-weight:500;color:var(--ink2);text-decoration:none}
+.crumb svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.crumb:hover{color:var(--ink)}
+/* tidy journal */
+.jbody{grid-template-columns:1fr!important}
+@container (min-width:1000px){.jgrid{grid-template-columns:repeat(3,1fr)}}
+.related{padding-bottom:40px}.rhead{display:flex;justify-content:space-between;align-items:baseline;gap:16px}.rhead a{font-weight:600;font-size:15px;text-decoration:none;white-space:nowrap}
+.related+.jcta{margin-top:8px}
+
+.dock{position:sticky;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:20;display:flex;justify-content:center;pointer-events:none;height:0;overflow:visible;padding:0 16px}
+.dock a{pointer-events:auto;transform:translateY(-70px);width:100%;max-width:440px;height:56px;border-radius:99px;font-size:17px;gap:10px;box-shadow:0 14px 34px rgba(8,12,24,.32),0 0 0 1px rgba(255,255,255,.06) inset;opacity:0;transition:opacity .3s}
+.dock a svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.dock.on a{opacity:1}
+@container (min-width:900px){.dock{display:none}}
+/* desktop pass */
+@container (min-width:900px){.jcta{gap:32px}.jcta .badges{flex:none;flex-wrap:nowrap}}
+@container (min-width:760px){.ahead{max-width:680px}}
+@container (min-width:1000px){.jgrid .card:not(.wide) .pic{aspect-ratio:4/3}.jgrid .card h3{font-size:22px}.jgrid .card.wide h3{font-size:30px;line-height:1.12;max-width:32ch}}
+/* end desktop pass */
+
+/* side menu drawer */
+.dr{position:absolute;left:0;right:0;z-index:80}
+.dr[hidden]{display:none}
+.dr-bg{position:absolute;inset:0;background:rgba(8,10,18,.4);opacity:0;transition:opacity .25s}
+.dr.show .dr-bg{opacity:1}
+.dr-panel{position:absolute;top:0;right:0;bottom:0;width:100%;max-width:440px;background:#fff;color:var(--ink);display:flex;flex-direction:column;padding:0 24px 28px;overflow:auto;transform:translateX(100%);transition:transform .32s cubic-bezier(.2,.8,.2,1)}
+.dr.show .dr-panel{transform:none}
+.dr-top{display:flex;align-items:center;justify-content:space-between;height:72px;flex:none}
+.dr .logo{color:inherit;text-decoration:none}
+.dr-x{width:42px;height:42px;border-radius:50%;border:0;background:#f1f2f5;display:grid;place-items:center;padding:0;color:inherit}
+.dr-x svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
+.dr-links{display:flex;flex-direction:column;gap:2px;margin-top:28px}
+.dr-links a{font-size:34px;font-weight:700;letter-spacing:-.035em;line-height:1.2;padding:6px 0;text-decoration:none;color:inherit;opacity:.92}
+.dr-links a:hover,.dr-links a.on{opacity:1}
+.dr-links a.on{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:7px}
+.dr-small{display:flex;flex-direction:column;gap:4px;margin-top:28px;padding-top:24px;border-top:1px solid #e9ebf0}
+.dr-small a{font-size:18px;font-weight:500;color:#5b6275;text-decoration:none;padding:6px 0;display:flex;align-items:center;gap:10px}
+.dr-small a:hover{color:var(--ink)}
+.dr-small em{font-style:normal;font-size:12px;font-weight:600;padding:3px 8px;border-radius:99px;border:1px solid currentColor;line-height:1}
+.dr-foot{margin-top:auto;padding-top:32px;display:grid;gap:16px}
+.dr-get{display:flex;align-items:center;justify-content:center;height:56px;border-radius:99px;background:var(--ink);color:#fff;font-weight:600;font-size:17px;text-decoration:none}
+.dr-row{display:flex;align-items:center;justify-content:space-between;font-size:14px;color:#8a90a0}
+.dr-soc{display:flex;gap:8px}
+.dr-soc a{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:var(--ink);background:#f1f2f5}
+.dr-soc svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8}
+.dr.dark .dr-panel{background:#0f1118;color:#fff}
+.dr.dark .dr-x{background:rgba(255,255,255,.1)}
+.dr.dark .dr-small{border-top-color:rgba(255,255,255,.1)}
+.dr.dark .dr-small a{color:var(--on2)}.dr.dark .dr-small a:hover{color:#fff}
+.dr.dark .dr-get{background:#fff;color:#0f1118}
+.dr.dark .dr-soc a{background:rgba(255,255,255,.1);color:#fff}
+.dr.dark .dr-row{color:var(--on2)}
+/* end side menu drawer */
+</style><!--seo--><meta name="description" content="Run clubs went from fitness fad to the way a generation meets partners and friends. The Strava data, the psychology behind it, and how to start going."><link rel="canonical" href="https://everl.com/blog/run-clubs-new-dating-apps"><meta name="theme-color" content="#0e1322"><link rel="icon" href="/everlweb/favicon.ico" sizes="32x32"><link rel="icon" href="/everlweb/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/everlweb/apple-touch-icon.png"><link rel="manifest" href="/everlweb/site.webmanifest"><meta property="og:type" content="article"><meta property="og:site_name" content="Everl"><meta property="og:locale" content="en_GB"><meta property="og:title" content="Run clubs are the new dating apps, and why it works"><meta property="og:description" content="Run clubs went from fitness fad to the way a generation meets partners and friends. The Strava data, the psychology behind it, and how to start going."><meta property="og:url" content="https://everl.com/blog/run-clubs-new-dating-apps"><meta property="og:image" content="https://everl.com/og/everl-og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Three friends chatting at a climbing wall, with the Everl logo"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Run clubs are the new dating apps, and why it works"><meta name="twitter:description" content="Run clubs went from fitness fad to the way a generation meets partners and friends. The Strava data, the psychology behind it, and how to start going."><meta name="twitter:image" content="https://everl.com/og/everl-og.jpg"><meta property="article:published_time" content="2026-09-02"><meta property="article:modified_time" content="2026-09-02"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://everl.com/#org","name":"Everl","url":"https://everl.com/","logo":{"@type":"ImageObject","url":"https://everl.com/icon-512.png","width":512,"height":512},"sameAs":["https://www.instagram.com/everlapp","https://www.facebook.com/profile.php?id=61593360002124"],"areaServed":[{"@type":"City","name":"Manchester"},{"@type":"City","name":"Leeds"}]},{"@type":"BlogPosting","@id":"https://everl.com/blog/run-clubs-new-dating-apps#article","headline":"Run clubs are the new dating apps, and the psychology backs it up","description":"Run clubs went from fitness fad to the way a generation meets partners and friends. The Strava data, the psychology behind it, and how to start going.","datePublished":"2026-09-02","dateModified":"2026-09-02","author":{"@id":"https://everl.com/#org"},"publisher":{"@id":"https://everl.com/#org"},"image":"https://everl.com/og/everl-og.jpg","mainEntityOfPage":"https://everl.com/blog/run-clubs-new-dating-apps","inLanguage":"en-GB"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://everl.com/"},{"@type":"ListItem","position":2,"name":"Journal","item":"https://everl.com/blog"},{"@type":"ListItem","position":3,"name":"Run clubs are the new dating apps, and the psychology backs it up","item":"https://everl.com/blog/run-clubs-new-dating-apps"}]},{"@type":"FAQPage","@id":"https://everl.com/blog/run-clubs-new-dating-apps#faq","mainEntity":[{"@type":"Question","name":"Do people actually meet partners at run clubs?","acceptedAnswer":{"@type":"Answer","text":"Some do, but friendship is the far more common outcome. In Strava's Year in Sport survey, 58% of users said they'd made new friends through a run club, while one in five said they'd been on a date with someone they met through exercise. Go for the social circle and treat dating as a possible side-effect, not the goal."}},{"@type":"Question","name":"Why do hobbies work better than dating apps for meeting people?","acceptedAnswer":{"@type":"Answer","text":"They supply the three ingredients psychology links to real connection: seeing the same people repeatedly, doing something together that removes conversational pressure, and no explicit expectation to date. Apps invert all three: a profile to perform, no shared activity, and one high-stakes first impression instead of repeated exposure."}},{"@type":"Question","name":"What's the best hobby to meet people?","acceptedAnswer":{"@type":"Answer","text":"The one you'd turn up to weekly regardless. Running, climbing, team sport, choir, classes, volunteering: the activity matters far less than the repetition, so pick something you enjoy enough that showing up isn't a negotiation with yourself, and let familiarity do the work."}},{"@type":"Question","name":"How long before a run club stops feeling awkward?","acceptedAnswer":{"@type":"Answer","text":"Usually around the fourth to sixth session. Familiarity is what makes conversation easy, and it needs a few weeks to accumulate: most people who decide it isn't for them quit at session two, before the mechanism has had a chance to work. Commit to six weeks before judging it."}},{"@type":"Question","name":"Is it OK to ask someone out from your run club?","acceptedAnswer":{"@type":"Answer","text":"Yes, if you do it the way you'd want it done to you: get to know people over weeks rather than targeting someone on day one, take any interest to a separate coffee rather than making the club itself about it, and take a no gracefully; you'll be seeing each other every week. The low-pressure atmosphere is what makes these clubs work, so it's worth protecting."}},{"@type":"Question","name":"What is Everl?","acceptedAnswer":{"@type":"Answer","text":"Everl is an in-person, proximity-based way to meet people near you who are up for the same thing right now: no profiles, no swiping, no endless messaging. You appear as an anonymous presence, connect only on a mutual yes, and meet in a public place. It's built for meeting, not messaging. 18+."}}]}]}</script><!--/seo--></head><body><div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
+<div class="stage" id="stage"><div class="site"><nav class="jnav"><div class="in"><a class="logo" href="/everlweb/"><span class="sw"></span>everl</a><span class="sp"></span><div class="links"><a href="/everlweb/#how">How it works</a><a href="/everlweb/safety">Safety</a><a href="/everlweb/cities">Cities</a><a href="/everlweb/blog" class="on">Journal</a><a href="/everlweb/more">Up for more</a></div><a class="btn dark" href="/everlweb/#get">Get the app</a><button class="mnu" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span></button></div></nav>
+<main class="in">
+  <header class="ahead"><a class="crumb" href="/everlweb/blog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>Journal</a><span class="meta"><span class="cat">Take</span><span>7 min read</span><span>2 Sep 2026</span></span><h1>Run clubs are the new dating apps, and the psychology backs it up</h1><p class="dek">A running joke became a genuine movement: people are meeting partners and friends through run clubs and hobby groups faster than through any app. Here&#x27;s why &quot;dating by doing&quot; works, what the numbers really show, and how to start, even if you don&#x27;t run.</p><p class="by"><span class="sw"></span>The Everl team</p></header>
+  <div class="ahero"><img src="/everlweb/img/w2-run.jpg" alt=""></div>
+  <article class="abody"><h2>From punchline to movement</h2><p>For a while &quot;run clubs are the new dating apps&quot; was a joke people made on the internet. Then the numbers caught up with it. In Strava&#x27;s Year in Sport report for 2024 the platform recorded a 59% rise in running clubs, and 58% of surveyed users said they&#x27;d made new friends through one. One in five said they&#x27;d been on a date with someone they met through exercise, and Gen Z were four times more likely to say they&#x27;d rather meet people working out than at a bar.</p><p>The following year the growth got stranger still. Strava&#x27;s 2025 report (based on a survey of more than 30,000 people, users and non-users alike) found that new clubs on the platform had nearly quadrupled to a million, running clubs specifically had grown 3.5x year over year, and club-organised events were up 1.5x. Nearly half of Gen Z respondents (46%) said they were up for a workout as a first date.</p><p>Meanwhile the apps have been going the other way: paying subscribers falling, features being stripped back, and a general sense that the swipe has run its course. Put those two curves next to each other and the joke starts to look like a demographic shift. The culture even has a name for it now: &quot;dating by doing.&quot;</p><h2>Why &quot;dating by doing&quot; beats the swipe</h2><p>The mechanism isn&#x27;t mysterious, and it isn&#x27;t new. It&#x27;s the same recipe relationship psychology has pointed at for decades: repeated exposure to the same faces, a shared activity that gives you something to do besides perform, and no explicit pressure to date, because nobody is technically there for that.</p><p>Repetition does most of the work. The fourth time you see someone, &quot;hello&quot; is easy: you&#x27;re not a stranger making an approach, you&#x27;re the person who&#x27;s always there on Tuesdays. The shared activity does the rest: it hands you a script for the first ten conversations (the route, the hill, the weather, the injury you&#x27;re nursing) so neither of you has to manufacture charm from nothing.</p><p>Apps invert all three. They front-load the pressure with a profile to perform and a match to grind. They strip out the shared activity, leaving just talking, in a vacuum, about talking. And they replace repeat exposure with a single high-stakes first impression that has to carry everything. It&#x27;s a harder problem, dressed up as an easier one, which is a decent explanation for why so many people describe the apps as exhausting rather than fun.</p><h2>What the data actually says, and what it doesn&#x27;t</h2><p>It&#x27;s worth being precise here, because this story gets exaggerated in the retelling. The widely-quoted &quot;one in five&quot; figure is people who said they&#x27;d been on a date with someone they met through exercise, not one in five runners who&#x27;ve dated someone from their specific club, which is a much stronger claim nobody has actually measured.</p><p>Nor does the data say run clubs are better at producing relationships than apps. What it shows is that a lot of people are now meeting through exercise, that most of them are making friends rather than finding partners, and that the youngest cohort is unusually enthusiastic about it. The friendship number (58%) is much bigger than the dating number, and honestly that&#x27;s the more useful headline: run clubs are a very good way to widen a social circle, and a decent side-door to dating.</p><p>That framing matters if you&#x27;re deciding whether to go. Turn up expecting a romantic pipeline and you&#x27;ll be disappointed and a bit weird about it. Turn up expecting to know fifteen more people in your city within two months, and the data is firmly on your side.</p><h2>It was never really about running</h2><p>Swap the run for anything with a room and a rhythm: a bouldering gym, five-a-side, a choir, a life-drawing class, a board-game night, a community garden, a volunteering shift. &quot;Activity dating&quot; and &quot;hobby dating&quot; are just names for the same underlying mechanism (repeat exposure plus a shared task) and running has no monopoly on it. It simply happens to be free, requires no skill to start, and has an unusually well-organised club scene.</p><p>The specific hobby barely matters. The repetition does. Which leads to the only selection criterion that counts: pick the thing you&#x27;d genuinely turn up to even if you never spoke to a soul. If you need the social payoff to justify going, you&#x27;ll stop going the first week it rains, and then the mechanism never gets a chance to run.</p><h2>How to start, even if you don&#x27;t run</h2><p>Choose one recurring thing and put it in the calendar as a standing commitment, not an intention. Most cities have free, beginner-friendly run clubs several nights a week, and nearly all of them have a slow group: searching Strava or Instagram for your area will surface them faster than Google will.</p><p>Then commit for six weeks before you judge it. This is the single most important instruction on this page. Almost everyone&#x27;s first session is mildly awkward and mildly disappointing, because familiarity hasn&#x27;t had time to accumulate yet. Sessions four through six are where it turns, and most people who conclude &quot;that didn&#x27;t work for me&quot; quit at session two.</p><p>Show up on the evenings you don&#x27;t feel like it: those are the ones that build the streak. Learn a few names early and use them. Say yes to the coffee or the pub afterwards, which is where the actual socialising happens and which a surprising number of people skip. And be a friendly regular rather than a networker: the goal for the first month is simply to become a familiar face.</p><h2>The etiquette bit: don&#x27;t turn the club into an app</h2><p>One caveat, and clubs feel strongly about it. The reason these spaces work is that they&#x27;re not dating venues: the low pressure is the whole product. Treat a run club as a hunting ground and you&#x27;ll reintroduce exactly the dynamic everyone came there to escape, and people (women especially) will clock it immediately.</p><p>The functional version is boring and effective: be normal, talk to everyone rather than orbiting one person, let things develop over weeks, and take any interest to a separate coffee rather than making the club itself the site of it. Accept a no gracefully and keep turning up as though nothing happened, because you&#x27;ll be seeing these people every week. The same repetition that makes the club good for meeting someone makes it unforgiving of anyone who makes it uncomfortable.</p><h2>The gap hobbies leave</h2><p>There&#x27;s one thing a club structurally can&#x27;t do: it runs on a schedule. You meet at 7pm on Thursday, not at 9pm on a spontaneous Tuesday when you happen to be out and up for it. That in-between state (out, restless, would happily meet someone if it were easy) is the gap no weekly commitment can cover, by definition.</p><p>That&#x27;s the gap we built Everl for, so read this as an interested party&#x27;s view rather than a neutral one. It&#x27;s the same shared-intent energy without needing a scheduled club: you go &quot;on&quot; only when you mean it, see who nearby is in the same mood, and meet in a public place on a mutual yes, anonymous until you both choose otherwise, and 18+.</p><p>It isn&#x27;t a replacement for the club, and the honest answer is that it shouldn&#x27;t be. Repeat exposure is still the most reliable way anyone has found to make friends as an adult, and no app will out-perform turning up somewhere every week for a year. The realistic mix is one weekly hobby for the repetition, and a proximity nudge for the nights nothing&#x27;s on.</p><h2>Common questions</h2><details><summary>Do people actually meet partners at run clubs?</summary><p>Some do, but friendship is the far more common outcome. In Strava&#x27;s Year in Sport survey, 58% of users said they&#x27;d made new friends through a run club, while one in five said they&#x27;d been on a date with someone they met through exercise. Go for the social circle and treat dating as a possible side-effect, not the goal.</p></details><details><summary>Why do hobbies work better than dating apps for meeting people?</summary><p>They supply the three ingredients psychology links to real connection: seeing the same people repeatedly, doing something together that removes conversational pressure, and no explicit expectation to date. Apps invert all three: a profile to perform, no shared activity, and one high-stakes first impression instead of repeated exposure.</p></details><details><summary>What&#x27;s the best hobby to meet people?</summary><p>The one you&#x27;d turn up to weekly regardless. Running, climbing, team sport, choir, classes, volunteering: the activity matters far less than the repetition, so pick something you enjoy enough that showing up isn&#x27;t a negotiation with yourself, and let familiarity do the work.</p></details><details><summary>How long before a run club stops feeling awkward?</summary><p>Usually around the fourth to sixth session. Familiarity is what makes conversation easy, and it needs a few weeks to accumulate: most people who decide it isn&#x27;t for them quit at session two, before the mechanism has had a chance to work. Commit to six weeks before judging it.</p></details><details><summary>Is it OK to ask someone out from your run club?</summary><p>Yes, if you do it the way you&#x27;d want it done to you: get to know people over weeks rather than targeting someone on day one, take any interest to a separate coffee rather than making the club itself about it, and take a no gracefully; you&#x27;ll be seeing each other every week. The low-pressure atmosphere is what makes these clubs work, so it&#x27;s worth protecting.</p></details><details><summary>What is Everl?</summary><p>Everl is an in-person, proximity-based way to meet people near you who are up for the same thing right now: no profiles, no swiping, no endless messaging. You appear as an anonymous presence, connect only on a mutual yes, and meet in a public place. It&#x27;s built for meeting, not messaging. 18+.</p></details><h2>Sources</h2><ul class="src"><li><a href="https://www.prnewswire.com/news-releases/strava-releases-12th-annual-year-in-sport-trend-report-revealing-that-doomscrolling-is-out-movement-is-in-302631107.html" target="_blank" rel="noopener">Strava Year in Sport Trend Report 2025 (30,000+ surveyed), Strava / PR Newswire</a></li><li><a href="https://runningmagazine.ca/the-scene/stravas-year-end-trend-report-shows-run-clubs-are-in-nightclubs-are-out/" target="_blank" rel="noopener">Strava&#x27;s trend report: run clubs are in, nightclubs are out, Running Magazine</a></li><li><a href="https://www.vice.com/en/article/running-clubs-are-the-new-dating-apps/" target="_blank" rel="noopener">Running clubs are the new dating apps, Vice</a></li></ul></article>
+  <section class="related"><div class="rhead"><h2>Keep reading</h2><a href="/everlweb/blog">All articles →</a></div><div class="rgrid"><a class="card" href="/everlweb/blog/meet-people-irl-2026"><div class="pic"><img src="/everlweb/img/w-food.jpg" alt=""></div><span class="meta"><span class="cat">Guide</span><span>6 min read</span><span>25 Aug 2026</span></span><h3>How people are actually meeting in real life in 2026</h3></a><a class="card" href="/everlweb/blog/spontaneity-last-minute-plans"><div class="pic"><img src="/everlweb/img/w2-drinks.jpg" alt="" loading="lazy" decoding="async"></div><span class="meta"><span class="cat">Guide</span><span>7 min read</span><span>2 Sep 2026</span></span><h3>Why nobody is spontaneous anymore, and how to get last-minute plans back</h3></a><a class="card" href="/everlweb/blog/make-friends-adult-manchester"><div class="pic"><img src="/everlweb/img/w2-padel.jpg" alt="" loading="lazy" decoding="async"></div><span class="meta"><span class="cat">Guide</span><span>8 min read</span><span>2 Sep 2026</span></span><h3>How to make friends as an adult in Manchester</h3></a></div></section><div class="jcta"><div><h3>The best nights aren't planned three weeks out.</h3><p>Free on iPhone and Android. Live in Manchester, Leeds next.</p></div><div class="badges"><a class="badge" href="/everlweb/#get"><svg viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.5-1-2.5-3.9zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg><span><small>Download on the</small><b>App Store</b></span></a><a class="badge" href="/everlweb/#get"><svg viewBox="0 0 24 24" class="gp" aria-hidden="true"><path fill="#4285F4" d="M3.6 2.2 13.4 12l-9.8 9.8c-.3-.2-.5-.6-.5-1.1V3.3c0-.5.2-.9.5-1.1z"/><path fill="#34A853" d="M3.6 2.2c.3-.2.8-.2 1.3.1L16.6 9l-3.2 3z"/><path fill="#FBBC04" d="m16.6 9 3.5 2c.7.4.7 1.6 0 2l-3.5 2-3.2-3z"/><path fill="#EA4335" d="m13.4 12 3.2 3-11.7 6.7c-.5.3-1 .3-1.3.1z"/></svg><span><small>GET IT ON</small><b>Google Play</b></span></a></div></div>
+</main>
+<div class="dr" id="drawer" hidden><div class="dr-bg" data-close></div><aside class="dr-panel" role="dialog" aria-modal="true" aria-label="Menu"><div class="dr-top"><a class="logo" href="/everlweb/"><span class="sw"></span>everl</a><button class="dr-x" type="button" data-close aria-label="Close menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><nav class="dr-links" aria-label="Site"><a href="/everlweb/#how">How it works</a><a href="/everlweb/safety">Safety</a><a href="/everlweb/cities">Cities</a><a href="/everlweb/blog" class=on aria-current=page>Journal</a><a href="/everlweb/more">Up for more <em>18+</em></a></nav><nav class="dr-small" aria-label="More"><a href="/everlweb/help">Help</a><a href="/everlweb/help#contact">Contact</a></nav><div class="dr-foot"><a class="dr-get" href="/everlweb/#get" data-close>Get the app</a><div class="dr-row"><span>Free on iPhone and Android</span><span class="dr-soc"><a href="https://www.instagram.com/everlapp" target="_blank" rel="noopener" aria-label="Everl on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=61593360002124" target="_blank" rel="noopener" aria-label="Everl on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M13.5 21.5v-7.6h2.6l.4-3h-3V9c0-.9.3-1.5 1.5-1.5h1.6V4.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V11H7.8v3h2.6v7.5z"/></svg></a></span></div></div></aside></div><footer class="f"><div class="in"><a class="logo" href="/everlweb/"><span class="sw"></span>everl</a><a href="/everlweb/safety">Safety</a><a href="/everlweb/blog">Journal</a><a href="/everlweb/cities">Cities</a><a href="/everlweb/help">Help</a><a href="/everlweb/plus">Everl+</a><a href="/everlweb/help#contact">Contact</a><a href="/everlweb/terms">Terms</a><a href="/everlweb/privacy">Privacy</a><a href="/everlweb/child-safety">Child safety standards</a><a href="/everlweb/more">Up for more (18+)</a><span class="soc"><a class="ig" href="https://www.instagram.com/everlapp" target="_blank" rel="noopener" aria-label="Everl on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a><a class="ig" href="https://www.facebook.com/profile.php?id=61593360002124" target="_blank" rel="noopener" aria-label="Everl on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M13.5 21.5v-7.6h2.6l.4-3h-3V9c0-.9.3-1.5 1.5-1.5h1.6V4.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V11H7.8v3h2.6v7.5z"/></svg></a></span><span class="copy">© 2026 Everl. 18+ only.</span></div></footer><div class="dock" id="dock"><a class="btn dark store" href="/everlweb/#get">Get the app<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div></div><script>(function(){var st=document.getElementById("stage"),L=document.getElementById("vLap"),P=document.getElementById("vPhone");if(!st||!L||!P)return;function v(p){st.classList.toggle("phone",p);P.setAttribute("aria-pressed",p);L.setAttribute("aria-pressed",!p);try{localStorage.setItem("ev3",p?"1":"0")}catch(e){}}L.onclick=function(){v(false)};P.onclick=function(){v(true)};try{if(localStorage.getItem("ev3")==="1")v(true)}catch(e){}})();</script><script>(function(){var n=document.querySelector(".jnav"),b=n&&n.querySelector(".mnu");if(!b)return;b.addEventListener("click",function(){var o=n.classList.toggle("open");b.setAttribute("aria-expanded",o)});n.querySelectorAll(".msheet a").forEach(function(a){a.addEventListener("click",function(){n.classList.remove("open");b.setAttribute("aria-expanded","false")})})})();</script><script>(function(){var d=document.getElementById("dock");if(!d)return;var past=false,vis=new Set();function u(){d.classList.toggle("on",past&&vis.size===0)}addEventListener("scroll",function(){past=scrollY>420;u()},{passive:true});if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?vis.add(e.target):vis.delete(e.target)});u()});document.querySelectorAll(".jcta,footer.f,#contact,#get,.cg,#notify,.ccw,.ctarow").forEach(function(el){io.observe(el)})}if(matchMedia("(pointer:coarse)").matches){d.querySelector("a").href="https://everl.com/app"}})();</script><script>(function(){var d=document.getElementById("drawer");if(!d)return;var site=document.querySelector(".site")||document.body,last=null,t;function open(e){if(e){e.preventDefault();e.stopImmediatePropagation()}last=document.activeElement;var r=site.getBoundingClientRect(),pb=document.querySelector(".pbar"),ph=pb?pb.getBoundingClientRect().bottom:0,top=Math.max(0,ph-r.top);d.style.top=top+"px";d.style.height=(innerHeight-Math.max(ph,r.top))+"px";clearTimeout(t);d.hidden=false;requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add("show")})});document.documentElement.style.overflow="hidden";var x=d.querySelector(".dr-x");x&&x.focus();document.querySelectorAll(".mnu").forEach(function(b){b.setAttribute("aria-expanded","true")})}function close(){d.classList.remove("show");document.documentElement.style.overflow="";document.querySelectorAll(".mnu").forEach(function(b){b.setAttribute("aria-expanded","false")});document.querySelectorAll(".nav.open,.jnav.open").forEach(function(n){n.classList.remove("open")});t=setTimeout(function(){d.hidden=true},340);last&&last.focus&&last.focus()}document.querySelectorAll(".mnu").forEach(function(b){b.addEventListener("click",open,true)});d.querySelectorAll("[data-close]").forEach(function(el){el.addEventListener("click",close)});d.querySelectorAll(".dr-links a,.dr-small a").forEach(function(a){a.addEventListener("click",function(){if(a.getAttribute("href").indexOf("#")>-1&&a.pathname===location.pathname)close()})});addEventListener("keydown",function(e){if(e.key==="Escape"&&!d.hidden)close()})})();</script></body></html>
