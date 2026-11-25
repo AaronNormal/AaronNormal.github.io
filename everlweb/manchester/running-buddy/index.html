@@ -766,8 +766,8 @@ footer.f .soc{display:flex;gap:10px}
 /* Cities page: one "pick your city" sign-up block in place of the numbered list */
 .notify{display:block!important;background:#f4f5f8;border-radius:26px;padding:clamp(22px,4cqi,40px)!important}
 .notify .cj-head{margin-bottom:18px}
-.notify .cj-head h3{font-size:22px;letter-spacing:-.02em;margin:0 0 6px}
-.notify .cj-head p{color:var(--ink2);font-size:15px;max-width:52ch;margin:0}
+.notify .cj-head h2{font-size:clamp(28px,3.4cqi,40px);line-height:1.05;letter-spacing:-.03em;margin:0 0 12px}
+.notify .cj-head p{color:var(--ink2);font-size:16px;line-height:1.55;max-width:40ch;margin:0}
 #nform{display:grid!important;grid-template-columns:1fr auto;gap:10px;max-width:680px}
 #nform>*{grid-column:1/-1}
 .cj-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
@@ -807,6 +807,14 @@ footer.f .soc{display:flex;gap:10px}
 .sfx-three h3{font-size:20px;letter-spacing:-.02em;margin:4px 0 0}
 .sfx-three p{color:var(--ink2);font-size:16px;line-height:1.55;margin:0}
 .sfx + .alert{margin-top:clamp(56px,8cqi,96px)}
+
+/* Cities page sign-up: heading left, picker + form right on wide screens */
+.notify{margin-top:clamp(48px,6cqi,80px)}
+@container (min-width:900px){
+ .notify{display:grid!important;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:56px;align-items:start;padding:44px 48px!important}
+ .notify .cj-head{margin:0;position:sticky;top:96px}
+ #nform{max-width:none}
+}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip-->
 
 <div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
