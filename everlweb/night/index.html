@@ -843,15 +843,26 @@ footer.f .soc{display:flex;gap:10px}
 @media (min-width:701px){.nx .s1.sky .cap{top:15svh;bottom:auto}
 .nx .s1.sky::after{background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.35) 40%,rgba(0,0,0,0) 58%,rgba(0,0,0,.25) 100%)!important}
 .nx .skyimg{background-position:50% 70%}}
-.nx .s1.sky .cap{top:13svh;bottom:auto}
+.nx .s1.sky .cap{top:19svh;bottom:auto}
 .nx .s1.sky h1{max-width:20ch}
 .nx .s1.sky .cap2{position:absolute;z-index:3;left:0;right:0;bottom:5svh;text-align:center;padding:0 20px}
 .nx .s1.sky .cap2 .badges.sb{margin-top:0}
 .nx .s1.sky::after{background:linear-gradient(180deg,rgba(0,0,0,.65),rgba(0,0,0,.35) 38%,rgba(0,0,0,0) 55%,rgba(0,0,0,.15) 75%,rgba(0,0,0,.7) 100%)!important}
-@media (max-width:700px){.nx .s1.sky .cap{top:11svh}
+@media (max-width:700px){.nx .s1.sky .cap{top:15svh}
 .nx .skyimg{background-position:50% 62%!important}}
 .nx .s3::after{background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,0) 30%,rgba(0,0,0,.1) 45%,rgba(0,0,0,.6) 68%,rgba(0,0,0,.9) 100%)!important}
 .nx{position:relative}
+.nx .s2 h2 .dim,.nx .s2 p,.nx .s2 .req,.nx .s2 .note{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+.nx .s2.on h2 .dim{opacity:1;transform:none;transition-delay:.45s}
+.nx .s2.on p{opacity:1;transform:none;transition-delay:.65s}
+.nx .s2.on .req{opacity:1;transform:none;transition-delay:.85s}
+.nx .s2.on .note{opacity:1;transform:none;transition-delay:.95s}
+.nx .s2 .bsw{transition:background .35s ease .05s,box-shadow .5s ease .05s}
+.nx .s2 .bsw::after{transition:left .5s cubic-bezier(.34,1.56,.64,1)}
+.nx .s2 .big{transition:transform .5s ease}
+.nx .s2:not(.on) .big{transform:translateY(60px)}
+@media (prefers-reduced-motion:reduce){.nx .s2 h2 .dim,.nx .s2 p,.nx .s2 .req,.nx .s2 .note{opacity:1;transform:none}.nx .s2:not(.on) .big{transform:none}}
+
 .nx .stk>.scr{border-radius:0!important;margin:0!important;width:100%!important;aspect-ratio:auto!important}
 .nx .stk:last-of-type{height:170lvh!important}
 .nx .upchip{font-size:14px!important;padding:8px 15px 8px 9px}
@@ -860,23 +871,20 @@ footer.f .soc{display:flex;gap:10px}
 .nx .upchip .usw::after{content:"";position:absolute;top:2px;right:2px;width:14px;height:14px;border-radius:50%;background:#fff}
 .nx .upchip.more .usw{background:#8b5cf6;box-shadow:0 0 12px rgba(139,92,246,.55)}
 
-</style><style id="nightdark">/* night page: homepage sections in the dark night style */
-.site{--paper:#06080d;--mist:#10131c;--ink:#f3f4f8;--ink2:#9aa1b3;--line:rgba(255,255,255,.1);color-scheme:dark;background:#06080d;color:var(--ink)}
-.site details,.site .why div,.site .side.us,.site .ccx.soon,.site .ccx.else,.site .cf-btn,.site .notify,.site .tile .ico{background:#131722!important;border-color:rgba(255,255,255,.08)!important}
-.site .tile{background:#10131c}
-.site .side.us{box-shadow:0 30px 60px -30px rgba(0,0,0,.8)!important}
-.site .lf .inp,.site .lf2 .inp,.site select.inp,.site .cj{background-color:#0d1018!important;border-color:rgba(255,255,255,.16)!important;color:#f3f4f8!important}
-.site .tick input{border-color:rgba(255,255,255,.3)!important;background-color:transparent}
-.site .ccx.soon li,.site .chip{background:#161a26}
-.site .cf-btn{color:#fff}
-.site h2,.site h3,.site summary{color:var(--ink)}
-.site .badge{background:#000!important;color:#fff!important;border:1px solid rgba(255,255,255,.25)!important}.site .badge svg:not(.gp){fill:#fff}
-.site .st .panel,.site .safe2 .panel,.site .safe2 [class*="panel"]{background:#141824!important}
-.site .st .n{background:#fff!important;color:#06080d!important}
-.site .ccx.next,.site .cc2.next{background:var(--img) center top/100% auto no-repeat,#10131c!important}
-.site .ccx.next .tag,.site .cc2.next .tag{background:rgba(7,9,15,.62)!important;color:#fff!important}
-.site .sf-card{background:#141824!important}.site .sf-list .ico{background:#141824!important;color:#fff!important;border:1px solid rgba(255,255,255,.08)}
-.site .ccx button,.site .ccx .btn,.site .cc2 button,.site .notify button{background:#fff!important;color:#06080d!important}
+</style><style id="nightdark">/* night page: light and dark rhythm, light runs as rounded cards over the dark */
+.site{background:#06080d}
+.site .show,.site .wall{--paper:#06080d;--mist:#131722;--ink:#f3f4f8;--ink2:#9aa1b3;--line:rgba(255,255,255,.1);background:#06080d!important;color:var(--ink)}
+.site .show h2,.site .wall h2,.site .show .h2,.site .wall .h2{color:#fff}
+.site .show .chip{background:#161a26;color:#f3f4f8}
+.site .wall .cf-btn{background:#131722!important;color:#fff;border-color:rgba(255,255,255,.14)!important}
+.site .wall .cf-cap{color:#f3f4f8}
+.site .how2,.site .safe2,.site .cities3{border-radius:40px 40px 0 0;position:relative;z-index:1}
+.site .feat,.site .safe2,.site .faq{border-radius:0 0 40px 40px;position:relative;z-index:1}
+.site .safe2{border-radius:40px}
+.site .how2,.site .safe2,.site .cities3{box-shadow:0 -30px 60px -20px rgba(0,0,0,.5)}
+@container (max-width:759px){.site .how2,.site .safe2,.site .cities3{border-radius:28px 28px 0 0}.site .feat,.site .faq{border-radius:0 0 28px 28px}.site .safe2{border-radius:28px}}
+.site .about{background:var(--paper)}
+.site .how2 .h2,.site .safe2 .h2,.site .cities3 .h2,.site .feat .h2{color:var(--ink)}
 </style><!--ev:polish--><style>.kick,.tag,.lbl{text-transform:none!important;letter-spacing:0!important}footer.f .in>a{padding-block:10px}.crumb{min-height:44px;display:flex!important;width:max-content;align-items:center}.pg-hero .kick,.kick{display:block}.tick a{display:inline-block;padding-block:2px}.how .st .n,.col .n{background:#7c3aed!important}.jcta h3+p{margin-top:10px}.hero .lf .tick{color:#e3e6f0!important}.hero .lf .tick a{color:#fff!important}.hero:has(#lform-hero) .ph::after{background:linear-gradient(0deg,rgba(7,9,15,.97) 0%,rgba(7,9,15,.9) 50%,rgba(7,9,15,.55) 75%,rgba(7,9,15,.25) 100%)!important}.hero:has(#lform-hero) .lf{max-width:460px}.hero .lf .btn{background:#fff!important;color:#0b0f1c!important}.fxin{display:grid!important;grid-template-columns:1fr;gap:28px!important;padding-top:44px!important;padding-bottom:28px!important;border-bottom:1px solid rgba(255,255,255,.1)}@container (min-width:760px){.fxin{grid-template-columns:1fr 1fr;gap:48px!important}}.fx{display:contents}.fx h3{font-size:15px;font-weight:600;color:#fff;margin:0 0 12px}.fx ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px}.fx a{display:inline-block;padding-block:6px;font-size:14px;color:inherit;text-decoration:none}.fx a:hover{color:#fff;text-decoration:underline}
 /* homepage carousel + cities block (25 Nov). Added by build/launch.py on every run, so rebuilds can't drop it. */
 .wall-head{text-align:center;margin:0 auto 36px;max-width:640px;display:grid;justify-items:center}
@@ -1114,12 +1122,7 @@ a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
 <div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
 <div class="stage" id="stage"><div class="site" id="site">
 
-<div class="nx"><div class="stk" data-i="0" style="z-index:0"><section class="scr ph s0" aria-label="Everl"><nav class="hn"><a class="hl" href="/everlweb/" aria-label="Everl home"><span class="hsw"></span>everl</a><span class="sp"></span><div class="hlinks"><a href="/everlweb/#how">How it works</a><a href="/everlweb/#safety">Safety</a><a href="/everlweb/#cities">Cities</a><a href="/everlweb/blog">Journal</a><a href="/everlweb/more">Something more</a></div><a class="hget" href="/everlweb/#get">Get Everl</a></nav>
-<div class="c rise hc"><h1>Someone nearby is free <span class="tn">tonight</span> too.</h1><p class="sub">Everl quietly shows who&rsquo;s near and up for the same thing <span class="tn">tonight</span>. No chat. No profiles. No photos.</p><div class="badges">
-          <a class="badge" href="/everlweb/#get"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.5-1-2.5-3.9zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
-          <a class="badge" href="/everlweb/#get"><svg viewBox="0 0 24 24" class="gp" aria-hidden="true"><path fill="#4285F4" d="M3.6 2.2 13.4 12l-9.8 9.8c-.3-.2-.5-.6-.5-1.1V3.3c0-.5.2-.9.5-1.1z"/><path fill="#34A853" d="M3.6 2.2c.3-.2.8-.2 1.3.1L16.6 9l-3.2 3z"/><path fill="#FBBC04" d="m16.6 9 3.5 2c.7.4.7 1.6 0 2l-3.5 2-3.2-3z"/><path fill="#EA4335" d="m13.4 12 3.2 3-11.7 6.7c-.5.3-1 .3-1.3.1z"/></svg><span><small>GET IT ON</small><b>Google Play</b></span></a>
-        </div><p class="trust"><span>18+ and age-checked</span><span>No profile, no photos</span><span>Private until it&rsquo;s mutual</span></p><p class="nc">Not in Manchester? <a href="/everlweb/cities#notify">Join your city&rsquo;s list</a></p></div></section></div>
-<div class="stk" data-i="1" style="z-index:1"><section class="scr s1 sky"><div class="skyw" aria-hidden="true"><div class="skyimg"></div><canvas class="spark"></canvas></div><nav class="hn"><a class="hl" href="/everlweb/" aria-label="Everl home"><span class="hsw"></span>everl</a><span class="sp"></span><div class="hlinks"><a href="/everlweb/#how">How it works</a><a href="/everlweb/#safety">Safety</a><a href="/everlweb/#cities">Cities</a><a href="/everlweb/blog">Journal</a><a href="/everlweb/more">Something more</a></div><a class="hget" href="/everlweb/#get">Get Everl</a></nav><div class="cap rise"><h1><span class="tn" data-cap="1">Tonight</span>&rsquo;s best plan is already nearby. <span class="dim">You just don&rsquo;t know it yet.</span></h1><p class="lead">Everl quietly shows who&rsquo;s near and up for the same thing <span class="tn">tonight</span>. No chat. No profiles. No photos.</p></div><div class="cap2"><div class="badges sb">
+<div class="nx"><div class="stk" data-i="1" style="z-index:1"><section class="scr s1 sky"><div class="skyw" aria-hidden="true"><div class="skyimg"></div><canvas class="spark"></canvas></div><nav class="hn"><a class="hl" href="/everlweb/" aria-label="Everl home"><span class="hsw"></span>everl</a><span class="sp"></span><div class="hlinks"><a href="/everlweb/#how">How it works</a><a href="/everlweb/#safety">Safety</a><a href="/everlweb/#cities">Cities</a><a href="/everlweb/blog">Journal</a><a href="/everlweb/more">Something more</a></div><a class="hget" href="/everlweb/#get">Get Everl</a></nav><div class="cap rise"><h1><span class="tn" data-cap="1">Tonight</span>&rsquo;s best plan is already nearby. <span class="dim">You just don&rsquo;t know it yet.</span></h1><p class="lead">Everl quietly shows who&rsquo;s near and up for the same thing <span class="tn">tonight</span>. No chat. No profiles. No photos.</p></div><div class="cap2"><div class="badges sb">
           <a class="badge" href="/everlweb/#get"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.5-1-2.5-3.9zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
           <a class="badge" href="/everlweb/#get"><svg viewBox="0 0 24 24" class="gp" aria-hidden="true"><path fill="#4285F4" d="M3.6 2.2 13.4 12l-9.8 9.8c-.3-.2-.5-.6-.5-1.1V3.3c0-.5.2-.9.5-1.1z"/><path fill="#34A853" d="M3.6 2.2c.3-.2.8-.2 1.3.1L16.6 9l-3.2 3z"/><path fill="#FBBC04" d="m16.6 9 3.5 2c.7.4.7 1.6 0 2l-3.5 2-3.2-3z"/><path fill="#EA4335" d="m13.4 12 3.2 3-11.7 6.7c-.5.3-1 .3-1.3.1z"/></svg><span><small>GET IT ON</small><b>Google Play</b></span></a>
         </div><p class="trust"><span>18+ and age-checked</span><span>No profile, no photos</span><span>Private until it&rsquo;s mutual</span></p><p class="nc">Not in Manchester? <a href="/everlweb/cities#notify">Join your city&rsquo;s list</a></p></div></section></div>
@@ -1322,8 +1325,8 @@ requestAnimationFrame(function(){var c=cards[3];t.scrollLeft=c.offsetLeft-(t.cli
 if(!rm&&'IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!timer&&!t.dataset.stopped){timer=setInterval(function(){go(cur+1)},3800)}else if(!e.isIntersecting)stop()})},{threshold:.5}).observe(t)}});
 ['pointerdown','wheel','touchstart','keydown'].forEach(function(ev){t.addEventListener(ev,function(){t.dataset.stopped='1'},{passive:true})});
 document.querySelectorAll('.cf-btn').forEach(function(b){b.addEventListener('click',function(){t.dataset.stopped='1'})});
-})();</script><script>/*today or tonight: 5am to 3:59pm says today, otherwise tonight*/(function(){function f(){var h=new Date().getHours();if(h>=5&&h<16)[].forEach.call(document.querySelectorAll('.tn'),function(e){e.textContent=e.getAttribute('data-cap')?'Today':'today'})}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',f);else f()})();</script><div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><span id="dl"></span></div><script>(function(){var h=new Date().getHours();if(h>=5&&h<16)[].forEach.call(document.querySelectorAll('.tn'),function(e){e.textContent=e.dataset.cap?'Today':'today'});
-var s2=document.getElementById('s2');if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){s2.classList.add('on');io.disconnect()}})},{threshold:.55});io.observe(s2)}else s2.classList.add('on')})();</script><script>/*skyline sparkle: twinkle the real city lights + stars*/(function(){var sec=document.querySelector('.s1.sky');if(!sec)return;var cv=sec.querySelector('canvas.spark'),bg=sec.querySelector('.skyimg'),ctx=cv.getContext('2d'),P=[],run=false,dpr=Math.min(2,devicePixelRatio||1),still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+})();</script><script>/*today or tonight: 5am to 3:59pm says today, otherwise tonight*/(function(){function f(){var h=new Date().getHours();if(h>=5&&h<16)[].forEach.call(document.querySelectorAll('.tn'),function(e){e.textContent=e.getAttribute('data-cap')?'Today':'today'})}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',f);else f()})();</script><div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><span id="dl"></span></div><script>(function(){var h=new Date().getHours();if(h>=5&&h<16)[].forEach.call(document.querySelectorAll('.tn'),function(e){e.textContent=e.dataset.cap?'Today':'today'});
+var s2=document.getElementById('s2');if(matchMedia('(prefers-reduced-motion: reduce)').matches&&s2)s2.classList.add('on')})();</script><script>/*skyline sparkle: twinkle the real city lights + stars*/(function(){var sec=document.querySelector('.s1.sky');if(!sec)return;var cv=sec.querySelector('canvas.spark'),bg=sec.querySelector('.skyimg'),ctx=cv.getContext('2d'),P=[],run=false,dpr=Math.min(2,devicePixelRatio||1),still=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function src(){var m=getComputedStyle(bg).backgroundImage.match(/url\(["']?([^"')]+)/);return m?m[1]:null}
 function build(){var u=src();if(!u)return;var im=new Image();im.onload=function(){var W=cv.clientWidth,H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;
 var sc=Math.max(W/im.width,H/im.height),dw=im.width*sc,dh=im.height*sc,ox=(W-dw)*.5,oy=(H-dh)*(parseFloat(getComputedStyle(bg).backgroundPositionY)/100||.5);
@@ -1338,13 +1341,13 @@ if(o.g){var gr=ctx.createRadialGradient(o.x,o.y,0,o.x,o.y,o.r*5);gr.addColorStop
 else{ctx.beginPath();ctx.arc(o.x,o.y,o.r,0,6.28);ctx.fill()}}ctx.globalAlpha=1;if(run&&!still)requestAnimationFrame(draw)}
 if('IntersectionObserver' in window){new IntersectionObserver(function(es){var v=es[0].isIntersecting;if(v&&!run){run=true;requestAnimationFrame(draw)}else if(!v)run=false}).observe(sec)}else{run=true}
 var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(build,200)});build()})();</script><script>/*stack: Atlas motion*/(function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-var W=[].slice.call(document.querySelectorAll('.stk')),D=[].slice.call(document.querySelectorAll('.dots i')),L=document.getElementById('dl'),N=['EVERL','TONIGHT','SWITCH ON','UP FOR CLIMBING','UP FOR A FILM','SOMETHING MORE'],G=[],vh=innerHeight,tick=false;
+var W=[].slice.call(document.querySelectorAll('.stk')),D=[].slice.call(document.querySelectorAll('.dots i')),L=document.getElementById('dl'),N=['TONIGHT','SWITCH ON','UP FOR CLIMBING','UP FOR A FILM','SOMETHING MORE'],G=[],vh=innerHeight,tick=false;
 function measure(){vh=innerHeight;G=W.map(function(w){w.style.translate='';var r=w.getBoundingClientRect(),t=r.top+scrollY;return{w:w,top:t,bot:t+r.height,rise:w.querySelector('.rise')}})}
 function f(){tick=false;var y=scrollY,k=2e-6*Math.pow(800/vh,2),cur=0;G.forEach(function(g,i){
  if(i<G.length-1){var t=Math.max(0,Math.min(25,.02*(y+vh-g.bot)*(1306/(g.bot-g.top))));g.w.style.translate='0 '+t+'%'}
- if(g.rise&&i>1){var n=g.top+.35*vh,o=1-k*Math.pow(y-n,2),tr=Math.max(-80,Math.min(80,(n-y)*.1));g.rise.style.opacity=Math.max(0,Math.min(1,o));g.rise.style.translate='0 '+tr+'px'}
+ if(g.rise&&i>0){var n=g.top+.35*vh,o=1-k*Math.pow(y-n,2),tr=Math.max(-80,Math.min(80,(n-y)*.1));g.rise.style.opacity=Math.max(0,Math.min(1,o));g.rise.style.translate='0 '+tr+'px'}
  if(y>=g.top-vh*.5)cur=i});
- D.forEach(function(d,i){d.classList.toggle('on',i===cur)});var DD=document.querySelector('.dots');if(DD&&G.length){var off=y>G[G.length-1].bot-vh*.6;DD.style.opacity=off?0:1;DD.style.pointerEvents=off?'none':''}L.textContent=N[cur]||''}
+ var S2=document.getElementById('s2');if(S2){var w2=S2.parentNode,gi=W.indexOf(w2);if(gi>-1){S2.classList.toggle('on',y>=G[gi].top+vh*.18)}}D.forEach(function(d,i){d.classList.toggle('on',i===cur)});var DD=document.querySelector('.dots');if(DD&&G.length){var off=y>G[G.length-1].bot-vh*.6;DD.style.opacity=off?0:1;DD.style.pointerEvents=off?'none':''}L.textContent=N[cur]||''}
 addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(f)}},{passive:true});
 addEventListener('resize',function(){measure();f()});measure();f()})();</script><!--ev:polishjs--><script>(function(){var d=document.getElementById('drawer');if(!d)return;var H=document.documentElement,sy=0;
 function sibs(){var p=d.parentElement;return p?[].slice.call(p.children).filter(function(e){return e!==d&&e.tagName!=='SCRIPT'}):[]}
