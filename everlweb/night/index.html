@@ -188,6 +188,37 @@ if(D.readyState==='loading')D.addEventListener('DOMContentLoaded',ready);else re
 .s1 .badge svg{width:22px;height:22px;flex:none;fill:#fff}
 .s1 .badge span{display:flex;flex-direction:column;align-items:flex-start;line-height:1.1}.s1 .badge small{font-size:10px;opacity:.85}.s1 .badge b{font-size:16px;font-weight:600}
 @media (max-width:700px){.s1 .badge{min-width:0;padding:8px 12px}.appi{width:58px;height:58px;border-radius:15px}}
+
+/* skyline hero: immersive */
+.s1.sky{background:#05070c}
+.skyw{position:absolute;inset:0;z-index:0;overflow:hidden}
+.skyimg,.skyw canvas{position:absolute;inset:-4%;width:108%;height:108%}
+.skyimg{background:url(/everlweb/img/hero-w-skyline-1920.webp) 50% 22%/cover;animation:skydrift 28s ease-in-out infinite alternate}
+.skyw canvas{animation:skydrift 28s ease-in-out infinite alternate;mix-blend-mode:screen}
+@keyframes skydrift{from{transform:scale(1) translate3d(0,0,0)}to{transform:scale(1.07) translate3d(-1%,1.2%,0)}}
+@media (max-width:700px){.skyimg{background-image:url(/everlweb/img/hero-m-skyline-1116.webp);background-position:50% 30%}}
+.s1.sky::after{z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,0) 22%,rgba(0,0,0,0) 42%,rgba(0,0,0,.55) 58%,rgba(0,0,0,.88) 100%)!important}
+.s1.sky .hn{z-index:4}
+.s1.sky .cap{bottom:6svh;z-index:3;opacity:1!important;translate:none!important}
+.s1.sky h1{font-weight:600;font-size:clamp(30px,4vw,54px);letter-spacing:-.04em;line-height:1.04;max-width:16ch;margin:0 auto;text-wrap:balance}
+.s1.sky .cap .lead{max-width:44ch;margin:14px auto 0;color:#dfe3ec;font-size:clamp(15px,1.5vw,17px);line-height:1.5}
+.s1.sky .trust{display:flex;gap:8px 18px;justify-content:center;flex-wrap:wrap;margin:20px 0 0;font:500 11px "Geist Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.s1.sky .trust span::before{content:"✓ ";color:#34C759}
+.s1.sky .nc{margin:12px 0 0;font-size:14px;color:rgba(255,255,255,.65)}.s1.sky .nc a{color:#fff}
+@media (max-width:700px){.s1.sky .trust{font-size:10px}}
+@media (prefers-reduced-motion:reduce){.skyimg,.skyw canvas{animation:none}}
+
+.s1.sky h1 .dim{display:block;color:#8e95a8}
+@media (min-width:701px){.s1.sky .cap{top:15svh;bottom:auto}.s1.sky::after{background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.35) 40%,rgba(0,0,0,0) 58%,rgba(0,0,0,.25) 100%)!important}.skyimg{background-position:50% 70%}}
+
+.s1.sky .cap{top:13svh;bottom:auto}
+.s1.sky h1{max-width:20ch}
+.s1.sky .cap2{position:absolute;z-index:3;left:0;right:0;bottom:5svh;text-align:center;padding:0 20px}
+.s1.sky .cap2 .badges.sb{margin-top:0}
+.s1.sky::after{background:linear-gradient(180deg,rgba(0,0,0,.65),rgba(0,0,0,.35) 38%,rgba(0,0,0,0) 55%,rgba(0,0,0,.15) 75%,rgba(0,0,0,.7) 100%)!important}
+@media (max-width:700px){.s1.sky .cap{top:11svh}.skyimg{background-position:50% 62%!important}}
+
+.s3::after{background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,0) 30%,rgba(0,0,0,.1) 45%,rgba(0,0,0,.6) 68%,rgba(0,0,0,.9) 100%)!important}
 </style><!--ev:polish--><style>.kick,.tag,.lbl{text-transform:none!important;letter-spacing:0!important}footer.f .in>a{padding-block:10px}.crumb{min-height:44px;display:flex!important;width:max-content;align-items:center}.pg-hero .kick,.kick{display:block}.tick a{display:inline-block;padding-block:2px}.how .st .n,.col .n{background:#7c3aed!important}.jcta h3+p{margin-top:10px}.hero .lf .tick{color:#e3e6f0!important}.hero .lf .tick a{color:#fff!important}.hero:has(#lform-hero) .ph::after{background:linear-gradient(0deg,rgba(7,9,15,.97) 0%,rgba(7,9,15,.9) 50%,rgba(7,9,15,.55) 75%,rgba(7,9,15,.25) 100%)!important}.hero:has(#lform-hero) .lf{max-width:460px}.hero .lf .btn{background:#fff!important;color:#0b0f1c!important}.fxin{display:grid!important;grid-template-columns:1fr;gap:28px!important;padding-top:44px!important;padding-bottom:28px!important;border-bottom:1px solid rgba(255,255,255,.1)}@container (min-width:760px){.fxin{grid-template-columns:1fr 1fr;gap:48px!important}}.fx{display:contents}.fx h3{font-size:15px;font-weight:600;color:#fff;margin:0 0 12px}.fx ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px}.fx a{display:inline-block;padding-block:6px;font-size:14px;color:inherit;text-decoration:none}.fx a:hover{color:#fff;text-decoration:underline}
 /* homepage carousel + cities block (25 Nov). Added by build/launch.py on every run, so rebuilds can't drop it. */
 .wall-head{text-align:center;margin:0 auto 36px;max-width:640px;display:grid;justify-items:center}
@@ -426,26 +457,40 @@ a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
           <a class="badge" href="/everlweb/#get"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.5-1-2.5-3.9zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
           <a class="badge" href="/everlweb/#get"><svg viewBox="0 0 24 24" class="gp" aria-hidden="true"><path fill="#4285F4" d="M3.6 2.2 13.4 12l-9.8 9.8c-.3-.2-.5-.6-.5-1.1V3.3c0-.5.2-.9.5-1.1z"/><path fill="#34A853" d="M3.6 2.2c.3-.2.8-.2 1.3.1L16.6 9l-3.2 3z"/><path fill="#FBBC04" d="m16.6 9 3.5 2c.7.4.7 1.6 0 2l-3.5 2-3.2-3z"/><path fill="#EA4335" d="m13.4 12 3.2 3-11.7 6.7c-.5.3-1 .3-1.3.1z"/></svg><span><small>GET IT ON</small><b>Google Play</b></span></a>
         </div><p class="trust"><span>18+ and age-checked</span><span>No profile, no photos</span><span>Anonymous until it&rsquo;s mutual</span></p><p class="nc">Not in Manchester? <a href="/everlweb/cities#notify">Join your city&rsquo;s list</a></p></div></section></div>
-<div class="stk" data-i="1" style="z-index:1"><section class="scr s1 sky"><div class="stars"></div><div class="horizon"></div><div class="lights"></div><div class="orb" aria-hidden="true"></div><div class="ic"><span class="mini"></span></div>
-<div class="cap rise"><h1>Somewhere out there, <span class="tn">tonight</span>&rsquo;s plan is waiting.</h1><p>Everl. Meet in person, nearby.</p><div class="badges sb">
+<div class="stk" data-i="1" style="z-index:1"><section class="scr s1 sky"><div class="skyw" aria-hidden="true"><div class="skyimg"></div><canvas class="spark"></canvas></div><nav class="hn"><a class="hl" href="/everlweb/" aria-label="Everl home"><span class="hsw"></span>everl</a><span class="sp"></span><div class="hlinks"><a href="/everlweb/#how">How it works</a><a href="/everlweb/#safety">Safety</a><a href="/everlweb/#cities">Cities</a><a href="/everlweb/blog">Journal</a><a href="/everlweb/more">Up for more</a></div><a class="hget" href="/everlweb/#get">Get Everl</a></nav><div class="cap rise"><h1><span class="tn" data-cap="1">Tonight</span>&rsquo;s best plan is already nearby. <span class="dim">You just don&rsquo;t know it yet.</span></h1><p class="lead">Everl quietly shows who&rsquo;s near and up for the same thing <span class="tn">tonight</span>. No chat. No profiles. No photos.</p></div><div class="cap2"><div class="badges sb">
           <a class="badge" href="/everlweb/#get"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.5-1-2.5-3.9zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
           <a class="badge" href="/everlweb/#get"><svg viewBox="0 0 24 24" class="gp" aria-hidden="true"><path fill="#4285F4" d="M3.6 2.2 13.4 12l-9.8 9.8c-.3-.2-.5-.6-.5-1.1V3.3c0-.5.2-.9.5-1.1z"/><path fill="#34A853" d="M3.6 2.2c.3-.2.8-.2 1.3.1L16.6 9l-3.2 3z"/><path fill="#FBBC04" d="m16.6 9 3.5 2c.7.4.7 1.6 0 2l-3.5 2-3.2-3z"/><path fill="#EA4335" d="m13.4 12 3.2 3-11.7 6.7c-.5.3-1 .3-1.3.1z"/></svg><span><small>GET IT ON</small><b>Google Play</b></span></a>
-        </div></div></section></div>
+        </div><p class="trust"><span>18+ and age-checked</span><span>No profile, no photos</span><span>Anonymous until it&rsquo;s mutual</span></p><p class="nc">Not in Manchester? <a href="/everlweb/cities#notify">Join your city&rsquo;s list</a></p></div></section></div>
 <div class="stk" data-i="2" style="z-index:2"><section class="scr s2" id="s2"><div class="big rise"><span class="bsw" aria-hidden="true"></span><h2>Switch on when you&rsquo;re free. <span class="dim">Everl does the rest.</span></h2></div>
 <p class="rise">Say what you&rsquo;re up for: a game of padel, a drink, or something more. When it&rsquo;s mutual, you both get a quiet ping. Nothing happens unless you both say yes.</p>
 <a class="req" href="/everlweb/#get">Get Everl</a><div class="note">Free on iPhone and Android. Live in Manchester, Leeds next.</div></section></div>
-<div class="stk" data-i="3" style="z-index:3"><section class="scr ph s3"><div class="c rise"><h3>Always wanted to start climbing?<br><span class="d">None of your mates are up for it.</span></h3><p class="sub">Whatever you&rsquo;ve been putting off, Everl matches you with people nearby who are into the same thing and want to do it too.</p><div class="loc">📍 NORTHERN QUARTER, MANCHESTER</div></div></section></div>
+<div class="stk" data-i="3" style="z-index:3"><section class="scr ph s3"><div class="c rise"><h3>Always wanted to start climbing?<br><span class="d">None of your mates are up for it.</span></h3><p class="sub">Switch on and say you&rsquo;re up for climbing. Everl finds people nearby who want to start too, and when it&rsquo;s mutual you meet at the wall.</p><div class="loc">📍 NORTHERN QUARTER, MANCHESTER</div></div></section></div>
 <div class="stk" data-i="4" style="z-index:4"><section class="scr ph s4"><div class="c rise"><h3>That film you&rsquo;ve been waiting for is out.<br><span class="d">Nobody&rsquo;s free to see it with you.</span></h3><p class="sub">Going on your own never feels quite right. Everl finds people nearby who want to see it too, so there&rsquo;s someone to talk it over with after.</p><div class="loc lg">📍 PRINTWORKS, MANCHESTER</div></div></section></div>
 <div class="stk" data-i="5" style="z-index:5"><section class="scr ph s5"><div class="c rise"><h3>Up for something more? &#x1F49C;<br><span class="d">So is the person across the bar.</span></h3><p class="sub">Out on Canal Street tonight? Say what you&rsquo;re into, in private. If it&rsquo;s mutual, you both say yes and meet. No profiles, no chat, and it stays between the two of you.</p><div class="loc lg">📍 GAY VILLAGE <span class="p18">UP FOR MORE 18+</span></div></div></section></div>
-<script>(function(){var h=new Date().getHours();if(h>=5&&h<16)[].forEach.call(document.querySelectorAll('.tn'),function(e){e.textContent='today'});
+<script>(function(){var h=new Date().getHours();if(h>=5&&h<16)[].forEach.call(document.querySelectorAll('.tn'),function(e){e.textContent=e.dataset.cap?'Today':'today'});
 var s2=document.getElementById('s2');if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){s2.classList.add('on');io.disconnect()}})},{threshold:.55});io.observe(s2)}else s2.classList.add('on')})();</script>
+<script>/*skyline sparkle: twinkle the real city lights + stars*/(function(){var sec=document.querySelector('.s1.sky');if(!sec)return;var cv=sec.querySelector('canvas.spark'),bg=sec.querySelector('.skyimg'),ctx=cv.getContext('2d'),P=[],run=false,dpr=Math.min(2,devicePixelRatio||1),still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function src(){var m=getComputedStyle(bg).backgroundImage.match(/url\(["']?([^"')]+)/);return m?m[1]:null}
+function build(){var u=src();if(!u)return;var im=new Image();im.onload=function(){var W=cv.clientWidth,H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;
+var sc=Math.max(W/im.width,H/im.height),dw=im.width*sc,dh=im.height*sc,ox=(W-dw)*.5,oy=(H-dh)*(parseFloat(getComputedStyle(bg).backgroundPositionY)/100||.5);
+var t=document.createElement('canvas'),sw=320,sh=Math.round(320*im.height/im.width);t.width=sw;t.height=sh;var c=t.getContext('2d');c.drawImage(im,0,0,sw,sh);var d=c.getImageData(0,0,sw,sh).data,cand=[];
+for(var y=0;y<sh;y++)for(var x=0;x<sw;x++){var i=(y*sw+x)*4,l=d[i]*.3+d[i+1]*.59+d[i+2]*.11;if(l>150)cand.push([x/sw,y/sh,d[i],d[i+1],d[i+2]])}
+P=[];var n=Math.min(260,cand.length);for(var k=0;k<n;k++){var q=cand[(Math.random()*cand.length)|0];P.push({x:ox+q[0]*dw,y:oy+q[1]*dh,r:.6+Math.random()*1.6,c:'rgb('+Math.min(255,q[2]+40)+','+Math.min(255,q[3]+30)+','+Math.min(255,q[4]+20)+')',p:Math.random()*6.28,s:.6+Math.random()*2.2,g:1})}
+for(var j=0;j<70;j++)P.push({x:Math.random()*W,y:Math.random()*H*.42,r:.4+Math.random()*.9,c:'#fff',p:Math.random()*6.28,s:.3+Math.random()*1.2,g:0});
+draw(0)};im.src=u}
+function draw(ts){ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,cv.width,cv.height);var t=ts/1000;
+for(var i=0;i<P.length;i++){var o=P[i],a=.5+.5*Math.sin(t*o.s+o.p);a=o.g?Math.pow(a,3):a*.8;if(a<.03)continue;ctx.globalAlpha=a;ctx.fillStyle=o.c;
+if(o.g){var gr=ctx.createRadialGradient(o.x,o.y,0,o.x,o.y,o.r*5);gr.addColorStop(0,o.c);gr.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=gr;ctx.beginPath();ctx.arc(o.x,o.y,o.r*5,0,6.28);ctx.fill()}
+else{ctx.beginPath();ctx.arc(o.x,o.y,o.r,0,6.28);ctx.fill()}}ctx.globalAlpha=1;if(run&&!still)requestAnimationFrame(draw)}
+if('IntersectionObserver' in window){new IntersectionObserver(function(es){var v=es[0].isIntersecting;if(v&&!run){run=true;requestAnimationFrame(draw)}else if(!v)run=false}).observe(sec)}else{run=true}
+var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(build,200)});build()})();</script>
 <div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><span id="dl"></span></div>
 <script>/*stack: Atlas motion*/(function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 var W=[].slice.call(document.querySelectorAll('.stk')),D=[].slice.call(document.querySelectorAll('.dots i')),L=document.getElementById('dl'),N=['EVERL','TONIGHT','SWITCH ON','CLIMBING','THE FILM','SOMETHING MORE'],G=[],vh=innerHeight,tick=false;
 function measure(){vh=innerHeight;G=W.map(function(w){w.style.translate='';var r=w.getBoundingClientRect(),t=r.top+scrollY;return{w:w,top:t,bot:t+r.height,rise:w.querySelector('.rise')}})}
 function f(){tick=false;var y=scrollY,k=2e-6*Math.pow(800/vh,2),cur=0;G.forEach(function(g,i){
  if(i<G.length-1){var t=Math.max(0,Math.min(25,.02*(y+vh-g.bot)*(1306/(g.bot-g.top))));g.w.style.translate='0 '+t+'%'}
- if(g.rise&&i>0){var n=g.top+.35*vh,o=1-k*Math.pow(y-n,2),tr=Math.max(-80,Math.min(80,(n-y)*.1));g.rise.style.opacity=Math.max(0,Math.min(1,o));g.rise.style.translate='0 '+tr+'px'}
+ if(g.rise&&i>1){var n=g.top+.35*vh,o=1-k*Math.pow(y-n,2),tr=Math.max(-80,Math.min(80,(n-y)*.1));g.rise.style.opacity=Math.max(0,Math.min(1,o));g.rise.style.translate='0 '+tr+'px'}
  if(y>=g.top-vh*.5)cur=i});
  D.forEach(function(d,i){d.classList.toggle('on',i===cur)});L.textContent=N[cur]||''}
 addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(f)}},{passive:true});
