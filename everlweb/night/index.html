@@ -1002,6 +1002,34 @@ footer.f .soc{display:flex;gap:10px}
 .site .ccx h3{font-size:clamp(28px,3cqi,36px)!important}
 .site .feat .fcard h3{font-size:clamp(20px,2cqi,26px)!important}
 
+
+/* Whatever you're into: phone in the city + live switch (Aaron 26 Nov) */
+.site .show{position:relative;isolation:isolate;background:#06080d url(/everlweb/img/show-city-blur-1600.webp) 50% 60%/cover!important}
+@container (max-width:759px){.site .show{background-image:url(/everlweb/img/show-city-blur-m-800.webp)!important;background-position:50% 50%!important}}
+.site .show::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(6,8,13,.88) 0%,rgba(6,8,13,.55) 48%,rgba(6,8,13,.3) 100%)}
+@container (max-width:899px){.site .show::before{background:linear-gradient(180deg,rgba(6,8,13,.85) 0%,rgba(6,8,13,.5) 55%,rgba(6,8,13,.7) 100%)}}
+.site .show .chip{background:rgba(21,25,37,.75)!important;backdrop-filter:none}
+.site .show .phonecol .iphone{box-shadow:0 0 0 1px rgba(255,255,255,.06),0 40px 80px -20px rgba(0,0,0,.85),0 0 90px rgba(255,170,90,.14)}
+.site .show .nw{white-space:nowrap}
+.scr.dmx{container-type:inline-size}
+.scr.dmx .lcard{position:absolute;left:5cqw;top:97.4cqw;width:90cqw;height:30.4cqw;border-radius:4.6cqw;background:#1a1f2c;border:1px solid rgba(255,255,255,.07);z-index:2}
+.scr.dmx .lcard b{font-size:4.9cqw;font-weight:600;color:#fff;letter-spacing:-.01em;line-height:1.2}
+.scr.dmx .lcard span{font-size:3.4cqw;color:#9aa1b3;line-height:1.3}
+.scr.dmx .lcard .hid,.scr.dmx .lcard .onl{position:absolute;left:5cqw;top:4.4cqw;display:flex;flex-direction:column;gap:1.2cqw;transition:opacity .35s ease}
+.scr.dmx .lcard .onl{opacity:0}
+.scr.dmx .lcard .onl b{color:#34C759}
+.scr.dmx .lcard .pill{position:absolute;left:5cqw;bottom:3.6cqw;font-size:3.4cqw;color:#fff;background:#262c3a;padding:1.4cqw 3cqw;border-radius:99px;transition:opacity .3s ease}
+.scr.dmx .lcard .tg{position:absolute;right:4.4cqw;top:5cqw;width:15cqw;height:8.6cqw;border-radius:99px;background:#3a3f4d;transition:background .35s ease .1s,box-shadow .5s ease}
+.scr.dmx .lcard .tg::after{content:"";position:absolute;top:.8cqw;left:.8cqw;width:7cqw;height:7cqw;border-radius:50%;background:#fff;transition:left .5s cubic-bezier(.34,1.56,.64,1)}
+.swon .scr.dmx .lcard .tg{background:#34C759;box-shadow:0 0 4cqw rgba(52,199,89,.45)}
+.swon .scr.dmx .lcard .tg::after{left:7.2cqw}
+.swon .scr.dmx .lcard .hid,.swon .scr.dmx .lcard .pill{opacity:0}
+.swon .scr.dmx .lcard .onl{opacity:1;transition-delay:.3s}
+.scr.dmx .ltap{position:absolute;left:84cqw;top:108cqw;width:13cqw;height:13cqw;margin:-6.5cqw;border-radius:50%;background:rgba(255,255,255,.45);box-shadow:0 0 0 2px rgba(255,255,255,.8);opacity:0;pointer-events:none;z-index:3}
+.swon .scr.dmx .ltap{animation:ltap .9s ease-out both}
+@keyframes ltap{0%{opacity:0;transform:scale(1.4)}25%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.8)}}
+.scr.dmx .fb,.scr.dmx .tp{display:none!important}
+@media (prefers-reduced-motion:reduce){.scr.dmx .lcard *{transition:none!important}.scr.dmx .ltap{display:none}}
 </style><!--ev:polish--><style>.kick,.tag,.lbl{text-transform:none!important;letter-spacing:0!important}footer.f .in>a{padding-block:10px}.crumb{min-height:44px;display:flex!important;width:max-content;align-items:center}.pg-hero .kick,.kick{display:block}.tick a{display:inline-block;padding-block:2px}.how .st .n,.col .n{background:#7c3aed!important}.jcta h3+p{margin-top:10px}.hero .lf .tick{color:#e3e6f0!important}.hero .lf .tick a{color:#fff!important}.hero:has(#lform-hero) .ph::after{background:linear-gradient(0deg,rgba(7,9,15,.97) 0%,rgba(7,9,15,.9) 50%,rgba(7,9,15,.55) 75%,rgba(7,9,15,.25) 100%)!important}.hero:has(#lform-hero) .lf{max-width:460px}.hero .lf .btn{background:#fff!important;color:#0b0f1c!important}.fxin{display:grid!important;grid-template-columns:1fr;gap:28px!important;padding-top:44px!important;padding-bottom:28px!important;border-bottom:1px solid rgba(255,255,255,.1)}@container (min-width:760px){.fxin{grid-template-columns:1fr 1fr;gap:48px!important}}.fx{display:contents}.fx h3{font-size:15px;font-weight:600;color:#fff;margin:0 0 12px}.fx ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px}.fx a{display:inline-block;padding-block:6px;font-size:14px;color:inherit;text-decoration:none}.fx a:hover{color:#fff;text-decoration:underline}
 /* homepage carousel + cities block (25 Nov). Added by build/launch.py on every run, so rebuilds can't drop it. */
 .wall-head{text-align:center;margin:0 auto 36px;max-width:640px;display:grid;justify-items:center}
@@ -1256,13 +1284,13 @@ a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
 
 <section class="show"><div class="in">
   <div class="txt rv">
-    <h2 class="h2">Whatever you’re into, do it today.</h2>
+    <h2 class="h2">Whatever you’re into, <span class="nw">do it <span class="tn">tonight</span>.</span></h2>
     <p class="lead">Padel, a pint, a gig or a run. Switch on and Everl finds people nearby who are up for the same.</p>
     <div class="chips">
     <span class="chip"><i>🍻</i>Drinks</span><span class="chip"><i>🎾</i>Padel</span><span class="chip"><i>🏃</i>Running</span><span class="chip"><i>🎲</i>Board games</span><span class="chip"><i>🧗</i>Climbing</span><span class="chip"><i>🎸</i>Gigs</span><span class="chip"><i>☕</i>Coffee</span><span class="chip"><i>⚽</i>Five-a-side</span><span class="chip"><i>🧠</i>Quiz night</span><span class="chip"><i>🥾</i>Walks</span><span class="chip"><i>🍜</i>Food</span><span class="chip">And hundreds more</span>
     </div>
   </div>
-  <div class="phonecol"><div class="iphone"><div class="bez"><div class="island"></div><div class="scr dmx"><img class="fa" src="/everlweb/img/demo-start-clean-402.webp" width="402" height="933" alt="Everl: switching on, then plans happening nearby"><img class="fb" src="/everlweb/img/demo-end-v2-402.webp" width="402" height="933" alt="" aria-hidden="true"><span class="tp" aria-hidden="true"></span></div></div></div></div>
+  <div class="phonecol"><div class="iphone"><div class="bez"><div class="island"></div><div class="scr dmx"><img class="fa" src="/everlweb/img/demo-start-clean-402.webp" width="402" height="933" alt="Everl: switching on, then plans happening nearby"><div class="lcard" aria-hidden="true"><div class="hid"><b>You’re hidden</b><span>Switch on when you’re in the mood</span></div><div class="onl"><b>You’re on</b><span>Live until 21:10, then you’re hidden</span></div><span class="pill">◷ Maybe later</span><span class="tg"></span></div><span class="ltap" aria-hidden="true"></span></div></div></div></div>
 </div></section>
 
 <!-- 3 HOW (Eren's steps, real screens) -->
@@ -1461,7 +1489,7 @@ function f(){tick=false;var y=scrollY,k=2e-6*Math.pow(800/vh,2),cur=0;G.forEach(
  if(y>=g.top-vh*.5)cur=i});
  var S2=document.getElementById('s2');if(S2){var w2=S2.parentNode,gi=W.indexOf(w2);if(gi>-1){S2.classList.toggle('on',y>=G[gi].top+vh*.08)}}G.forEach(function(g){var sc=g.w.firstElementChild;if(sc&&sc.classList.contains('ph'))sc.classList.toggle('arr',y>=g.top-vh*.12)});D.forEach(function(d,i){d.classList.toggle('on',i===cur)});var DD=document.querySelector('.dots');if(DD&&G.length){var off=y>G[G.length-1].bot-vh*.6;DD.style.opacity=off?0:1;DD.style.pointerEvents=off?'none':''}L.textContent=(cur===0?((function(h){return h>=5&&h<16})(new Date().getHours())?'TODAY':'TONIGHT'):(N[cur]||''));var DD2=document.querySelector('.dots');if(DD2)DD2.classList.toggle('dk',cur===0&&document.documentElement.classList.contains('sky-light'))}
 addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(f)}},{passive:true});
-addEventListener('resize',function(){measure();f()});measure();f()})();</script><!--ev:polishjs--><script>(function(){var d=document.getElementById('drawer');if(!d)return;var H=document.documentElement,sy=0;
+addEventListener('resize',function(){measure();f()});measure();f()})();</script><script>/*show: switch on when the phone comes into view, replays each time*/(function(){var sec=document.querySelector('.show');if(!sec||!('IntersectionObserver' in window))return;var t;new IntersectionObserver(function(es){es.forEach(function(e){clearTimeout(t);if(e.isIntersecting){t=setTimeout(function(){sec.classList.add('swon')},700)}else sec.classList.remove('swon')})},{threshold:.45}).observe(sec)})();</script><!--ev:polishjs--><script>(function(){var d=document.getElementById('drawer');if(!d)return;var H=document.documentElement,sy=0;
 function sibs(){var p=d.parentElement;return p?[].slice.call(p.children).filter(function(e){return e!==d&&e.tagName!=='SCRIPT'}):[]}
 function sync(){var open=!d.hidden;if(open){sy=scrollY;H.style.overflow='hidden';sibs().forEach(function(e){e.setAttribute('inert','')})}else{H.style.overflow='';sibs().forEach(function(e){e.removeAttribute('inert')})}}
 new MutationObserver(sync).observe(d,{attributes:true,attributeFilter:['hidden']});
