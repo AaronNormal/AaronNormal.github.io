@@ -511,22 +511,10 @@ a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
 .story.arm .lit2{opacity:0;transform:translateY(14px);transition:opacity .6s ease .35s,transform .7s cubic-bezier(.2,.7,.2,1) .35s}
 .story.arm .turn.on .lit2{opacity:1;transform:none}
 
-/* story band v7 (26 Nov fixes): label under switch, left-aligned on laptops */
-.story .swrow{display:inline-flex;align-items:center;gap:12px}
-.story .swl{font-size:14px;font-weight:600;letter-spacing:.01em;color:#34C759;transition:opacity .3s ease .25s}
-.story.arm .swl{opacity:0}
-.story.arm .turn.on .swl{opacity:1}
-@container (min-width:900px){
- .story .in{max-width:760px;text-align:left}
- .story .s1{margin-left:0;max-width:16ch}
- .story .lit,.story .lit2{margin-left:0;max-width:40ch}
- .story .turn{align-items:flex-start;margin-left:0;max-width:none}
-}
+/* story band v8: back to one centred story column, no divider or label */
 .story .nw{white-space:nowrap}
 .story .s1 .dim{display:block}
-@container (min-width:900px){.story .s1{max-width:none}}
-.story .swrow{position:relative}
-.story .swl{position:absolute;left:calc(100% + 12px);top:50%;transform:translateY(-50%);white-space:nowrap}
+.story .turn{border-top:0!important;padding-top:0!important;margin-top:clamp(48px,7cqi,72px)!important;max-width:640px!important}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip--><div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
 <div class="stage" id="stage"><div class="site"><nav class="jnav"><div class="in"><a class="logo" href="/everlweb/" aria-label="Everl home"><span class="sw"></span>everl</a><span class="sp"></span><div class="links"><a href="/everlweb/#how">How it works</a><a href="/everlweb/safety">Safety</a><a href="/everlweb/cities">Cities</a><a href="/everlweb/blog" class="on">Journal</a><a href="/everlweb/more">Up for more</a></div><a class="btn dark" href="/everlweb/#get">Get Everl</a><button class="mnu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button></div></nav>
 <main class="in" id="main" tabindex="-1">

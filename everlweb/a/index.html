@@ -925,22 +925,10 @@ a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
 .story.arm .lit2{opacity:0;transform:translateY(14px);transition:opacity .6s ease .35s,transform .7s cubic-bezier(.2,.7,.2,1) .35s}
 .story.arm .turn.on .lit2{opacity:1;transform:none}
 
-/* story band v7 (26 Nov fixes): label under switch, left-aligned on laptops */
-.story .swrow{display:inline-flex;align-items:center;gap:12px}
-.story .swl{font-size:14px;font-weight:600;letter-spacing:.01em;color:#34C759;transition:opacity .3s ease .25s}
-.story.arm .swl{opacity:0}
-.story.arm .turn.on .swl{opacity:1}
-@container (min-width:900px){
- .story .in{max-width:760px;text-align:left}
- .story .s1{margin-left:0;max-width:16ch}
- .story .lit,.story .lit2{margin-left:0;max-width:40ch}
- .story .turn{align-items:flex-start;margin-left:0;max-width:none}
-}
+/* story band v8: back to one centred story column, no divider or label */
 .story .nw{white-space:nowrap}
 .story .s1 .dim{display:block}
-@container (min-width:900px){.story .s1{max-width:none}}
-.story .swrow{position:relative}
-.story .swl{position:absolute;left:calc(100% + 12px);top:50%;transform:translateY(-50%);white-space:nowrap}
+.story .turn{border-top:0!important;padding-top:0!important;margin-top:clamp(48px,7cqi,72px)!important;max-width:640px!important}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip-->
 
 <div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
@@ -976,8 +964,8 @@ a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
   <h2 class="s1"><span class="tn" data-cap="1">Tonight</span>&rsquo;s best plan is already nearby. <span class="dim">You just don&rsquo;t know it yet.</span></h2>
   <p class="lit"><span>The stranger on the next <span class="nw">court <i class="em" aria-hidden="true">&#x1F3BE;</i></span> who shares your obsession. </span><span>The one across the <span class="nw">bar <i class="em" aria-hidden="true">&#x1F377;</i>,</span> in the same mood, right now. </span><span>The person you&rsquo;d have walked right past <span class="nw"><span class="tn">tonight</span> <i class="em" aria-hidden="true">&#x1F60F;</i>.</span></span></p>
   <div class="turn">
-    <span class="swrow"><span class="vsw" aria-hidden="true"></span><span class="swl">Switched on</span></span>
-    <p class="lit2"><b>Everl changes that.</b> <span class="g">Switch on when you&rsquo;re free</span> and say what you&rsquo;re up for: a game, a drink or a <span class="nw">date <i class="em" aria-hidden="true">&#x1F49C;</i>.</span> When it&rsquo;s mutual, you both get a quiet ping, and Everl walks you to each other.</p>
+    <span class="vsw" aria-hidden="true"></span>
+    <p class="lit2"><b>Everl changes that.</b> <span class="g">Switch it on when you&rsquo;re free</span> and say what you&rsquo;re up for: a game, a drink or something <span class="nw">more <i class="em" aria-hidden="true">&#x1F49C;</i>.</span> Nothing happens unless you both say yes. Then you meet somewhere easy, halfway between you.</p>
   </div>
 </div><script>/*story: switch snaps on when it scrolls into view, then reveals the answer*/(function(){try{var st=document.currentScript.closest('section'),t=st.querySelector('.turn');if(!t||!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;st.classList.add('arm');var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){setTimeout(function(){t.classList.add('on')},200);io.disconnect()}})},{threshold:.6});io.observe(t.querySelector('.vsw'))}catch(e){}})();</script></section>
 
