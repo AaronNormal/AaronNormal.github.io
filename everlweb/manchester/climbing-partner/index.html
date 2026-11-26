@@ -959,6 +959,21 @@ a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
 .story .swb:active{transform:scale(.94)}
 .story .swb:focus-visible{outline:2px solid #34C759;outline-offset:4px}
 .story .swb.off .sw{background:#3a4155!important}.story .swb.off .sw::after{left:.05em!important;transition-delay:0s!important}
+
+/* story band E tidy (26 Nov): centred cards, side by side on laptops, smoother staged reveal, link into How it works */
+.story .sit li{flex-direction:column;align-items:center;text-align:center;gap:12px;padding:22px 20px}
+.story .sit p{text-align:center!important}
+@container (min-width:760px){.story .sit{grid-template-columns:1fr 1fr;max-width:640px;gap:14px}}
+.story .more{display:inline-flex;align-items:center;gap:6px;margin-top:26px;font-size:15px;font-weight:600;color:#fff;text-decoration:none;padding:10px 18px;border-radius:99px;border:1px solid rgba(255,255,255,.16);transition:background .2s ease,border-color .2s ease}
+.story .more:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.3)}
+.story.arm .rvs{transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transform:translateY(22px) scale(.985)}
+.story.arm .rvs.shown{transform:none}
+.story.arm .sit li:nth-child(1){transition-delay:.05s}.story.arm .sit li:nth-child(2){transition-delay:.2s}
+.story.arm .built .k{opacity:0;transition:opacity .6s ease}.story.arm .built.shown .k{opacity:1}
+.story.arm .built .logo{opacity:0;transform:translateY(10px);transition:opacity .7s ease .2s,transform .8s cubic-bezier(.2,.7,.2,1) .2s}
+.story.arm .built.shown .logo{opacity:1;transform:none}
+.story.arm .built.shown .sw::after{transition-delay:.7s}
+.story.arm .built.shown .sw{transition-delay:.6s}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip-->
 
 <div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
