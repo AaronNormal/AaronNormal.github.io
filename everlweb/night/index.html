@@ -859,16 +859,16 @@ footer.f .soc{display:flex;gap:10px}
 .nx .ph h3{text-shadow:0 2px 28px rgba(0,0,0,.55)}
 .nx .ph .sub{text-shadow:0 1px 14px rgba(0,0,0,.6);color:#eef0f6}
 .nx .ph .c .upchip,.nx .ph h3,.nx .ph .sub,.nx .ph .loc{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
-.nx .ph.in .c .upchip{opacity:1;transform:none;transition-delay:.15s}
-.nx .ph.in h3{opacity:1;transform:none;transition-delay:.35s}
-.nx .ph.in .sub{opacity:1;transform:none;transition-delay:.6s}
-.nx .ph.in .loc{opacity:1;transform:none;transition-delay:.8s}
+.nx .ph.arr .c .upchip{opacity:1;transform:none;transition-delay:.15s}
+.nx .ph.arr h3{opacity:1;transform:none;transition-delay:.35s}
+.nx .ph.arr .sub{opacity:1;transform:none;transition-delay:.6s}
+.nx .ph.arr .loc{opacity:1;transform:none;transition-delay:.8s}
 .nx .ph .upchip .usw{background:#3a3f4d!important;box-shadow:none!important;transition:background .35s ease .55s,box-shadow .5s ease .55s}
 .nx .ph .upchip .usw::after{left:2px;right:auto!important;transition:left .45s cubic-bezier(.34,1.56,.64,1) .5s}
-.nx .ph.in .upchip .usw{background:#34C759!important;box-shadow:0 0 12px rgba(52,199,89,.45)!important}
-.nx .ph.in .upchip.more .usw{background:#8b5cf6!important;box-shadow:0 0 12px rgba(139,92,246,.55)!important}
-.nx .ph.in .c .upchip .usw::after{left:calc(100% - 22px)}
-@media (max-width:700px){.nx .ph.in .c .upchip .usw::after{left:calc(100% - 18px)}}
+.nx .ph.arr .upchip .usw{background:#34C759!important;box-shadow:0 0 12px rgba(52,199,89,.45)!important}
+.nx .ph.arr .upchip.more .usw{background:#8b5cf6!important;box-shadow:0 0 12px rgba(139,92,246,.55)!important}
+.nx .ph.arr .c .upchip .usw::after{left:calc(100% - 22px)}
+@media (max-width:700px){.nx .ph.arr .c .upchip .usw::after{left:calc(100% - 18px)}}
 @media (prefers-reduced-motion:reduce){.nx .ph .c .upchip,.nx .ph h3,.nx .ph .sub,.nx .ph .loc{opacity:1;transform:none;transition:none}.nx .ph .upchip .usw{background:#34C759!important}.nx .ph .c .upchip .usw::after{left:calc(100% - 22px)}}
 
 /* G (Aaron 26 Nov): lights up + ink wipe, replaces the halo */
@@ -1459,7 +1459,7 @@ function f(){tick=false;var y=scrollY,k=2e-6*Math.pow(800/vh,2),cur=0;G.forEach(
  if(i<G.length-1){var t=Math.max(0,Math.min(25,.02*(y+vh-g.bot)*(1306/(g.bot-g.top))));g.w.style.translate='0 '+t+'%'}
  if(g.rise&&i>0){var n=g.top+.18*vh,o=1-k*Math.pow(y-n,2),tr=Math.max(-80,Math.min(80,(n-y)*.1));g.rise.style.opacity=Math.max(0,Math.min(1,o));g.rise.style.translate='0 '+tr+'px'}
  if(y>=g.top-vh*.5)cur=i});
- var S2=document.getElementById('s2');if(S2){var w2=S2.parentNode,gi=W.indexOf(w2);if(gi>-1){S2.classList.toggle('on',y>=G[gi].top+vh*.08)}}G.forEach(function(g){var sc=g.w.firstElementChild;if(sc&&sc.classList.contains('ph'))sc.classList.toggle('in',y>=g.top-vh*.12)});D.forEach(function(d,i){d.classList.toggle('on',i===cur)});var DD=document.querySelector('.dots');if(DD&&G.length){var off=y>G[G.length-1].bot-vh*.6;DD.style.opacity=off?0:1;DD.style.pointerEvents=off?'none':''}L.textContent=(cur===0?((function(h){return h>=5&&h<16})(new Date().getHours())?'TODAY':'TONIGHT'):(N[cur]||''));var DD2=document.querySelector('.dots');if(DD2)DD2.classList.toggle('dk',cur===0&&document.documentElement.classList.contains('sky-light'))}
+ var S2=document.getElementById('s2');if(S2){var w2=S2.parentNode,gi=W.indexOf(w2);if(gi>-1){S2.classList.toggle('on',y>=G[gi].top+vh*.08)}}G.forEach(function(g){var sc=g.w.firstElementChild;if(sc&&sc.classList.contains('ph'))sc.classList.toggle('arr',y>=g.top-vh*.12)});D.forEach(function(d,i){d.classList.toggle('on',i===cur)});var DD=document.querySelector('.dots');if(DD&&G.length){var off=y>G[G.length-1].bot-vh*.6;DD.style.opacity=off?0:1;DD.style.pointerEvents=off?'none':''}L.textContent=(cur===0?((function(h){return h>=5&&h<16})(new Date().getHours())?'TODAY':'TONIGHT'):(N[cur]||''));var DD2=document.querySelector('.dots');if(DD2)DD2.classList.toggle('dk',cur===0&&document.documentElement.classList.contains('sky-light'))}
 addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(f)}},{passive:true});
 addEventListener('resize',function(){measure();f()});measure();f()})();</script><!--ev:polishjs--><script>(function(){var d=document.getElementById('drawer');if(!d)return;var H=document.documentElement,sy=0;
 function sibs(){var p=d.parentElement;return p?[].slice.call(p.children).filter(function(e){return e!==d&&e.tagName!=='SCRIPT'}):[]}
