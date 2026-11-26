@@ -1265,6 +1265,21 @@ footer.f .soc{display:flex;gap:10px}
 
 .site .umx .um-h,.site .umx .um-sub,.site .cty p,.site .sqx .lead,.site .sqx .sq-chip p{text-wrap:balance}
 @media (max-width:700px){.site .umx .um-h .d{display:block}}
+
+/* FAQs polish: smooth open, circled plus, help link (26 Nov) */
+.site .faq{interpolate-size:allow-keywords}
+.site .faq details{border-radius:18px;padding:0 22px;margin-bottom:8px;transition:box-shadow .25s ease}
+.site .faq details:hover{box-shadow:0 4px 18px rgba(11,15,28,.06)}
+.site .faq summary{padding:20px 0;font-size:17px;align-items:center;letter-spacing:-.01em}
+.site .faq summary::after{content:"";flex:none;width:28px;height:28px;border-radius:50%;background:#eef0f4 url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%230b0f1c%27 stroke-width=%272.2%27 stroke-linecap=%27round%27%3E%3Cpath d=%27M12 6v12M6 12h12%27/%3E%3C/svg%3E") center/14px no-repeat;transition:transform .3s cubic-bezier(.2,.8,.2,1),background-color .2s}
+.site .faq details[open] summary::after{content:"";transform:rotate(45deg);background-color:#e3e6ec}
+.site .faq details::details-content{block-size:0;overflow:hidden;transition:block-size .35s cubic-bezier(.2,.8,.2,1),content-visibility .35s allow-discrete}
+.site .faq details[open]::details-content{block-size:auto}
+.site .faq details p{padding-bottom:20px;margin:0;line-height:1.55;max-width:62ch}
+.site .faq summary{text-wrap:balance}.site .faq details p{text-wrap:pretty}
+.site .faq .fq-more{max-width:820px;margin:28px auto 0;text-align:center;font-size:16px;color:var(--ink2)}
+.site .faq .fq-more a{color:var(--ink);font-weight:600}
+@media (prefers-reduced-motion:reduce){.site .faq details::details-content,.site .faq summary::after{transition:none}}
 </style><!--ev:polish--><style>.kick,.tag,.lbl{text-transform:none!important;letter-spacing:0!important}footer.f .in>a{padding-block:10px}.crumb{min-height:44px;display:flex!important;width:max-content;align-items:center}.pg-hero .kick,.kick{display:block}.tick a{display:inline-block;padding-block:2px}.how .st .n,.col .n{background:#7c3aed!important}.jcta h3+p{margin-top:10px}.hero .lf .tick{color:#e3e6f0!important}.hero .lf .tick a{color:#fff!important}.hero:has(#lform-hero) .ph::after{background:linear-gradient(0deg,rgba(7,9,15,.97) 0%,rgba(7,9,15,.9) 50%,rgba(7,9,15,.55) 75%,rgba(7,9,15,.25) 100%)!important}.hero:has(#lform-hero) .lf{max-width:460px}.hero .lf .btn{background:#fff!important;color:#0b0f1c!important}.fxin{display:grid!important;grid-template-columns:1fr;gap:28px!important;padding-top:44px!important;padding-bottom:28px!important;border-bottom:1px solid rgba(255,255,255,.1)}@container (min-width:760px){.fxin{grid-template-columns:1fr 1fr;gap:48px!important}}.fx{display:contents}.fx h3{font-size:15px;font-weight:600;color:#fff;margin:0 0 12px}.fx ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px}.fx a{display:inline-block;padding-block:6px;font-size:14px;color:inherit;text-decoration:none}.fx a:hover{color:#fff;text-decoration:underline}
 /* homepage carousel + cities block (25 Nov). Added by build/launch.py on every run, so rebuilds can't drop it. */
 .wall-head{text-align:center;margin:0 auto 36px;max-width:640px;display:grid;justify-items:center}
@@ -1605,6 +1620,7 @@ a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
     <details><summary>Is it free?</summary><p>Yes, Everl is free. Everl+ is optional: £17.99 a month, £179 a year or £24 for 30 days. Monthly and yearly start with 3 days free. Cancel any time.</p></details>
     
   </div>
+  <p class="fq-more rv">Still got a question? <a href="/everlweb/help">Visit the help centre</a></p>
 </div></section>
 
 <!-- 9 CLOSER: Shop -->
