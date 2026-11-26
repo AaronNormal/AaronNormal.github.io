@@ -1280,6 +1280,17 @@ footer.f .soc{display:flex;gap:10px}
 .site .faq .fq-more{max-width:820px;margin:28px auto 0;text-align:center;font-size:16px;color:var(--ink2)}
 .site .faq .fq-more a{color:var(--ink);font-weight:600}
 @media (prefers-reduced-motion:reduce){.site .faq details::details-content,.site .faq summary::after{transition:none}}
+
+/* Get Everl: bookend the page with the night skyline (26 Nov) */
+.site .close{position:relative;isolation:isolate;overflow:hidden;background:#05070c!important;padding:120px 0 clamp(300px,30vw,440px)!important}
+.site .close::before{content:"";position:absolute;left:0;right:0;bottom:0;height:min(62vw,820px);z-index:-1;background:url(/everlweb/img/hero-w-skyline-1920.webp) 50% 70%/cover no-repeat;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 45%);mask-image:linear-gradient(180deg,transparent 0,#000 45%)}
+.site .close::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,#05070c 0,rgba(5,7,12,.6) 40%,rgba(5,7,12,.12) 72%,rgba(14,19,34,.55) 92%,#0e1322 100%)}
+.site .close h2{color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.5)}
+.site .close .qrbig{box-shadow:0 20px 60px rgba(0,0,0,.45)}
+@media (max-width:700px){
+ .site .close{padding:88px 0 min(86vw,380px)!important}
+ .site .close::before{height:min(130vw,560px);background-image:url(/everlweb/img/hero-m-skyline-1116.webp);background-position:50% 65%}
+}
 </style><!--ev:polish--><style>.kick,.tag,.lbl{text-transform:none!important;letter-spacing:0!important}footer.f .in>a{padding-block:10px}.crumb{min-height:44px;display:flex!important;width:max-content;align-items:center}.pg-hero .kick,.kick{display:block}.tick a{display:inline-block;padding-block:2px}.how .st .n,.col .n{background:#7c3aed!important}.jcta h3+p{margin-top:10px}.hero .lf .tick{color:#e3e6f0!important}.hero .lf .tick a{color:#fff!important}.hero:has(#lform-hero) .ph::after{background:linear-gradient(0deg,rgba(7,9,15,.97) 0%,rgba(7,9,15,.9) 50%,rgba(7,9,15,.55) 75%,rgba(7,9,15,.25) 100%)!important}.hero:has(#lform-hero) .lf{max-width:460px}.hero .lf .btn{background:#fff!important;color:#0b0f1c!important}.fxin{display:grid!important;grid-template-columns:1fr;gap:28px!important;padding-top:44px!important;padding-bottom:28px!important;border-bottom:1px solid rgba(255,255,255,.1)}@container (min-width:760px){.fxin{grid-template-columns:1fr 1fr;gap:48px!important}}.fx{display:contents}.fx h3{font-size:15px;font-weight:600;color:#fff;margin:0 0 12px}.fx ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px}.fx a{display:inline-block;padding-block:6px;font-size:14px;color:inherit;text-decoration:none}.fx a:hover{color:#fff;text-decoration:underline}
 /* homepage carousel + cities block (25 Nov). Added by build/launch.py on every run, so rebuilds can't drop it. */
 .wall-head{text-align:center;margin:0 auto 36px;max-width:640px;display:grid;justify-items:center}
