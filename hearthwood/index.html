@@ -183,6 +183,43 @@
   </section>
 
 
+  <section class="hw-sec" id="quiz-split">
+    <div class="hw-head"><span class="hw-eyebrow">Quiz 1 vs Quiz 2</span><h2>How each quiz is doing, and why</h2></div>
+    <p class="hw-muted">Snapshot written 26 Nov 2026 (partial day, to about 1pm UK). Families are counted from the database (Supabase, test sign-ups left out). Visitor and step numbers come from PostHog, which only sees people who accepted cookies, so it undercounts families. Spend is Meta spend 13 to 24 Nov.</p>
+    <div class="hw-tiles">
+      <div class="hw-tile"><span class="hw-muted">Quiz 1 families, 18 to 26 Nov</span><span class="hw-big">112</span><span class="hw-muted">15, 17, 17, 13, 15, 12, 10, 7, 6 a day. Down from 17 a day on 19 Nov.</span></div>
+      <div class="hw-tile"><span class="hw-muted">Quiz 2 families, 23 to 26 Nov</span><span class="hw-big">10</span><span class="hw-muted">Traffic only really started on 23 Nov.</span></div>
+      <div class="hw-tile"><span class="hw-muted">Cost per family, 13 to 24 Nov</span><span class="hw-big">£2.14 vs £9.75</span><span class="hw-muted">Quiz 1 £383 spend for 179 families. Quiz 2 £58 for 6.</span></div>
+    </div>
+
+    <div class="hw-card" style="overflow-x:auto">
+      <h3>The path, since 18 Nov (PostHog, people)</h3>
+      <table style="width:100%;border-collapse:collapse;font-size:14px;margin-top:10px;font-variant-numeric:tabular-nums">
+        <thead><tr style="text-align:left;color:var(--hw-muted)"><th style="padding:6px 8px 6px 0">Step</th><th style="padding:6px 8px">Quiz 1 (homepage)</th><th style="padding:6px 8px">Quiz 2 (/v2)</th></tr></thead>
+        <tbody>
+          <tr style="border-top:1px solid var(--hw-line)"><td style="padding:6px 8px 6px 0">Visitors to the page</td><td style="padding:6px 8px">404</td><td style="padding:6px 8px">50</td></tr>
+          <tr style="border-top:1px solid var(--hw-line)"><td style="padding:6px 8px 6px 0">Opened the quiz</td><td style="padding:6px 8px">133 (33%)</td><td style="padding:6px 8px">not tracked, first step is "started"</td></tr>
+          <tr style="border-top:1px solid var(--hw-line)"><td style="padding:6px 8px 6px 0">Started the first question</td><td style="padding:6px 8px">69 (52% of opened)</td><td style="padding:6px 8px">10 (20% of visitors)</td></tr>
+          <tr style="border-top:1px solid var(--hw-line)"><td style="padding:6px 8px 6px 0">Reached the postcode step</td><td style="padding:6px 8px">60 (87% of started)</td><td style="padding:6px 8px">9 (90% of started)</td></tr>
+          <tr style="border-top:1px solid var(--hw-line)"><td style="padding:6px 8px 6px 0">Joined the founding list (PostHog)</td><td style="padding:6px 8px">43 (62% of started)</td><td style="padding:6px 8px">7 (70% of started)</td></tr>
+          <tr style="border-top:1px solid var(--hw-line)"><td style="padding:6px 8px 6px 0">Families in the database</td><td style="padding:6px 8px">112 (18 to 26 Nov)</td><td style="padding:6px 8px">10 (23 to 26 Nov)</td></tr>
+        </tbody>
+      </table>
+      <p class="hw-muted" style="margin-top:10px">Quiz 1's biggest leak is before the first question: 64 of 133 people who opened it never started. Inside the quiz the drop is gentle. Of the 69 who started, 49 reached the childhood step. Quiz 2 numbers are small (10 people), so treat its rates as a rough guide.</p>
+    </div>
+
+    <div class="hw-card">
+      <h3>Why it is going wrong</h3>
+      <ol style="margin:10px 0 0;padding-left:20px;display:grid;gap:10px;max-width:90ch">
+        <li><b>Quiz 2 was starved of visitors until 23 Nov.</b> The Quiz 2 ad "Ad 2 v1" spent £41 but brought 1 visit on 20 Nov, 1 on 22 Nov, 5 on 23 Nov and none on 24 to 25 Nov. Until the card links were fixed on 22 Nov, its clicks landed on the homepage, so that money may sit inside Quiz 1's numbers. Check Ads Manager before judging Quiz 2 on spend.</li>
+        <li><b>Quiz 2 now gets nearly all its visitors from one ad.</b> "Ad 3 v2" brought 15, 15 and 12 visits on 24, 25 and 26 Nov. Ad 2 v1 has stopped delivering even though it is still switched on.</li>
+        <li><b>Quiz 2 costs more than four times as much per family.</b> £9.75 against £2.14 for Quiz 1 across 13 to 24 Nov. Part of that is the broken links, so the fair comparison starts on 23 Nov, and it needs another week.</li>
+        <li><b>Quiz 1 families are falling, and visitors are not the reason.</b> Visitors stay around 165 to 215 a day (one spike to 363 on 23 Nov), but families went from 17 on 19 Nov to 6 on 26 Nov (partial day). The 9am digest's joins fell from 17 on 19 Nov to 7 on 25 Nov. Launch Ad 2 v1 went from 26 visits on 19 Nov to 5 on 26 Nov. The 24 Nov change to the quiz (the ranking step removed and the pinned button) is the other suspect. Not proven yet.</li>
+        <li><b>PostHog undercounts families by about three to one.</b> It shows 43 Quiz 1 families since 18 Nov against 112 in the database, because it only counts people who accepted cookies. Use the database for lead counts and PostHog for the path.</li>
+      </ol>
+    </div>
+  </section>
+
   <section class="hw-sec" id="suggestions">
     <div class="hw-head"><span class="hw-eyebrow">Next steps</span><h2>What the data suggests</h2></div>
     <p class="hw-muted">Written by Claude on 16 Nov 2026 from 53 families. The percentages update live. Ask Claude to rewrite the ideas as more families join.</p>
