@@ -473,12 +473,6 @@ a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
 @keyframes dmxt{0%,20%{opacity:0;transform:scale(.6)}24%{opacity:1;transform:scale(1)}31%,100%{opacity:0;transform:scale(1.6)}}
 @media (prefers-reduced-motion:reduce){.scr.dmx .fb{animation:none;opacity:1;transform:none}.scr.dmx .tp{display:none}}
 
-/* homepage story band under the hero (26 Nov, Eren: the missed moment) */
-.story{background:#0b0f1c;color:#fff}
-.story .in{max-width:680px;margin:0 auto;padding-block:clamp(64px,9cqi,120px)}
-.story .s1{font-size:clamp(30px,5.6cqi,52px);line-height:1.06;letter-spacing:-.035em;font-weight:700;margin:0 0 22px;text-wrap:balance}
-.story .s2,.story .s3{font-size:clamp(17px,2cqi,20px);line-height:1.6;color:#c9cfdf;margin:0 0 14px;max-width:56ch}
-.story .s3{color:#fff;font-weight:600;margin:0}
 /* 18+ hero (/b and dating-ad arrivals): small lead-in line, big two-line headline, Up for more pill */
 .hero .pill18{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;font-size:14px;font-weight:600;padding:6px 14px 6px 8px;border-radius:99px;background:rgba(139,92,246,.18);color:#e4dbff;border:1px solid rgba(185,166,255,.25)}
 .hero .pill18 .sw18{width:32px;height:19px;border-radius:99px;background:#8b5cf6;position:relative}
@@ -488,33 +482,17 @@ a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
 @container (max-width:599px){.hero h1.h18 .pre{font-size:clamp(19px,5.6cqi,23px)}.hero h1.h18 .big{font-size:clamp(36px,11cqi,46px);line-height:1.02}}
 
 
-/* story band v6 (26 Nov): one type style for both paragraphs, site heading scale, quieter switch */
-.story{background:#07090f}
-.story .in{max-width:860px;text-align:center;padding-block:clamp(88px,12cqi,150px)}
-.story .s1{font-size:clamp(32px,5.2cqi,56px);line-height:1.04;letter-spacing:-.04em;font-weight:700;color:#fff;margin:0 auto 32px;max-width:18ch;text-wrap:balance}
-.story .s1 .dim{color:#6f778c}
-.story .lit,.story .lit2{font-size:clamp(19px,2.4cqi,24px);line-height:1.55;letter-spacing:-.012em;font-weight:500;color:#c9cfdf;margin:0 auto;max-width:36ch;text-wrap:pretty}
-.story .lit>span{color:#e6e9f2}
-.story .em{font-style:normal;display:inline-block;font-size:.95em;line-height:1;vertical-align:-.06em;margin:0 .02em}
-@supports (animation-timeline:view()){@media (prefers-reduced-motion:no-preference){
- .story .lit>span{animation:evlit linear both;animation-timeline:view();animation-range:cover 15% cover 42%}}}
-@keyframes evlit{from{color:#3a4155}to{color:#e6e9f2}}
-.story .turn{margin:44px auto 0;padding-top:44px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;align-items:center;gap:22px;max-width:640px}
-.story .lit2 b{color:#fff;font-weight:600}
-.story .lit2 .g{color:#34C759;font-weight:600}
-.story .vsw{display:inline-block;width:52px;height:31px;border-radius:99px;background:#34C759;position:relative;transition:background .18s ease}
-.story .vsw::after{content:"";position:absolute;top:2.5px;left:23.5px;width:26px;height:26px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.3);transition:left .3s cubic-bezier(.34,1.56,.64,1)}
-.story.arm .vsw{background:#3a4155}
-.story.arm .vsw::after{left:2.5px}
-.story.arm .turn.on .vsw{background:#34C759}
-.story.arm .turn.on .vsw::after{left:23.5px}
-.story.arm .lit2{opacity:0;transform:translateY(14px);transition:opacity .6s ease .35s,transform .7s cubic-bezier(.2,.7,.2,1) .35s}
-.story.arm .turn.on .lit2{opacity:1;transform:none}
-
-/* story band v8: back to one centred story column, no divider or label */
-.story .nw{white-space:nowrap}
-.story .s1 .dim{display:block}
-.story .turn{border-top:0!important;padding-top:0!important;margin-top:clamp(48px,7cqi,72px)!important;max-width:640px!important}
+/* story band D (26 Nov): group chat, meanwhile lights up, so we built everl (from demo d) */
+.story .em{font-style:normal;display:inline-block;line-height:1;vertical-align:-.06em}.story .nw{white-space:nowrap}
+.story{background:#07090f;color:#fff;padding:clamp(88px,12vw,150px) max(20px,env(safe-area-inset-left)) clamp(96px,13vw,160px);container-type:inline-size}.story .wrap{max-width:1080px;margin:0 auto}
+/* act 1: headline + group chat */
+.story .act1{display:grid;gap:44px;align-items:center}
+@container (min-width:860px){.story .act1{grid-template-columns:1.1fr .9fr;gap:72px}}.story .h{font-size:clamp(34px,5.6cqi,60px);line-height:1.03;letter-spacing:-.045em;font-weight:700;margin:0}.story .h .dim{display:block;color:#5d6478}.story .chat{justify-self:center;width:min(100%,360px);background:#0e1220;border:1px solid rgba(255,255,255,.07);border-radius:28px;padding:16px 16px 18px;box-shadow:0 40px 80px -40px rgba(0,0,0,.8)}.story .ch{display:flex;align-items:center;gap:10px;padding:2px 4px 14px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:14px}.story .ch .av{display:flex}.story .av i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font:600 11px "Geist";font-style:normal;color:#0b0f1c;margin-left:-7px;border:2px solid #0e1220}.story .av i:first-child{margin-left:0}.story .ch b{font-size:14px;font-weight:600}.story .ch span{font-size:12px;color:#7d8599;display:block;line-height:1.2}.story .msgs{display:flex;flex-direction:column;gap:6px}.story .b{max-width:80%;padding:9px 14px;border-radius:19px;font-size:15px;line-height:1.35;background:#1d2334;color:#e3e6f0;align-self:flex-start;border-bottom-left-radius:6px}.story .b.me{align-self:flex-end;background:#3b4a78;color:#fff;border-radius:19px;border-bottom-right-radius:6px}.story .nm{font-size:11px;color:#7d8599;margin:6px 0 -2px 6px}.story .seen{align-self:flex-end;font-size:11px;color:#59607a;margin-top:4px}.story .pop{opacity:0;transform:translateY(10px) scale(.92);transform-origin:bottom left;transition:opacity .3s ease,transform .45s cubic-bezier(.34,1.56,.64,1)}.story .b.me.pop{transform-origin:bottom right}.story .go .pop{opacity:1;transform:none}
+/* act 2: meanwhile, lights up word by word */
+.story .meanwhile{margin:clamp(72px,10cqi,120px) auto 0;max-width:820px;font-size:clamp(24px,3.6cqi,40px);line-height:1.28;letter-spacing:-.03em;font-weight:600}.story .meanwhile .w{color:#262c3c;transition:color .3s}.story .meanwhile .w.lit{color:#fff}
+/* act 3: so we built everl */
+.story .act3{margin:clamp(80px,11cqi,130px) auto 0;display:grid;justify-items:center;text-align:center}.story .k{font-size:clamp(22px,3cqi,30px);font-weight:600;color:#5d6478;letter-spacing:-.02em;margin:0}.story .logo{display:flex;align-items:center;gap:.22em;font:600 clamp(56px,10cqi,112px)/1 "Outfit","Geist",sans-serif;letter-spacing:-.03em;margin:8px 0 34px}.story .sw{position:relative;display:inline-block;width:1.05em;height:.62em;border-radius:99px;background:#3a4155;transition:background .2s ease}.story .sw::after{content:"";position:absolute;top:.05em;left:.05em;width:.52em;height:.52em;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.3);transition:left .4s cubic-bezier(.34,1.56,.64,1)}.story .on .sw{background:#34C759}.story .on .sw::after{left:.48em}.story .note{width:min(100%,380px);display:flex;gap:12px;align-items:center;text-align:left;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-radius:22px;padding:12px 14px;opacity:0;transform:translateY(-14px) scale(.97);transition:opacity .4s ease .45s,transform .55s cubic-bezier(.34,1.4,.64,1) .45s}.story .on .note{opacity:1;transform:none}.story .ic{width:40px;height:40px;border-radius:11px;background:#0b0f1c;display:grid;place-items:center;flex:none;border:1px solid rgba(255,255,255,.08)}.story .ic i{display:block;width:24px;height:14px;border-radius:99px;background:#34C759;position:relative}.story .ic i::after{content:"";position:absolute;top:2px;right:2px;width:10px;height:10px;border-radius:50%;background:#fff}.story .note .t{display:flex;justify-content:space-between;font-size:13px;font-weight:600}.story .note .t span{font-weight:400;color:#7d8599}.story .note p{margin:1px 0 0;font-size:14px;color:#dfe3ee;line-height:1.35}.story .lines{margin-top:34px;display:grid;gap:8px;max-width:34ch;opacity:0;transform:translateY(12px);transition:opacity .6s ease .9s,transform .7s cubic-bezier(.2,.7,.2,1) .9s}.story .on .lines{opacity:1;transform:none}.story .lines p{margin:0;font-size:clamp(18px,2.1cqi,21px);line-height:1.5;color:#b9c0d4}.story .lines .g{color:#34C759;font-weight:600}.story .cta{margin-top:30px;display:inline-flex;align-items:center;height:52px;padding:0 26px;border-radius:99px;background:#fff;color:#0b0f1c;font-weight:600;text-decoration:none;opacity:0;transition:opacity .5s ease 1.2s}.story .on .cta{opacity:1}.story .fin .pop,.story .fin .note,.story .fin .lines,.story .fin .cta{opacity:1!important;transform:none!important;transition:none!important}.story .fin .meanwhile .w{color:#fff!important}
+@media (prefers-reduced-motion:reduce){.story .pop,.story .note,.story .lines,.story .cta{opacity:1;transform:none;transition:none}.story .meanwhile .w{color:#fff}.story .sw,.story .sw::after{transition:none}}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip--><div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
 <div class="stage" id="stage"><div class="site"><nav class="jnav"><div class="in"><a class="logo" href="/everlweb/" aria-label="Everl home"><span class="sw"></span>everl</a><span class="sp"></span><div class="links"><a href="/everlweb/#how">How it works</a><a href="/everlweb/safety">Safety</a><a href="/everlweb/cities">Cities</a><a href="/everlweb/blog" class="on">Journal</a><a href="/everlweb/more">Up for more</a></div><a class="btn dark" href="/everlweb/#get">Get Everl</a><button class="mnu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button></div></nav>
 <main class="in" id="main" tabindex="-1">
