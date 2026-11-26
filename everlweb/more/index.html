@@ -387,9 +387,9 @@ footer.f .soc{display:flex;gap:10px}
 .dr.dark .dr-row{color:var(--on2)}
 /* end side menu drawer */
 </style><!--seo--><meta name="description" content="Up for more is Everl&#x27;s spontaneous dating app with no profiles and no swiping. Say what you want in private, both say yes, then meet in public. 18+."><link rel="canonical" href="https://everl.com/more"><meta name="theme-color" content="#0e1322"><link rel="icon" href="/everlweb/favicon.ico" sizes="32x32"><link rel="icon" href="/everlweb/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/everlweb/apple-touch-icon.png"><link rel="manifest" href="/everlweb/site.webmanifest"><meta property="og:type" content="website"><meta property="og:site_name" content="Everl"><meta property="og:locale" content="en_GB"><meta property="og:title" content="Spontaneous dating app with no profiles | Everl"><meta property="og:description" content="Up for more is Everl&#x27;s spontaneous dating app with no profiles and no swiping. Say what you want in private, both say yes, then meet in public. 18+."><meta property="og:url" content="https://everl.com/more"><meta property="og:image" content="https://everl.com/og/everl-og-more.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Two people talking at a wine bar, with the words Meet someone who is looking too"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Spontaneous dating app with no profiles | Everl"><meta name="twitter:description" content="Up for more is Everl&#x27;s spontaneous dating app with no profiles and no swiping. Say what you want in private, both say yes, then meet in public. 18+."><meta name="twitter:image" content="https://everl.com/og/everl-og-more.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://everl.com/#org","name":"Everl","url":"https://everl.com/","alternateName":["Everl app","Everl UK"],"description":"Everl is a UK app for adults that helps you meet people near you in person: switch on when you are free, both say yes, then meet somewhere public.","disambiguatingDescription":"The UK meet-in-person app at everl.com.","logo":{"@type":"ImageObject","url":"https://everl.com/icon-512.png","width":512,"height":512},"sameAs":["https://www.instagram.com/everlapp","https://www.facebook.com/profile.php?id=61593360002124"],"areaServed":[{"@type":"City","name":"Manchester"},{"@type":"City","name":"Leeds"}]},{"@type":"WebPage","@id":"https://everl.com/more#page","url":"https://everl.com/more","name":"Spontaneous dating app with no profiles | Everl","description":"Up for more is Everl's spontaneous dating app with no profiles and no swiping. Say what you want in private, both say yes, then meet in public. 18+.","inLanguage":"en-GB","isPartOf":{"@id":"https://everl.com/#website"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://everl.com/"},{"@type":"ListItem","position":2,"name":"Up for more","item":"https://everl.com/more"}]},{"@type":"FAQPage","@id":"https://everl.com/more#faq","mainEntity":[{"@type":"Question","name":"What is Up for more?","acceptedAnswer":{"@type":"Answer","text":"It’s the side of Everl for dating and something more. Same app and same rules as Social: anonymous until you both say yes, and you meet somewhere public first."}},{"@type":"Question","name":"Who can see that I use Up for more?","acceptedAnswer":{"@type":"Answer","text":"Nobody. You’re anonymous until it’s mutual, and nothing shows on the map. If you pay on everl.com, your statement shows HPR SYSTM, not Everl."}},{"@type":"Question","name":"Do I need a profile or photos?","acceptedAnswer":{"@type":"Answer","text":"No. You answer a few private questions so Everl can match you. They’re only shown to a match, when you both say yes."}},{"@type":"Question","name":"How does the age check work?","acceptedAnswer":{"@type":"Answer","text":"Everyone is 18+. The first time you switch on, an independent checker confirms your age with a quick selfie. Everl only gets a yes or no."}},{"@type":"Question","name":"Can I go back to Social?","acceptedAnswer":{"@type":"Answer","text":"Yes, any time, with one tap. It’s the same app."}},{"@type":"Question","name":"Where does it work?","acceptedAnswer":{"@type":"Answer","text":"Manchester is live. Leeds opens next. Every other city’s list is open now."}}]}]}</script><!--/seo--><!--ev:hook--><script>/*hook: match the ad's story (insights i24)*/(function(){try{var q=new URLSearchParams(location.search),k=((q.get('hook')||'')+' '+(q.get('utm_content')||'')).toLowerCase();
-var H=[[/walkedpast|walked_past|walked-past/,['You walked past.','Neither of you said hi.']],[/noticed|didhethink|didthey/,['You noticed them.','Maybe they noticed you.']],[/nevermet|never_met/,['You&rsquo;ve never met.','You might tonight.']]];
+var M=/\/men(\.html|\/)?$/.test(location.pathname);var H=[[/neutral_walkedpast|samestreet|same_street/,['Same street.','Same minute.']],[/sametable|same_table|twotables/,['The best night out','is two tables away.']],[/walkedpast|walked_past|walked-past|lookup/,['You&rsquo;ve probably already','walked past them.']],[/henoticed|he_noticed/,M?['He noticed','you first.']:['You noticed them.','Maybe they noticed you.']],[/didhethink|did_he_think/,M?['Did he think','it too?']:['You noticed them.','Maybe they noticed you.']],[/noticed|didthey/,['You noticed them.','Maybe they noticed you.']],[/nevermet|never_met/,['You&rsquo;ve never met.','You might tonight.']]];
 var hit=null;H.forEach(function(h){if(!hit&&h[0].test(k))hit=h[1]});if(!hit)return;
-var go=function(){var h1=document.querySelector('.hero h1');if(!h1)return;h1.innerHTML='<span class="l">'+hit[0]+'</span> <span class="l">'+hit[1]+'</span>';var ld=document.querySelector('.hero .lead');if(ld)ld.textContent='Next time, Everl tells you when someone nearby is up for it too. You both say yes, then meet somewhere public.'};
+var go=function(){var h1=document.querySelector('.hero h1');if(!h1)return;h1.innerHTML='<span class="l">'+hit[0]+'</span> <span class="l">'+hit[1]+'</span>';var ld=document.querySelector('.hero .lead');if(ld)ld.innerHTML=(/walkedpast|walked_past|lookup/.test(k)&&!/neutral_walkedpast/.test(k)?'Look up. ':'')+'Everl quietly tells you when someone nearby is up for it too, and only when it&rsquo;s mutual.'};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go()}catch(e){}})();</script><!--/ev:hook--><!--ev:polish--><style>.kick,.tag,.lbl{text-transform:none!important;letter-spacing:0!important}footer.f .in>a{padding-block:10px}.crumb{min-height:44px;display:flex!important;width:max-content;align-items:center}.pg-hero .kick,.kick{display:block}.tick a{display:inline-block;padding-block:2px}.how .st .n,.col .n{background:#7c3aed!important}.jcta h3+p{margin-top:10px}.hero .lf .tick{color:#e3e6f0!important}.hero .lf .tick a{color:#fff!important}.hero:has(#lform-hero) .ph::after{background:linear-gradient(0deg,rgba(7,9,15,.97) 0%,rgba(7,9,15,.9) 50%,rgba(7,9,15,.55) 75%,rgba(7,9,15,.25) 100%)!important}.hero:has(#lform-hero) .lf{max-width:460px}.hero .lf .btn{background:#fff!important;color:#0b0f1c!important}.fxin{display:grid!important;grid-template-columns:1fr;gap:28px!important;padding-top:44px!important;padding-bottom:28px!important;border-bottom:1px solid rgba(255,255,255,.1)}@container (min-width:760px){.fxin{grid-template-columns:1fr 1fr;gap:48px!important}}.fx{display:contents}.fx h3{font-size:15px;font-weight:600;color:#fff;margin:0 0 12px}.fx ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px}.fx a{display:inline-block;padding-block:6px;font-size:14px;color:inherit;text-decoration:none}.fx a:hover{color:#fff;text-decoration:underline}
 /* homepage carousel + cities block (25 Nov). Added by build/launch.py on every run, so rebuilds can't drop it. */
 .wall-head{text-align:center;margin:0 auto 36px;max-width:640px;display:grid;justify-items:center}
@@ -516,6 +516,51 @@ a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
 @container (max-width:999px){.hero-b .hero .ph{background-size:cover!important;background-position:50% 20%!important}}
 .badge b,.badge small{white-space:nowrap}
 @container (max-width:399px){.badges .badge b{font-size:17px}.badges .badge{padding-inline:10px}}
+
+/* about (26 Nov): why we made Everl, from the team */
+.about.sec .in{max-width:680px}
+.about .h2{margin-bottom:22px}
+.about p{font-size:19px;line-height:1.6;color:var(--ink2);margin-top:14px}
+.about p:first-of-type{color:var(--ink);font-size:21px;line-height:1.5}
+.about .sig{margin-top:24px;font-size:16px;font-weight:600;color:var(--ink)}
+
+/* phone hero bottom, calm version (26 Nov): one row of short ticks, one quiet line under it */
+.hero .nc-pre,.hero .nc-short{display:none}
+@container (max-width:599px){
+ .hero .trust{display:flex!important;flex-wrap:nowrap!important;gap:16px!important;white-space:nowrap;margin-top:4px!important}
+ .hero .trust span{font-size:0!important;gap:6px!important}
+ .hero .trust span::after{content:attr(data-s);font-size:13.5px;font-weight:500;color:#eef0f7;letter-spacing:-.005em}
+ .hero .why{display:none!important}
+ .hero .notcity{font-size:13.5px!important;line-height:1.4;color:#b9c0d4!important;margin-top:2px!important;padding-top:12px;border-top:1px solid rgba(255,255,255,.14)}
+ .hero .notcity a{color:#fff;font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;white-space:nowrap}
+ .hero .notcity .nc-more,.hero .notcity .nc-long{display:none}
+ .hero .notcity .nc-pre{display:inline}
+ .hero .notcity .nc-short{display:inline}
+ .hero .hjoin .lf .tick{font-size:12.5px!important;line-height:1.35;margin-top:2px!important}
+ .hero .hjoin .lf{row-gap:6px!important}
+}
+/* phone demo (second screen): switched off, a tap on the switch, then Everl on. CSS only, loops, clean frames */
+.scr.dmx{position:relative;overflow:hidden}
+.scr.dmx img{display:block;width:100%;height:auto}
+.scr.dmx .fb{position:absolute;inset:0;opacity:0;animation:dmxb 8s ease-in-out infinite}
+.scr.dmx .tp{position:absolute;left:82.5%;top:49.6%;width:13%;aspect-ratio:1;margin:-6.5% 0 0 -6.5%;border-radius:50%;background:rgba(255,255,255,.5);box-shadow:0 0 0 2px rgba(255,255,255,.85);opacity:0;pointer-events:none;animation:dmxt 8s ease-out infinite}
+@keyframes dmxb{0%,30%{opacity:0;transform:translateY(2%)}34%,90%{opacity:1;transform:none}95%,100%{opacity:0;transform:none}}
+@keyframes dmxt{0%,20%{opacity:0;transform:scale(.6)}24%{opacity:1;transform:scale(1)}31%,100%{opacity:0;transform:scale(1.6)}}
+@media (prefers-reduced-motion:reduce){.scr.dmx .fb{animation:none;opacity:1;transform:none}.scr.dmx .tp{display:none}}
+
+/* homepage story band under the hero (26 Nov, Eren: the missed moment) */
+.story{background:#0b0f1c;color:#fff}
+.story .in{max-width:680px;margin:0 auto;padding-block:clamp(64px,9cqi,120px)}
+.story .s1{font-size:clamp(30px,5.6cqi,52px);line-height:1.06;letter-spacing:-.035em;font-weight:700;margin:0 0 22px;text-wrap:balance}
+.story .s2,.story .s3{font-size:clamp(17px,2cqi,20px);line-height:1.6;color:#c9cfdf;margin:0 0 14px;max-width:56ch}
+.story .s3{color:#fff;font-weight:600;margin:0}
+/* 18+ hero (/b and dating-ad arrivals): small lead-in line, big two-line headline, Up for more pill */
+.hero .pill18{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;font-size:14px;font-weight:600;padding:6px 14px 6px 8px;border-radius:99px;background:rgba(139,92,246,.18);color:#e4dbff;border:1px solid rgba(185,166,255,.25)}
+.hero .pill18 .sw18{width:32px;height:19px;border-radius:99px;background:#8b5cf6;position:relative}
+.hero .pill18 .sw18::after{content:"";position:absolute;top:2px;right:2px;width:15px;height:15px;border-radius:50%;background:#fff}
+.hero h1.h18 .pre{display:block;font-size:.5em;line-height:1.2;font-weight:600;letter-spacing:-.015em;color:#e3e6f0;margin-bottom:.18em}
+.hero h1.h18 .big{display:block;text-wrap:balance}
+@container (max-width:599px){.hero h1.h18 .pre{font-size:clamp(19px,5.6cqi,23px)}.hero h1.h18 .big{font-size:clamp(36px,11cqi,46px);line-height:1.02}}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip-->
 
 <div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>

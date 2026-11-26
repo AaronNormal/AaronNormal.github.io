@@ -445,6 +445,51 @@ a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
 @container (max-width:999px){.hero-b .hero .ph{background-size:cover!important;background-position:50% 20%!important}}
 .badge b,.badge small{white-space:nowrap}
 @container (max-width:399px){.badges .badge b{font-size:17px}.badges .badge{padding-inline:10px}}
+
+/* about (26 Nov): why we made Everl, from the team */
+.about.sec .in{max-width:680px}
+.about .h2{margin-bottom:22px}
+.about p{font-size:19px;line-height:1.6;color:var(--ink2);margin-top:14px}
+.about p:first-of-type{color:var(--ink);font-size:21px;line-height:1.5}
+.about .sig{margin-top:24px;font-size:16px;font-weight:600;color:var(--ink)}
+
+/* phone hero bottom, calm version (26 Nov): one row of short ticks, one quiet line under it */
+.hero .nc-pre,.hero .nc-short{display:none}
+@container (max-width:599px){
+ .hero .trust{display:flex!important;flex-wrap:nowrap!important;gap:16px!important;white-space:nowrap;margin-top:4px!important}
+ .hero .trust span{font-size:0!important;gap:6px!important}
+ .hero .trust span::after{content:attr(data-s);font-size:13.5px;font-weight:500;color:#eef0f7;letter-spacing:-.005em}
+ .hero .why{display:none!important}
+ .hero .notcity{font-size:13.5px!important;line-height:1.4;color:#b9c0d4!important;margin-top:2px!important;padding-top:12px;border-top:1px solid rgba(255,255,255,.14)}
+ .hero .notcity a{color:#fff;font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;white-space:nowrap}
+ .hero .notcity .nc-more,.hero .notcity .nc-long{display:none}
+ .hero .notcity .nc-pre{display:inline}
+ .hero .notcity .nc-short{display:inline}
+ .hero .hjoin .lf .tick{font-size:12.5px!important;line-height:1.35;margin-top:2px!important}
+ .hero .hjoin .lf{row-gap:6px!important}
+}
+/* phone demo (second screen): switched off, a tap on the switch, then Everl on. CSS only, loops, clean frames */
+.scr.dmx{position:relative;overflow:hidden}
+.scr.dmx img{display:block;width:100%;height:auto}
+.scr.dmx .fb{position:absolute;inset:0;opacity:0;animation:dmxb 8s ease-in-out infinite}
+.scr.dmx .tp{position:absolute;left:82.5%;top:49.6%;width:13%;aspect-ratio:1;margin:-6.5% 0 0 -6.5%;border-radius:50%;background:rgba(255,255,255,.5);box-shadow:0 0 0 2px rgba(255,255,255,.85);opacity:0;pointer-events:none;animation:dmxt 8s ease-out infinite}
+@keyframes dmxb{0%,30%{opacity:0;transform:translateY(2%)}34%,90%{opacity:1;transform:none}95%,100%{opacity:0;transform:none}}
+@keyframes dmxt{0%,20%{opacity:0;transform:scale(.6)}24%{opacity:1;transform:scale(1)}31%,100%{opacity:0;transform:scale(1.6)}}
+@media (prefers-reduced-motion:reduce){.scr.dmx .fb{animation:none;opacity:1;transform:none}.scr.dmx .tp{display:none}}
+
+/* homepage story band under the hero (26 Nov, Eren: the missed moment) */
+.story{background:#0b0f1c;color:#fff}
+.story .in{max-width:680px;margin:0 auto;padding-block:clamp(64px,9cqi,120px)}
+.story .s1{font-size:clamp(30px,5.6cqi,52px);line-height:1.06;letter-spacing:-.035em;font-weight:700;margin:0 0 22px;text-wrap:balance}
+.story .s2,.story .s3{font-size:clamp(17px,2cqi,20px);line-height:1.6;color:#c9cfdf;margin:0 0 14px;max-width:56ch}
+.story .s3{color:#fff;font-weight:600;margin:0}
+/* 18+ hero (/b and dating-ad arrivals): small lead-in line, big two-line headline, Up for more pill */
+.hero .pill18{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;font-size:14px;font-weight:600;padding:6px 14px 6px 8px;border-radius:99px;background:rgba(139,92,246,.18);color:#e4dbff;border:1px solid rgba(185,166,255,.25)}
+.hero .pill18 .sw18{width:32px;height:19px;border-radius:99px;background:#8b5cf6;position:relative}
+.hero .pill18 .sw18::after{content:"";position:absolute;top:2px;right:2px;width:15px;height:15px;border-radius:50%;background:#fff}
+.hero h1.h18 .pre{display:block;font-size:.5em;line-height:1.2;font-weight:600;letter-spacing:-.015em;color:#e3e6f0;margin-bottom:.18em}
+.hero h1.h18 .big{display:block;text-wrap:balance}
+@container (max-width:599px){.hero h1.h18 .pre{font-size:clamp(19px,5.6cqi,23px)}.hero h1.h18 .big{font-size:clamp(36px,11cqi,46px);line-height:1.02}}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip--><div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
 <div class="stage" id="stage"><div class="site"><nav class="jnav"><div class="in"><a class="logo" href="/everlweb/" aria-label="Everl home"><span class="sw"></span>everl</a><span class="sp"></span><div class="links"><a href="/everlweb/#how">How it works</a><a href="/everlweb/safety">Safety</a><a href="/everlweb/cities">Cities</a><a href="/everlweb/blog" class="on">Journal</a><a href="/everlweb/more">Up for more</a></div><a class="btn dark" href="/everlweb/#get">Get Everl</a><button class="mnu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button></div></nav>
 <main class="in" id="main" tabindex="-1">
