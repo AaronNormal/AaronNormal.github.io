@@ -492,33 +492,45 @@ a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
 @container (max-width:599px){.hero h1.h18 .pre{font-size:clamp(19px,5.6cqi,23px)}.hero h1.h18 .big{font-size:clamp(36px,11cqi,46px);line-height:1.02}}
 
 
-/* story band v5 (26 Nov): all words, emojis inside the sentences (ctrl style), lights up on scroll, switch reveals the answer */
+/* story band v6 (26 Nov): one type style for both paragraphs, site heading scale, quieter switch */
 .story{background:#07090f}
-.story .in{max-width:900px;text-align:center;padding-block:clamp(80px,12cqi,150px)}
-.story .s1{font-size:clamp(30px,5cqi,56px)!important;line-height:1.06!important;letter-spacing:-.035em;margin:0 auto 34px!important;color:#fff;max-width:18ch;font-weight:700}
-.story .s1 .dim{color:#7d8599}
-.story .lit{font-size:clamp(21px,3cqi,32px);line-height:1.42;letter-spacing:-.02em;font-weight:600;color:#fff;margin:0 auto;max-width:30ch;text-wrap:balance}
-.story .em{font-style:normal;display:inline-block;font-size:.92em;line-height:1;vertical-align:-.06em;margin:0 .04em}
+.story .in{max-width:860px;text-align:center;padding-block:clamp(88px,12cqi,150px)}
+.story .s1{font-size:clamp(32px,5.2cqi,56px);line-height:1.04;letter-spacing:-.04em;font-weight:700;color:#fff;margin:0 auto 32px;max-width:18ch;text-wrap:balance}
+.story .s1 .dim{color:#6f778c}
+.story .lit,.story .lit2{font-size:clamp(19px,2.4cqi,24px);line-height:1.55;letter-spacing:-.012em;font-weight:500;color:#c9cfdf;margin:0 auto;max-width:36ch;text-wrap:pretty}
+.story .lit>span{color:#e6e9f2}
+.story .em{font-style:normal;display:inline-block;font-size:.95em;line-height:1;vertical-align:-.06em;margin:0 .02em}
 @supports (animation-timeline:view()){@media (prefers-reduced-motion:no-preference){
  .story .lit>span{animation:evlit linear both;animation-timeline:view();animation-range:cover 15% cover 42%}}}
-@keyframes evlit{from{color:#2c3346;opacity:.55}to{color:#fff;opacity:1}}
-.story .turn{margin:clamp(64px,9cqi,104px) auto 0;display:flex;flex-direction:column;align-items:center;gap:14px;max-width:600px}
-.story .vsw{display:inline-block;width:64px;height:38px;border-radius:99px;background:#34C759;position:relative;margin-bottom:8px;transition:background .18s ease,box-shadow .5s ease;box-shadow:0 0 0 0 rgba(52,199,89,0)}
-.story .vsw::after{content:"";position:absolute;top:3px;left:29px;width:32px;height:32px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.3);transition:left .32s cubic-bezier(.34,1.56,.64,1)}
-.story .t1{font-size:clamp(30px,5cqi,52px);line-height:1.05;letter-spacing:-.035em;font-weight:700;color:#fff;margin:0}
-.story .t2{font-size:clamp(19px,2.4cqi,24px);line-height:1.5;color:#c9cfdf;margin:0;text-wrap:balance}
-.story .t2 .g{color:#34C759;font-weight:600}
-.story .t3{font-size:clamp(19px,2.4cqi,24px);line-height:1.5;color:#fff;font-weight:600;margin:0}
+@keyframes evlit{from{color:#3a4155}to{color:#e6e9f2}}
+.story .turn{margin:44px auto 0;padding-top:44px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;align-items:center;gap:22px;max-width:640px}
+.story .lit2 b{color:#fff;font-weight:600}
+.story .lit2 .g{color:#34C759;font-weight:600}
+.story .vsw{display:inline-block;width:52px;height:31px;border-radius:99px;background:#34C759;position:relative;transition:background .18s ease}
+.story .vsw::after{content:"";position:absolute;top:2.5px;left:23.5px;width:26px;height:26px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.3);transition:left .3s cubic-bezier(.34,1.56,.64,1)}
 .story.arm .vsw{background:#3a4155}
-.story.arm .vsw::after{left:3px}
-.story.arm .turn.on .vsw{background:#34C759;box-shadow:0 0 0 14px rgba(52,199,89,.12)}
-.story.arm .turn.on .vsw::after{left:29px}
-.story.arm .t1,.story.arm .t2,.story.arm .t3{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
-.story.arm .turn.on .t1{opacity:1;transform:none;transition-delay:.35s}
-.story.arm .turn.on .t2{opacity:1;transform:none;transition-delay:.6s}
-.story.arm .turn.on .t3{opacity:1;transform:none;transition-delay:.85s}
+.story.arm .vsw::after{left:2.5px}
+.story.arm .turn.on .vsw{background:#34C759}
+.story.arm .turn.on .vsw::after{left:23.5px}
+.story.arm .lit2{opacity:0;transform:translateY(14px);transition:opacity .6s ease .35s,transform .7s cubic-bezier(.2,.7,.2,1) .35s}
+.story.arm .turn.on .lit2{opacity:1;transform:none}
 
+/* story band v7 (26 Nov fixes): label under switch, left-aligned on laptops */
+.story .swrow{display:inline-flex;align-items:center;gap:12px}
+.story .swl{font-size:14px;font-weight:600;letter-spacing:.01em;color:#34C759;transition:opacity .3s ease .25s}
+.story.arm .swl{opacity:0}
+.story.arm .turn.on .swl{opacity:1}
+@container (min-width:900px){
+ .story .in{max-width:760px;text-align:left}
+ .story .s1{margin-left:0;max-width:16ch}
+ .story .lit,.story .lit2{margin-left:0;max-width:40ch}
+ .story .turn{align-items:flex-start;margin-left:0;max-width:none}
+}
 .story .nw{white-space:nowrap}
+.story .s1 .dim{display:block}
+@container (min-width:900px){.story .s1{max-width:none}}
+.story .swrow{position:relative}
+.story .swl{position:absolute;left:calc(100% + 12px);top:50%;transform:translateY(-50%);white-space:nowrap}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip--><div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
 <div class="stage" id="stage"><div class="site"><nav class="jnav"><div class="in"><a class="logo" href="/everlweb/" aria-label="Everl home"><span class="sw"></span>everl</a><span class="sp"></span><div class="links"><a href="/everlweb/#how">How it works</a><a href="/everlweb/safety">Safety</a><a href="/everlweb/cities">Cities</a><a href="/everlweb/blog" class="on">Journal</a><a href="/everlweb/more">Up for more</a></div><a class="btn dark" href="/everlweb/#get">Get Everl</a><button class="mnu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button></div></nav>
 <main class="in" id="main" tabindex="-1">
