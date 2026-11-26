@@ -1,0 +1,1079 @@
+<!doctype html><html lang="en-GB"><head><script>window.EV_HERO_FORCE="a"</script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><!--ev:head--><style>.skip{position:absolute;left:12px;top:-60px;z-index:10000;background:#0e1322;color:#fff;padding:10px 16px;border-radius:10px;font:600 15px/1.2 Geist,system-ui,sans-serif;text-decoration:none}.skip:focus{top:12px;outline:2px solid #fff;outline-offset:2px}main#main:focus{outline:none}form.lf .tick.upd{grid-row:3!important;grid-column:1/-1!important}form.lf .ts{grid-row:4!important;grid-column:1/-1!important}.ts:empty{display:none}.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}button[aria-busy=true]{opacity:.7;cursor:progress}.f .co{flex-basis:100%}.inapp a[href*="plus"],.inapp .badge,.inapp .badges,.inapp .dock,.inapp .store,.inapp .qrbig,.inapp .hint.lap{display:none!important}</style><script>(function(){
+var W=window,D=document,H=D.documentElement,P="index",SS;
+try{SS=W.sessionStorage}catch(e){SS=null}
+function sg(k){try{return SS&&SS.getItem(k)}catch(e){return null}}
+function ss(k,v){try{SS&&SS.setItem(k,v)}catch(e){}}
+var Q=new URLSearchParams(location.search),UA=navigator.userAgent||'';
+/* apple: in-app flag, sticky for the session */
+var cap=W.Capacitor,inapp=Q.get('inapp')==='1'||!!(cap&&cap.isNativePlatform&&cap.isNativePlatform())||/Capacitor|everl-app/i.test(UA)||sg('ev_inapp')==='1';
+if(inapp){ss('ev_inapp','1');H.classList.add('inapp');if(P==='plus'){location.replace('/everlweb/help#membership-billing');return}}
+/* utm + click ids: first touch of this session */
+var KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','ttclid','gclid','gbraid','wbraid','rdt_cid'];
+var A={};try{A=JSON.parse(sg('ev_attr')||'{}')||{}}catch(e){A={}}
+if(!Object.keys(A).length){var got={},n=0;KEYS.forEach(function(k){var v=Q.get(k);if(v){got[k]=v.slice(0,200);n++}});if(n){A=got;ss('ev_attr',JSON.stringify(A))}}
+/* tracking: only on the real domain */
+var LIVE=["everl.com", "www.everl.com"].indexOf(location.hostname)>-1,DBG=Q.get('ev_debug')==='1'||sg('ev_debug')==='1';
+if(Q.get('ev_debug')==='1')ss('ev_debug','1');
+if(LIVE){
+ var s=D.createElement('script');s.async=true;s.src="https://plausible.io/js/pa-uPYpuUHCcG8tQ1I5RsMJb.js";s.crossOrigin='anonymous';D.head.appendChild(s);
+ W.plausible=W.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)};plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init();
+ if(!inapp){
+  !function(t,e){var o,n,p,r;e.__SV||(W.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once unregister identify reset get_distinct_id get_session_id set_config startSessionRecording stopSessionRecording captureException opt_in_capturing opt_out_capturing".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(D,W.posthog||[]);
+  posthog.init("phc_mhNGqThhz7VJ9RYzS2PUY8BRBB2QWWs7yTY4D4soPgCf",{api_host:"/rl",ui_host:"https://eu.posthog.com",persistence:'memory',autocapture:true,capture_pageview:true,capture_pageleave:true,respect_dnt:true,session_recording:{maskAllInputs:true},capture_exceptions:true});
+ }
+}
+function track(ev,props){props=props||{};if(W.EV_HERO&&!props.hero)props.hero=W.EV_HERO;
+ if(DBG)try{console.log('[track]',ev,JSON.stringify(props))}catch(e){}
+ if(!LIVE)return;
+ try{W.plausible(ev,{props:props})}catch(e){}
+ try{W.posthog&&W.posthog.capture&&W.posthog.capture(ev,props)}catch(e){}
+}
+W.everlTrack=track;
+function page(){return location.pathname}
+function txt(el){return (el.textContent||'').replace(/\s+/g,' ').trim()}
+function store(a){var t=txt(a);if(/app store/i.test(t))return 'ios';if(/google play/i.test(t))return 'android';
+ if(/iPhone|iPad|iPod/.test(UA))return 'ios';if(/Android/.test(UA))return 'android';return 'web'}
+function place(el){if(el.closest('.dock'))return 'dock';if(el.closest('.dr'))return 'menu';if(el.closest('nav'))return 'nav';if(el.closest('footer'))return 'footer';
+ var s=el.closest('section,header');return s?(s.id||(s.className||'').split(' ')[0]||s.tagName.toLowerCase()):'page'}
+function withAttr(href){if(!Object.keys(A).length)return href;try{var u=new URL(href,location.href);
+ if(!/^https?:$/.test(u.protocol))return href;Object.keys(A).forEach(function(k){if(!u.searchParams.has(k))u.searchParams.set(k,A[k])});return u.toString()}catch(e){return href}}
+var STOREHOST=/(^|\.)(apps\.apple\.com|play\.google\.com|itunes\.apple\.com)$/;
+function isAppLink(a){try{var u=new URL(a.href,location.href);return STOREHOST.test(u.hostname)||(/(^|\.)everl\.com$/.test(u.hostname)&&/^\/app(\/|$)/.test(u.pathname))}catch(e){return false}}
+/* clicks */
+D.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a');if(!a)return;
+ if(a.matches('.badge,.store,.dock a,.dr-get')||isAppLink(a))track('store_click',{store:store(a),placement:place(a),page:page()});
+ if(isAppLink(a))a.href=withAttr(a.href);
+ if(/join your city/i.test(txt(a)))track('cta_join_click',{placement:place(a),page:page()});
+},true);
+D.addEventListener('click',function(e){var b=e.target&&e.target.closest&&e.target.closest('.mnu');if(b)track('nav_menu_open',{page:page()})},true);
+D.addEventListener('click',function(e){var s=e.target&&e.target.closest&&e.target.closest('summary'),d=s&&s.parentNode;if(d&&d.tagName==='DETAILS'&&!d.open)track('faq_open',{q:txt(s).slice(0,120),page:page()})},true);
+D.addEventListener('change',function(e){var t=e.target;if(t&&t.id==='ncitysel'&&t.value)track('city_select',{city:t.value.toLowerCase(),page:page()})},true);
+/* forms: honeypot, Turnstile gate, busy state, events. Capture phase on document: runs before page handlers. */
+var SITEKEY="";
+D.addEventListener('submit',function(e){var f=e.target;if(!f||f.tagName!=='FORM')return;
+ var hp=f.querySelector('input[name=company]');
+ if(hp&&hp.value){e.preventDefault();e.stopImmediatePropagation();track('join_blocked',{reason:'spam',form:f.id||'',page:page()});return}
+ if(!f.checkValidity()){var bad=f.querySelector(':invalid'),r=!bad?'invalid':bad.type==='email'?'email':bad.type==='checkbox'?'consent':bad.tagName==='SELECT'?'city':(bad.name||'invalid');track('join_blocked',{reason:r,form:f.id||'',page:page()});return}
+ if(SITEKEY&&f.querySelector('.ts')){var tok=f.querySelector('[name="cf-turnstile-response"]');
+  if(!tok||!tok.value){e.preventDefault();e.stopImmediatePropagation();track('join_blocked',{reason:'turnstile',form:f.id||'',page:page()});return}}
+ var b=f.querySelector('button[type=submit],button:not([type])');
+ if(b&&!b.disabled){b.dataset.evLabel=b.textContent;b.disabled=true;b.setAttribute('aria-busy','true');b.textContent='Sending…'}
+ var id=f.id||'',upd=f.querySelector('input[name=updates]'),utm={};
+ Object.keys(A).forEach(function(k){if(k.indexOf('utm_')===0)utm[k]=A[k]});
+ if(/^(lform|nform)/.test(id)){var isN=id.indexOf('nform')===0,c=f.querySelector('input[name=city]');
+  var city=isN?((c&&c.value)||''):'Leeds';
+  var p={list:isN?'city':'leeds',city:city.toLowerCase().slice(0,60),source:page(),updates:!!(upd&&upd.checked)};
+  Object.keys(utm).forEach(function(k){p[k]=utm[k]});track('waitlist_join',p)}
+ else if(id==='pform'){var pl=D.querySelector('input[name=plan]:checked'),hpl=f.querySelector('input[type=hidden][name=plan]');if(hpl)hpl.value=pl?pl.value:'annual';track('checkout_start',{plan:pl?pl.value:'annual',page:page()})}
+ else if(id==='cform'){var tp=f.querySelector('input[name=topic]:checked');track('contact_submit',{topic:tp?tp.value:'',page:page()})}
+},true);
+addEventListener('pageshow',function(){[].forEach.call(D.querySelectorAll('button[aria-busy=true]'),function(b){b.disabled=false;b.removeAttribute('aria-busy');if(b.dataset.evLabel)b.textContent=b.dataset.evLabel})});
+/* once the DOM is ready */
+function ready(){
+ /* utm hidden inputs on every form */
+ [].forEach.call(D.forms,function(f){Object.keys(A).forEach(function(k){if(f.querySelector('input[type=hidden][name="'+k+'"]'))return;
+  var i=D.createElement('input');i.type='hidden';i.name=k;i.value=A[k];f.appendChild(i)})});
+ /* Turnstile, only when a site key is set */
+ var slots=D.querySelectorAll('.ts[data-sitekey]');
+ if(SITEKEY&&slots.length){W.evTs=function(){[].forEach.call(slots,function(el){try{W.turnstile.render(el,{sitekey:SITEKEY,size:'flexible'})}catch(e){}})};
+  var t=D.createElement('script');t.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=evTs';t.async=true;t.defer=true;D.head.appendChild(t)}
+ /* page events */
+ if(P==='more')track('upformore_view',{page:page()});
+ if(Q.get('verified')==='1'){var j=Q.get('j');var vp={landing:page()};if(j&&/^[a-f0-9]{1,32}$/.test(j))vp.jid=j;track('waitlist_verify',vp)}
+ /* desktop QR seen */
+ var qr=D.querySelector('.qrbig,.qrc');
+ if(qr&&'IntersectionObserver' in W){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting&&x.target.offsetParent!==null){track('qr_view',{page:page()});io.disconnect()}})},{threshold:.5});io.observe(qr)}
+ /* scroll depth 25/50/75/100, window or the .stage scroller */
+ var hit={};
+ function depth(el){var top,h,vh;if(!el||el===D||el===D.documentElement||el===D.body){var se=D.scrollingElement||H;top=se.scrollTop;h=se.scrollHeight;vh=innerHeight}else{top=el.scrollTop;h=el.scrollHeight;vh=el.clientHeight}
+  if(h<=vh+4)return;var pc=(top+vh)/h*100;[25,50,75,100].forEach(function(m){if(!hit[m]&&pc>=m-1){hit[m]=1;track('scroll_depth',{depth:m,page:page()})}})}
+ D.addEventListener('scroll',function(e){depth(e.target)},{capture:true,passive:true});
+}
+if(D.readyState==='loading')D.addEventListener('DOMContentLoaded',ready);else ready();
+})();</script><!--/ev:head-->
+<title>Everl, the meet-in-person app | Manchester</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Outfit:wght@600&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<style>
+/* Layout: built from Aaron's picks. Dark photo hero, light middle, dark closer. One radius, one rhythm, one accent. */
+:root{
+  --night:#0e1322; --night2:#171d30; --ink:#0b0f1c; --ink2:#5b6275; --line:#e6e8ee; --paper:#ffffff; --mist:#f4f5f8;
+  --on:#f6f7fb; --on2:#aab2c7; --green:#34C759; --more:#8b5cf6; --moreBg:#15112a;
+  --r:28px; --f:"Geist",-apple-system,"SF Pro Display",system-ui,sans-serif; --word:"Outfit","Geist",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;background:#06080f}
+body{font:17px/1.5 var(--f);color:var(--ink);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+button{font:inherit;cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:2px solid #0a84ff;outline-offset:3px}
+h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.04em;text-wrap:balance}
+p{margin:0}
+
+/* preview bar */
+.pbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:90;background:#06080f;border-bottom:1px solid #1b2136;padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:14px;color:#aab2c7}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:95;background:#06080f}
+.pbar b{color:#fff;font-weight:600}.pbar .sp{flex:1}
+.seg{display:inline-flex;background:#141a2b;border-radius:99px;padding:3px}
+.seg button{border:0;background:none;color:#aab2c7;padding:6px 14px;border-radius:99px;font-size:14px;font-weight:500}
+.seg button[aria-pressed="true"]{background:#fff;color:#121212}
+.ghost{border:1px solid #2a3150;background:none;color:#fff;padding:6px 14px;border-radius:99px;font-size:14px}
+.stage.phone{padding:28px 16px 60px}
+.site{container-type:inline-size;margin:0 auto;background:var(--paper);overflow:clip;position:relative}
+.stage.phone .site{width:402px;max-width:100%;border-radius:40px;box-shadow:0 40px 80px rgba(0,0,0,.5)}
+.in{max-width:1200px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+@container (min-width:760px){.in{padding-left:48px;padding-right:48px}}
+.sec{padding-block:96px}
+@container (min-width:900px){.sec{padding-block:140px}}
+.h2{font-size:clamp(36px,6.2cqi,68px);line-height:1}
+.lead{font-size:19px;line-height:1.5;color:var(--ink2);max-width:38ch;text-wrap:pretty}
+.center{text-align:center;margin-inline:auto}
+.head{display:flex;flex-direction:column;gap:16px;margin-bottom:56px}
+.head.center{align-items:center}
+
+/* bits */
+.logo{display:inline-flex;align-items:center;gap:9px;font-family:var(--word);font-weight:600;font-size:24px;letter-spacing:-.02em;color:inherit;text-decoration:none}
+.sw{width:40px;height:24px;border-radius:99px;background:var(--green);position:relative;flex:none;display:inline-block;vertical-align:middle}
+.sw::after{content:"";position:absolute;top:2px;left:18px;width:20px;height:20px;border-radius:50%;background:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 24px;border-radius:14px;background:#fff;color:#111;font-weight:600;font-size:17px;border:0;text-decoration:none}
+.btn.dark{background:var(--ink);color:#fff}
+.badges{display:flex;gap:10px;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 18px 0 14px;border-radius:12px;background:#000;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.22)}
+.badge svg{width:22px;height:22px;fill:#fff}
+.badge span{display:flex;flex-direction:column;line-height:1.05}
+.badge small{font-size:10.5px;opacity:.85}.badge b{font-size:18px;font-weight:600;letter-spacing:-.01em}
+.badges.sm .badge{height:40px;padding:0 12px 0 10px;border-radius:10px}.badges.sm .badge b{font-size:14px}.badges.sm .badge small{font-size:9px}.badges.sm .badge svg{width:17px;height:17px}
+.lap{display:none}
+@container (min-width:900px){.lap,.hero .scan{display:flex}.mob{display:none!important}}
+
+/* iPhone frame */
+.iphone{container-type:inline-size;position:relative;width:280px;aspect-ratio:433/905;border-radius:14.6%/7%;padding:.9%;
+  background:linear-gradient(140deg,#6c6e73 0%,#2c2d30 18%,#1b1c1e 50%,#3a3b3e 82%,#77797e 100%);
+  box-shadow:0 1px 0 rgba(255,255,255,.25) inset,0 40px 70px -30px rgba(0,0,0,.6)}
+.iphone::before{content:"";position:absolute;right:-.8%;top:27%;width:1%;height:14%;border-radius:0 3px 3px 0;background:#3a3b3e}
+.iphone::after{content:"";position:absolute;left:-.8%;top:17%;width:1%;height:27%;border-radius:3px 0 0 3px;background:linear-gradient(180deg,#3a3b3e 0 20%,transparent 20% 34%,#3a3b3e 34% 62%,transparent 62% 70%,#3a3b3e 70% 100%)}
+.bez{height:100%;border-radius:14.6cqi;background:#000;padding:2.75cqi;position:relative}
+.scr{height:100%;border-radius:11.9cqi;overflow:hidden;background:#0e1322}
+.scr img{width:100%;height:100%;object-fit:cover;object-position:top}
+.island{position:absolute;left:50%;top:5.4cqi;transform:translateX(-50%);width:28.5cqi;height:8.4cqi;border-radius:99px;background:#000;z-index:2}
+
+/* 1 HERO: full-screen photo, words at the bottom (Hinge / Revolut mobile pattern) */
+.hero{position:relative;isolation:isolate;background:#07090f;color:#fff;overflow:hidden;min-height:max(640px,170cqi);display:flex;flex-direction:column}
+.hero .ph{position:absolute;inset:0;z-index:-2;background-image:var(--hm);background-size:auto 115%;background-position:50% 100%;background-repeat:no-repeat;background-color:#07090f}
+.hero .ph::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(7,9,15,.55) 0%,rgba(7,9,15,0) 16%),
+  linear-gradient(0deg,rgba(7,9,15,.96) 0%,rgba(7,9,15,.82) 26%,rgba(7,9,15,.25) 50%,rgba(7,9,15,0) 64%)}
+.nav .in{display:flex;align-items:center;gap:28px;height:76px}
+.nav .links{display:none;gap:28px;font-size:15px;color:rgba(255,255,255,.85)}
+.nav .links a{text-decoration:none}.nav .links a:hover{color:#fff}
+.nav .sp{flex:1}
+.nav .btn{height:40px;padding:0 16px;border-radius:12px;font-size:15px}
+@container (min-width:760px){.nav .links{display:flex}}
+.hero .body{margin-top:auto;padding-bottom:28px;width:100%}
+.hero .copy{display:flex;flex-direction:column;gap:18px;max-width:620px}
+.hero h1{font-size:clamp(40px,10.4cqi,92px);line-height:.98}
+.hero .lead{color:#e3e6f0;font-size:17px;max-width:32ch}
+.hero .badges{margin-top:6px}
+.hero .scan{display:none;align-items:center;gap:14px;font-size:14px;color:#c9cee0;line-height:1.35}
+.hero .scan .qr{width:64px;height:64px;background:#fff;border-radius:12px;padding:6px}
+.hero .scan .qr img{width:52px;height:52px;image-rendering:pixelated}
+@container (min-width:900px){
+  .hero{min-height:min(800px,56cqi)}
+  .hero .ph{background-image:var(--hw);background-size:cover;background-position:50% 30%}
+  .hero .ph::after{background:
+    linear-gradient(180deg,rgba(7,9,15,.5) 0%,rgba(7,9,15,0) 14%),
+    linear-gradient(0deg,rgba(7,9,15,.94) 0%,rgba(7,9,15,.7) 30%,rgba(7,9,15,0) 58%)}
+  .hero .body{padding-bottom:100px}
+  .hero .copy{max-width:none;gap:22px}
+  .hero h1{font-size:clamp(56px,5.6cqi,84px);max-width:16ch;line-height:.98}
+  .hero .lead{font-size:20px;max-width:44ch}
+  .hero .row{display:flex;align-items:center;gap:28px}
+  .hero .scan{display:flex}
+}
+
+/* 2 PROOF (Jeton) */
+.proof{background:var(--paper);text-align:center}
+.proof .big{font-size:clamp(48px,10cqi,128px);line-height:.95;letter-spacing:-.05em;font-weight:700}
+.proof .big .sw{width:1.25em;height:.72em;border-radius:99px;margin:0 .08em .06em;vertical-align:middle}
+.proof .big .sw::after{width:.6em;height:.6em;top:.06em;left:.59em}
+.proof p.small{margin-top:28px;color:var(--ink2);font-size:17px}
+.proof .badges{justify-content:center;margin-top:20px}
+.proof .badge{background:var(--ink);border-color:var(--ink)}
+
+/* 3 HOW (Biograph) */
+.how{background:var(--paper);padding-top:0}
+.cards3{display:grid;gap:20px}
+@container (min-width:900px){.cards3{grid-template-columns:repeat(3,1fr);gap:24px}}
+.step{display:flex;flex-direction:column;gap:18px}
+.step .pic{aspect-ratio:3/4;border-radius:var(--r);overflow:hidden;background:var(--mist)}
+.step .pic img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.step:hover .pic img{transform:scale(1.03)}
+.step .cap{display:grid;grid-template-columns:32px 1fr;gap:4px 12px}
+.step .n{width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:14px;font-weight:600;grid-row:span 2;margin-top:2px}
+.step h3{font-size:22px;letter-spacing:-.03em}
+.step p{color:var(--ink2);font-size:16px}
+
+/* 4 FEATURES (Apple) */
+.feat{background:var(--mist)}
+.cards2{display:grid;gap:24px;grid-template-columns:minmax(0,1fr)}
+@container (min-width:900px){.cards2{grid-template-columns:1fr 1fr}}
+.fcard{display:flex;flex-direction:column;gap:18px;min-width:0}
+.fcard .pic{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:#ddd}
+
+.fcard .pic img{width:100%;height:100%;object-fit:cover}
+.fcard h3{font-size:24px}
+.fcard p{color:var(--ink2);max-width:44ch}
+.fcard .txt{display:flex;flex-direction:column;gap:6px}
+
+/* 5 MODES (IKEA) */
+.modes{background:var(--paper)}
+.mcards{display:grid;gap:20px}
+@container (min-width:900px){.mcards{grid-template-columns:1.45fr 1fr}}
+.mcard{position:relative;border-radius:var(--r);overflow:hidden;min-height:560px;display:flex;flex-direction:column;justify-content:flex-end;padding:32px;color:#fff;isolation:isolate}
+.mcard.social .ph{position:absolute;inset:0;background:url(/everlweb/img/social.jpg) center 30%/cover;z-index:-1}
+.mcard.social .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,9,15,.94) 0%,rgba(7,9,15,.82) 34%,rgba(7,9,15,.2) 62%,rgba(7,9,15,0) 75%)}
+.mcard.more{background:var(--moreBg);justify-content:space-between}
+.mcard .k{font-size:15px;font-weight:600;color:rgba(255,255,255,.75);display:flex;align-items:center;gap:10px}
+.mcard h3{font-size:clamp(30px,4cqi,40px);line-height:1.05;margin-top:6px}
+.mcard .row{display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+.mcard .go{width:48px;height:48px;border-radius:50%;background:#fff;color:#111;display:grid;place-items:center;flex:none;text-decoration:none}
+.mcard .go svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.mcard.more .sw{background:var(--more)}
+.mcard.more .big{font-size:clamp(40px,5.4cqi,64px);line-height:.92;letter-spacing:-.05em;font-weight:700;color:#efeaff}
+.facts{display:flex;flex-direction:column;gap:12px;margin:28px 0 8px}
+.facts div{display:flex;gap:12px;align-items:baseline;color:#d8d2f0;font-size:17px}
+.facts div::before{content:"";flex:none;width:14px;height:8px;border-left:2px solid #b9a6ff;border-bottom:2px solid #b9a6ff;transform:rotate(-45deg) translateY(-3px)}
+
+/* 6 SAFETY (Campsite) */
+.safe{background:var(--paper)}
+.scard{background:var(--night);color:var(--on);border-radius:var(--r);padding:64px 28px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px}
+@container (min-width:900px){.scard{padding:88px 64px}}
+.scard .shield{width:56px;height:56px;border-radius:16px;background:rgba(255,255,255,.08);display:grid;place-items:center}
+.scard .shield svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.scard .h2{color:#fff}
+.scard .lead{color:var(--on2);margin-inline:auto}
+.promise{display:grid;gap:12px;margin-top:28px;width:100%;max-width:960px;text-align:left}
+@container (min-width:760px){.promise{grid-template-columns:repeat(2,1fr)}}
+@container (min-width:1000px){.promise{grid-template-columns:repeat(4,1fr)}}
+.promise div{background:rgba(255,255,255,.05);border-radius:18px;padding:18px 20px}
+.promise b{display:block;font-size:17px;margin-bottom:2px}
+.promise span{color:var(--on2);font-size:15px}
+
+/* 7 WALL (Bevel) */
+.wall{background:var(--paper);padding-top:0;overflow:hidden}
+.photos{display:flex;gap:12px;justify-content:center;align-items:center;margin-bottom:0}
+.photos .col{display:flex;flex-direction:column;gap:12px;flex:none}
+.photos img{border-radius:22px;object-fit:cover;width:var(--w,150px);height:var(--h,210px)}
+.photos .col:nth-child(n+6){display:none}
+@container (min-width:760px){.photos .col:nth-child(n+6){display:flex}}
+
+/* 8 FAQ */
+.faq{background:var(--mist)}
+.faq .in{display:grid;gap:40px}
+@container (min-width:900px){.faq .in{grid-template-columns:.8fr 1.2fr}}
+details{background:#fff;border-radius:20px;padding:0 24px;margin-bottom:10px}
+summary{list-style:none;cursor:pointer;padding:22px 0;font-weight:600;font-size:18px;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-weight:400;font-size:24px;line-height:1;color:var(--ink2)}
+details[open] summary::after{content:"−"}
+details p{padding-bottom:22px;color:var(--ink2)}
+
+/* 9 CLOSER (Shop) */
+.close{background:var(--night);color:var(--on);text-align:center}
+.close .in{display:flex;flex-direction:column;align-items:center;gap:18px}
+.close.sec{padding-block:96px}
+.close .pre{color:var(--on2);font-size:18px;max-width:34ch}
+.close h2{font-size:clamp(44px,7.4cqi,96px);line-height:.95;letter-spacing:-.05em}
+.close .qrbig{width:200px;height:200px;background:#fff;border-radius:28px;padding:18px;margin-top:10px}
+.close .qrbig img{width:164px;height:164px;image-rendering:pixelated}
+.close .hint{color:var(--on2);font-size:15px}
+footer.f{background:var(--night);color:var(--on2);font-size:14px;border-top:1px solid #1e253b}
+footer.f .in{display:flex;flex-wrap:wrap;align-items:center;gap:16px 26px;padding-top:36px;padding-bottom:36px}
+footer.f a{text-decoration:none}footer.f a:hover{color:#fff}
+footer.f .logo{color:#fff;margin-right:auto}
+footer.f .copy{opacity:.7;flex-basis:100%;text-align:right}
+
+/* sticky get-the-app pill on phones */
+.dock{position:sticky;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:20;display:flex;justify-content:center;pointer-events:none;height:0;overflow:visible}
+.dock{padding:0 16px}
+.dock a{pointer-events:auto;transform:translateY(-70px);width:100%;max-width:440px;height:56px;border-radius:99px;font-size:17px;gap:10px;box-shadow:0 14px 34px rgba(8,12,24,.32),0 0 0 1px rgba(255,255,255,.06) inset;opacity:0;transition:opacity .3s}
+.dock a svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.dock.on a{opacity:1}
+@container (min-width:900px){.dock{display:none}}
+
+
+/* trust line + mid-page CTA rows */
+.hero .trust{display:flex;flex-wrap:nowrap;gap:6px 16px;font-size:14px;color:#f1f3f9;margin-top:2px;white-space:nowrap}
+.hero .trust span{display:inline-flex;align-items:center;gap:7px}
+.hero .trust span::before{content:"";width:12px;height:7px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg) translateY(-2px)}
+.ctarow{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:48px;text-align:left}
+.ctarow .badges{justify-content:flex-start}
+.ctarow .badge{background:var(--ink);border-color:var(--ink)}
+.ctarow.dk .badge{background:#000;border-color:rgba(255,255,255,.22)}
+.ctanote{font-size:14px;color:var(--ink2)}
+.ctarow.dk .ctanote{color:var(--on2)}
+/* interests strip */
+.ints{background:var(--paper);text-align:center;padding-block:88px 40px}
+@container (min-width:900px){.ints{padding-block:120px 48px}}
+.ints .big{text-wrap:balance;max-width:14ch;margin-inline:auto;font-size:clamp(40px,6.4cqi,84px);line-height:.95;letter-spacing:-.05em;font-weight:700}
+.ints .big .sw{width:1.25em;height:.72em;border-radius:99px;margin:0 .1em .06em 0;vertical-align:middle}
+.ints .big .sw::after{width:.6em;height:.6em;top:.06em;left:.59em}
+.ints .lead{margin:22px auto 0}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:32px auto 0;max-width:860px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:99px;background:var(--mist);font-weight:500;font-size:16px}
+.chip i{font-style:normal}
+.chip.more{background:var(--ink);color:#fff}
+/* benefit line */
+.why{display:grid;gap:14px;margin:0 0 48px}
+@container (min-width:900px){.why{grid-template-columns:repeat(3,1fr);gap:20px}}
+.why div{background:#fff;border-radius:22px;padding:22px 24px}
+.why b{display:block;font-size:19px;letter-spacing:-.02em;margin-bottom:4px}
+.why span{color:var(--ink2);font-size:16px}
+/* social bullets */
+.mcard .sbul{display:flex;flex-direction:column;gap:8px;margin:14px 0 4px;color:#eef0f7;font-size:16px}
+.mcard .sbul div{display:flex;gap:10px;align-items:baseline}
+.mcard .sbul div::before{content:"";flex:none;width:12px;height:7px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg) translateY(-3px)}
+.mcard .go.lbl{width:auto;padding:0 18px;border-radius:99px;height:44px;font-weight:600;font-size:15px;gap:8px;display:inline-flex;align-items:center}
+.mcard .go.lbl svg{width:16px;height:16px}
+.mcard.more .big{font-size:clamp(28px,2.8cqi,34px)!important;line-height:1.05!important}
+.mcard.more{min-height:480px}
+/* faq single column */
+.faq .in{display:block!important}.faq .in>div{max-width:820px}
+.faq .h2{text-align:left;margin-bottom:36px}
+/* wall on phones: neat grid */
+@container (max-width:759px){
+  .photos{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .photos .col{display:contents}
+  .photos .col:nth-child(n+5){display:none!important}
+  .photos img{width:100%!important;height:auto!important;aspect-ratio:3/4;border-radius:14px}
+}
+/* footer on phones */
+@container (max-width:759px){footer.f .in{display:grid;grid-template-columns:1fr 1fr;gap:14px}footer.f .logo{grid-column:1/-1}}
+
+@container (max-width:899px){.step .pic{aspect-ratio:4/3}.step .pic img{object-position:center 35%}.hero .lead{font-size:16px}}
+.livecard{display:none}
+@container (min-width:1000px){.livecard{display:block;position:absolute;right:6%;bottom:110px;width:340px;border-radius:20px;box-shadow:0 24px 60px rgba(0,0,0,.5);z-index:1}}
+.close .pre{text-wrap:balance}
+.close.sec{padding-block:88px 72px}
+.wall.sec{padding-bottom:80px}
+.mcard.more{justify-content:flex-start;gap:22px;min-height:0}
+.mcard.more .row{margin-top:auto}
+@container (max-width:899px){
+  .ints .big{font-size:36px}
+  .step .pic{aspect-ratio:16/11!important}
+  .scard{padding:48px 18px}
+  .ctarow.dk .badge{height:46px;padding:0 12px 0 10px}
+  .ctarow.dk .badge b{font-size:15px}
+  .ctarow.dk .badge svg{width:18px;height:18px}
+  .wall.sec{padding-bottom:48px}
+}
+.sw.big{width:88px;height:52px}.sw.big::after{width:44px;height:44px;top:4px;left:40px}
+.livecard-m{display:block;width:min(300px,78cqi);margin:-58px auto 34px;position:relative;z-index:2;border-radius:16px;box-shadow:0 18px 40px rgba(7,9,15,.35)}
+@container (min-width:1000px){.livecard-m{display:none}}
+.ints{padding-top:56px!important}
+@container (min-width:900px){.ints{padding-top:56px!important}.ints .big{font-size:clamp(40px,5.4cqi,72px)!important}}
+.how.sec{padding-bottom:72px}
+.fcard h3{line-height:1.15}
+.fcard .pic.flat{background:#e9ebf1;display:flex;align-items:flex-start;justify-content:center;padding:36px 36px 0}
+.fcard .pic.flat img{width:min(320px,80%);height:auto;object-fit:contain;border-radius:22px 22px 0 0;box-shadow:0 20px 50px rgba(14,19,34,.18)}
+.mcard.more{align-self:end}
+@container (max-width:899px){.modes .h2{font-size:34px}.fcard .pic.flat{aspect-ratio:4/3;padding:24px 24px 0}}
+.close .qrbig{width:164px;height:164px;padding:14px}.close .qrbig img{width:136px;height:136px}
+.fcard .pic.flat{position:relative}
+.fcard .pic.flat::after{content:"";position:absolute;left:0;right:0;bottom:0;height:48px;background:linear-gradient(0deg,#e9ebf1,rgba(233,235,241,0))}
+.fcard .pic.flat img{max-width:100%}
+@container (max-width:759px){footer.f .copy{text-align:left}}
+/* final spacing pass: one rhythm */
+.ints{padding-bottom:8px!important}
+.how.sec{padding-top:64px!important;padding-bottom:88px}
+.wall.sec{padding-bottom:88px}
+.fcard .pic.flat img{border-radius:22px}
+.fcard .pic.flat{padding-bottom:36px}
+.mcard{min-height:440px}
+@container (max-width:899px){.feat.sec{padding-bottom:64px}.safe.sec{padding-top:64px}.fcard .pic.flat{padding-bottom:24px}}
+/* hero v5: real phone, single live line */
+.hero .live{display:flex;align-items:center;gap:10px;font-size:15px;color:#eef0f7;margin-top:4px}
+.sw.sm{width:30px;height:18px}.sw.sm::after{width:14px;height:14px;top:2px;left:14px}
+.hphone{display:none}
+@container (min-width:1000px){
+  .hphone{display:block;position:absolute;right:max(48px,calc((100cqi - 1200px)/2 + 48px));bottom:56px;z-index:1}
+  .hphone .iphone{width:258px}
+}
+.mphone{display:flex;justify-content:center;margin:-104px 0 36px;position:relative;z-index:2}
+
+.mphone .iphone{width:232px;flex:none;box-shadow:0 1px 0 rgba(255,255,255,.25) inset,0 30px 60px -20px rgba(8,12,24,.45)}
+@container (min-width:1000px){.mphone{display:none}}
+@container (max-width:999px){.hero{min-height:max(680px,190cqi)!important}.hero .body{padding-bottom:48px!important}.hero .ph{background-size:auto 125%!important;background-position:50% 100%!important}}
+/* phone demo: hidden -> tap -> on -> scroll the plans -> back (10s loop) */
+.scr.demo{position:relative}
+.demo .roll{position:absolute;left:0;top:0;width:100%;animation:roll 10s cubic-bezier(.45,0,.2,1) infinite}
+.demo .roll img{display:block;width:100%;height:auto;object-fit:initial}
+.demo .roll .hid{position:absolute;left:0;top:0;animation:hid 10s linear infinite}
+.demo .tabbar{position:absolute;left:0;bottom:0;width:100%;height:auto;object-fit:initial;z-index:3}
+.demo .tap{position:absolute;left:83%;top:49.7%;width:15%;aspect-ratio:1;margin:-7.5% 0 0 -7.5%;border-radius:50%;background:rgba(255,255,255,.55);box-shadow:0 0 0 2px rgba(255,255,255,.8);opacity:0;z-index:4;animation:tap 10s ease-out infinite}
+.demo .glow{position:absolute;left:50%;top:28%;width:70%;aspect-ratio:1;margin:-35% 0 0 -35%;border-radius:50%;background:radial-gradient(closest-side,rgba(52,199,89,.55),rgba(52,199,89,0));opacity:0;z-index:2;animation:glow 10s ease-out infinite}
+@keyframes hid{0%,14%{opacity:1}17%{opacity:0}89%{opacity:0}94%,100%{opacity:1}}
+@keyframes tap{0%,8%{opacity:0;transform:scale(1.5)}11%{opacity:1;transform:scale(1)}13%{opacity:.9;transform:scale(.85)}17%,100%{opacity:0;transform:scale(.8)}}
+@keyframes glow{0%,15%{opacity:0;transform:scale(.4)}23%{opacity:.9;transform:scale(1)}36%,100%{opacity:0;transform:scale(1.5)}}
+@keyframes roll{0%,36%{transform:translateY(0)}60%,78%{transform:translateY(-28.3%)}88%,100%{transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){.demo .roll,.demo .hid,.demo .tap,.demo .glow{animation:none}.demo .hid,.demo .tap,.demo .glow{opacity:0}}
+/* showcase: phone on its own on the white page */
+.show{background:var(--paper);padding-block:72px 24px}
+.show .in{display:flex;flex-direction:column-reverse;gap:40px;align-items:center}
+.show .txt{text-align:center;display:flex;flex-direction:column;gap:18px;align-items:center}
+.show .chips{margin-top:8px}
+.show .phonecol .iphone{width:250px}
+@container (min-width:900px){
+  .show{padding-block:112px 40px}
+  .show .in{display:grid;grid-template-columns:1.1fr .9fr;gap:64px}
+  .show .txt{text-align:left;align-items:flex-start}
+  .show .chips{justify-content:flex-start}
+  .show .phonecol{display:flex;justify-content:center}
+  .show .phonecol .iphone{width:300px}
+}
+/* comparison table */
+.cmp{background:var(--paper)}
+.tblwrap{max-width:980px;margin:0 auto;overflow-x:auto}
+/* v6 sections */
+.how2{background:var(--paper)}
+.steps3{display:grid;gap:44px}
+@container (min-width:900px){.steps3{grid-template-columns:repeat(3,1fr);gap:24px}}
+.st{display:flex;flex-direction:column;gap:10px}
+.st .panel{background:#eef0f4;border-radius:28px;padding:40px 0 0;display:flex;justify-content:center;align-items:flex-start;overflow:hidden;margin-bottom:12px;position:relative}
+.st .panel::after{content:"";position:absolute;left:0;right:0;bottom:0;height:18px;-webkit-backdrop-filter:blur(1.5px);backdrop-filter:blur(1.5px);-webkit-mask-image:linear-gradient(180deg,transparent,#000 80%);mask-image:linear-gradient(180deg,transparent,#000 80%);pointer-events:none}
+.st .crop{width:min(74%,300px);aspect-ratio:1/1.38;overflow:hidden;margin:0 auto}
+.st .crop .iphone{width:100%;padding:.6%;background:linear-gradient(140deg,#3b3c40 0%,#151618 22%,#0c0c0d 50%,#151618 78%,#3b3c40 100%);box-shadow:none}
+.st .crop .iphone::before,.st .crop .iphone::after{background:#222326}
+.st .n{width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:14px;font-weight:600}
+.st h3{font-size:22px;letter-spacing:-.03em}
+.st p{color:var(--ink2);font-size:16px;max-width:34ch}
+.cmp2{background:var(--night);color:#fff}
+.cmp2 .h2{color:#fff}
+.cmp2 .lead{color:var(--on2)}
+.cmp2 .side.them,.cmp2 .side.them h3{color:var(--on2)}
+.cmp2 .side.them li{border-top-color:rgba(255,255,255,.1)}
+.cmp2 .side.them .ic{stroke:rgba(255,255,255,.35)}
+.cmp2 .side.us{color:var(--ink);box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+
+.vs{display:grid;gap:16px;max-width:1000px;margin:0}
+@container (min-width:800px){.vs{grid-template-columns:1fr 1fr;align-items:center}}
+.side{border-radius:28px;padding:30px}
+.side h3{font-size:18px;margin-bottom:12px;display:flex;align-items:center;min-height:30px}
+.side ul{list-style:none;margin:0;padding:0}
+.side li{display:flex;gap:12px;align-items:flex-start;padding:16px 0;border-top:1px solid var(--line);font-size:17px;line-height:1.35}
+.side li:first-child{border-top:0}
+.side .ic{width:20px;height:20px;flex:none;margin-top:2px;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.side.them{background:transparent;color:var(--ink2)}
+.side.them h3{color:var(--ink2)}
+.side.them .ic{stroke:#a3a9b8}
+.side.us{background:#fff;box-shadow:0 30px 60px -30px rgba(14,19,34,.25),0 2px 6px rgba(14,19,34,.05);padding:34px}
+.side.us li{color:var(--ink);font-weight:500}
+.side.us .ic{stroke:var(--green)}
+.side.us .logo{font-size:22px}
+.sf{display:grid;gap:28px;align-items:center}
+@container (min-width:900px){.sf{grid-template-columns:1.05fr 1fr;gap:64px}}
+.sf-card{background:#eef0f4;border-radius:28px;overflow:hidden;display:flex;flex-direction:column;position:relative}
+.sf-tx{padding:32px 32px 28px}
+.sf-tx h3{font-size:22px;letter-spacing:-.03em;margin-bottom:6px}
+.sf-tx p{color:var(--ink2);font-size:16px;max-width:40ch}
+.sf-ph{display:flex;justify-content:center}
+.sf-ph .crop{width:min(58%,280px);aspect-ratio:1/1.52;overflow:hidden}
+.sf-ph .iphone{width:100%;padding:.6%;background:linear-gradient(140deg,#3b3c40 0%,#151618 22%,#0c0c0d 50%,#151618 78%,#3b3c40 100%);box-shadow:none}
+.sf-ph .iphone::before,.sf-ph .iphone::after{background:#222326}
+.sf-card::after{content:"";position:absolute;left:0;right:0;bottom:0;height:18px;-webkit-backdrop-filter:blur(1.5px);backdrop-filter:blur(1.5px);-webkit-mask-image:linear-gradient(180deg,transparent,#000 80%);mask-image:linear-gradient(180deg,transparent,#000 80%);pointer-events:none}
+.sf-list{list-style:none;margin:0;padding:0}
+.sf-list li{display:flex;gap:18px;align-items:flex-start;padding:24px 0;border-top:1px solid var(--line)}
+.sf-list li:first-child{border-top:0;padding-top:0}
+.sf-list .ico{width:44px;height:44px;border-radius:12px;background:#eef0f4;display:grid;place-items:center;flex:none}
+.sf-list .ico svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sf-list h3{font-size:19px;letter-spacing:-.02em;margin:2px 0 4px}
+.sf-list p{color:var(--ink2);font-size:16px;max-width:38ch}
+.safe2{background:var(--paper)}
+.bento{display:grid;gap:12px;grid-template-columns:1fr 1fr}.bento .big{grid-column:1/-1}
+@container (max-width:899px){.tile{padding:18px}.tile h3{font-size:16px}.tile p{font-size:14px}}
+@container (min-width:900px){.bento{grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto}.bento .big{grid-column:1/3;grid-row:1/3}}
+.tile{background:var(--mist);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:8px}
+.tile h3{font-size:19px;letter-spacing:-.02em}
+.tile p{color:var(--ink2);font-size:15px}
+.tile .ico{width:44px;height:44px;border-radius:12px;background:#fff;display:grid;place-items:center;margin-bottom:6px}
+.tile .ico svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tile.big{background:var(--night);color:#fff;padding:30px 30px 0;overflow:hidden;gap:22px}
+.tile.big p{color:var(--on2)}
+.tile.big .ph{display:flex;justify-content:center;margin-top:auto;height:300px;overflow:hidden}
+.tile.big .iphone{width:240px;flex:none}
+.modes2{background:var(--paper);padding-top:0}
+.mc2{display:grid;gap:20px}
+@container (min-width:900px){.mc2{grid-template-columns:1fr 1fr}}
+.m2{border-radius:28px;overflow:hidden;display:flex;flex-direction:column;color:#fff}
+.m2.social{background:var(--night)}.m2.more{background:#15112a}
+.m2 .pic{aspect-ratio:16/10;overflow:hidden}
+.m2 .pic img{width:100%;height:100%;object-fit:cover}
+.m2.social .pic img{object-position:center 35%}
+.m2 .body{padding:26px 28px 28px;display:flex;flex-direction:column;gap:12px;flex:1}
+.m2 .k{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:rgba(255,255,255,.8)}
+.m2 h3{font-size:clamp(26px,3cqi,32px);line-height:1.08}
+.m2 ul{list-style:none;margin:4px 0 8px;padding:0;display:flex;flex-direction:column;gap:9px}
+.m2 li{display:flex;gap:10px;align-items:baseline;font-size:16px;color:#e7e9f2}
+.m2 li::before{content:"";flex:none;width:12px;height:7px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg) translateY(-3px)}
+.m2.more li::before{border-color:#b9a6ff}
+.m2 .go{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 20px;border-radius:99px;background:#fff;color:#111;font-weight:600;font-size:15px;text-decoration:none}
+.m2 .go svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.sw.p{background:var(--more)}
+.wall{background:var(--paper)}
+.photos2{display:flex;gap:14px;align-items:center;height:360px}
+.photos2 img{flex:1 1 0;min-width:0;height:var(--h);border-radius:22px;object-fit:cover}
+@container (max-width:899px){.photos2{height:300px;overflow-x:auto;gap:10px;margin-inline:-20px;padding-inline:20px;scrollbar-width:none;scroll-snap-type:x mandatory}.photos2::-webkit-scrollbar{display:none}.photos2 img{flex:0 0 150px;scroll-snap-align:center}}
+.cities3{background:var(--paper);padding-top:0}
+.ccw{display:grid;gap:14px}
+@container (min-width:760px){.ccw{grid-template-columns:1fr 1fr;gap:18px}.ccx.soon{grid-column:1/-1}}
+.ccx{border-radius:26px;padding:26px;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+@container (min-width:900px){.ccx{padding:34px}}
+.ccx .tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:6px 12px;border-radius:99px;margin-bottom:10px}
+.ccx h3{font-size:clamp(34px,5cqi,48px);line-height:1;letter-spacing:-.04em}
+.ccx p{font-size:16px;max-width:36ch}
+.ccx .btn{height:44px;font-size:15px;padding:0 18px;border-radius:12px;margin-top:14px}
+.ccx.live{background:var(--night);color:#fff}.ccx.live .tag{background:rgba(255,255,255,.1)}.ccx.live p{color:var(--on2)}
+.ccx.next{background:var(--mist)}.ccx.next .tag{background:var(--ink);color:#fff}.ccx.next p{color:var(--ink2)}
+.ccx.soon{background:#fff;border:1px solid var(--line);gap:16px}
+.ccx.soon .top{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%}
+.ccx.soon .lbl{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+.ccx.soon .all{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:600;text-decoration:none}
+.ccx.soon .all svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2}
+.ccx.soon ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.ccx.soon li{font-size:16px;font-weight:500;padding:9px 15px;border-radius:99px;background:var(--mist)}
+.ccx.soon li.rest{background:none;border:1px dashed #c9cdd8;color:var(--ink2)}
+#compare .head{margin-bottom:36px}
+/* reveal on scroll, visible at rest */
+.rv{transition:transform .9s cubic-bezier(.2,.7,.2,1),opacity .9s}
+.rv.pre{transform:translateY(24px);opacity:.001}
+@media (prefers-reduced-motion:reduce){.rv,.rv.pre{transition:none;transform:none;opacity:1}.step .pic img{transition:none}}
+
+.ov{position:fixed;inset:0;z-index:99;background:rgba(3,5,10,.88);display:grid;place-items:center;padding:24px}
+.ov figure{margin:0;max-width:1000px;display:flex;flex-direction:column;gap:12px;color:#aab2c7;font-size:14px}
+.ov img{border-radius:14px}.ov .ghost{align-self:flex-end}
+
+footer.f .ig{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);color:#fff}
+footer.f .ig:hover{background:rgba(255,255,255,.16)}
+footer.f .ig svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8}
+footer.f .soc{display:flex;gap:10px}
+@container (max-width:759px){footer.f .soc{grid-column:1/-1}}
+
+.nav .mnu{display:inline-grid;align-content:center;justify-items:center;gap:5px;width:42px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.1);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);padding:0}
+.nav .mnu span{display:block;width:18px;height:2px;border-radius:2px;background:#fff}
+@container (max-width:759px){.nav .in{gap:10px}}
+@container (min-width:760px){.nav .mnu{display:none}}
+
+/* up for more band 25 Nov */
+.upm{background:#0b0c0f;color:var(--on)}
+.upm .in{display:grid;gap:36px}
+.upm-ph{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3}
+.upm-ph img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;display:block}
+.upm-pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#d9d0ff;background:rgba(139,92,246,.18);border-radius:999px;padding:6px 12px 6px 8px;margin-bottom:18px}
+.upm .h2{color:#fff;text-align:left}
+.upm .lead{color:var(--on2);text-align:left;margin-top:14px}
+.upm-pts{list-style:none;margin:24px 0 32px;padding:0;display:flex;flex-wrap:wrap;gap:10px 22px}
+.upm-pts li{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:500;color:#fff}
+.upm-pts li::before{content:"";width:16px;height:16px;flex:none;background:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23b9a6ff%27 stroke-width=%272.6%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M5 12.5l4.5 4.5L19 7.5%27/%3E%3C/svg%3E") center/contain no-repeat}
+.upm + .wall{padding-top:96px}
+@container (min-width:900px){.upm + .wall{padding-top:140px}}
+.upm-go{display:inline-flex;align-items:center;gap:10px;background:#fff;color:#0b0c0f;text-decoration:none;font-weight:600;font-size:16px;padding:15px 22px;border-radius:999px}
+.upm-go svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.upm-go:hover{background:#ece8ff}
+@container (min-width:900px){
+ .upm .in{grid-template-columns:1fr 1fr;align-items:center;gap:64px}
+ .upm-ph{order:2;aspect-ratio:4/5}
+ .upm-copy{order:1}
+}
+
+/* side menu drawer */
+.dr{position:absolute;left:0;right:0;z-index:80}
+.dr[hidden]{display:none}
+.dr-bg{position:absolute;inset:0;background:rgba(8,10,18,.4);opacity:0;transition:opacity .25s}
+.dr.show .dr-bg{opacity:1}
+.dr-panel{position:absolute;top:0;right:0;bottom:0;width:100%;max-width:440px;background:#fff;color:var(--ink);display:flex;flex-direction:column;padding:0 24px 28px;overflow:auto;transform:translateX(100%);transition:transform .32s cubic-bezier(.2,.8,.2,1)}
+.dr.show .dr-panel{transform:none}
+.dr-top{display:flex;align-items:center;justify-content:space-between;height:72px;flex:none}
+.dr .logo{color:inherit;text-decoration:none}
+.dr-x{width:42px;height:42px;border-radius:50%;border:0;background:#f1f2f5;display:grid;place-items:center;padding:0;color:inherit}
+.dr-x svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
+.dr-links{display:flex;flex-direction:column;gap:2px;margin-top:28px}
+.dr-links a{font-size:34px;font-weight:700;letter-spacing:-.035em;line-height:1.2;padding:6px 0;text-decoration:none;color:inherit;opacity:.92}
+.dr-links a:hover,.dr-links a.on{opacity:1}
+.dr-links a.on{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:7px}
+.dr-small{display:flex;flex-direction:column;gap:4px;margin-top:28px;padding-top:24px;border-top:1px solid #e9ebf0}
+.dr-small a{font-size:18px;font-weight:500;color:#5b6275;text-decoration:none;padding:6px 0;display:flex;align-items:center;gap:10px}
+.dr-small a:hover{color:var(--ink)}
+.dr-small em{font-style:normal;font-size:12px;font-weight:600;padding:3px 8px;border-radius:99px;border:1px solid currentColor;line-height:1}
+.dr-foot{margin-top:auto;padding-top:32px;display:grid;gap:16px}
+.dr-get{display:flex;align-items:center;justify-content:center;height:56px;border-radius:99px;background:var(--ink);color:#fff;font-weight:600;font-size:17px;text-decoration:none}
+.dr-row{display:flex;align-items:center;justify-content:space-between;font-size:14px;color:#8a90a0}
+.dr-soc{display:flex;gap:8px}
+.dr-soc a{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:var(--ink);background:#f1f2f5}
+.dr-soc svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8}
+.dr.dark .dr-panel{background:#0f1118;color:#fff}
+.dr.dark .dr-x{background:rgba(255,255,255,.1)}
+.dr.dark .dr-small{border-top-color:rgba(255,255,255,.1)}
+.dr.dark .dr-small a{color:var(--on2)}.dr.dark .dr-small a:hover{color:#fff}
+.dr.dark .dr-get{background:#fff;color:#0f1118}
+.dr.dark .dr-soc a{background:rgba(255,255,255,.1);color:#fff}
+.dr.dark .dr-row{color:var(--on2)}
+/* end side menu drawer */
+
+/* audit fixes 25 Nov */
+.hero .trust{flex-wrap:wrap;white-space:normal}
+.hero .notcity{font-size:15px;color:#eef0f7;margin-top:2px}.hero .notcity a{color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.lf,.lf2{display:grid;gap:10px;width:100%}
+.lf{margin-top:10px}
+.lf .inp,.lf2 .inp{height:50px;border-radius:12px;border:1px solid #d7dae3;background:#fff;padding:0 14px;font:inherit;font-size:16px;color:var(--ink);width:100%}
+.lf .inp:focus,.lf2 .inp:focus{outline:2px solid var(--ink);outline-offset:0;border-color:transparent}
+.lf .btn,.lf2 .btn{width:100%;height:50px;margin-top:2px}
+.tick{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--ink2);line-height:1.4;cursor:pointer}
+.tick input{flex:none;width:20px;height:20px;margin:1px 0 0;accent-color:var(--ink)}
+.tick a{color:inherit;text-decoration:underline}
+.ccx.soon .cj{color:inherit;text-decoration:none;display:inline-flex;gap:8px;align-items:center}.ccx.soon .cj span{font-weight:600;opacity:.6}
+.ccx.soon li:has(.cj):hover{background:#e9ebf1}
+.lf2 select.inp,.lf select.inp,select.inp{-webkit-appearance:none;appearance:none;padding-right:48px;background-color:#fff;background-image:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2714%27 height=%2714%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%235b6275%27 stroke-width=%272.4%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M6 9l6 6 6-6%27/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center;background-size:16px}
+/* leeds card tidy 25 Nov */
+.ccx.next .tag{background:none;color:var(--ink2);padding:0;border-radius:0;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.ccx.next .lf{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:14px}
+.ccx.next .lf .inp{grid-column:1;grid-row:1;height:48px;border-color:#e1e4ea}
+.ccx.next .lf .btn{grid-column:2;grid-row:1;width:auto;height:48px;margin:0;padding:0 22px;border-radius:12px}
+.ccx.next .lf .tick{grid-column:1/-1;grid-row:2;font-size:13px;gap:8px;margin-top:4px}
+.ccx.next .lf .tick input{width:16px;height:16px;margin-top:1px}
+.cc2.next .tag{background:none;color:var(--ink2);padding:0;border-radius:0;letter-spacing:.06em;text-transform:uppercase}
+.cc2.next .lf{display:grid;grid-template-columns:1fr auto;gap:8px}
+.cc2.next .lf .inp{grid-column:1;grid-row:1;height:48px}
+.cc2.next .lf .btn{grid-column:2;grid-row:1;width:auto;height:48px;margin:0;padding:0 22px}
+.cc2.next .lf .tick{grid-column:1/-1;grid-row:2;font-size:13px;gap:8px;margin-top:4px}
+.cc2.next .lf .tick input{width:16px;height:16px}
+.ccx.soon .top{flex-wrap:wrap;row-gap:6px}.ccx.soon .lbl,.ccx.soon .all{white-space:nowrap}
+.tick input{-webkit-appearance:none;appearance:none;width:18px!important;height:18px!important;border:1.5px solid #c3c8d3;border-radius:5px;background:#fff;cursor:pointer;flex:none;margin-top:1px}
+.tick input:checked{background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27white%27 stroke-width=%273%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27M5 12.5l4.5 4.5L19 7.5%27/%3E%3C/svg%3E") center/13px no-repeat;border-color:var(--ink)}
+.tick input:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.ccx.else{grid-column:1/-1;background:#fff;border:1px solid var(--line);flex-direction:row;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;text-decoration:none;color:inherit;padding:22px 26px}
+.ccx.else h3{font-size:20px;letter-spacing:-.02em;line-height:1.2}
+.ccx.else p{font-size:15px;color:var(--ink2);margin-top:4px}
+.ccx.else .go{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;white-space:nowrap}
+.ccx.else .go svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ccx.else:hover{border-color:#c9cdd8}
+/* end audit fixes */
+
+/* fixpass 25 Nov */
+.dock a{pointer-events:none;visibility:hidden;transition:opacity .25s,visibility 0s .25s}
+.dock.on a{pointer-events:auto;visibility:visible;transition:opacity .25s,visibility 0s}
+.dock.dark a{background:#fff;color:#0b0f1c;box-shadow:0 14px 34px rgba(0,0,0,.45)}
+.nav .links a{text-shadow:0 1px 10px rgba(0,0,0,.45);white-space:nowrap}
+.nav .btn{white-space:nowrap;height:44px}
+.nav .mnu{width:44px;height:44px}
+.ccx.next .tag{text-transform:none;letter-spacing:0;font-size:14px;font-weight:600}
+.tick{padding-block:4px}
+@container (max-width:999px){.nav .links{display:none!important}.nav .mnu{display:inline-grid!important}}
+@container (max-width:599px){.site .sec{padding-block:64px}}
+@container (min-width:700px) and (max-width:999px){
+ .hero{min-height:min(900px,116cqi)!important}
+ .hero .ph{background-size:cover!important;background-position:50% 88%!important}
+ .hero .body{padding-bottom:56px!important}
+ .hero h1{font-size:clamp(48px,8cqi,72px)}
+ .hero .lead{max-width:40ch;font-size:18px}
+ .steps3{grid-template-columns:repeat(3,1fr);gap:16px}
+ .st .panel{padding-top:28px}
+ .st h3{font-size:19px}
+ .st p{font-size:15px}
+ .cards2{display:grid!important;grid-template-columns:1fr 1fr;gap:20px}
+ .fcard h3{font-size:20px}
+ .sf{display:grid!important;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+ .sf-list li{padding:18px 0}
+}
+@container (min-width:1000px){
+ .hero{min-height:min(760px,54cqi)!important}
+ .hero .ph{left:40%;background-image:var(--hw)!important;background-size:cover!important;background-position:46% 28%!important}
+ .hero .ph::after{background:linear-gradient(90deg,#07090f 0%,rgba(7,9,15,.7) 14%,rgba(7,9,15,0) 42%),linear-gradient(180deg,rgba(7,9,15,.6) 0%,rgba(7,9,15,0) 24%),linear-gradient(0deg,rgba(7,9,15,.5) 0%,rgba(7,9,15,0) 30%)!important}
+ .hero .body{margin-block:auto!important;padding-block:32px 72px!important}
+ .hero .copy{max-width:540px!important;gap:20px!important}
+ .hero h1{font-size:clamp(48px,4.1cqi,62px)!important;max-width:none!important;line-height:1.02!important}
+ .hero h1 .l{display:block}
+ .hero .copy{max-width:640px!important}
+ .hero .lead{font-size:19px!important;max-width:34ch!important}
+}
+
+/* upm polish 25 Nov */
+.upm .h2 .l{display:block}
+.upm-pts{flex-direction:column;align-items:flex-start;gap:12px;margin:26px 0 30px}
+.upm-note{font-size:14px;color:var(--on2);margin-top:14px}
+.upm .h2{max-width:none!important}
+@container (min-width:1200px){.upm .h2 .l{white-space:nowrap}}
+@container (min-width:900px){
+ .upm .in{grid-template-columns:1.2fr 1fr!important;gap:64px!important}
+ .upm .h2{font-size:clamp(36px,3.1cqi,46px)!important;line-height:1.04;letter-spacing:-.035em}
+ .upm .lead{font-size:18px;max-width:40ch}
+ .upm-ph{aspect-ratio:1/1!important}
+ .upm-ph img{object-position:50% 40%}
+}
+</style><!--seo--><meta name="description" content="Everl is the UK app for meeting people near you, in person. Switch on when you&#x27;re free, both say yes, then meet somewhere public. Live in Manchester. 18+."><link rel="canonical" href="https://everl.com/"><meta name="theme-color" content="#0e1322"><link rel="icon" href="/everlweb/favicon.ico" sizes="32x32"><link rel="icon" href="/everlweb/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/everlweb/apple-touch-icon.png"><link rel="manifest" href="/everlweb/site.webmanifest"><meta property="og:type" content="website"><meta property="og:site_name" content="Everl"><meta property="og:locale" content="en_GB"><meta property="og:title" content="Everl, the meet-in-person app | Manchester"><meta property="og:description" content="Everl is the UK app for meeting people near you, in person. Switch on when you&#x27;re free, both say yes, then meet somewhere public. Live in Manchester. 18+."><meta property="og:url" content="https://everl.com/"><meta property="og:image" content="https://everl.com/og/everl-og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Three friends chatting at a climbing wall, with the Everl logo"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Everl, the meet-in-person app | Manchester"><meta name="twitter:description" content="Everl is the UK app for meeting people near you, in person. Switch on when you&#x27;re free, both say yes, then meet somewhere public. Live in Manchester. 18+."><meta name="twitter:image" content="https://everl.com/og/everl-og.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://everl.com/#org","name":"Everl","url":"https://everl.com/","alternateName":["Everl app","Everl UK"],"description":"Everl is a UK app for adults that helps you meet people near you in person: switch on when you are free, both say yes, then meet somewhere public.","disambiguatingDescription":"The UK meet-in-person app at everl.com.","logo":{"@type":"ImageObject","url":"https://everl.com/icon-512.png","width":512,"height":512},"sameAs":["https://www.instagram.com/everlapp","https://www.facebook.com/profile.php?id=61593360002124"],"areaServed":[{"@type":"City","name":"Manchester"},{"@type":"City","name":"Leeds"}]},{"@type":"WebSite","@id":"https://everl.com/#website","name":"Everl","url":"https://everl.com/","inLanguage":"en-GB","publisher":{"@id":"https://everl.com/#org"}},{"@type":"MobileApplication","@id":"https://everl.com/#app","name":"Everl","operatingSystem":"iOS, Android","applicationCategory":"SocialNetworkingApplication","url":"https://everl.com/","installUrl":"https://everl.com/app","description":"Switch on when you're free and Everl tells you when someone nearby is up for the same thing. Both say yes, then meet somewhere public. 18+.","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"publisher":{"@id":"https://everl.com/#org"}},{"@type":"WebPage","@id":"https://everl.com/#page","url":"https://everl.com/","name":"Everl, the meet-in-person app | Manchester","description":"Everl is the UK app for meeting people near you, in person. Switch on when you're free, both say yes, then meet somewhere public. Live in Manchester. 18+.","inLanguage":"en-GB","isPartOf":{"@id":"https://everl.com/#website"}},{"@type":"FAQPage","@id":"https://everl.com/#faq","mainEntity":[{"@type":"Question","name":"Is Everl for dating or for friends?","acceptedAnswer":{"@type":"Answer","text":"Everl starts on Social, for plans and new friends. Up for more is a separate side for meeting someone, and you choose it yourself."}},{"@type":"Question","name":"Is Everl for straight people?","acceptedAnswer":{"@type":"Answer","text":"Everl is for everyone over 18, whoever you are and whoever you’re into. On Up for more you say who you’re looking for, in private."}},{"@type":"Question","name":"Will there be anyone near me?","acceptedAnswer":{"@type":"Answer","text":"Everl is live in Manchester now, and Leeds is next. When you switch on, you see how many people nearby are up for the same thing. If nobody is yet, stay on and Everl tells you when someone is."}},{"@type":"Question","name":"How old do I need to be?","acceptedAnswer":{"@type":"Answer","text":"Everl is for over 18s only. The first time you switch on, an independent checker confirms your age with a quick selfie. Everl only gets a yes or no."}},{"@type":"Question","name":"Do I need a profile or a photo?","acceptedAnswer":{"@type":"Answer","text":"No. There are no profiles or photos, and no chat before you meet. You pick what you’re up for and Everl does the rest."}},{"@type":"Question","name":"What if it’s awkward?","acceptedAnswer":{"@type":"Answer","text":"You meet somewhere public, to do one thing you both chose. If it isn’t for you, you can leave. The other person is never told why."}},{"@type":"Question","name":"Who can see where I am?","acceptedAnswer":{"@type":"Answer","text":"Nobody can see you on a map. Others only see how many people nearby are up for something. The meeting place is only shared once you’ve both said yes."}},{"@type":"Question","name":"Is it free?","acceptedAnswer":{"@type":"Answer","text":"Yes, Everl is free. Everl+ is optional: £17.99 a month, £179 a year or £24 for 30 days. Monthly and yearly start with 3 days free. Cancel any time."}}]}]}</script><!--/seo--><!--ev:ab--><script>/*hero A/B: A friends (climbing), B dating (bar glance)*/(function(){try{var q=new URLSearchParams(location.search),k=((q.get('hook')||'')+' '+(q.get('utm_content')||'')+' '+(q.get('utm_campaign')||'')).toLowerCase(),v=null,S;
+try{S=localStorage}catch(e){}
+if(window.EV_HERO_FORCE==='a'||window.EV_HERO_FORCE==='b')v=window.EV_HERO_FORCE;
+else if(q.get('hero')==='a'||q.get('hero')==='b')v=q.get('hero');
+else if(/walkedpast|noticed|didhethink|nevermet|dating|lookup|m4m|feedlads/.test(k))v='b';
+else{try{v=S&&S.getItem('ev_hero')}catch(e){}if(v!=='a'&&v!=='b')v=Math.random()<.5?'a':'b'}
+try{S&&S.setItem('ev_hero',v)}catch(e){}
+window.EV_HERO=v;if(v==='b')document.documentElement.classList.add('hero-b');
+var apply=function(){var h=document.querySelector('header.hero');if(h&&v==='b'){h.style.setProperty('--hm','url(/everlweb/img/hero-m-glance-1116.webp)');h.style.setProperty('--hw','url(/everlweb/img/hero-w-glance-1920.webp)')}
+ try{window.everlTrack&&window.everlTrack('hero_view',{hero:v})}catch(e){}};
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply()}catch(e){}})();</script><!--/ev:ab--><!--ev:hook--><script>/*hook: match the ad's story (insights i24)*/(function(){try{var q=new URLSearchParams(location.search),k=((q.get('hook')||'')+' '+(q.get('utm_content')||'')).toLowerCase();
+var H=[[/walkedpast|walked_past|walked-past/,['You walked past.','Neither of you said hi.']],[/noticed|didhethink|didthey/,['You noticed them.','Maybe they noticed you.']],[/nevermet|never_met/,['You&rsquo;ve never met.','You might tonight.']]];
+var hit=null;H.forEach(function(h){if(!hit&&h[0].test(k))hit=h[1]});if(!hit)return;
+var go=function(){var h1=document.querySelector('.hero h1');if(!h1)return;h1.innerHTML='<span class="l">'+hit[0]+'</span> <span class="l">'+hit[1]+'</span>';var ld=document.querySelector('.hero .lead');if(ld)ld.textContent='Next time, Everl tells you when someone nearby is up for it too. You both say yes, then meet somewhere public.'};
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go()}catch(e){}})();</script><!--/ev:hook--><!--ev:polish--><style>.kick,.tag,.lbl{text-transform:none!important;letter-spacing:0!important}footer.f .in>a{padding-block:10px}.crumb{min-height:44px;display:flex!important;width:max-content;align-items:center}.pg-hero .kick,.kick{display:block}.tick a{display:inline-block;padding-block:2px}.how .st .n,.col .n{background:#7c3aed!important}.jcta h3+p{margin-top:10px}.hero .lf .tick{color:#e3e6f0!important}.hero .lf .tick a{color:#fff!important}.hero:has(#lform-hero) .ph::after{background:linear-gradient(0deg,rgba(7,9,15,.97) 0%,rgba(7,9,15,.9) 50%,rgba(7,9,15,.55) 75%,rgba(7,9,15,.25) 100%)!important}.hero:has(#lform-hero) .lf{max-width:460px}.hero .lf .btn{background:#fff!important;color:#0b0f1c!important}.fxin{display:grid!important;grid-template-columns:1fr;gap:28px!important;padding-top:44px!important;padding-bottom:28px!important;border-bottom:1px solid rgba(255,255,255,.1)}@container (min-width:760px){.fxin{grid-template-columns:1fr 1fr;gap:48px!important}}.fx{display:contents}.fx h3{font-size:15px;font-weight:600;color:#fff;margin:0 0 12px}.fx ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px}.fx a{display:inline-block;padding-block:6px;font-size:14px;color:inherit;text-decoration:none}.fx a:hover{color:#fff;text-decoration:underline}
+/* homepage carousel + cities block (25 Nov). Added by build/launch.py on every run, so rebuilds can't drop it. */
+.wall-head{text-align:center;margin:0 auto 36px;max-width:640px;display:grid;justify-items:center}
+.wall-head .h2,.wall-head .lead{text-align:center;margin-inline:auto}
+.wall-head .lead{max-width:46ch}
+.cf{position:relative;container-type:inline-size}
+.cf-track{--cw:min(64cqi,300px);display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-inline:calc(50% - var(--cw)/2);padding-block:18px;-webkit-overflow-scrolling:touch;outline:none}
+.cf-track::-webkit-scrollbar{display:none}
+.cf-card{flex:0 0 var(--cw);margin:0;scroll-snap-align:center;aspect-ratio:3/4.2;border-radius:24px;overflow:hidden;background:#e9ebf1;transform:scale(var(--s,.84));opacity:var(--o,.82);transition:transform .35s cubic-bezier(.2,.7,.2,1),opacity .35s,box-shadow .35s;will-change:transform}
+.cf-card.on{box-shadow:0 24px 50px rgba(14,19,34,.22)}
+.cf-card img{width:100%;height:100%;object-fit:cover;display:block}
+.cf-foot{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:10px}
+.cf-cap{min-width:0;flex:0 1 320px;text-align:center;font-size:15px;font-weight:500;color:var(--ink);min-height:22px;margin:0}
+.cf-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;display:grid;place-items:center;cursor:pointer;flex:none;padding:0}
+.cf-btn svg{width:18px;height:18px;fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cf-btn:hover{border-color:#c9cdd8}
+.cf-track:focus-visible{outline:2px solid #0a84ff;outline-offset:4px;border-radius:24px}
+@container (min-width:760px){.cf-track{--cw:300px;gap:20px}}
+@container (min-width:1100px){.cf-track{--cw:330px;gap:24px}}
+@media (prefers-reduced-motion:reduce){.cf-card{transition:none}}
+.ccx.next{justify-content:flex-start}
+.ccx-else{grid-column:1/-1;text-align:center;font-size:16px;color:var(--ink2);margin:10px 0 0}
+.ccx-else a{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+
+/* Manchester "Live now" card: photo on top, text on solid dark below (homepage .ccx + cities page .cc2) */
+.ccx.live,.cc2.live{position:relative;overflow:hidden;justify-content:flex-start!important;min-height:0!important;
+ background:var(--img) center top/100% auto no-repeat,#0e1322!important;padding:calc(50% + 24px) 28px 28px!important;color:#fff}
+.ccx.live::before,.ccx.live::after,.cc2.live::before,.cc2.live::after{display:none!important}
+.ccx.live .tag,.cc2.live .tag{position:absolute!important;top:18px;left:18px;margin:0;background:rgba(7,9,15,.62)!important;color:#fff!important;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.ccx.live h3,.cc2.live h2{color:#fff}
+.ccx.live p,.cc2.live p{color:#c9cfdf!important}
+
+/* phone hero: fills the screen, text sits in the dark bottom area, clean line breaks (25 Nov) */
+@container (max-width:599px){
+ .hero{min-height:100svh!important}
+ .hero .body{padding-bottom:max(24px,env(safe-area-inset-bottom,0px))!important}
+ .hero .copy{gap:14px!important}
+ .hero h1{font-size:clamp(33px,10.2cqi,42px)!important;line-height:1.03!important;letter-spacing:-.035em}
+ .hero h1 .l{display:block}
+ .hero .lead{font-size:16px!important;line-height:1.45}
+ .hero .badges .badge{height:50px}
+ .hero .trust{gap:6px 14px!important;font-size:13px!important}
+ .hero .notcity{font-size:14px!important;margin-top:0!important}
+}
+
+/* Leeds "Next" card matches Manchester: photo on top, sign-up below (homepage .ccx + cities page .cc2) */
+.ccx.next,.cc2.next{position:relative;overflow:hidden;justify-content:flex-start!important;min-height:0!important;
+ background:var(--img) center top/100% auto no-repeat,#f4f5f8!important;padding:calc(50% + 24px) 28px 28px!important}
+.ccx.next .tag,.cc2.next .tag{position:absolute!important;top:18px;left:18px;margin:0!important;padding:6px 12px!important;border-radius:99px!important;background:rgba(255,255,255,.88)!important;color:#0b0f1c!important;font-size:13px!important;font-weight:600!important;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+
+/* Cities page: one "pick your city" sign-up block in place of the numbered list */
+.notify{display:block!important;background:#f4f5f8;border-radius:26px;padding:clamp(22px,4cqi,40px)!important}
+.notify .cj-head{margin-bottom:18px}
+.notify .cj-head h2{font-size:clamp(28px,3.4cqi,40px);line-height:1.05;letter-spacing:-.03em;margin:0 0 12px}
+.notify .cj-head p{color:var(--ink2);font-size:16px;line-height:1.55;max-width:40ch;margin:0}
+#nform{display:grid!important;grid-template-columns:1fr auto;gap:10px;max-width:680px}
+#nform>*{grid-column:1/-1}
+.cj-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.cj{font:500 15px var(--f,inherit);padding:10px 16px;min-height:44px;border-radius:99px;border:1px solid #d7dae3;background:#fff;color:var(--ink);cursor:pointer}
+.cj:hover{border-color:#aeb4c4}
+.cj[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.cj:focus-visible{outline:2px solid #0a84ff;outline-offset:2px}
+.cj-err{color:#c2342b;font-size:14px;margin:0}
+#nform #ncitysel{position:absolute!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important;padding:0!important;border:0!important}
+#nform input[type=email]{grid-column:1;height:48px}
+#nform button[type=submit]{grid-column:2;grid-row:auto;width:auto!important;height:48px;margin:0!important;padding:0 22px}
+#nform #nother{grid-column:1/-1}
+#nform .tick{font-size:13px}
+
+/* Safety page redesign (25 Nov): hero photo, alternating feature rows, three quiet points */
+.sfx-hero{display:grid;gap:28px;align-items:center}
+.sfx-hcopy{display:flex;flex-direction:column;gap:14px}
+.sfx-hph{border-radius:var(--r,28px);overflow:hidden;aspect-ratio:4/3;background:#e9ebf1}
+.sfx-hph img{width:100%;height:100%;object-fit:cover;display:block}
+@container (min-width:900px){.sfx-hero{grid-template-columns:1.05fr 1fr;gap:64px}.sfx-hero h1{font-size:clamp(44px,4.4cqi,64px)}}
+.sfx{display:grid;gap:clamp(56px,8cqi,104px);margin-top:clamp(40px,6cqi,80px)}
+.sfx-row{display:grid;gap:24px;align-items:center}
+@container (min-width:760px){.sfx-row{grid-template-columns:1fr 1fr;gap:clamp(40px,6cqi,88px)}.sfx-row.flip .sfx-pic{order:2}}
+.sfx-pic{border-radius:var(--r,28px);overflow:hidden;aspect-ratio:4/3;background:#eef0f4}
+.sfx-pic img{width:100%;height:100%;object-fit:cover;display:block}
+.sfx-pic.flat{display:flex;justify-content:center;align-items:flex-start;padding:36px 36px 0;position:relative}
+.sfx-pic.flat img{width:min(300px,72%);height:auto;object-fit:contain;border-radius:28px 28px 0 0;box-shadow:0 24px 60px rgba(14,19,34,.2)}
+.sfx-pic.flat::after{content:"";position:absolute;left:0;right:0;bottom:0;height:56px;background:linear-gradient(0deg,#eef0f4,rgba(238,240,244,0))}
+.sfx-tx{display:flex;flex-direction:column;gap:12px;max-width:46ch}
+.sfx-tx h2{font-size:clamp(28px,3.4cqi,40px);line-height:1.05;letter-spacing:-.03em;margin:0}
+.sfx-tx p{color:var(--ink2);font-size:17px;line-height:1.55;margin:0}
+.sfx-ico{width:44px;height:44px;border-radius:12px;background:#eef0f4;display:grid;place-items:center;flex:none}
+.sfx-ico svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sfx-three{list-style:none;margin:0;padding:0;display:grid;gap:32px}
+@container (min-width:760px){.sfx-three{grid-template-columns:repeat(3,1fr);gap:40px}}
+.sfx-three li{display:flex;flex-direction:column;gap:10px}
+.sfx-three h3{font-size:20px;letter-spacing:-.02em;margin:4px 0 0}
+.sfx-three p{color:var(--ink2);font-size:16px;line-height:1.55;margin:0}
+.sfx + .alert{margin-top:clamp(56px,8cqi,96px)}
+
+/* Cities page sign-up: heading left, picker + form right on wide screens */
+.notify{margin-top:clamp(48px,6cqi,80px)}
+@container (min-width:900px){
+ .notify{display:grid!important;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:56px;align-items:start;padding:44px 48px!important}
+ .notify .cj-head{margin:0;position:sticky;top:96px}
+ #nform{max-width:none}
+}
+
+/* insights pass (25 Nov) */
+.hook{font-size:17px;color:#d9d0ff;font-style:italic;margin:6px 0 2px}
+@container (max-width:699px){.steps3{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px!important;margin-inline:calc(-1 * max(20px,env(safe-area-inset-left,0px)));padding-inline:max(20px,env(safe-area-inset-left,0px));scrollbar-width:none}.steps3::-webkit-scrollbar{display:none}.steps3 .st{flex:0 0 84%;scroll-snap-align:center}}
+main p a:not(.btn):not(.badge):not(.cj),.lead a,.sub a,.faq p a{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.cf-card:not(.on){cursor:pointer}
+.mom{display:inline-block;font-size:13px;font-weight:600;color:#9af0b1;margin-bottom:6px}
+.why{font-size:14px;color:#e3e6f0;margin:0}
+.share{margin:28px 0 18px;padding:24px;border-radius:24px;background:#0e1322;color:#fff;display:grid;gap:10px;max-width:560px}
+.share h2{font-size:26px;letter-spacing:-.03em;margin:0;color:#fff}
+.share p{color:#c9cfdf;margin:0}
+.shb{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.share .btn{background:#fff;color:#0b0f1c;border:0}
+.share .btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
+a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
+
+/* phones: the two store buttons share the width evenly (Eren: looked off-centre) */
+@container (max-width:599px){.badges{display:grid!important;grid-template-columns:1fr 1fr;gap:10px!important;width:100%}.badges .badge{justify-content:center;min-width:0}}
+
+/* glance hero photo (25 Nov): keep both faces in frame */
+@container (min-width:1000px){.hero-b .hero .ph{background-position:96% 40%!important}}
+@container (max-width:999px){.hero-b .hero .ph{background-size:cover!important;background-position:50% 20%!important}}
+.badge b,.badge small{white-space:nowrap}
+@container (max-width:399px){.badges .badge b{font-size:17px}.badges .badge{padding-inline:10px}}
+</style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip-->
+
+<div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
+<div class="stage" id="stage"><div class="site" id="site">
+
+<!-- 1 HERO -->
+<header class="hero" id="hero" style="--hm:url(/everlweb/img/hero-m-climb2-1116.webp);--hw:url(/everlweb/img/hero-w-climb2-1920.webp)">
+  <div class="ph" role="img" aria-label="Three new friends laughing at a bouldering wall in Manchester"></div>
+  <nav class="nav"><div class="in">
+    <a class="logo" href="/everlweb/" aria-label="Everl home"><span class="sw"></span>everl</a><span class="sp"></span>
+    <div class="links"><a href="#how">How it works</a><a href="#safety">Safety</a><a href="#cities">Cities</a><a href="/everlweb/blog">Journal</a><a href="/everlweb/more">Up for more</a></div>
+    <a class="btn" href="#get">Get Everl</a>
+    <button class="mnu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
+  </div></nav>
+  <div class="in body">
+    <div class="copy">
+      <h1><span class="l">Someone nearby</span> <span class="l">is free tonight too.</span></h1>
+      <p class="lead">Everl helps two people nearby who fancy the same thing actually say hi. No profiles, no photos.</p>
+      <div class="row">
+        <div class="badges">
+          <a class="badge" href="#get"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.5-1-2.5-3.9zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+          <a class="badge" href="#get"><svg viewBox="0 0 24 24" class="gp" aria-hidden="true"><path fill="#4285F4" d="M3.6 2.2 13.4 12l-9.8 9.8c-.3-.2-.5-.6-.5-1.1V3.3c0-.5.2-.9.5-1.1z"/><path fill="#34A853" d="M3.6 2.2c.3-.2.8-.2 1.3.1L16.6 9l-3.2 3z"/><path fill="#FBBC04" d="m16.6 9 3.5 2c.7.4.7 1.6 0 2l-3.5 2-3.2-3z"/><path fill="#EA4335" d="m13.4 12 3.2 3-11.7 6.7c-.5.3-1 .3-1.3.1z"/></svg><span><small>GET IT ON</small><b>Google Play</b></span></a>
+        </div>
+      </div>
+      <p class="trust"><span>Everyone 18+ and age-checked</span><span>No profile, no photos</span><span>Anonymous until it&rsquo;s mutual</span></p>
+      <p class="notcity"><a href="/everlweb/cities#notify">Join your city&rsquo;s list</a> and we&rsquo;ll tell you when Everl opens near you.</p>
+    </div>
+  </div>
+</header><!--ev:mo--><main id="main" tabindex="-1"><!--/ev:mo-->
+
+<!-- 2 INTERESTS (Jeton) -->
+<section class="show"><div class="in">
+  <div class="txt rv">
+    <h2 class="h2">Whatever you’re into, do it today.</h2>
+    <p class="lead">Padel, a pint, a gig or a run. Switch on and Everl finds people nearby who are up for the same.</p>
+    <div class="chips">
+    <span class="chip"><i>🍻</i>Drinks</span><span class="chip"><i>🎾</i>Padel</span><span class="chip"><i>🏃</i>Running</span><span class="chip"><i>🎲</i>Board games</span><span class="chip"><i>🧗</i>Climbing</span><span class="chip"><i>🎸</i>Gigs</span><span class="chip"><i>☕</i>Coffee</span><span class="chip"><i>⚽</i>Five-a-side</span><span class="chip"><i>🧠</i>Quiz night</span><span class="chip"><i>🥾</i>Walks</span><span class="chip"><i>🍜</i>Food</span><span class="chip">And hundreds more</span>
+    </div>
+  </div>
+  <div class="phonecol"><div class="iphone"><div class="bez"><div class="island"></div><div class="scr"><img id="demo" src="/everlweb/img/demo-start-402.webp" data-anim="/everlweb/img/demo-end-v2-402.webp" data-end="/everlweb/img/demo-end-v2-402.webp" alt="Everl: switching on, then plans happening nearby"></div></div></div></div>
+</div></section>
+
+<!-- 3 HOW (Eren's steps, real screens) -->
+<section class="how2 sec" id="how"><div class="in">
+  <div class="head rv"><h2 class="h2">How Everl works</h2><p class="lead">Not a feed of strangers to swipe through. Switch on when you’re free, and Everl tells you when someone nearby is up for the same thing.</p></div>
+  <div class="steps3">
+    <div class="st rv"><div class="panel t1"><div class="crop"><div class="iphone"><div class="bez"><div class="island"></div><div class="scr"><img id="demo1" src="/everlweb/img/step1-start-402.webp" data-anim="/everlweb/img/step1-end-v2-402.webp" data-end="/everlweb/img/step1-end-v2-402.webp" alt="Everl: switch on, then You're on"></div></div></div></div></div><span class="n">1</span><h3>Switch on when you’re free</h3><p>Pick what you’re into, like a drink, a run or board games. When you’re free, switch on and people nearby who want the same can find you.</p></div>
+    <div class="st rv"><div class="panel t2"><div class="crop"><div class="iphone"><div class="bez"><div class="island"></div><div class="scr"><img src="/everlweb/img/s-rooms-v2.jpg" alt="Everl Rooms: plans happening nearby" loading="lazy" decoding="async"></div></div></div></div></div><span class="n">2</span><h3>Join a plan, or start one</h3><p>Plans pop up at real places near you, like padel at six or drinks at eight. Join one, or open your own for as many people as it needs.</p></div>
+    <div class="st rv"><div class="panel t3"><div class="crop"><div class="iphone"><div class="bez"><div class="island"></div><div class="scr"><img src="/everlweb/img/s-route-v2.jpg" alt="Everl: walking directions to Stephenson Square" loading="lazy" decoding="async"></div></div></div></div></div><span class="n">3</span><h3>Both say yes, then meet</h3><p>When someone’s up for the same thing, you both get a quiet ping. If it’s mutual, Everl picks a public place between you and guides you both there.</p></div>
+  </div>
+  <div class="ctarow rv"><div class="badges"><a class="badge" href="#get"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.5-1-2.5-3.9zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg><span><small>Download on the</small><b>App Store</b></span></a><a class="badge" href="#get"><svg viewBox="0 0 24 24" class="gp" aria-hidden="true"><path fill="#4285F4" d="M3.6 2.2 13.4 12l-9.8 9.8c-.3-.2-.5-.6-.5-1.1V3.3c0-.5.2-.9.5-1.1z"/><path fill="#34A853" d="M3.6 2.2c.3-.2.8-.2 1.3.1L16.6 9l-3.2 3z"/><path fill="#FBBC04" d="m16.6 9 3.5 2c.7.4.7 1.6 0 2l-3.5 2-3.2-3z"/><path fill="#EA4335" d="m13.4 12 3.2 3-11.7 6.7c-.5.3-1 .3-1.3.1z"/></svg><span><small>GET IT ON</small><b>Google Play</b></span></a></div></div>
+</div></section>
+
+<!-- 4 WHY + FEATURES (Apple) -->
+<section class="feat sec"><div class="in">
+  <div class="head rv"><h2 class="h2">Don’t wait for your mates to be free.</h2><p class="lead">Do the thing you wanted to do tonight, with someone nearby who wants to do it too.</p></div>
+  <div class="cards2">
+    <div class="fcard rv"><div class="pic"><img src="/everlweb/img/feat-hello2-800.webp" srcset="/everlweb/img/feat-hello2-800.webp 800w, /everlweb/img/feat-hello2-1400.webp 1400w" sizes="(min-width:760px) 50vw, 100vw" alt="Two people laughing just after saying hello inside a busy pub" loading="lazy" decoding="async"></div><div class="txt"><h3>Turn up without the awkward search</h3><p>When you’re close, Everl gives you one clue, like "red jacket by the entrance", so you can say hello.</p></div></div>
+    <div class="fcard rv"><div class="pic"><img src="/everlweb/img/feat-five-800.webp" srcset="/everlweb/img/feat-five-800.webp 800w, /everlweb/img/feat-five-1400.webp 1400w" sizes="(min-width:760px) 50vw, 100vw" alt="A group meeting up for a five-a-side game under floodlights" loading="lazy" decoding="async"></div><div class="txt"><h3>Rooms, for when your mates can’t make it</h3><p>Start a five-a-side or a Sunday run. People nearby ask to join, and you choose who comes.</p></div></div>
+  </div>
+</div></section>
+
+<!-- COMPARISON (Eren's pairs, Swap style) -->
+<section class="cmp2 sec" id="compare"><div class="in">
+  <div class="head rv"><h2 class="h2">The app that gets you off your phone.</h2><p class="lead">Other apps keep you chatting for weeks and you never meet. Everl skips straight to the hello.</p></div>
+  <div class="vs rv">
+    <div class="side them"><h3>Other apps</h3><ul><li><svg class="ic x" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 6l8 8M14 6l-8 8"/></svg><span>Endless chat that never becomes a meet.</span></li><li><svg class="ic x" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 6l8 8M14 6l-8 8"/></svg><span>A match two miles, or two cities, away.</span></li><li><svg class="ic x" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 6l8 8M14 6l-8 8"/></svg><span>Profiles, filters, highlight reels.</span></li><li><svg class="ic x" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 6l8 8M14 6l-8 8"/></svg><span>Swipe for hours, meet no one.</span></li><li><svg class="ic x" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 6l8 8M14 6l-8 8"/></svg><span>Ghosted, catfished, or both.</span></li></ul></div>
+    <div class="side us"><h3><span class="logo"><span class="sw sm"></span>everl</span></h3><ul><li><svg class="ic t" viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg><span>No chat. It’s in person, or it’s nothing.</span></li><li><svg class="ic t" viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg><span>Close by, not across town.</span></li><li><svg class="ic t" viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg><span>No profiles. Matched on the moment, not a photo.</span></li><li><svg class="ic t" viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg><span>Know when someone nearby is up for it, then go.</span></li><li><svg class="ic t" viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8"/></svg><span>Anonymous until it’s mutual. Your data’s never sold.</span></li></ul></div>
+  </div>
+</div></section>
+
+<!-- 5 SAFETY (bento) -->
+<section class="safe2 sec" id="safety"><div class="in">
+  <div class="head rv"><h2 class="h2">Safe from the first hello.</h2><p class="lead">Every meet is somewhere public. Everyone is a verified adult, and you can leave whenever you like.</p></div>
+  <div class="sf rv">
+    <div class="sf-card"><div class="sf-tx"><h3>Always somewhere public</h3><p>Everl picks a public place between you and guides you both there. Add a safety contact if you’d like.</p></div><div class="sf-ph"><div class="crop"><div class="iphone"><div class="bez"><div class="island"></div><div class="scr"><img src="/everlweb/img/s-route-v2.jpg" alt="Everl: Head to Stephenson Square" loading="lazy" decoding="async"></div></div></div></div></div></div>
+    <ul class="sf-list"><li><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><h3>Everyone is 18+</h3><p>A one-off selfie age check by an independent checker. Everl only gets a yes or no.</p></div></li><li><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z"/><path d="M4 4l16 16"/></svg></span><div><h3>Nobody on the map</h3><p>Others see how many people are nearby, never where you are.</p></div></li><li><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg></span><div><h3>Leave any time</h3><p>Say no at any point. The other person is never told why.</p></div></li><li><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v16M4 4h11l-2 4 2 4H4"/></svg></span><div><h3>Report or block</h3><p>One tap on every screen, and a real person reviews it.</p></div></li></ul>
+  </div>
+  <div class="ctarow rv"><div class="badges"><a class="badge" href="#get"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.5-1-2.5-3.9zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg><span><small>Download on the</small><b>App Store</b></span></a><a class="badge" href="#get"><svg viewBox="0 0 24 24" class="gp" aria-hidden="true"><path fill="#4285F4" d="M3.6 2.2 13.4 12l-9.8 9.8c-.3-.2-.5-.6-.5-1.1V3.3c0-.5.2-.9.5-1.1z"/><path fill="#34A853" d="M3.6 2.2c.3-.2.8-.2 1.3.1L16.6 9l-3.2 3z"/><path fill="#FBBC04" d="m16.6 9 3.5 2c.7.4.7 1.6 0 2l-3.5 2-3.2-3z"/><path fill="#EA4335" d="m13.4 12 3.2 3-11.7 6.7c-.5.3-1 .3-1.3.1z"/></svg><span><small>GET IT ON</small><b>Google Play</b></span></a></div></div>
+</div></section>
+
+<!-- 6b UP FOR MORE band -->
+<section class="upm sec" id="up-for-more">
+  <div class="in"><div class="upm-ph rv"><img src="/everlweb/img/more-card-couple-800.webp" srcset="/everlweb/img/more-card-couple-800.webp 800w, /everlweb/img/more-card-couple-1600.webp 1600w" sizes="(min-width:900px) 45vw, 100vw" alt="A couple laughing together at the bar of a busy, warmly lit pub" loading="lazy" decoding="async"></div><div class="upm-copy rv">
+    <span class="upm-pill"><span class="sw sm p"></span>Up for more (18+)</span>
+    <h2 class="h2"><span class="l">No profile. No photos.</span> <span class="l">Just say what you&rsquo;re up for.</span></h2>
+    <p class="lead">Everl&rsquo;s separate side for dating and something more. Say what you&rsquo;re looking for in private. When someone nearby wants the same and you both say yes, you meet somewhere public.</p>
+    <ul class="upm-pts"><li>No bio or gallery</li><li>Private until it&rsquo;s mutual</li><li>Somewhere public first</li></ul>
+    <a class="upm-go" href="/everlweb/more">See Up for more<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><p class="upm-note">18+ only. You choose it each time, and you can switch back to Social with one tap.</p>
+  </div></div>
+</section>
+
+<!-- 7 WALL: Bevel (scattered) -->
+<section class="wall sec"><div class="in">
+  <div class="head rv wall-head"><h2 class="h2">There&rsquo;s always something on.</h2><p class="lead">A run along the canal in Castlefield, a quiz in the Northern Quarter, padel in Ancoats. Switch on to see what&rsquo;s happening near you.</p></div>
+  </div>
+  <div class="cf rv" role="region" aria-roledescription="carousel" aria-label="Things to do around Manchester">
+    <div class="cf-track" tabindex="0"><figure class="cf-card" data-cap="A walk in the Peak District"><img src="/everlweb/img/w2-hike.jpg" alt="A group walking in the Peak District" loading="lazy" decoding="async" width="375" height="560"></figure><figure class="cf-card" data-cap="A pub quiz in the Northern Quarter"><img src="/everlweb/img/w2-quiz.jpg" alt="A pub quiz team at a table" loading="lazy" decoding="async" width="375" height="560"></figure><figure class="cf-card" data-cap="A run along the canal in Castlefield"><img src="/everlweb/img/w2-run.jpg" alt="A run club by the canal" loading="lazy" decoding="async" width="375" height="560"></figure><figure class="cf-card" data-cap="Padel in Ancoats"><img src="/everlweb/img/w2-padel.jpg" alt="Four people after a padel game" loading="lazy" decoding="async" width="375" height="560"></figure><figure class="cf-card" data-cap="Drinks after work"><img src="/everlweb/img/w2-drinks.jpg" alt="Friends having drinks in the Northern Quarter" loading="lazy" decoding="async" width="375" height="560"></figure><figure class="cf-card" data-cap="A gig on a Tuesday"><img src="/everlweb/img/w2-gig.jpg" alt="A crowd at a gig" loading="lazy" decoding="async" width="375" height="560"></figure><figure class="cf-card" data-cap="Five-a-side under the lights"><img src="/everlweb/img/w2-five.jpg" alt="A five-a-side game under floodlights" loading="lazy" decoding="async" width="375" height="560"></figure></div>
+    <div class="cf-foot"><button class="cf-btn" type="button" data-dir="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><p class="cf-cap" aria-live="polite"></p><button class="cf-btn" type="button" data-dir="1" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
+  </div>
+</section>
+
+<!-- CITIES (typographic) -->
+<section class="cities3 sec" id="cities"><div class="in">
+  <div class="head rv"><h2 class="h2">Opening city by city.</h2><p class="lead">Manchester is live and Leeds is next. Every other city&rsquo;s list is open, and the one with the most sign-ups opens after that.</p></div>
+  <div class="ccw rv"><article class="ccx live" style="--img:url(/everlweb/img/blog-spontaneity-last-minute-plans-1100.webp)"><span class="tag"><span class="sw sm"></span>Live now</span><h3>Manchester</h3><p>Switch on tonight and Everl tells you when someone nearby is up for the same thing.</p><a class="btn" href="#get">Get Everl</a></article><article class="ccx next" style="--img:url(/everlweb/img/blog-third-place-technology-comeback-1100.webp)"><span class="tag">Next</span><h3>Leeds</h3><p>Be there on Leeds night one. We’ll email you once, when it opens.</p><form class="lf" id="lform" novalidate><input class="inp" type="email" required autocomplete="email" placeholder="Email address" aria-label="Email address" name="email"><label class="tick"><input type="checkbox" required name="consent"><span>I’m 18+ and agree to the <a href="/everlweb/terms">Terms</a> and <a href="/everlweb/privacy">Privacy policy</a>.</span></label><!--ev:upd--><label class="tick upd"><input type="checkbox" name="updates" value="yes"><span>Send me the occasional Everl update. Unsubscribe any time.</span></label><!--/ev:upd--><button class="btn dark" type="submit" aria-label="Join the Leeds list">Join the list</button><!--ev:fx--><input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" hidden aria-hidden="true"><input type="hidden" name="list" value="leeds"><div class="ts" data-sitekey=""></div><!--/ev:fx--></form></article><p class="ccx-else">Somewhere else? <a href="/everlweb/cities#notify">Join your city&rsquo;s list</a></p></div>
+</div></section>
+
+<!-- 8 FAQ -->
+<section class="faq sec" id="faq"><div class="in">
+  <h2 class="h2 rv">FAQs</h2>
+  <div class="rv">
+    <details open><summary>Is Everl for dating or for friends?</summary><p>Everl starts on Social, for plans and new friends. Up for more is a separate side for meeting someone, and you choose it yourself.</p></details><details><summary>Is Everl for straight people?</summary><p>Everl is for everyone over 18, whoever you are and whoever you&rsquo;re into. On Up for more you say who you&rsquo;re looking for, in private.</p></details>
+    <details><summary>Will there be anyone near me?</summary><p>Everl is live in Manchester now, and Leeds is next. When you switch on, you see how many people nearby are up for the same thing. If nobody is yet, stay on and Everl tells you when someone is.</p></details>
+    <details><summary>How old do I need to be?</summary><p>Everl is for over 18s only. The first time you switch on, an independent checker confirms your age with a quick selfie. Everl only gets a yes or no.</p></details>
+    
+    <details><summary>Do I need a profile or a photo?</summary><p>No. There are no profiles or photos, and no chat before you meet. You pick what you’re up for and Everl does the rest.</p></details>
+    <details><summary>What if it’s awkward?</summary><p>You meet somewhere public, to do one thing you both chose. If it isn’t for you, you can leave. The other person is never told why.</p></details>
+    <details><summary>Who can see where I am?</summary><p>Nobody can see you on a map. Others only see how many people nearby are up for something. The meeting place is only shared once you’ve both said yes.</p></details>
+    <details><summary>Is it free?</summary><p>Yes, Everl is free. Everl+ is optional: £17.99 a month, £179 a year or £24 for 30 days. Monthly and yearly start with 3 days free. Cancel any time.</p></details>
+    
+  </div>
+</div></section>
+
+<!-- 9 CLOSER: Shop -->
+<section class="close sec" id="get"><div class="in rv">
+  <h2>Find something to do tonight.</h2>
+  <p class="pre">Free on iPhone and Android. No profiles, photos or chat. Live in Manchester, Leeds next.</p>
+  <div class="qrbig lap"><div class="qrc" data-qr="https://everl.com/app" data-size="4"></div></div>
+  <p class="hint lap">Scan with your phone camera to download</p>
+  <div class="badges" style="justify-content:center;margin-top:6px">
+    <a class="badge" href="#get"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.5-1-2.5-3.9zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+    <a class="badge" href="#get"><svg viewBox="0 0 24 24" class="gp" aria-hidden="true"><path fill="#4285F4" d="M3.6 2.2 13.4 12l-9.8 9.8c-.3-.2-.5-.6-.5-1.1V3.3c0-.5.2-.9.5-1.1z"/><path fill="#34A853" d="M3.6 2.2c.3-.2.8-.2 1.3.1L16.6 9l-3.2 3z"/><path fill="#FBBC04" d="m16.6 9 3.5 2c.7.4.7 1.6 0 2l-3.5 2-3.2-3z"/><path fill="#EA4335" d="m13.4 12 3.2 3-11.7 6.7c-.5.3-1 .3-1.3.1z"/></svg><span><small>GET IT ON</small><b>Google Play</b></span></a>
+  </div>
+  
+</div></section>
+
+<!--ev:mc--></main><!--/ev:mc--><div class="dr" id="drawer" hidden><div class="dr-bg" data-close></div><aside class="dr-panel" role="dialog" aria-modal="true" aria-label="Menu"><div class="dr-top"><a class="logo" href="/everlweb/" aria-label="Everl home"><span class="sw"></span>everl</a><button class="dr-x" type="button" data-close aria-label="Close menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><nav class="dr-links" aria-label="Site"><a href="/everlweb/#how">How it works</a><a href="/everlweb/safety">Safety</a><a href="/everlweb/cities">Cities</a><a href="/everlweb/blog">Journal</a><a href="/everlweb/more">Up for more <em>18+</em></a></nav><nav class="dr-small" aria-label="More"><a href="/everlweb/help">Help</a><a href="/everlweb/help#contact">Contact</a><!--ev:login--><a href="https://everl.com/account">Log in</a><!--/ev:login--></nav><div class="dr-foot"><a class="dr-get" href="#get" data-close>Get Everl</a><div class="dr-row"><span>Free on iPhone and Android</span><span class="dr-soc"><a href="https://www.instagram.com/everlapp" target="_blank" rel="noopener" aria-label="Everl on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=61593360002124" target="_blank" rel="noopener" aria-label="Everl on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M13.5 21.5v-7.6h2.6l.4-3h-3V9c0-.9.3-1.5 1.5-1.5h1.6V4.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V11H7.8v3h2.6v7.5z"/></svg></a></span></div></div></aside></div><footer class="f"><div class="in"><a class="logo" href="/everlweb/" aria-label="Everl home"><span class="sw"></span>everl</a><a href="/everlweb/safety">Safety</a><a href="/everlweb/blog">Journal</a><a href="/everlweb/cities">Cities</a><a href="/everlweb/help">Help</a><a href="/everlweb/plus">Everl+</a><a href="/everlweb/help#contact">Contact</a><!--ev:login--><a href="https://everl.com/account">Log in</a><!--/ev:login--><a href="/everlweb/terms">Terms</a><a href="/everlweb/privacy">Privacy</a><a href="/everlweb/child-safety">Child safety standards</a><a href="/everlweb/more">Up for more (18+)</a><span class="soc"><a class="ig" href="https://www.instagram.com/everlapp" target="_blank" rel="noopener" aria-label="Everl on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a><a class="ig" href="https://www.facebook.com/profile.php?id=61593360002124" target="_blank" rel="noopener" aria-label="Everl on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M13.5 21.5v-7.6h2.6l.4-3h-3V9c0-.9.3-1.5 1.5-1.5h1.6V4.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V11H7.8v3h2.6v7.5z"/></svg></a></span><span class="copy">© 2026 Everl. 18+ only.</span><!--ev:co--><!-- COMPANY_LINE --><!--/ev:co--></div></footer>
+
+<div class="dock" id="dock"><a class="btn dark store" href="#get">Get Everl<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+
+</div></div>
+
+<script>
+(function(){
+  document.querySelectorAll('.qrc').forEach(function(el){ try{var q=qrcode(0,'M');q.addData(el.dataset.qr);q.make();el.innerHTML=q.createImgTag(+(el.dataset.size||2),0);}catch(e){el.textContent='QR'} });
+  var st=document.getElementById('stage'),L=document.getElementById('vLap'),P=document.getElementById('vPhone');
+  function v(p){st.classList.toggle('phone',p);P.setAttribute('aria-pressed',p);L.setAttribute('aria-pressed',!p);try{localStorage.setItem('ev3',p?'1':'0')}catch(e){}}
+  L.onclick=function(){v(false)};P.onclick=function(){v(true)};try{if(localStorage.getItem('ev3')==='1')v(true)}catch(e){}
+  var ov=document.getElementById('ov');document.getElementById('showToday').onclick=function(){ov.hidden=false};
+  document.getElementById('closeOv').onclick=function(){ov.hidden=true};ov.onclick=function(e){if(e.target===ov)ov.hidden=true};
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')ov.hidden=true});
+  // on phones, store buttons go straight to the store link instead of scrolling
+  if(matchMedia('(pointer:coarse)').matches){ document.querySelectorAll('a.store, .badge').forEach(function(a){ a.href='https://everl.com/app'; }); }
+  // photo row on phones: start centred on the tallest photo so the wave is balanced
+  (function(){ var r=document.querySelector('.photos2'); if(!r) return;
+    function c(){ if(r.scrollWidth<=r.clientWidth) return; var m=r.children[Math.floor(r.children.length/2)]; r.scrollLeft=m.offsetLeft-(r.clientWidth-m.offsetWidth)/2; }
+    c(); window.addEventListener('load',c); })();
+  // phone demos: preload the recording once, replay it from memory every time the phone comes into view
+  function demo(id){ var d=document.getElementById(id); if(!d) return;
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches){ d.src=d.dataset.end; return; }
+    var blob=null, url=null;
+    function grab(){ fetch(d.dataset.anim).then(function(r){ return r.ok?r.blob():null }).then(function(b){ if(b) blob=b }).catch(function(){}); }
+    if(document.readyState==='complete') (window.requestIdleCallback||setTimeout)(grab); else addEventListener('load',function(){ (window.requestIdleCallback||setTimeout)(grab) });
+    function play(){ if(blob){ var old=url; url=URL.createObjectURL(blob); d.src=url; if(old) setTimeout(function(){URL.revokeObjectURL(old)},1000); } else { d.src=d.dataset.anim; } }
+    if(!('IntersectionObserver' in window)){ play(); return; }
+    var inView=false;
+    new IntersectionObserver(function(es){ var now=es[0].isIntersecting; if(now&&!inView) play(); inView=now; },{threshold:.3}).observe(d);
+  }
+  demo('demo'); demo('demo1');
+  // gentle reveal: only for things below the first screen, never hidden at rest without JS
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce && 'IntersectionObserver' in window){
+    var els=[].slice.call(document.querySelectorAll('.rv')).filter(function(e){return e.getBoundingClientRect().top>innerHeight});
+    els.forEach(function(e){e.classList.add('pre')});
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.remove('pre');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e)});
+    setTimeout(function(){els.forEach(function(e){e.classList.remove('pre')})},6000);
+  }
+  // phone dock appears after the hero
+  var dock=document.getElementById('dock'), hero=document.querySelector('.hero');
+  if('IntersectionObserver' in window){
+    var seen={hero:true,end:false}, endEls=[document.getElementById('get'),document.querySelector('footer.f')].concat([].slice.call(document.querySelectorAll('.ccw,.ctarow')));
+    function upd(){ dock.classList.toggle('on',!seen.hero&&!seen.end); }
+    new IntersectionObserver(function(es){seen.hero=es[0].isIntersecting;upd()}).observe(hero);
+    var vis=new Set(); new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?vis.add(e.target):vis.delete(e.target)});seen.end=vis.size>0;upd()}).observe(endEls[0]);
+    endEls.forEach(function(el,i){ if(i&&el) new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?vis.add(e.target):vis.delete(e.target)});seen.end=vis.size>0;upd()}).observe(el); });
+  }
+})();
+</script>
+<script>(function(){var d=document.getElementById("drawer");if(!d)return;var site=document.querySelector(".site")||document.body,last=null,t;function open(e){if(e){e.preventDefault();e.stopImmediatePropagation()}last=document.activeElement;var r=site.getBoundingClientRect(),pb=document.querySelector(".pbar"),ph=pb?pb.getBoundingClientRect().bottom:0,top=Math.max(0,ph-r.top);d.style.top=top+"px";d.style.height=(innerHeight-Math.max(ph,r.top))+"px";clearTimeout(t);d.hidden=false;requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add("show")})});document.documentElement.style.overflow="hidden";var x=d.querySelector(".dr-x");x&&x.focus();document.querySelectorAll(".mnu").forEach(function(b){b.setAttribute("aria-expanded","true")})}function close(){d.classList.remove("show");document.documentElement.style.overflow="";document.querySelectorAll(".mnu").forEach(function(b){b.setAttribute("aria-expanded","false")});document.querySelectorAll(".nav.open,.jnav.open").forEach(function(n){n.classList.remove("open")});t=setTimeout(function(){d.hidden=true},340);last&&last.focus&&last.focus()}document.querySelectorAll(".mnu").forEach(function(b){b.addEventListener("click",open,true)});d.querySelectorAll("[data-close]").forEach(function(el){el.addEventListener("click",close)});d.querySelectorAll(".dr-links a,.dr-small a").forEach(function(a){a.addEventListener("click",function(){if(a.getAttribute("href").indexOf("#")>-1&&a.pathname===location.pathname)close()})});addEventListener("keydown",function(e){if(e.key==="Escape"&&!d.hidden)close()})})();</script><script>/*audit-forms*/(function(){
+var sel=document.getElementById('ncitysel'),oth=document.getElementById('nother'),hid=document.getElementById('ncity');
+function sync(){if(!sel)return;var o=sel.value==='Somewhere else';oth.hidden=!o;oth.required=o;hid.value=o?(oth.value.trim()||'your city'):sel.value}
+if(sel){sel.addEventListener('change',function(){sync();if(!oth.hidden)oth.focus()});oth.addEventListener('input',sync);
+ var qc=new URLSearchParams(location.search).get('city');if(qc&&[].some.call(sel.options,function(x){return x.text===qc}))sel.value=qc;sync();
+ document.querySelectorAll('[data-city]').forEach(function(a){a.addEventListener('click',function(){var c=a.dataset.city;if([].some.call(sel.options,function(x){return x.text===c})){sel.value=c;sync()}})})}
+document.addEventListener('submit',function(e){var f=e.target;if(!f||f.id!=='lform')return;e.preventDefault();e.stopImmediatePropagation();
+ if(!f.checkValidity()){f.reportValidity();return}location.href='/everlweb/thank-you?from=cities&city=Leeds'},true);
+})();</script><script>/*dockdark*/(function(){var d=document.getElementById('dock');if(!d)return;function chk(){var a=d.querySelector('a');if(!a)return;var r=a.getBoundingClientRect();var y=r.top+r.height/2;a.style.pointerEvents='none';var el=document.elementFromPoint(innerWidth/2,y);a.style.pointerEvents='';var dark=false;while(el&&el!==document.body){var bg=getComputedStyle(el).backgroundColor;var m=bg.match(/\d+(\.\d+)?/g);if(m&&(m.length<4||+m[3]>0.5)){dark=(0.299*m[0]+0.587*m[1]+0.114*m[2])<80;break}el=el.parentElement}d.classList.toggle('dark',dark)}addEventListener('scroll',chk,{passive:true});addEventListener('resize',chk);chk()})();</script><script>/*wallcf*/(function(){var t=document.querySelector('.cf-track');if(!t)return;var cards=[].slice.call(t.querySelectorAll('.cf-card')),cap=document.querySelector('.cf-cap'),cur=-1,timer=null,rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function upd(){var r=t.getBoundingClientRect(),mid=r.left+r.width/2,best=0,bd=1e9;cards.forEach(function(c,i){var b=c.getBoundingClientRect(),d=Math.abs(b.left+b.width/2-mid),w=b.width/(parseFloat(getComputedStyle(c).getPropertyValue('--s'))||1),k=Math.min(1,d/(w+20));c.style.setProperty('--s',(1-0.16*k).toFixed(3));c.style.setProperty('--o',(1-0.18*k).toFixed(3));if(d<bd){bd=d;best=i}});if(best!==cur){cur=best;cards.forEach(function(c,i){c.classList.toggle('on',i===cur)});cap.textContent=cards[cur].dataset.cap}}
+function go(i){i=(i+cards.length)%cards.length;var c=cards[i];t.scrollTo({left:c.offsetLeft-(t.clientWidth-c.offsetWidth)/2,behavior:rm?'auto':'smooth'})}
+var raf=0;t.addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(function(){raf=0;upd()})},{passive:true});addEventListener('resize',upd);
+document.querySelectorAll('.cf-btn').forEach(function(b){b.addEventListener('click',function(){stop();go(cur+(+b.dataset.dir))})});
+cards.forEach(function(c,i){c.addEventListener('click',function(){if(i!==cur){stop();t.dataset.stopped='1';go(i)}})});
+t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();stop();go(cur+1)}if(e.key==='ArrowLeft'){e.preventDefault();stop();go(cur-1)}});
+function stop(){if(timer){clearInterval(timer);timer=null}}
+['pointerdown','wheel','touchstart'].forEach(function(ev){t.addEventListener(ev,stop,{passive:true})});
+requestAnimationFrame(function(){var c=cards[3];t.scrollLeft=c.offsetLeft-(t.clientWidth-c.offsetWidth)/2;upd();
+if(!rm&&'IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!timer&&!t.dataset.stopped){timer=setInterval(function(){go(cur+1)},3800)}else if(!e.isIntersecting)stop()})},{threshold:.5}).observe(t)}});
+['pointerdown','wheel','touchstart','keydown'].forEach(function(ev){t.addEventListener(ev,function(){t.dataset.stopped='1'},{passive:true})});
+document.querySelectorAll('.cf-btn').forEach(function(b){b.addEventListener('click',function(){t.dataset.stopped='1'})});
+})();</script><!--ev:exit--><style>.exitcard{position:fixed;right:max(20px,env(safe-area-inset-right,0px));bottom:max(20px,env(safe-area-inset-bottom,0px));z-index:70;width:min(360px,calc(100vw - 40px));background:#0e1322;color:#fff;border-radius:20px;padding:20px 22px;box-shadow:0 24px 60px rgba(0,0,0,.35);opacity:0;transform:translateY(12px);transition:opacity .3s,transform .3s}.exitcard.on{opacity:1;transform:none}.exitcard .t{font-size:18px;font-weight:600;letter-spacing:-.01em;margin:0 28px 6px 0}.exitcard .s{color:#c9cfdf;font-size:14px;line-height:1.5;margin:0 0 14px}.exitcard .go{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:99px;background:#fff;color:#0b0f1c;font-weight:600;font-size:14px;text-decoration:none}.exitcard .x{position:absolute;top:10px;right:12px;width:32px;height:32px;border:0;background:none;color:#aab2c7;font-size:22px;cursor:pointer}@media (prefers-reduced-motion:reduce){.exitcard{transition:none}}</style><script>/*soft exit line (insights brief): laptop only, once per visit, never blocks*/(function(){try{if(matchMedia('(pointer:coarse)').matches)return;var K='ev_exit_seen';try{if(sessionStorage.getItem(K))return}catch(e){}
+var shown=false;function show(){if(shown)return;shown=true;try{sessionStorage.setItem(K,'1')}catch(e){}
+var c=document.createElement('aside');c.className='exitcard';c.setAttribute('role','status');
+c.innerHTML='<button type="button" class="x" aria-label="Close">&times;</button><p class="t">Someone nearby is free tonight too.</p><p class="s">Not ready yet? Join your city&rsquo;s list and we&rsquo;ll tell you when Everl opens near you.</p><a class="go" href="/everlweb/cities#notify">Join your city&rsquo;s list</a>';
+document.body.appendChild(c);requestAnimationFrame(function(){c.classList.add('on')});
+c.querySelector('.x').onclick=function(){c.remove()};
+try{window.everlTrack&&window.everlTrack('exit_card_view',{page:location.pathname})}catch(e){}
+c.querySelector('.go').addEventListener('click',function(){try{window.everlTrack&&window.everlTrack('exit_card_click',{page:location.pathname})}catch(e){}})}
+document.addEventListener('mouseout',function(e){if(!e.relatedTarget&&e.clientY<=0&&scrollY>400)show()})}catch(e){}})();</script><!--/ev:exit--><!--ev:polishjs--><script>(function(){var d=document.getElementById('drawer');if(!d)return;var H=document.documentElement,sy=0;
+function sibs(){var p=d.parentElement;return p?[].slice.call(p.children).filter(function(e){return e!==d&&e.tagName!=='SCRIPT'}):[]}
+function sync(){var open=!d.hidden;if(open){sy=scrollY;H.style.overflow='hidden';sibs().forEach(function(e){e.setAttribute('inert','')})}else{H.style.overflow='';sibs().forEach(function(e){e.removeAttribute('inert')})}}
+new MutationObserver(sync).observe(d,{attributes:true,attributeFilter:['hidden']});
+d.addEventListener('keydown',function(e){if(e.key!=='Tab')return;var f=[].slice.call(d.querySelectorAll('a[href],button:not([disabled])')).filter(function(x){return x.offsetParent!==null});if(!f.length)return;var a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}});})();</script><!--/ev:polishjs--></body></html>
