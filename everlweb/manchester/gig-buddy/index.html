@@ -925,21 +925,27 @@ a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
 @container (max-width:599px){.hero h1.h18 .pre{font-size:clamp(19px,5.6cqi,23px)}.hero h1.h18 .big{font-size:clamp(36px,11cqi,46px);line-height:1.02}}
 
 
-/* story band v2 (26 Nov, Aaron picked "words light up" + animated switch) */
+/* story band v3 (26 Nov): missed moment lights up on scroll, then the switch snaps on and reveals the answer */
 .story{background:#07090f}
 .story .in{max-width:900px;text-align:center;padding-block:clamp(80px,12cqi,160px)}
-.story .s1{font-size:clamp(30px,5cqi,52px)!important;margin:0 auto 34px!important;color:#fff;max-width:20ch}
-.story .lit{font-size:clamp(22px,3.2cqi,34px);line-height:1.35;letter-spacing:-.02em;font-weight:600;color:#fff;margin:0 auto;max-width:30ch;text-wrap:balance}
-.story .vsw{display:inline-block;width:56px;height:34px;border-radius:99px;background:#34C759;position:relative;margin-bottom:26px}
-.story .vsw::after{content:"";position:absolute;top:3px;left:25px;width:28px;height:28px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.story .s1{font-size:clamp(30px,5cqi,52px)!important;margin:0 auto 30px!important;color:#fff;max-width:20ch}
+.story .lit{font-size:clamp(21px,3cqi,32px);line-height:1.38;letter-spacing:-.02em;font-weight:600;color:#fff;margin:0 auto;max-width:30ch;text-wrap:balance}
 @supports (animation-timeline:view()){@media (prefers-reduced-motion:no-preference){
- .story .lit span{animation:evlit linear both;animation-timeline:view();animation-range:cover 18% cover 48%}
- .story .vsw{animation:evswbg linear both;animation-timeline:view();animation-range:entry 60% cover 40%}
- .story .vsw::after{animation:evswk linear both;animation-timeline:view();animation-range:entry 60% cover 40%}
-}}
+ .story .lit span{animation:evlit linear both;animation-timeline:view();animation-range:cover 15% cover 42%}}}
 @keyframes evlit{from{color:#2c3346}to{color:#fff}}
-@keyframes evswbg{0%,40%{background:#3a4155}60%,100%{background:#34C759}}
-@keyframes evswk{0%,40%{left:3px}60%,100%{left:25px}}
+.story .turn{margin:clamp(64px,9cqi,110px) auto 0;display:flex;flex-direction:column;align-items:center;gap:16px}
+.story .vsw{display:inline-block;width:64px;height:38px;border-radius:99px;background:#34C759;position:relative;margin-bottom:6px;transition:background .18s ease,box-shadow .5s ease;box-shadow:0 0 0 0 rgba(52,199,89,0)}
+.story .vsw::after{content:"";position:absolute;top:3px;left:29px;width:32px;height:32px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.3);transition:left .32s cubic-bezier(.34,1.56,.64,1)}
+.story .t1{font-size:clamp(30px,5cqi,52px);line-height:1.05;letter-spacing:-.035em;font-weight:700;color:#fff;margin:0}
+.story .t2{font-size:clamp(19px,2.5cqi,25px);line-height:1.45;letter-spacing:-.01em;color:#c9cfdf;margin:0;max-width:32ch;text-wrap:balance}
+.story .t2 .g{color:#34C759;font-weight:600}
+.story.arm .vsw{background:#3a4155}
+.story.arm .vsw::after{left:3px}
+.story.arm .turn.on .vsw{background:#34C759;box-shadow:0 0 0 14px rgba(52,199,89,.12)}
+.story.arm .turn.on .vsw::after{left:29px}
+.story.arm .t1,.story.arm .t2{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.story.arm .turn.on .t1{opacity:1;transform:none;transition-delay:.35s}
+.story.arm .turn.on .t2{opacity:1;transform:none;transition-delay:.6s}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip-->
 
 <div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
