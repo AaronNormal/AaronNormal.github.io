@@ -537,6 +537,16 @@ a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
 .story.arm .built.shown .logo{opacity:1;transform:none}
 .story.arm .built.shown .sw::after{transition-delay:.7s}
 .story.arm .built.shown .sw{transition-delay:.6s}
+
+/* story band: night-page switch merged in (26 Nov) */
+.story .built{margin-top:clamp(64px,9cqi,96px);display:flex;flex-direction:column;align-items:center;gap:22px}
+.story .bsw{width:88px;height:52px;border-radius:99px;background:#34C759;position:relative;box-shadow:0 0 44px rgba(52,199,89,.32);transition:background .25s ease .5s,box-shadow .5s ease .5s}
+.story .bsw::after{content:"";position:absolute;top:4px;left:40px;width:44px;height:44px;border-radius:50%;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.4);transition:left .45s cubic-bezier(.34,1.56,.64,1) .5s}
+.story.arm .built .bsw{background:#2a2f3d;box-shadow:none}.story.arm .built .bsw::after{left:4px}
+.story.arm .built.shown .bsw{background:#34C759;box-shadow:0 0 44px rgba(52,199,89,.32)}.story.arm .built.shown .bsw::after{left:40px}
+.story .bh{margin:0;font-size:clamp(30px,4.6cqi,50px);line-height:1.04;letter-spacing:-.04em;font-weight:700;color:#fff;max-width:16ch;text-wrap:balance}
+.story .bh .dim{display:block;color:#5d6478}
+.story .end{margin-top:22px;text-wrap:pretty}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip--><div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
 <div class="stage" id="stage"><div class="site"><nav class="jnav"><div class="in"><a class="logo" href="/everlweb/" aria-label="Everl home"><span class="sw"></span>everl</a><span class="sp"></span><div class="links"><a href="/everlweb/#how">How it works</a><a href="/everlweb/safety">Safety</a><a href="/everlweb/cities">Cities</a><a href="/everlweb/blog" class="on">Journal</a><a href="/everlweb/more">Up for more</a></div><a class="btn dark" href="/everlweb/#get">Get Everl</a><button class="mnu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button></div></nav>
 <main class="in" id="main" tabindex="-1">

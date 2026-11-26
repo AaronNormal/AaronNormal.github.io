@@ -127,8 +127,9 @@ if(D.readyState==='loading')D.addEventListener('DOMContentLoaded',ready);else re
 .ph h3{font-weight:500;font-size:clamp(24px,2.8vw,36px);letter-spacing:-.025em;line-height:1.2;margin:0}
 .ph h3 .d{color:#c3c8d6}
 .ph .sub{max-width:40ch;margin:12px auto 0;color:#dfe3ec;font-size:clamp(15px,1.5vw,17px);line-height:1.5}
-.ph .loc{display:inline-flex;gap:8px;align-items:center;margin-top:14px;font:500 11px "Geist Mono",monospace;letter-spacing:.12em;color:#e8ebf2}
-.ph .loc .p18{background:#8b5cf6;color:#fff;border-radius:99px;padding:2px 8px;font-size:10px;letter-spacing:.06em}
+.ph .loc{display:inline-flex;gap:10px;align-items:center;margin-top:18px;font:500 13px "Geist Mono",monospace;letter-spacing:.12em;color:#fff;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.16);padding:8px 14px;border-radius:99px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.ph .loc.lg{font-size:15px;padding:10px 18px;gap:12px;white-space:nowrap}@media (max-width:700px){.ph .loc.lg{font-size:13px;padding:9px 14px;gap:10px}.ph .loc.lg .p18{font-size:11px!important}}.ph .loc.lg .p18{font-size:13px;padding:4px 11px}
+.ph .loc .p18{background:#8b5cf6;color:#fff;border-radius:99px;padding:3px 9px;font-size:11px;letter-spacing:.06em}
 .s3{--img:url(/everlweb/img/hero-w-climb2-1920.webp)}.s4{--img:url(/everlweb/img/hero-w-glance-1920.webp);background-position:80% 40%}
 @media (max-width:700px){.s3{--img:url(/everlweb/img/hero-m-climb2-1116.webp)}.s4{--img:url(/everlweb/img/hero-m-glance-1116.webp);background-position:50% 20%}}
 .s4 .cta{display:flex;gap:10px;justify-content:center;margin-top:26px;flex-wrap:wrap}
@@ -357,18 +358,31 @@ a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
 .story.arm .built.shown .logo{opacity:1;transform:none}
 .story.arm .built.shown .sw::after{transition-delay:.7s}
 .story.arm .built.shown .sw{transition-delay:.6s}
+
+/* story band: night-page switch merged in (26 Nov) */
+.story .built{margin-top:clamp(64px,9cqi,96px);display:flex;flex-direction:column;align-items:center;gap:22px}
+.story .bsw{width:88px;height:52px;border-radius:99px;background:#34C759;position:relative;box-shadow:0 0 44px rgba(52,199,89,.32);transition:background .25s ease .5s,box-shadow .5s ease .5s}
+.story .bsw::after{content:"";position:absolute;top:4px;left:40px;width:44px;height:44px;border-radius:50%;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.4);transition:left .45s cubic-bezier(.34,1.56,.64,1) .5s}
+.story.arm .built .bsw{background:#2a2f3d;box-shadow:none}.story.arm .built .bsw::after{left:4px}
+.story.arm .built.shown .bsw{background:#34C759;box-shadow:0 0 44px rgba(52,199,89,.32)}.story.arm .built.shown .bsw::after{left:40px}
+.story .bh{margin:0;font-size:clamp(30px,4.6cqi,50px);line-height:1.04;letter-spacing:-.04em;font-weight:700;color:#fff;max-width:16ch;text-wrap:balance}
+.story .bh .dim{display:block;color:#5d6478}
+.story .end{margin-top:22px;text-wrap:pretty}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip-->
-<section class="scr s1"><div class="stars"></div><div class="horizon"></div><div class="lights"></div><div class="orb" aria-hidden="true"></div><div class="ic"><span class="mini"></span></div>
-<div class="cap"><h1>Somewhere out there, <span class="tn">tonight</span>&rsquo;s plan is waiting.</h1><p>Everl. Meet in person, nearby.</p></div></section>
-<section class="scr s2" id="s2"><div class="big"><span class="bsw" aria-hidden="true"></span><h2>Switch on when you&rsquo;re free. <span class="dim">Everl does the rest.</span></h2></div>
-<p>Say what you&rsquo;re up for: a game of padel, a drink, or something more. When it&rsquo;s mutual, you both get a quiet ping. Nothing happens unless you both say yes.</p>
-<a class="req" href="/everlweb/#get">Get Everl</a><div class="note">Free on iPhone and Android. Live in Manchester, Leeds next.</div></section>
-<section class="scr ph s3"><div class="c"><h3>Always wanted to start climbing?<br><span class="d">None of your mates will go.</span></h3><p class="sub">Everl finds the person nearby who will. Padel, running, board games, gigs: whatever you&rsquo;ve been putting off.</p><div class="loc">📍 ANCOATS, MANCHESTER</div></div></section>
-<section class="scr ph s4"><div class="c"><h3>Not after forever.<br><span class="d">Just tonight.</span> &#x1F60F;</h3><p class="sub">Say what you&rsquo;re into, in private. When the person a few streets away wants the same and you both say yes, you meet. No profiles, no chat, and nobody else ever knows.</p><div class="loc">📍 NORTHERN QUARTER <span class="p18">UP FOR MORE 18+</span></div>
-<div class="cta"><a href="/everlweb/#get">Get Everl</a><a class="g" href="/everlweb/cities#notify">Coming to a city near you?</a></div></div></section>
+<div class="stk" data-i="1" style="z-index:1"><section class="scr s1"><div class="stars"></div><div class="horizon"></div><div class="lights"></div><div class="orb" aria-hidden="true"></div><div class="ic"><span class="mini"></span></div>
+<div class="cap rise"><h1>Somewhere out there, <span class="tn">tonight</span>&rsquo;s plan is waiting.</h1><p>Everl. Meet in person, nearby.</p></div></section></div>
+<div class="stk" data-i="2" style="z-index:2"><section class="scr s2" id="s2"><div class="big rise"><span class="bsw" aria-hidden="true"></span><h2>Switch on when you&rsquo;re free. <span class="dim">Everl does the rest.</span></h2></div>
+<p class="rise">Say what you&rsquo;re up for: a game of padel, a drink, or something more. When it&rsquo;s mutual, you both get a quiet ping. Nothing happens unless you both say yes.</p>
+<a class="req" href="/everlweb/#get">Get Everl</a><div class="note">Free on iPhone and Android. Live in Manchester, Leeds next.</div></section></div>
+<div class="stk" data-i="3" style="z-index:3"><section class="scr ph s3"><div class="c rise"><h3>Always wanted to start climbing?<br><span class="d">None of your mates are up for it.</span></h3><p class="sub">Whatever you&rsquo;ve been putting off, Everl matches you with people nearby who are into the same thing and want to do it too.</p><div class="loc">📍 NORTHERN QUARTER, MANCHESTER</div></div></section></div>
+<div class="stk" data-i="4" style="z-index:4"><section class="scr ph s4"><div class="c rise"><h3>Up for something more? &#x1F49C;<br><span class="d">So is the person across the bar.</span></h3><p class="sub">Say what you&rsquo;re into, in private. If it&rsquo;s mutual, you both say yes and meet. No profiles, no chat, and it stays between the two of you.</p><div class="loc lg">📍 NORTHERN QUARTER <span class="p18">UP FOR MORE 18+</span></div>
+</div></section></div>
 <script>(function(){var h=new Date().getHours();if(h>=5&&h<16)[].forEach.call(document.querySelectorAll('.tn'),function(e){e.textContent='today'});
 var s2=document.getElementById('s2');if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){s2.classList.add('on');io.disconnect()}})},{threshold:.55});io.observe(s2)}else s2.classList.add('on')})();</script>
-<!--ev:polishjs--><script>(function(){var d=document.getElementById('drawer');if(!d)return;var H=document.documentElement,sy=0;
+<div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><span id="dl"></span></div>
+<script>/*stack: pin, rise, cover*/(function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;var W=[].slice.call(document.querySelectorAll('.stk')),D=[].slice.call(document.querySelectorAll('.dots i')),L=document.getElementById('dl'),N=['TONIGHT','SWITCH ON','THE GAME','SOMETHING MORE'];
+function f(){var vh=innerHeight,cur=0;W.forEach(function(w,i){var r=w.getBoundingClientRect(),sc=w.firstElementChild;var p=Math.min(1,Math.max(0,(vh-r.top)/vh));var into=Math.min(1,Math.max(0,(-r.top+vh*.05)/(vh*.45)));if(i===0)into=1;var nx=W[i+1];var out=0;if(nx){var nr=nx.getBoundingClientRect();out=Math.min(.6,Math.max(0,(vh-nr.top)/vh*.6))}sc.style.setProperty('--in',i===0?1:Math.max(0,Math.min(1,p*1.6-.6)));sc.style.setProperty('--out',out);if(r.top<=vh*.5)cur=i});D.forEach(function(d,i){d.classList.toggle('on',i===cur)});L.textContent=N[cur]}
+addEventListener('scroll',f,{passive:true});addEventListener('resize',f);f()})();</script><!--ev:polishjs--><script>(function(){var d=document.getElementById('drawer');if(!d)return;var H=document.documentElement,sy=0;
 function sibs(){var p=d.parentElement;return p?[].slice.call(p.children).filter(function(e){return e!==d&&e.tagName!=='SCRIPT'}):[]}
 function sync(){var open=!d.hidden;if(open){sy=scrollY;H.style.overflow='hidden';sibs().forEach(function(e){e.setAttribute('inert','')})}else{H.style.overflow='';sibs().forEach(function(e){e.removeAttribute('inert')})}}
 new MutationObserver(sync).observe(d,{attributes:true,attributeFilter:['hidden']});
