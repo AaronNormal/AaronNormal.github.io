@@ -919,6 +919,23 @@ a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
 .story.arm .built .sw{background:#3a4155}.story.arm .built .sw::after{left:.05em}
 .story.arm .built.shown .sw{background:#34C759}.story.arm .built.shown .sw::after{left:.48em}
 .story .sit p{text-align:left}
+
+/* story band E sizing pass (26 Nov): one scale, two clean lines per card, tappable switch */
+.story .s1{font-size:clamp(30px,4.6cqi,50px)}
+.story .sit{max-width:480px;gap:12px}
+.story .sit li{padding:16px 18px;gap:14px;transition:transform .25s ease,border-color .25s ease,background .25s ease}
+.story .sit li:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.06)}
+.story .ei{width:42px;height:42px;font-size:21px}
+.story .sit p{font-size:17px;line-height:1.35;font-weight:600}
+.story .sit .q{display:block;font-weight:500;margin-top:2px}
+.story .built{margin-top:clamp(56px,8cqi,80px)}
+.story .k{font-size:clamp(17px,2cqi,20px)}
+.story .logo{font-size:clamp(44px,6.4cqi,68px);margin-top:4px}
+.story .end{margin-top:22px;font-size:clamp(16px,1.8cqi,18px);max-width:36ch}
+.story .swb{all:unset;cursor:pointer;display:inline-flex;border-radius:99px;transition:transform .15s ease}
+.story .swb:active{transform:scale(.94)}
+.story .swb:focus-visible{outline:2px solid #34C759;outline-offset:4px}
+.story .swb.off .sw{background:#3a4155!important}.story .swb.off .sw::after{left:.05em!important;transition-delay:0s!important}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip-->
 
 <div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
@@ -954,11 +971,11 @@ a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
   <h2 class="s1 rvs"><span class="tn" data-cap="1">Tonight</span>&rsquo;s best plan is already nearby. <span class="dim">You just don&rsquo;t know it yet.</span></h2>
   <ul class="sit">
     <li class="rvs"><span class="ei"><i class="em" aria-hidden="true">&#x1F3BE;</i></span><p>You want a game of padel. <span class="q">Nobody you know plays.</span></p></li>
-    <li class="rvs"><span class="ei"><i class="em" aria-hidden="true">&#x1F49C;</i></span><p>You&rsquo;re up for something more <span class="tn">tonight</span>. <span class="q">Swiping isn&rsquo;t it.</span></p></li>
+    <li class="rvs"><span class="ei"><i class="em" aria-hidden="true">&#x1F49C;</i></span><p>You want something more. <span class="q">Swiping isn&rsquo;t it.</span></p></li>
   </ul>
-  <div class="built rvs"><p class="k">So we built</p><p class="logo"><span class="sw" aria-hidden="true"></span>everl</p></div>
+  <div class="built rvs"><p class="k">So we built</p><p class="logo"><button type="button" class="swb" aria-label="Flick the Everl switch" aria-pressed="true"><span class="sw"></span></button>everl</p></div>
   <p class="end rvs">Switch it on when you&rsquo;re free and say what you&rsquo;re up for. When it&rsquo;s mutual, you meet. Nothing happens unless you both say yes.</p>
-</div><script>/*story E: fade in, switch snaps on*/(function(){try{var st=document.currentScript.closest('section');if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;st.classList.add('arm');var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('shown');io.unobserve(e.target)})},{threshold:.4});[].forEach.call(st.querySelectorAll('.rvs'),function(el){io.observe(el)})}catch(e){}})();</script></section>
+</div><script>/*story E: fade in, switch snaps on*/(function(){try{var st=document.currentScript.closest('section');if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;st.classList.add('arm');var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('shown');io.unobserve(e.target)})},{threshold:.4});[].forEach.call(st.querySelectorAll('.rvs'),function(el){io.observe(el)})}catch(e){}})();(function(){var b=document.querySelector('.story .swb');if(!b)return;b.addEventListener('click',function(){var off=b.classList.toggle('off');b.setAttribute('aria-pressed',off?'false':'true')})})();</script></section>
 
 <section class="show"><div class="in">
   <div class="txt rv">

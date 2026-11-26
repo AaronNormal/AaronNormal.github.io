@@ -509,6 +509,23 @@ a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
 .story.arm .built .sw{background:#3a4155}.story.arm .built .sw::after{left:.05em}
 .story.arm .built.shown .sw{background:#34C759}.story.arm .built.shown .sw::after{left:.48em}
 .story .sit p{text-align:left}
+
+/* story band E sizing pass (26 Nov): one scale, two clean lines per card, tappable switch */
+.story .s1{font-size:clamp(30px,4.6cqi,50px)}
+.story .sit{max-width:480px;gap:12px}
+.story .sit li{padding:16px 18px;gap:14px;transition:transform .25s ease,border-color .25s ease,background .25s ease}
+.story .sit li:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.06)}
+.story .ei{width:42px;height:42px;font-size:21px}
+.story .sit p{font-size:17px;line-height:1.35;font-weight:600}
+.story .sit .q{display:block;font-weight:500;margin-top:2px}
+.story .built{margin-top:clamp(56px,8cqi,80px)}
+.story .k{font-size:clamp(17px,2cqi,20px)}
+.story .logo{font-size:clamp(44px,6.4cqi,68px);margin-top:4px}
+.story .end{margin-top:22px;font-size:clamp(16px,1.8cqi,18px);max-width:36ch}
+.story .swb{all:unset;cursor:pointer;display:inline-flex;border-radius:99px;transition:transform .15s ease}
+.story .swb:active{transform:scale(.94)}
+.story .swb:focus-visible{outline:2px solid #34C759;outline-offset:4px}
+.story .swb.off .sw{background:#3a4155!important}.story .swb.off .sw::after{left:.05em!important;transition-delay:0s!important}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip--><div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
 <div class="stage" id="stage"><div class="site"><nav class="jnav"><div class="in"><a class="logo" href="/everlweb/" aria-label="Everl home"><span class="sw"></span>everl</a><span class="sp"></span><div class="links"><a href="/everlweb/#how">How it works</a><a href="/everlweb/safety">Safety</a><a href="/everlweb/cities">Cities</a><a href="/everlweb/blog" class="on">Journal</a><a href="/everlweb/more">Up for more</a></div><a class="btn dark" href="/everlweb/#get">Get Everl</a><button class="mnu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button></div></nav>
 <main class="in" id="main" tabindex="-1">
