@@ -1089,6 +1089,22 @@ footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
 .evib-again:focus-visible{text-decoration-thickness:2px}
 .evib-pv{margin:14px 0 0;font-size:12px;color:#5be07f}
 @media (prefers-reduced-motion:reduce){.evib-c,.evib-sw,.evib-sw::after{transition:none}}
+/* ---- Phone-only fixes (27 Nov review, approved m2-m10). Nothing here applies above 760px. ---- */
+@media (max-width:760px){
+  .dock a{height:48px!important;font-size:16px!important;max-width:320px!important;transform:translateY(-62px)!important}
+  .dock.evh a{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+  .dots{display:none!important}
+  .scr.ph::after{background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,0) 26%,rgba(0,0,0,.25) 40%,rgba(0,0,0,.78) 60%,rgba(0,0,0,.94) 100%)!important}
+  .scr.ph .c h3,.scr.ph .c .sub{text-shadow:0 1px 12px rgba(0,0,0,.45)}
+  .scr h1,.scr h2,.scr h3,.scr .sub{padding-inline:6px;text-wrap:balance}
+  footer .fx-cols>div{row-gap:0!important}
+  footer .fx-cols>div>a{display:flex;align-items:center;min-height:44px;padding:0!important}
+  .nc a{display:inline-block;padding:12px 4px;margin:-12px 0}
+  .how2 button,.how2 [role=tab]{min-height:44px}
+  .trust,.trust span,.scr .loc{font-family:inherit!important;text-transform:none!important;letter-spacing:0!important;font-size:13px!important}
+  .eyb{display:none!important}
+  nav.hn{padding-top:10px!important}
+}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip-->
 
 <div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
@@ -1256,4 +1272,9 @@ try{f&&f.reset&&f.reset()}catch(e){}return true}})();
 ;(function(){function blk(){var g=document.getElementById('get');return g&&(g.querySelector('.in')||g)}
 function centre(smooth){var b=blk();if(!b)return false;var r=b.getBoundingClientRect(),vh=innerHeight,y=scrollY+r.top+r.height/2-vh/2;if(r.height>vh-40)y=scrollY+r.top-20;scrollTo({top:Math.max(0,y),behavior:smooth?'smooth':'auto'});return true}
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href');if(!/#get$/.test(h))return;if(a.pathname!==location.pathname||!document.getElementById('get'))return;e.preventDefault();var d=document.getElementById('drawer');if(d&&!d.hidden){var x=d.querySelector('.dr-x');x&&x.click();setTimeout(function(){centre(true)},360)}else centre(true);history.replaceState(null,'','#get')},true);
-if(location.hash==='#get')addEventListener('load',function(){setTimeout(function(){centre(false)},60)})})();</script><!--/ev:polishjs--></body></html>
+if(location.hash==='#get')addEventListener('load',function(){setTimeout(function(){centre(false)},60)})})();</script><!--/ev:polishjs--><!--ev:mobjs--><script>(function(){if(!matchMedia('(max-width:760px)').matches)return;
+var dock=document.getElementById('dock'),seen=new Set();
+if(dock&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?seen.add(e.target):seen.delete(e.target)});dock.classList.toggle('evh',seen.size>0)});document.querySelectorAll('.badges,a.req,a.hget,.close .btn').forEach(function(el){if(!el.closest('#dock'))io.observe(el)})}
+document.querySelectorAll('.scr .loc').forEach(function(l){l.innerHTML=l.innerHTML.replace(/[A-Z][A-Z\u2019']+/g,function(w){return w[0]+w.slice(1).toLowerCase()})});
+var cap=document.querySelector('.s1 .cap2');if(cap){var f=function(){var y=scrollY;cap.style.opacity=Math.max(0,1-y/260);cap.style.pointerEvents=y>200?'none':''};addEventListener('scroll',f,{passive:true});f()}
+})();</script><!--/ev:mobjs--></body></html>
