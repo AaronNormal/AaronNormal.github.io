@@ -1888,6 +1888,7 @@ footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
   footer .fx-cols>div>a{display:flex;align-items:center;min-height:44px;padding:0!important}
   .nc a{display:inline-block;padding:12px 4px;margin:-12px 0}
   .how2 button,.how2 [role=tab]{min-height:44px}
+  .site .hw-seg .hw-dot{box-sizing:border-box!important;min-height:44px!important}
   .trust,.trust span,.scr .loc{font-family:inherit!important;text-transform:none!important;letter-spacing:0!important;font-size:13px!important}
   .eyb{display:none!important}
   nav.hn{padding-top:10px!important}
@@ -2105,7 +2106,7 @@ var sc=Math.max(W/im.width,H/im.height),dw=im.width*sc,dh=im.height*sc,ox=(W-dw)
 var t=document.createElement('canvas'),sw=320,sh=Math.round(320*im.height/im.width);t.width=sw;t.height=sh;var c=t.getContext('2d');c.drawImage(im,0,0,sw,sh);var d=c.getImageData(0,0,sw,sh).data,cand=[];
 for(var y=0;y<sh;y++)for(var x=0;x<sw;x++){var i=(y*sw+x)*4,l=d[i]*.3+d[i+1]*.59+d[i+2]*.11;if(l>150)cand.push([x/sw,y/sh,d[i],d[i+1],d[i+2]])}
 P=[];var n=Math.min(260,cand.length);for(var k=0;k<n;k++){var q=cand[(Math.random()*cand.length)|0];P.push({x:ox+q[0]*dw,y:oy+q[1]*dh,r:.6+Math.random()*1.6,c:'rgb('+Math.min(255,q[2]+40)+','+Math.min(255,q[3]+30)+','+Math.min(255,q[4]+20)+')',p:Math.random()*6.28,s:.6+Math.random()*2.2,g:1})}
-for(var j=0;j<70;j++)P.push({x:Math.random()*W,y:Math.random()*H*.42,r:.4+Math.random()*.9,c:'#fff',p:Math.random()*6.28,s:.3+Math.random()*1.2,g:0});var BC=[[854,513,0],[876,513,0],[948,518,.4],[973,518,.4],[1017,533,.9],[1038,533,.9],[1116,548,.2],[908,546,1.2],[928,546,1.2],[741,546,.6],[774,546,1.4],[826,573,.7],[576,574,1.1]];B=[];BC.forEach(function(q){var fx=q[0]/1920,fy=q[1]/1072;if(W<700){fx=(fx*2752-948)/857;if(fx<0||fx>1)return}B.push({x:ox+fx*dw,y:oy+fy*dh,o:q[2]})});PL={sx:-40,sy:H*(.12+Math.random()*.1),w:W};
+for(var j=0;j<70;j++)P.push({x:Math.random()*W,y:Math.random()*H*.42,r:.4+Math.random()*.9,c:'#fff',p:Math.random()*6.28,s:.3+Math.random()*1.2,g:0});var BC=[[854,513,0],[876,513,0],[948,518,.4],[973,518,.4],[1017,533,.9],[1038,533,.9],[1116,548,.2],[908,546,1.2],[928,546,1.2],[741,546,.6],[774,546,1.4],[826,573,.7],[576,574,1.1]];B=[];BC.forEach(function(q){var fx=q[0]/1920,fy=q[1]/1072;if(W<700){fx=(fx*2752-948)/857;if(fx<0||fx>1)return}B.push({x:ox+fx*dw,y:oy+fy*dh,o:q[2]})});PL={sx:-40,sy:H*(.12+Math.random()*.1),w:W};if(W<700){P=[];PL=null}/*phones: only the skyscraper beacons (27 Nov)*/
 draw(0)};im.src=u}
 function draw(ts){ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,cv.width,cv.height);var t=ts/1000;
 for(var i=0;i<P.length;i++){var o=P[i],a=.5+.5*Math.sin(t*o.s+o.p);a=o.g?Math.pow(a,3):a*.8;if(a<.03)continue;ctx.globalAlpha=a;ctx.fillStyle=o.c;
