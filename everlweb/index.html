@@ -1499,6 +1499,22 @@ html.sky-light .nx .clouds i:nth-child(2){background-image:radial-gradient(30% 1
 .acts-pop.is-done .ap-bar{display:none!important}
 
 .acts-pop .ad-em svg.pdl{width:26px;height:26px}
+/* picker option A: pill track + pill chips (27 Nov, board29) */
+.acts-pop .ap-bar{margin:12px 26px 0!important;padding:4px!important;gap:2px!important;border-radius:99px;background:rgba(255,255,255,.06)!important;-webkit-mask-image:none!important;mask-image:none!important}
+.acts-pop .ap-bar::after{display:none}
+.acts-pop .ap-bar .ap-bt{height:36px;padding:0 14px;border:0;background:none;color:#aab1c2}
+.acts-pop .ap-bar .ap-bt:hover{background:rgba(255,255,255,.06);color:#fff}
+.acts-pop .ap-bar .ap-bt.on{background:#fff;color:#0b0f1c}
+.acts-pop .ap-body{padding-top:22px!important;min-height:176px!important}
+.acts-pop .ap-g .ap-chips{display:flex;flex-wrap:wrap;gap:10px}
+.acts-pop .ap-g .ap-c{flex-direction:row;gap:8px;min-height:0;height:44px;padding:0 16px 0 12px;border-radius:99px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);font:500 15px "Geist",system-ui,sans-serif;color:#eef0f6}
+.acts-pop .ap-g .ap-c:hover{background:rgba(255,255,255,.09)}
+.acts-pop .ap-g .ap-c i{font-size:19px}
+.acts-pop .ap-g .ap-c i svg.pdl{width:20px;height:20px}
+.acts-pop .ap-g .ap-c .ap-ck{display:none}
+.acts-pop .ap-g .ap-c[aria-pressed="true"]{background:#fff;border-color:#fff;color:#0b0f1c}
+.acts-pop .ap-g.on .ap-c{animation:apIn .35s ease both;animation-delay:calc(var(--k,0)*25ms)}
+@media (max-width:700px){.acts-pop .ap-bar{margin:10px 18px 0!important}.acts-pop .ap-body{padding:18px 18px 18px!important}.acts-pop .ap-g .ap-chips{gap:8px}.acts-pop .ap-g .ap-c{height:42px;font-size:14.5px;padding:0 14px 0 11px}}
 
 /* "Whatever you're into" fills the screen like the other sections (27 Nov) */
 .site .show{min-height:100svh;display:flex;align-items:center;padding-block:96px!important;box-sizing:border-box}
