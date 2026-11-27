@@ -509,6 +509,38 @@ footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
   .dr-plus-t{color:#0b0f1c!important}
   .dock a{max-width:none!important;width:100%!important}
 }
+/* ---- Phone hero C (27 Nov pick): city on top, headline + one paragraph + two buttons together on the dark ground. ---- */
+@media (max-width:760px){
+  .nx .s1.sky .cap{top:auto!important}
+  .nx .s1.sky .cap h1{font-size:34px!important}
+  .nx .s1.sky .skyimg,.nx .s1.sky .skyw canvas{transform:translateY(-24%)!important;animation:none!important}
+  .nx .s1.sky::after{background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,0) 18%,rgba(0,0,0,0) 34%,rgba(0,0,0,.75) 50%,#05070c 62%)!important}
+  .nx .s1.sky .cap2{bottom:calc(5svh + 16px)!important}
+  .nx .s1.sky .cap2 .trust,.nx .s1.sky .cap2 .nc{display:none!important}
+  .s1 .cap2 .badges.sb .badge{gap:10px!important;padding:0 24px!important;justify-content:center!important}
+  .s1 .cap2 .badges.sb .badge svg{position:static!important;transform:none!important;width:20px!important;height:20px!important;flex:none}
+  .s1 .cap2 .badges.sb .badge .bl{font-size:17px!important;font-weight:600!important;letter-spacing:-.01em}
+}
+/* Phone hero C: short phones lift the city further and use a slightly smaller headline. */
+@media (max-width:760px) and (max-height:740px){
+  .nx .s1.sky .skyimg,.nx .s1.sky .skyw canvas{transform:translateY(-32%)!important}
+  .nx .s1.sky .cap h1{font-size:30px!important}
+  .nx .s1.sky::after{background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,0) 14%,rgba(0,0,0,0) 26%,rgba(0,0,0,.8) 40%,#05070c 50%)!important}
+}
+/* Phone hero C in daytime: light ground under the words, dark buttons. */
+@media (max-width:760px){
+  html.sky-light .nx .s1.sky::after{background:linear-gradient(180deg,rgba(255,255,255,.3),rgba(255,255,255,0) 18%,rgba(217,231,239,0) 34%,rgba(217,231,239,.9) 50%,#d9e7ef 62%)!important}
+  html.sky-light .nx .s1.sky .cap .lead,html.sky-light .nx .s1.sky .cap p{color:#2b3245!important;text-shadow:none!important}
+  html.sky-light .s1 .cap2 .badges.sb .badge{background:#0b0f1c!important;color:#fff!important}
+  html.sky-light .s1 .cap2 .badges.sb .badge svg:not(.gp){fill:#fff!important;color:#fff!important}
+}
+@media (max-width:760px) and (max-height:740px){
+  html.sky-light .nx .s1.sky::after{background:linear-gradient(180deg,rgba(255,255,255,.3),rgba(255,255,255,0) 14%,rgba(217,231,239,0) 26%,rgba(217,231,239,.92) 40%,#d9e7ef 50%)!important}
+}
+@media (max-width:760px){
+  html.sky-light nav.hn .mnu{border-color:rgba(11,15,28,.18)!important;background:rgba(255,255,255,.55)!important}
+  html.sky-light nav.hn .mnu span{background:#0b0f1c!important}
+}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip--><p><a href="/everlweb/">Go to the Everl homepage</a></p><!--ev:polishjs--><script>(function(){var d=document.getElementById('drawer');if(!d)return;var H=document.documentElement,sy=0;
 function sibs(){var p=d.parentElement;return p?[].slice.call(p.children).filter(function(e){return e!==d&&e.tagName!=='SCRIPT'}):[]}
 function sync(){var open=!d.hidden;if(open){sy=scrollY;H.style.overflow='hidden';sibs().forEach(function(e){e.setAttribute('inert','')})}else{H.style.overflow='';sibs().forEach(function(e){e.removeAttribute('inert')})}}
@@ -536,5 +568,6 @@ if(dock&&'IntersectionObserver' in window){var io=new IntersectionObserver(funct
 document.querySelectorAll('.scr .loc').forEach(function(l){l.innerHTML=l.innerHTML.replace(/[A-Z][A-Z\u2019']+/g,function(w){return w[0]+w.slice(1).toLowerCase()})});
 var android=/Android/.test(navigator.userAgent),ob=document.querySelectorAll('.s1 .cap2 .badges.sb .badge');ob.forEach(function(b){var gp=!!b.querySelector('svg.gp');if(android===gp)b.classList.add('own');var t=b.querySelector('b');if(t){t.className='bl';t.textContent=gp?'Get it on Google Play':'Download on the App Store'}b.href='https://everl.com/app';b.setAttribute('aria-label',gp?'Get Everl on Google Play':'Download Everl on the App Store')});
 var SC=[].slice.call(document.querySelectorAll('.stry .st-scr .st-c'));if(SC.length){var sf=function(){SC.forEach(function(c){var r=c.parentNode.getBoundingClientRect(),p=Math.max(0,Math.min(1,(innerHeight-r.top)/(innerHeight*.7)));c.style.opacity=(.15+.85*p).toFixed(3);c.style.transform='translate3d(0,'+((1-p)*56).toFixed(1)+'px,0)'})};addEventListener('scroll',sf,{passive:true});addEventListener('resize',sf);sf()}
+(function(){var c1=document.querySelector('.s1.sky .cap'),c2=document.querySelector('.s1.sky .cap2');if(!c1||!c2)return;var lay=function(){var b=parseFloat(getComputedStyle(c2).bottom)||40;c1.style.bottom=(b+c2.offsetHeight+24)+'px'};lay();addEventListener('load',lay);var lw=innerWidth;addEventListener('resize',function(){if(innerWidth!==lw){lw=innerWidth;lay()}});setTimeout(lay,400)})();
 var cap=document.querySelector('.s1 .cap2');if(cap){var f=function(){var y=scrollY;cap.style.opacity=Math.max(0,1-y/260);cap.style.pointerEvents=y>200?'none':''};addEventListener('scroll',f,{passive:true});f()}
 })();</script><!--/ev:mobjs--></body></html>
