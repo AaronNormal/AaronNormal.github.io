@@ -60,12 +60,20 @@
         <span class="hw-sub"><span data-draw="k-last7" data-source="kpi" data-field="last7" data-row="0">—</span> in the last 7 days</span>
       </div>
       <div class="hw-tile">
-        <span class="hw-lbl">Cost per family
-          <span class="hw-info"><button type="button" aria-label="How cost per family is worked out">i</button>
-            <span class="pop" role="tooltip">All ad spend so far divided by the families who came from those ads, both counted up to the same day. Families from Instagram, direct visits and shared links cost nothing and aren't in this figure.</span></span>
+        <span class="hw-lbl">Spend to date
+          <span class="hw-info"><button type="button" aria-label="What spend to date includes">i</button>
+            <span class="pop" role="tooltip">Everything spent on ads since launch: Meta (read from Ads Manager each morning) plus the ChatGPT test ad, paused on 15 Nov.</span></span>
         </span>
-        <span class="hw-big" data-draw="c-cpl" data-source="cost" data-field="cpl_all" data-row="0">—</span>
-        <span class="hw-sub"><span data-draw="c-spend" data-source="cost" data-field="spend_all" data-row="0">—</span> spent on ads</span>
+        <span class="hw-big" data-draw="c-spend2" data-source="cost" data-field="spend_all" data-row="0">—</span>
+        <span class="hw-sub"><span data-draw="c-smeta" data-source="cost" data-field="spend_meta" data-row="0">—</span> Meta, <span data-draw="c-sother" data-source="cost" data-field="spend_other" data-row="0">—</span> ChatGPT, to <span data-draw="c-through" data-source="spend">—</span></span>
+      </div>
+      <div class="hw-tile">
+        <span class="hw-lbl">CAC
+          <span class="hw-info"><button type="button" aria-label="How CAC is worked out">i</button>
+            <span class="pop" role="tooltip">Cost to acquire a founding family: all ad spend to date divided by every founding family, including the ones from Instagram, direct visits and shared links. The line below counts only families who came from an ad.</span></span>
+        </span>
+        <span class="hw-big" data-draw="c-cac" data-source="cost" data-field="cac_all" data-row="0">—</span>
+        <span class="hw-sub"><span data-draw="c-cpl" data-source="cost" data-field="cpl_all" data-row="0">—</span> per family from ads</span>
       </div>
       <div class="hw-tile">
         <span class="hw-lbl">Cost per family, Meta</span>
@@ -339,7 +347,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script src="dash-shim.js?v=1119b"></script>
 <script src="uk.js"></script>
-<script src="app.js?v=1119b"></script>
+<script src="app.js?v=1127a"></script>
 <script>
 (() => {
   const form = document.getElementById('gate-form'), pw = document.getElementById('pw'), err = document.getElementById('err'), go = document.getElementById('go');

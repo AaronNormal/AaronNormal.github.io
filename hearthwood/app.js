@@ -237,15 +237,17 @@ dash.calc('adstats', {
 });
 
 dash.calc('cost', {
-  inputs: ['adstats'],
+  inputs: ['adstats', 'leads'],
   title: 'Spend and cost per family to date',
-  description: 'Totals across every ad with spend, and across Meta ads only.',
-  fn: (ads) => {
+  description: 'Totals across every ad with spend, and across Meta ads only. CAC is all ad spend divided by every founding family, free channels included.',
+  fn: (ads, leads) => {
     const sum = (arr, k) => arr.reduce((a, r) => a + r[k], 0);
     const meta = ads.filter((a) => a.channel === 'Meta ads');
     const sa = sum(ads, 'spend'), fa = sum(ads, 'families'), sm = sum(meta, 'spend'), fm = sum(meta, 'families');
     const gbp = (v) => '£' + v.toFixed(2);
-    return [{spend_all: gbp(sa), families_paid: fa, cpl_all: fa ? gbp(sa / fa) : '—', spend_meta: gbp(sm), families_meta: fm, cpl_meta: fm ? gbp(sm / fm) : '—'}];
+    const n = leads.length;
+    return [{spend_all: gbp(sa), families_paid: fa, cpl_all: fa ? gbp(sa / fa) : '—', spend_meta: gbp(sm), families_meta: fm, cpl_meta: fm ? gbp(sm / fm) : '—',
+      spend_other: gbp(sa - sm), families_all: n, cac_all: n ? gbp(sa / n) : '—'}];
   }
 });
 
@@ -271,8 +273,15 @@ const hwKpi = (src, field) => (el) => {
 [['k-families', 'families'], ['k-last7', 'last7'], ['k-conf', 'confirmed_pct'], ['k-confn', 'confirmed'], ['k-hot', 'hot'], ['k-warm', 'warm'], ['k-cold', 'cold'],
  ['k-kids', 'avg_children'], ['k-budget', 'median_budget'], ['k-big', 'over_700k_pct'], ['k-equity', 'equity_pct'], ['k-indep', 'indep_pct'],
  ['m-mapped', 'with_postcode'], ['m-total', 'families'], ['k-ms', 'ms_confirm_pct'], ['k-nonms', 'other_confirm_pct']].forEach(([n, f]) => dash.draw(n, hwKpi('kpi', f)));
-[['c-cplm2', 'cpl_meta'], ['c-cpl', 'cpl_all'], ['c-spend', 'spend_all'], ['c-cplm', 'cpl_meta'], ['c-fm', 'families_meta'], ['c-sm', 'spend_meta']].forEach(([n, f]) => dash.draw(n, hwKpi('cost', f)));
+[['c-spend2', 'spend_all'], ['c-smeta', 'spend_meta'], ['c-sother', 'spend_other'], ['c-cac', 'cac_all'], ['c-fall', 'families_all'],
+ ['c-cplm2', 'cpl_meta'], ['c-cpl', 'cpl_all'], ['c-spend', 'spend_all'], ['c-cplm', 'cpl_meta'], ['c-fm', 'families_meta'], ['c-sm', 'spend_meta']].forEach(([n, f]) => dash.draw(n, hwKpi('cost', f)));
 [['f-vis', 'visitors'], ['f-open', 'opened'], ['f-openpct', 'open_pct'], ['f-join', 'joined'], ['f-joinpct', 'join_pct']].forEach(([n, f]) => dash.draw(n, hwKpi('funnel', f)));
+
+dash.draw('c-through', (el) => {
+  const d = dash.data('spend');
+  const t = d.status === 'ok' && d.data.length ? d.data.map((r) => r.through).sort().pop() : null;
+  el.textContent = t ? d3.utcFormat('%-d %b')(new Date(t + 'T00:00:00Z')) : '—';
+});
 
 dash.draw('through', (el) => {
   const d = dash.data('spend');
