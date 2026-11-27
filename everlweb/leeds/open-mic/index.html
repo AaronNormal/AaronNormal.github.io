@@ -1143,6 +1143,10 @@ footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
 @media (max-width:760px){
   .nx .stk{height:112lvh}
   .nx .stk:last-of-type{height:100lvh}
+  /* each screen stays put while the next one slides over it: same 112lvh step, the next wrapper overlaps by 100lvh (27 Nov) */
+  .site .nx .stk{height:212lvh!important}
+  .site .nx .stk+.stk{margin-top:-100lvh}
+  .site .nx .stk:last-of-type{height:100lvh!important}
 }
 @media (min-width:761px){nav.hn .mnu{display:none!important}}
 /* ---- Story cards on phones rise with the scroll, like the hero screens (27 Nov). ---- */
@@ -1253,6 +1257,12 @@ footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
   .site .cty form.lf .tick.upd{grid-row:4!important}
   .site .cty form.lf .ts{grid-row:5!important}
   .site .cty .lf .tick input{width:20px;height:20px;flex:0 0 20px}
+}
+/* Phones: screen-to-screen handover feels like cards (27 Nov): the arriving screen has rounded top corners and a soft shadow, the one underneath dims as it is covered (.evdim, set by MOB_JS). */
+.evdim{display:none}
+@media (max-width:760px){
+  .site .nx .stk+.stk>.scr,.site .stry .st-b{border-radius:22px 22px 0 0!important;box-shadow:0 -14px 34px rgba(0,0,0,.55)}
+  .evdim{display:block;position:absolute;inset:0;background:#000;opacity:0;pointer-events:none;z-index:60}
 }
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip-->
 
@@ -1428,4 +1438,7 @@ var android=/Android/.test(navigator.userAgent),ob=document.querySelectorAll('.s
 var SC=[].slice.call(document.querySelectorAll('.stry .st-scr'));if(SC.length){var nat=function(el){var t=el.parentNode.getBoundingClientRect().top+scrollY,c=el.parentNode.firstElementChild;while(c&&c!==el){t+=c.offsetHeight;c=c.nextElementSibling}return t};var sf=function(){var y=scrollY,vh=innerHeight,k=2e-6*Math.pow(800/vh,2);SC.forEach(function(sc){var c=sc.querySelector('.st-c');if(!c)return;var n=nat(sc)+.18*vh,o=1-k*Math.pow(y-n,2),tr=Math.max(-80,Math.min(80,(n-y)*.1));c.style.opacity=Math.max(0,Math.min(1,o)).toFixed(3);c.style.transform='translate3d(0,'+tr.toFixed(1)+'px,0)'})};addEventListener('scroll',function(){requestAnimationFrame(sf)},{passive:true});sf()}
 (function(){var c1=document.querySelector('.s1.sky .cap'),c2=document.querySelector('.s1.sky .cap2');if(!c1||!c2)return;var lay=function(){var b=parseFloat(getComputedStyle(c2).bottom)||40;c1.style.bottom=(b+c2.offsetHeight+24)+'px'};lay();addEventListener('load',lay);var lw=innerWidth;addEventListener('resize',function(){if(innerWidth!==lw){lw=innerWidth;lay()}});setTimeout(lay,400)})();
 var cap=document.querySelector('.s1 .cap2');if(cap){var f=function(){var y=scrollY;cap.style.opacity=Math.max(0,1-y/260);cap.style.pointerEvents=y>200?'none':''};addEventListener('scroll',f,{passive:true});f()}
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){var PR=[];[].slice.call(document.querySelectorAll('.nx .stk')).forEach(function(w,i,a){if(i<a.length-1&&w.firstElementChild)PR.push([w.firstElementChild,a[i+1]])});var sa=document.querySelector('.stry .st-a'),sb=document.querySelector('.stry .st-b');if(sa&&sb)PR.push([sa,sb]);
+PR.forEach(function(p){var d=document.createElement('i');d.className='evdim';d.setAttribute('aria-hidden','true');p[0].appendChild(d);p.push(d)});
+var dm=function(){var vh=innerHeight;PR.forEach(function(p){var c=Math.max(0,Math.min(1,(vh-p[1].getBoundingClientRect().top)/vh));p[2].style.opacity=(c*.6).toFixed(3)})};addEventListener('scroll',function(){requestAnimationFrame(dm)},{passive:true});dm()}
 })();</script><!--/ev:mobjs--></body></html>
