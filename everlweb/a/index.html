@@ -1769,6 +1769,24 @@ footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
 .contact .chips span{background:#fff;color:var(--ink);border-color:rgba(11,15,28,.1)}
 .contact .chips input:checked+span{background:#0b0f1c!important;color:#fff!important;border-color:#0b0f1c!important}
 .contact .btn{background:#0b0f1c!important;color:#fff!important}
+/* check-your-inbox pop-up, new style (27 Nov) */
+.evib{padding:0;border:0;background:transparent;max-width:min(440px,calc(100vw - 32px));width:100%;color:#fff;overflow:visible}
+.evib::backdrop{background:rgba(5,7,12,.62);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.evib-c{position:relative;text-align:center;padding:40px 32px 26px;border-radius:28px;background:radial-gradient(120% 90% at 50% 0%,#1b2236 0%,#0b0e16 60%,#07090f 100%);border:1px solid rgba(255,255,255,.1);box-shadow:0 40px 100px -20px rgba(0,0,0,.7);opacity:0;transform:translateY(14px) scale(.98);transition:opacity .35s ease,transform .45s cubic-bezier(.2,.7,.2,1)}
+.evib.on .evib-c{opacity:1;transform:none}
+.evib-sw{display:block;margin:0 auto 24px;width:64px;height:38px;border-radius:99px;background:#2a2f3d;position:relative;transition:background .3s ease .35s,box-shadow .3s ease .35s}
+.evib-sw::after{content:"";position:absolute;top:3px;left:3px;width:32px;height:32px;border-radius:50%;background:#fff;box-shadow:0 3px 10px rgba(0,0,0,.35);transition:left .45s cubic-bezier(.34,1.56,.64,1) .35s}
+.evib.on .evib-sw{background:#34C759;box-shadow:0 8px 30px rgba(52,199,89,.35)}
+.evib.on .evib-sw::after{left:29px}
+.evib h2{margin:0;font-size:32px;font-weight:700;letter-spacing:-.04em;line-height:1.05;color:#fff}
+.evib-p{margin:14px auto 0;max-width:32ch;font-size:16px;line-height:1.5;color:#c4cad8;text-wrap:balance;overflow-wrap:anywhere}
+.evib-p b{color:#fff;font-weight:600}
+.evib-s{margin:14px auto 0;max-width:34ch;font-size:14px;line-height:1.5;color:#8a92a5;text-wrap:balance}
+.evib-again{border:0;background:none;padding:0;font:inherit;color:#fff;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.evib-ok{display:block;width:100%;margin-top:24px;height:52px;border:0;border-radius:99px;background:#fff;color:#0b0f1c;font:600 16px "Geist",system-ui,sans-serif;cursor:pointer}
+.evib-ok:focus-visible,.evib-again:focus-visible{outline:3px solid #34C759;outline-offset:3px}
+.evib-pv{margin:14px 0 0;font-size:12px;color:#5be07f}
+@media (prefers-reduced-motion:reduce){.evib-c,.evib-sw,.evib-sw::after{transition:none}}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip-->
 
 <div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
@@ -1958,7 +1976,7 @@ if(sel){sel.addEventListener('change',function(){sync();if(!oth.hidden)oth.focus
  var qc=new URLSearchParams(location.search).get('city');if(qc&&[].some.call(sel.options,function(x){return x.text===qc}))sel.value=qc;sync();
  document.querySelectorAll('[data-city]').forEach(function(a){a.addEventListener('click',function(){var c=a.dataset.city;if([].some.call(sel.options,function(x){return x.text===c})){sel.value=c;sync()}})})}
 document.addEventListener('submit',function(e){var f=e.target;if(!f||f.id!=='lform')return;e.preventDefault();e.stopImmediatePropagation();
- if(!f.checkValidity()){f.reportValidity();return}location.href='/everlweb/thank-you?from=cities&city=Leeds'},true);
+ if(!f.checkValidity()){f.reportValidity();return}if(window.evInbox){evInbox('Leeds',f)}else{location.href='/everlweb/thank-you?from=cities&city=Leeds'}},true);
 })();</script><script>/*dockdark*/(function(){var d=document.getElementById('dock');if(!d)return;function chk(){var a=d.querySelector('a');if(!a)return;var r=a.getBoundingClientRect();var y=r.top+r.height/2;a.style.pointerEvents='none';var el=document.elementFromPoint(innerWidth/2,y);a.style.pointerEvents='';var dark=false;while(el&&el!==document.body){var bg=getComputedStyle(el).backgroundColor;var m=bg.match(/\d+(\.\d+)?/g);if(m&&(m.length<4||+m[3]>0.5)){dark=(0.299*m[0]+0.587*m[1]+0.114*m[2])<80;break}el=el.parentElement}d.classList.toggle('dark',dark)}addEventListener('scroll',chk,{passive:true});addEventListener('resize',chk);chk()})();</script><script>/*wallcf*/(function(){var t=document.querySelector('.cf-track');if(!t)return;var cards=[].slice.call(t.querySelectorAll('.cf-card')),cap=document.querySelector('.cf-cap'),cur=-1,timer=null,rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function upd(){var r=t.getBoundingClientRect(),mid=r.left+r.width/2,best=0,bd=1e9;cards.forEach(function(c,i){var b=c.getBoundingClientRect(),d=Math.abs(b.left+b.width/2-mid),w=b.width/(parseFloat(getComputedStyle(c).getPropertyValue('--s'))||1),k=Math.min(1,d/(w+20));c.style.setProperty('--s',(1-0.16*k).toFixed(3));c.style.setProperty('--o',(1-0.18*k).toFixed(3));if(d<bd){bd=d;best=i}});if(best!==cur){cur=best;cards.forEach(function(c,i){c.classList.toggle('on',i===cur);c.classList.remove('in2')});cap.textContent=cards[cur].dataset.cap;clearTimeout(window.__wnT);var cc=cards[cur];window.__wnT=setTimeout(function(){cc.classList.add('in2')},rm?0:2000)}}
 function go(i){i=(i+cards.length)%cards.length;var c=cards[i];t.scrollTo({left:c.offsetLeft-(t.clientWidth-c.offsetWidth)/2,behavior:rm?'auto':'smooth'})}
@@ -2033,4 +2051,17 @@ document.addEventListener('mouseout',function(e){if(!e.relatedTarget&&e.clientY<
 function sibs(){var p=d.parentElement;return p?[].slice.call(p.children).filter(function(e){return e!==d&&e.tagName!=='SCRIPT'}):[]}
 function sync(){var open=!d.hidden;if(open){sy=scrollY;H.style.overflow='hidden';sibs().forEach(function(e){e.setAttribute('inert','')})}else{H.style.overflow='';sibs().forEach(function(e){e.removeAttribute('inert')})}}
 new MutationObserver(sync).observe(d,{attributes:true,attributeFilter:['hidden']});
-d.addEventListener('keydown',function(e){if(e.key!=='Tab')return;var f=[].slice.call(d.querySelectorAll('a[href],button:not([disabled])')).filter(function(x){return x.offsetParent!==null});if(!f.length)return;var a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}});})();</script><!--/ev:polishjs--></body></html>
+d.addEventListener('keydown',function(e){if(e.key!=='Tab')return;var f=[].slice.call(d.querySelectorAll('a[href],button:not([disabled])')).filter(function(x){return x.offsetParent!==null});if(!f.length)return;var a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}});})();
+;(function(){window.evInbox=function(city,f){var em='';try{em=(f&&f.querySelector('input[type=email]')||{}).value||''}catch(e){}
+var d=document.getElementById('evinbox');if(!d){d=document.createElement('dialog');d.id='evinbox';d.className='evib';d.setAttribute('aria-labelledby','evib-h');
+d.innerHTML='<div class="evib-c"><span class="evib-sw" aria-hidden="true"></span><h2 id="evib-h">Check your inbox.</h2><p class="evib-p"></p><p class="evib-s">Nothing there after a minute? Check junk, or <button type="button" class="evib-again">send it again</button>.</p><button type="button" class="evib-ok">Done</button><p class="evib-pv">Preview only: nothing was sent.</p></div>';
+(document.querySelector('.site')||document.body).appendChild(d);
+d.querySelector('.evib-ok').addEventListener('click',function(){d.close()});
+d.querySelector('.evib-again').addEventListener('click',function(){d.close();var i=f&&f.querySelector('input[type=email]');i&&i.focus()});
+d.addEventListener('click',function(e){if(e.target===d)d.close()});}
+var c=(city||'your city').slice(0,60),p=d.querySelector('.evib-p');p.textContent='';
+var a=document.createTextNode(em?'We’ve sent a link to ':'We’ve sent you a link. '),b=document.createElement('b');
+if(em){b.textContent=em;p.appendChild(a);p.appendChild(b);p.appendChild(document.createTextNode('. Tap it to confirm your Everl '+c+' spot. Your place isn’t saved until you do.'))}
+else{p.appendChild(a);p.appendChild(document.createTextNode('Tap it to confirm your Everl '+c+' spot. Your place isn’t saved until you do.'))}
+d.classList.remove('on');if(d.open)d.close();d.showModal();requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('on')})});
+try{f&&f.reset&&f.reset()}catch(e){}return true}})();</script><!--/ev:polishjs--></body></html>

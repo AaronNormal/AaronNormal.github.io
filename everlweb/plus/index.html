@@ -667,6 +667,55 @@ footer.f .soc{display:flex;gap:10px}
 .pxp .pclose h2 .dim{display:block;color:#8e95a8}
 @media (max-width:900px){.pxp .pxb-g{grid-template-columns:1fr;gap:36px}}
 @media (max-width:700px){.pxp .tl{padding:0 14px;gap:10px}.pxp .tl li{font-size:13px}.pxp .pfaq{padding:90px 0}.pxp .pclose{padding:100px 20px}}
+
+/* sheen on the grey hero line (27 Nov) */
+.pxp .p1 h1 .dim{background:linear-gradient(100deg,#9aa1b3 0%,#9aa1b3 36%,#f4f6fb 47%,#ffffff 50%,#f4f6fb 53%,#9aa1b3 64%,#9aa1b3 100%);background-size:250% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;color:transparent;animation:pxsheen 4.5s cubic-bezier(.4,0,.2,1) 1s infinite}
+@keyframes pxsheen{0%{background-position:100% 0}45%,100%{background-position:0 0}}
+@media (prefers-reduced-motion:reduce){.pxp .p1 h1 .dim{animation:none;background:none;color:#9aa1b3}}
+
+.pxp .p2 .p2p{max-width:40ch;margin:26px auto 0;color:#b9c0d4;font-size:clamp(17px,1.8vw,19px);line-height:1.55;text-wrap:balance}
+.pxp .p2 .lu{margin-top:44px}
+
+/* 2-step checkout card (27 Nov) */
+.pxp .ck{max-width:560px;margin:48px auto 0;padding:32px;border-radius:28px;background:#fff;box-shadow:0 1px 2px rgba(11,15,28,.04),0 24px 60px -24px rgba(11,15,28,.22)}
+.pxp .ck-top{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.pxp .ck-st{font:500 12px "Geist Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:#6b7284;white-space:nowrap}
+.pxp .ck-bar{flex:1;height:4px;border-radius:99px;background:#eef0f4;overflow:hidden}
+.pxp .ck-bar i{display:block;height:100%;width:50%;border-radius:99px;background:#34C759;transition:width .45s cubic-bezier(.2,.7,.2,1)}
+.pxp .ck.s2 .ck-bar i{width:100%}
+.pxp .ck-h{margin:0 0 16px;font-size:24px;font-weight:700;letter-spacing:-.03em}
+.pxp .ck .plans2{gap:6px}
+.pxp .ck .pl{padding:18px 18px}
+.pxp .ck .tl{margin:24px 0 0;padding:0 4px}
+.pxp .ck .tl::before{left:10px}
+.pxp .ck-go{display:block;width:100%;margin-top:26px;height:54px;border:0;border-radius:99px;background:#0b0f1c;color:#fff;font:600 17px "Geist",system-ui,sans-serif;cursor:pointer;transition:transform .2s ease}
+.pxp .ck-go:hover{transform:translateY(-1px)}
+.pxp .ck.js .ck-2{display:none}
+.pxp .ck.js.s2 .ck-1{display:none}.pxp .ck.js.s2 .ck-2{display:block;animation:ckin .45s cubic-bezier(.2,.7,.2,1)}
+.pxp .ck.js:not(.s2) .ck-1{animation:ckin .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes ckin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.pxp .ck-pick{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 18px;border-radius:16px;background:#f2f3f6}
+.pxp .ck-pick .sum{margin:0;font-size:15px}
+.pxp .ck-chg{flex:none;border:0;background:none;padding:6px 2px;font:600 15px "Geist",system-ui,sans-serif;color:#0b0f1c;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.pxp .ck #paybox{position:static}
+.pxp .ck .done2{padding:8px 0}
+@media (max-width:700px){.pxp .ck{margin-top:36px;padding:22px 16px;border-radius:24px}.pxp .ck .pl{padding:16px 12px}.pxp .ck-h{font-size:21px}}
+@media (prefers-reduced-motion:reduce){.pxp .ck-1,.pxp .ck-2{animation:none!important}}
+
+/* closing CTA = homepage close (27 Nov) */
+.pxp .pclose{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;background:#05070c;padding:120px 20px clamp(300px,30vw,440px)}
+.pxp .pclose::before{content:"";position:absolute;left:0;right:0;bottom:0;height:min(62vw,820px);z-index:-1;background:url(/everlweb/img/hero-w-skyline-1920.webp) 50% 70%/cover no-repeat;-webkit-mask-image:linear-gradient(transparent 0,#000 45%);mask-image:linear-gradient(transparent 0,#000 45%)}
+.pxp .pclose::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(#05070c 0,rgba(5,7,12,.6) 40%,rgba(5,7,12,.12) 72%,rgba(14,19,34,.55) 92%,#0e1322 100%)}
+.pxp .pclose .eyb{margin-bottom:6px}
+.pxp .pclose h2{margin:0;max-width:none;font-weight:700;font-size:clamp(36px,4.2vw,60px);letter-spacing:-.05em;line-height:1;color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.5)}
+.pxp .pclose .pre{margin:0;max-width:34ch;color:#b9c0d4;font-size:clamp(16px,1.25vw,18px);line-height:1.5;text-wrap:balance}
+.pxp .pclose .req{margin-top:8px}
+@media (max-width:700px){.pxp .pclose{padding:96px 20px 300px}}
+
+/* homepage label chips */
+.pxp .eyb{display:inline-flex;align-items:center;gap:8px;align-self:center;font:500 11.5px/1 "Geist Mono",ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:#0b0f1c;background:#eef0f4;border:1px solid rgba(11,15,28,.06);padding:7px 12px;border-radius:99px;margin-bottom:2px}
+.pxp .eyb::before{content:"";width:6px;height:6px;border-radius:50%;background:#34C759;box-shadow:0 0 8px rgba(52,199,89,.6)}
+.pxp .eyb.dk{color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12)}
 </style><!--seo--><meta name="description" content="Everl is free. Everl+ is optional: £17.99 a month, £179 a year or £24 for 30 days. Cancel any time. Plan ahead and line up more than one meet."><link rel="canonical" href="https://everl.com/plus"><meta name="theme-color" content="#0e1322"><link rel="icon" href="/everlweb/favicon.ico" sizes="32x32"><link rel="icon" href="/everlweb/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/everlweb/apple-touch-icon.png"><link rel="manifest" href="/everlweb/site.webmanifest"><meta property="og:type" content="website"><meta property="og:site_name" content="Everl"><meta property="og:locale" content="en_GB"><meta property="og:title" content="Everl+ prices: annual, monthly or 30-day pass | Everl"><meta property="og:description" content="Everl is free. Everl+ is optional: £17.99 a month, £179 a year or £24 for 30 days. Cancel any time. Plan ahead and line up more than one meet."><meta property="og:url" content="https://everl.com/plus"><meta property="og:image" content="https://everl.com/og/everl-og-plus.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Everl+ prices: £17.99 a month, £179 a year or £24 for 30 days"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Everl+ prices: annual, monthly or 30-day pass | Everl"><meta name="twitter:description" content="Everl is free. Everl+ is optional: £17.99 a month, £179 a year or £24 for 30 days. Cancel any time. Plan ahead and line up more than one meet."><meta name="twitter:image" content="https://everl.com/og/everl-og-plus.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://everl.com/#org","name":"Everl","url":"https://everl.com/","alternateName":["Everl app","Everl UK"],"description":"Everl is a UK app for adults that helps you meet people near you in person: switch on when you are free, both say yes, then meet where you both choose.","disambiguatingDescription":"The UK meet-in-person app at everl.com.","logo":{"@type":"ImageObject","url":"https://everl.com/icon-512.png","width":512,"height":512},"sameAs":["https://www.instagram.com/everlapp","https://www.facebook.com/profile.php?id=61593360002124"],"areaServed":[{"@type":"City","name":"Manchester"},{"@type":"City","name":"Leeds"}]},{"@type":"WebPage","@id":"https://everl.com/plus#page","url":"https://everl.com/plus","name":"Everl+ prices: annual, monthly or 30-day pass | Everl","description":"Everl is free. Everl+ is optional: £17.99 a month, £179 a year or £24 for 30 days. Cancel any time. Plan ahead and line up more than one meet.","inLanguage":"en-GB","isPartOf":{"@id":"https://everl.com/#website"}},{"@type":"Product","@id":"https://everl.com/plus#plus","name":"Everl+","brand":{"@id":"https://everl.com/#org"},"description":"Everl is free. Everl+ is optional: £17.99 a month, £179 a year or £24 for 30 days. Cancel any time. Annual: £179 a year, about £14.92 a month, billed once a year. 3 days free.","offers":[{"@type":"Offer","name":"Everl+ annual","price":"179.00","priceCurrency":"GBP","url":"https://everl.com/plus","priceSpecification":{"@type":"UnitPriceSpecification","price":"179.00","priceCurrency":"GBP","billingDuration":"P1Y","unitText":"year"}},{"@type":"Offer","name":"Everl+ monthly","price":"17.99","priceCurrency":"GBP","url":"https://everl.com/plus","priceSpecification":{"@type":"UnitPriceSpecification","price":"17.99","priceCurrency":"GBP","billingDuration":"P1M","unitText":"month"}},{"@type":"Offer","name":"Everl+ 30-day pass","price":"24.00","priceCurrency":"GBP","url":"https://everl.com/plus","priceSpecification":{"@type":"UnitPriceSpecification","price":"24.00","priceCurrency":"GBP","billingDuration":"P30D","unitText":"30 days"}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://everl.com/"},{"@type":"ListItem","position":2,"name":"Everl+","item":"https://everl.com/plus"}]},{"@type":"FAQPage","@id":"https://everl.com/plus#faq","mainEntity":[{"@type":"Question","name":"Do I need Everl+ to meet people?","acceptedAnswer":{"@type":"Answer","text":"No. Joining, matching and meeting are always free, one at a time. Everl+ is for lining up more than one, planning ahead and staying on for what you love."}},{"@type":"Question","name":"What happens after the 3 free days?","acceptedAnswer":{"@type":"Answer","text":"Your plan starts and you’re charged then, not today. We email you the day before, and if you cancel before it ends you don’t pay anything. The 30-day pass has no free days: you pay once and it doesn’t renew."}},{"@type":"Question","name":"How do I use Everl+ in the app?","acceptedAnswer":{"@type":"Answer","text":"Download Everl and sign in with the email you paid with. Everl+ will already be on, on both Social and Something more."}},{"@type":"Question","name":"How do I cancel?","acceptedAnswer":{"@type":"Answer","text":"In the app, go to You, then Everl+, and choose Cancel. You keep Everl+ until the end of the time you’ve paid for, then you’re back to one meet at a time."}},{"@type":"Question","name":"Can I get a refund?","acceptedAnswer":{"@type":"Answer","text":"Yes. Cancel within 14 days and you get back anything you haven’t used."}},{"@type":"Question","name":"What shows on my bank statement?","acceptedAnswer":{"@type":"Answer","text":"If you pay on everl.com, your statement shows HPR SYSTM, not Everl."}},{"@type":"Question","name":"I already pay for Everl+ in the app. Do I need this?","acceptedAnswer":{"@type":"Answer","text":"No. If you subscribed in the app, Apple or Google bill you and Everl+ is already yours. Keep just one subscription so you’re never charged twice."}}]}]}</script><!--/seo--><!--ev:polish--><style>.kick,.tag,.lbl{text-transform:none!important;letter-spacing:0!important}footer.f .in>a{padding-block:10px}.crumb{min-height:44px;display:flex!important;width:max-content;align-items:center}.pg-hero .kick,.kick{display:block}.tick a{display:inline-block;padding-block:2px}.how .st .n,.col .n{background:#7c3aed!important}.jcta h3+p{margin-top:10px}.hero .lf .tick{color:#e3e6f0!important}.hero .lf .tick a{color:#fff!important}.hero:has(#lform-hero) .ph::after{background:linear-gradient(0deg,rgba(7,9,15,.97) 0%,rgba(7,9,15,.9) 50%,rgba(7,9,15,.55) 75%,rgba(7,9,15,.25) 100%)!important}.hero:has(#lform-hero) .lf{max-width:460px}.hero .lf .btn{background:#fff!important;color:#0b0f1c!important}.fxin{display:grid!important;grid-template-columns:1fr;gap:28px!important;padding-top:44px!important;padding-bottom:28px!important;border-bottom:1px solid rgba(255,255,255,.1)}@container (min-width:760px){.fxin{grid-template-columns:1fr 1fr;gap:48px!important}}.fx{display:contents}.fx h3{font-size:15px;font-weight:600;color:#fff;margin:0 0 12px}.fx ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px}.fx a{display:inline-block;padding-block:6px;font-size:14px;color:inherit;text-decoration:none}.fx a:hover{color:#fff;text-decoration:underline}
 /* homepage carousel + cities block (25 Nov). Added by build/launch.py on every run, so rebuilds can't drop it. */
 .wall-head{text-align:center;margin:0 auto 36px;max-width:640px;display:grid;justify-items:center}
@@ -984,6 +1033,24 @@ footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
 .contact .chips span{background:#fff;color:var(--ink);border-color:rgba(11,15,28,.1)}
 .contact .chips input:checked+span{background:#0b0f1c!important;color:#fff!important;border-color:#0b0f1c!important}
 .contact .btn{background:#0b0f1c!important;color:#fff!important}
+/* check-your-inbox pop-up, new style (27 Nov) */
+.evib{padding:0;border:0;background:transparent;max-width:min(440px,calc(100vw - 32px));width:100%;color:#fff;overflow:visible}
+.evib::backdrop{background:rgba(5,7,12,.62);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.evib-c{position:relative;text-align:center;padding:40px 32px 26px;border-radius:28px;background:radial-gradient(120% 90% at 50% 0%,#1b2236 0%,#0b0e16 60%,#07090f 100%);border:1px solid rgba(255,255,255,.1);box-shadow:0 40px 100px -20px rgba(0,0,0,.7);opacity:0;transform:translateY(14px) scale(.98);transition:opacity .35s ease,transform .45s cubic-bezier(.2,.7,.2,1)}
+.evib.on .evib-c{opacity:1;transform:none}
+.evib-sw{display:block;margin:0 auto 24px;width:64px;height:38px;border-radius:99px;background:#2a2f3d;position:relative;transition:background .3s ease .35s,box-shadow .3s ease .35s}
+.evib-sw::after{content:"";position:absolute;top:3px;left:3px;width:32px;height:32px;border-radius:50%;background:#fff;box-shadow:0 3px 10px rgba(0,0,0,.35);transition:left .45s cubic-bezier(.34,1.56,.64,1) .35s}
+.evib.on .evib-sw{background:#34C759;box-shadow:0 8px 30px rgba(52,199,89,.35)}
+.evib.on .evib-sw::after{left:29px}
+.evib h2{margin:0;font-size:32px;font-weight:700;letter-spacing:-.04em;line-height:1.05;color:#fff}
+.evib-p{margin:14px auto 0;max-width:32ch;font-size:16px;line-height:1.5;color:#c4cad8;text-wrap:balance;overflow-wrap:anywhere}
+.evib-p b{color:#fff;font-weight:600}
+.evib-s{margin:14px auto 0;max-width:34ch;font-size:14px;line-height:1.5;color:#8a92a5;text-wrap:balance}
+.evib-again{border:0;background:none;padding:0;font:inherit;color:#fff;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.evib-ok{display:block;width:100%;margin-top:24px;height:52px;border:0;border-radius:99px;background:#fff;color:#0b0f1c;font:600 16px "Geist",system-ui,sans-serif;cursor:pointer}
+.evib-ok:focus-visible,.evib-again:focus-visible{outline:3px solid #34C759;outline-offset:3px}
+.evib-pv{margin:14px 0 0;font-size:12px;color:#5be07f}
+@media (prefers-reduced-motion:reduce){.evib-c,.evib-sw,.evib-sw::after{transition:none}}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip--><div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
 <div class="stage" id="stage"><div class="site"><nav class="jnav"><div class="in"><a class="logo" href="/everlweb/" aria-label="Everl home"><span class="sw"></span>everl</a><span class="sp"></span><div class="links"><a href="/everlweb/#how">How it works</a><a href="/everlweb/safety">Safety</a><a href="/everlweb/cities">Cities</a><a href="/everlweb/blog">Blog</a><a href="/everlweb/#up-for-more">Something more<span class="t18">18+</span></a></div><a class="btn dark" href="/everlweb/#get">Get Everl</a><button class="mnu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button></div></nav><main class="pg pxp" id="main" tabindex="-1">
 <section class="scr p1">
@@ -993,7 +1060,8 @@ footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
 </section>
 <section class="scr p2 js-on">
   <span class="bsw" aria-hidden="true"></span>
-  <h2>Free gets you one. <span class="dim">Everl+ gets you your whole day.</span></h2>
+  <h2>Free is one meet at a time. <span class="dim">Everl+ lines up your whole day.</span></h2>
+  <p class="p2p">On Everl, you switch on for one thing and meet one person. With Everl+ you can line up several across your day, so one plan follows another.</p>
   <ol class="lu" aria-label="An example line-up">
     <li><b>10.00</b>Coffee <span>Ancoats</span></li>
     <li><b>13.00</b>Padel <span>Someone’s in</span></li>
@@ -1004,16 +1072,13 @@ footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
   <picture class="bg"><source media="(max-width:700px)" srcset="/everlweb/img/plus-station-m.webp"><img src="/everlweb/img/plus-station-1920.webp" alt="Two friends arriving at a grand Victorian railway station" loading="lazy" decoding="async"></picture>
   <div class="c"><div class="upchip"><span class="usw" aria-hidden="true"></span>On in Leeds from 6pm</div><h3>Plan ahead, even before you land.<br><span class="d">Your evening is sorted when you step off the train.</span></h3><p class="sub">Switch on in the city you’re heading to, and Everl finds people there who are up for the same thing.</p></div>
 </section>
-<section class="p4">
-  <div class="st js-on"><h2>See the week around you. <span class="dim">Switch on when it’s busiest near you.</span></h2></div>
-  <div class="st js-on"><h2>Stay quietly on. <span class="dim">For the things you love, without opening the app.</span></h2></div>
-  <div class="st js-on"><h2>One Everl+, both sides. <span class="dim">Social and Something more, never paid twice.</span></h2></div>
-</section>
 <section class="pxb" id="plans" aria-labelledby="choose">
   <div class="pxb-in">
     <div class="pxb-head"><span class="eyb">Everl+</span><h2 id="choose">Try it free for 3 days.</h2><p>Nothing to pay today, and we’ll email you before your free days end.</p></div>
-    <div class="pxb-g">
-      <div>
+    <div class="ck" id="ck">
+      <div class="ck-top"><span class="ck-st" id="ckst">Step 1 of 2</span><span class="ck-bar"><i id="ckbar"></i></span></div>
+      <div class="ck-p ck-1" id="ck1">
+        <h3 class="ck-h">Choose your plan</h3>
         <fieldset class="plans2"><legend class="sr" style="position:absolute;left:-9999px">Plan</legend>
           <label class="pl"><input type="radio" name="plan" value="annual" checked><span class="rd" aria-hidden="true"></span><span class="pl-n">Annual<span class="pl-tag">Save £36</span></span><span class="pl-d">£14.92 a month, billed yearly</span><span class="pl-p">£179<small>a year</small></span></label>
           <label class="pl"><input type="radio" name="plan" value="monthly"><span class="rd" aria-hidden="true"></span><span class="pl-n">Monthly</span><span class="pl-d">Cancel any time</span><span class="pl-p">£17.99<small>a month</small></span></label>
@@ -1024,9 +1089,12 @@ footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
           <li><b>Day 2</b>We email you a reminder.</li>
           <li><b>Day 3</b><span id="tl3">Your plan starts, unless you cancel.</span></li>
         </ol>
+        <button type="button" class="ck-go" id="ckgo">Continue</button>
       </div>
-      <div id="paybox"><form class="pay2" id="pform" novalidate>
-        <p class="sum" id="sum" aria-live="polite"></p>
+      <div class="ck-p ck-2" id="ck2">
+        <h3 class="ck-h">Your details</h3>
+        <div id="paybox"><form class="pay2" id="pform" novalidate>
+        <div class="ck-pick"><p class="sum" id="sum" aria-live="polite"></p><button type="button" class="ck-chg" data-step="1">Change</button></div>
         <label class="f">Email<input class="inp" type="email" name="email" required autocomplete="email" placeholder="you@example.com"></label>
         <label class="tick"><input type="checkbox" name="ok" required><span>I’m 18 or over and I agree to the <a href="/everlweb/terms">Terms</a> and <a href="/everlweb/privacy">Privacy policy</a>.</span></label><!--ev:upd--><label class="tick upd"><input type="checkbox" name="updates" value="yes"><span>Send me the occasional Everl update. Unsubscribe any time.</span></label><!--/ev:upd-->
         
@@ -1036,12 +1104,13 @@ footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
         <p class="pv">Preview only: no payment is taken.</p>
         
       <!--ev:fx--><input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" hidden aria-hidden="true"><input type="hidden" name="plan" value=""><div class="ts" data-sitekey=""></div><!--/ev:fx--></form></div>
+      </div>
     </div>
   </div>
 </section>
 <section class="pfaq" aria-labelledby="pfq">
   <div class="pfaq-in">
-    <div class="pfaq-head"><span class="eyb">FAQs</span><h2 id="pfq">Questions, answered.</h2></div>
+    <div class="pfaq-head"><span class="eyb">More about Everl+</span><h2 id="pfq">Your questions, answered.</h2></div>
     <details open><summary>Do I need Everl+ to meet people?</summary><p>No. Joining, matching and meeting are always free, one at a time. Everl+ is for lining up more than one, planning ahead and staying on for what you love.</p></details>
     <details><summary>What happens after the 3 free days?</summary><p>Your plan starts and you’re charged then, not today. We email you the day before, and if you cancel before it ends you don’t pay anything. The 30-day pass has no free days: you pay once and it doesn’t renew.</p></details>
     <details><summary>How do I use Everl+ in the app?</summary><p>Download Everl and sign in with the email you paid with. Everl+ will already be on, on both Social and Something more.</p></details>
@@ -1053,7 +1122,9 @@ footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
   </div>
 </section>
 <section class="pclose">
-  <h2>Line up your day. <span class="dim">Start with 3 days free.</span></h2>
+  <span class="eyb dk">Everl+</span>
+  <h2>Line up your day.</h2>
+  <p class="pre">3 days free on Annual and Monthly. Cancel any time, and meeting stays free.</p>
   <a class="req" href="#plans">Start 3 days free</a>
 </section>
 <template id="donetpl"><div class="done2"><h3>You’re in.</h3><p id="dmsg"></p><div class="badges"><a class="badge" href="/everlweb/#get"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.5-1-2.5-3.9zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg><span><small>Download on the</small><b>App Store</b></span></a><a class="badge" href="/everlweb/#get"><svg viewBox="0 0 24 24" class="gp" aria-hidden="true"><path fill="#4285F4" d="M3.6 2.2 13.4 12l-9.8 9.8c-.3-.2-.5-.6-.5-1.1V3.3c0-.5.2-.9.5-1.1z"/><path fill="#34A853" d="M3.6 2.2c.3-.2.8-.2 1.3.1L16.6 9l-3.2 3z"/><path fill="#FBBC04" d="m16.6 9 3.5 2c.7.4.7 1.6 0 2l-3.5 2-3.2-3z"/><path fill="#EA4335" d="m13.4 12 3.2 3-11.7 6.7c-.5.3-1 .3-1.3.1z"/></svg><span><small>GET IT ON</small><b>Google Play</b></span></a></div></div></template>
@@ -1072,8 +1143,23 @@ f.addEventListener('submit',function(e){e.preventDefault();if(!f.checkValidity()
  tpl.getElementById('dmsg').textContent='Download Everl and sign in with '+em+'. Everl+ will already be on. (Preview only: no payment was taken.)';
  var box=document.getElementById('paybox');box.innerHTML='';box.appendChild(tpl);box.scrollIntoView({block:'nearest',behavior:'smooth'})});
 })();</script><script>(function(){var r=document.querySelectorAll('.pxp .js-on');if(!r.length)return;if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion:reduce)').matches){r.forEach(function(u){u.classList.add('on')});return}
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.45});r.forEach(function(u){io.observe(u)})})();</script><!--ev:polishjs--><script>(function(){var d=document.getElementById('drawer');if(!d)return;var H=document.documentElement,sy=0;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.45});r.forEach(function(u){io.observe(u)})})();</script><script>(function(){var c=document.getElementById('ck');if(!c)return;c.classList.add('js');var st=document.getElementById('ckst');
+function go(n){c.classList.toggle('s2',n===2);st.textContent='Step '+n+' of 2';var t=document.getElementById('plans');if(t&&t.getBoundingClientRect().top<0)c.scrollIntoView({block:'start',behavior:'smooth'});if(n===2){var e=c.querySelector('input[type=email]');e&&setTimeout(function(){e.focus({preventScroll:true})},350)}}
+document.getElementById('ckgo').addEventListener('click',function(){go(2)});c.querySelectorAll('.ck-chg').forEach(function(b){b.addEventListener('click',function(){go(1)})});})();</script><!--ev:polishjs--><script>(function(){var d=document.getElementById('drawer');if(!d)return;var H=document.documentElement,sy=0;
 function sibs(){var p=d.parentElement;return p?[].slice.call(p.children).filter(function(e){return e!==d&&e.tagName!=='SCRIPT'}):[]}
 function sync(){var open=!d.hidden;if(open){sy=scrollY;H.style.overflow='hidden';sibs().forEach(function(e){e.setAttribute('inert','')})}else{H.style.overflow='';sibs().forEach(function(e){e.removeAttribute('inert')})}}
 new MutationObserver(sync).observe(d,{attributes:true,attributeFilter:['hidden']});
-d.addEventListener('keydown',function(e){if(e.key!=='Tab')return;var f=[].slice.call(d.querySelectorAll('a[href],button:not([disabled])')).filter(function(x){return x.offsetParent!==null});if(!f.length)return;var a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}});})();</script><!--/ev:polishjs--></body></html>
+d.addEventListener('keydown',function(e){if(e.key!=='Tab')return;var f=[].slice.call(d.querySelectorAll('a[href],button:not([disabled])')).filter(function(x){return x.offsetParent!==null});if(!f.length)return;var a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}});})();
+;(function(){window.evInbox=function(city,f){var em='';try{em=(f&&f.querySelector('input[type=email]')||{}).value||''}catch(e){}
+var d=document.getElementById('evinbox');if(!d){d=document.createElement('dialog');d.id='evinbox';d.className='evib';d.setAttribute('aria-labelledby','evib-h');
+d.innerHTML='<div class="evib-c"><span class="evib-sw" aria-hidden="true"></span><h2 id="evib-h">Check your inbox.</h2><p class="evib-p"></p><p class="evib-s">Nothing there after a minute? Check junk, or <button type="button" class="evib-again">send it again</button>.</p><button type="button" class="evib-ok">Done</button><p class="evib-pv">Preview only: nothing was sent.</p></div>';
+(document.querySelector('.site')||document.body).appendChild(d);
+d.querySelector('.evib-ok').addEventListener('click',function(){d.close()});
+d.querySelector('.evib-again').addEventListener('click',function(){d.close();var i=f&&f.querySelector('input[type=email]');i&&i.focus()});
+d.addEventListener('click',function(e){if(e.target===d)d.close()});}
+var c=(city||'your city').slice(0,60),p=d.querySelector('.evib-p');p.textContent='';
+var a=document.createTextNode(em?'We’ve sent a link to ':'We’ve sent you a link. '),b=document.createElement('b');
+if(em){b.textContent=em;p.appendChild(a);p.appendChild(b);p.appendChild(document.createTextNode('. Tap it to confirm your Everl '+c+' spot. Your place isn’t saved until you do.'))}
+else{p.appendChild(a);p.appendChild(document.createTextNode('Tap it to confirm your Everl '+c+' spot. Your place isn’t saved until you do.'))}
+d.classList.remove('on');if(d.open)d.close();d.showModal();requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('on')})});
+try{f&&f.reset&&f.reset()}catch(e){}return true}})();</script><!--/ev:polishjs--></body></html>
