@@ -1270,6 +1270,31 @@ footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
   .nx .stk:last-of-type{height:100lvh}
 }
 @media (min-width:761px){nav.hn .mnu{display:none!important}}
+/* ---- Story cards on phones rise with the scroll, like the hero screens (27 Nov). ---- */
+@media (max-width:760px){.stry .st-c{will-change:opacity,transform}}
+/* Phones: no Get Everl in the top bar (menu holds it). 27 Nov. */
+@media (max-width:760px){nav.hn .hget{display:none!important}}
+/* ---- Phone menu, simplified (27 Nov feedback: too much going on). One list, one offer, one button. ---- */
+@media (max-width:760px){
+  .dr-row,.dr-soc,.dr-small a[href*="contact"],.dr-plus-l,.dr-plus-b{display:none!important}
+  .dr-top{padding-block:16px 8px!important}
+  .dr-links{margin-top:12px;gap:0}
+  .dr-links a{font-size:24px!important;font-weight:600!important;letter-spacing:-.02em!important;padding:15px 0!important}
+  .dr a.dr-plus{display:flex!important;align-items:center;justify-content:space-between;margin:14px 0 0!important;padding:14px 16px!important;border-radius:16px;background:#f2f4f8;color:#0b0f1c!important;font-size:18px!important}
+  .dr-plus-top{display:flex;align-items:center;gap:10px}
+  .dr-plus-t{font-size:18px;font-weight:600;color:#0b0f1c}
+  .dr-plus-c{background:#34C759;color:#0b0f1c;font-size:12px}
+  .dr-small{margin-top:10px!important;padding-top:0!important}
+  .dr-small a{font-size:17px;color:#5b6275;padding:10px 0;display:block}
+  .dr-foot{margin-top:auto;padding-top:20px}
+  .dr-get{height:56px;border-radius:99px;font-size:17px;font-weight:600;display:flex;align-items:center;justify-content:center}
+}
+/* Phones: the Everl+ row is light with dark text; the floating Get Everl spans the screen like the store buttons. */
+@media (max-width:760px){
+  .dr a.dr-plus{background:#f2f4f8!important;color:#0b0f1c!important}
+  .dr-plus-t{color:#0b0f1c!important}
+  .dock a{max-width:none!important;width:100%!important}
+}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip--><div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
 <div class="stage" id="stage"><div class="site"><nav class="jnav"><div class="in"><a class="logo" href="/everlweb/" aria-label="Everl home"><span class="sw"></span>everl</a><span class="sp"></span><div class="links"><a href="/everlweb/#how">How it works</a><a href="/everlweb/safety">Safety</a><a href="/everlweb/cities">Cities</a><a href="/everlweb/blog">Blog</a><a href="/everlweb/#up-for-more">Something more<span class="t18">18+</span></a></div><a class="btn dark" href="/everlweb/#get">Get Everl</a><button class="mnu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button></div></nav><main class="pg pxp" id="main" tabindex="-1">
 <section class="scr p1">
@@ -1494,5 +1519,6 @@ var dock=document.getElementById('dock'),seen=new Set();
 if(dock&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?seen.add(e.target):seen.delete(e.target)});dock.classList.toggle('evh',seen.size>0)});document.querySelectorAll('.badges,a.req,a.hget,.close .btn').forEach(function(el){if(!el.closest('#dock'))io.observe(el)})}
 document.querySelectorAll('.scr .loc').forEach(function(l){l.innerHTML=l.innerHTML.replace(/[A-Z][A-Z\u2019']+/g,function(w){return w[0]+w.slice(1).toLowerCase()})});
 var android=/Android/.test(navigator.userAgent),ob=document.querySelectorAll('.s1 .cap2 .badges.sb .badge');ob.forEach(function(b){var gp=!!b.querySelector('svg.gp');if(android===gp)b.classList.add('own');var t=b.querySelector('b');if(t){t.className='bl';t.textContent=gp?'Get it on Google Play':'Download on the App Store'}b.href='https://everl.com/app';b.setAttribute('aria-label',gp?'Get Everl on Google Play':'Download Everl on the App Store')});
+var SC=[].slice.call(document.querySelectorAll('.stry .st-scr .st-c'));if(SC.length){var sf=function(){SC.forEach(function(c){var r=c.parentNode.getBoundingClientRect(),p=Math.max(0,Math.min(1,(innerHeight-r.top)/(innerHeight*.7)));c.style.opacity=(.15+.85*p).toFixed(3);c.style.transform='translate3d(0,'+((1-p)*56).toFixed(1)+'px,0)'})};addEventListener('scroll',sf,{passive:true});addEventListener('resize',sf);sf()}
 var cap=document.querySelector('.s1 .cap2');if(cap){var f=function(){var y=scrollY;cap.style.opacity=Math.max(0,1-y/260);cap.style.pointerEvents=y>200?'none':''};addEventListener('scroll',f,{passive:true});f()}
 })();</script><!--/ev:mobjs--></body></html>
