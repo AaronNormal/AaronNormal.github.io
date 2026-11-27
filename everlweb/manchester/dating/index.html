@@ -1263,4 +1263,8 @@ var a=document.createTextNode(em?'We’ve sent a link to ':'We’ve sent you a l
 if(em){b.textContent=em;p.appendChild(a);p.appendChild(b);p.appendChild(document.createTextNode('. Tap it to confirm your Everl '+c+' spot. Your place isn’t saved until you do.'))}
 else{p.appendChild(a);p.appendChild(document.createTextNode('Tap it to confirm your Everl '+c+' spot. Your place isn’t saved until you do.'))}
 d.classList.remove('on');if(d.open)d.close();d.showModal();requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('on')})});
-try{f&&f.reset&&f.reset()}catch(e){}return true}})();</script><!--/ev:polishjs--></body></html>
+try{f&&f.reset&&f.reset()}catch(e){}return true}})();
+;(function(){function blk(){var g=document.getElementById('get');return g&&(g.querySelector('.in')||g)}
+function centre(smooth){var b=blk();if(!b)return false;var r=b.getBoundingClientRect(),vh=innerHeight,y=scrollY+r.top+r.height/2-vh/2;if(r.height>vh-40)y=scrollY+r.top-20;scrollTo({top:Math.max(0,y),behavior:smooth?'smooth':'auto'});return true}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href');if(!/#get$/.test(h))return;if(a.pathname!==location.pathname||!document.getElementById('get'))return;e.preventDefault();var d=document.getElementById('drawer');if(d&&!d.hidden){var x=d.querySelector('.dr-x');x&&x.click();setTimeout(function(){centre(true)},360)}else centre(true);history.replaceState(null,'','#get')},true);
+if(location.hash==='#get')addEventListener('load',function(){setTimeout(function(){centre(false)},60)})})();</script><!--/ev:polishjs--></body></html>
