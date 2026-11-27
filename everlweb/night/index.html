@@ -541,6 +541,22 @@ footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
   html.sky-light nav.hn .mnu{border-color:rgba(11,15,28,.18)!important;background:rgba(255,255,255,.55)!important}
   html.sky-light nav.hn .mnu span{background:#0b0f1c!important}
 }
+/* ---- Phone hero trust lines, option A (27 Nov pick): the three approved points, sentence case, two rows under the buttons. No top banner. ---- */
+@media (max-width:760px){
+  .nx .s1.sky .cap2 .trust{display:flex!important;flex-wrap:wrap;justify-content:center;gap:6px 16px;margin:16px 0 0;font-family:inherit!important;font-size:14px!important;font-weight:500;letter-spacing:0!important;text-transform:none!important;line-height:1.4;color:rgba(255,255,255,.82)}
+  .nx .s1.sky .cap2 .trust span::before{content:"✓ ";color:#34C759}
+}
+/* ---- Phone menu: Everl+ as a compact premium card; Help matches the other links (27 Nov). ---- */
+@media (max-width:760px){
+  .dr a.dr-plus{display:grid!important;grid-template-columns:1fr auto;align-items:center;gap:4px 12px;margin:16px 0 4px!important;padding:16px 18px!important;border-radius:18px;background:#0b0f1c!important;color:#fff!important;text-decoration:none}
+  .dr a.dr-plus .dr-plus-top{grid-column:1;display:flex;align-items:center;gap:10px}
+  .dr a.dr-plus .dr-plus-t{color:#fff!important;font-size:20px;font-weight:700;letter-spacing:-.02em}
+  .dr a.dr-plus .dr-plus-c{background:#34C759;color:#0b0f1c;font-size:12px;font-weight:700;padding:4px 10px;border-radius:99px}
+  .dr a.dr-plus .dr-plus-l{display:block!important;grid-column:1;font-size:14px;line-height:1.35;color:#c9cfdb}
+  .dr a.dr-plus .dr-plus-arrow{grid-column:2;grid-row:1 / 3;font-size:30px;line-height:1;color:#fff}
+  .dr-small{margin-top:4px!important}
+  .dr-small a{font-size:24px!important;font-weight:600!important;letter-spacing:-.02em;color:#0b0f1c!important;padding:15px 0!important}
+}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip--><p><a href="/everlweb/">Go to the Everl homepage</a></p><!--ev:polishjs--><script>(function(){var d=document.getElementById('drawer');if(!d)return;var H=document.documentElement,sy=0;
 function sibs(){var p=d.parentElement;return p?[].slice.call(p.children).filter(function(e){return e!==d&&e.tagName!=='SCRIPT'}):[]}
 function sync(){var open=!d.hidden;if(open){sy=scrollY;H.style.overflow='hidden';sibs().forEach(function(e){e.setAttribute('inert','')})}else{H.style.overflow='';sibs().forEach(function(e){e.removeAttribute('inert')})}}
