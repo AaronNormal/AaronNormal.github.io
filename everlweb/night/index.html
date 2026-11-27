@@ -576,9 +576,23 @@ footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
 @media (max-width:760px){
   .site .stry .st-scr{height:100lvh}
   .site .stry .st-gap,.site .stry .st-gap2{height:12lvh!important}
+  /* first screen holds longer so "New city. Nobody to call." is not covered straight away (27 Nov) */
+  .site .stry .st-gap{height:55lvh!important}
 }
 /* Phones: city line under the Leeds card, question on one line and the link whole on the next (27 Nov). */
 @media (max-width:760px){.ccx-else a{display:block;width:max-content;margin:4px auto 0}}
+/* Phones: Leeds waiting-list card, form stacked full width, title on the dark part, easier tick boxes (27 Nov). */
+@media (max-width:760px){
+  .site .cty:has(.lf){min-height:520px}
+  .site .cty:has(.lf)::before{background:linear-gradient(180deg,rgba(5,7,12,.3) 0,rgba(5,7,12,0) 18%,rgba(5,7,12,.55) 34%,rgba(5,7,12,.88) 48%,rgba(5,7,12,.95) 100%)}
+  .site .cty .lf{grid-template-columns:1fr;gap:10px;margin-top:16px}
+  .site .cty .lf .inp{grid-column:1;grid-row:1;height:50px}
+  .site .cty .lf .btn{grid-column:1;grid-row:2;width:100%;height:50px}
+  .site .cty form.lf .tick{grid-column:1!important;grid-row:3!important;font-size:14px;line-height:1.4;gap:10px;margin-top:2px}
+  .site .cty form.lf .tick.upd{grid-row:4!important}
+  .site .cty form.lf .ts{grid-row:5!important}
+  .site .cty .lf .tick input{width:20px;height:20px;flex:0 0 20px}
+}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip--><p><a href="/everlweb/">Go to the Everl homepage</a></p><!--ev:polishjs--><script>(function(){var d=document.getElementById('drawer');if(!d)return;var H=document.documentElement,sy=0;
 function sibs(){var p=d.parentElement;return p?[].slice.call(p.children).filter(function(e){return e!==d&&e.tagName!=='SCRIPT'}):[]}
 function sync(){var open=!d.hidden;if(open){sy=scrollY;H.style.overflow='hidden';sibs().forEach(function(e){e.setAttribute('inert','')})}else{H.style.overflow='';sibs().forEach(function(e){e.removeAttribute('inert')})}}

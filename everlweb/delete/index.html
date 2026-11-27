@@ -970,9 +970,23 @@ footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
 @media (max-width:760px){
   .site .stry .st-scr{height:100lvh}
   .site .stry .st-gap,.site .stry .st-gap2{height:12lvh!important}
+  /* first screen holds longer so "New city. Nobody to call." is not covered straight away (27 Nov) */
+  .site .stry .st-gap{height:55lvh!important}
 }
 /* Phones: city line under the Leeds card, question on one line and the link whole on the next (27 Nov). */
 @media (max-width:760px){.ccx-else a{display:block;width:max-content;margin:4px auto 0}}
+/* Phones: Leeds waiting-list card, form stacked full width, title on the dark part, easier tick boxes (27 Nov). */
+@media (max-width:760px){
+  .site .cty:has(.lf){min-height:520px}
+  .site .cty:has(.lf)::before{background:linear-gradient(180deg,rgba(5,7,12,.3) 0,rgba(5,7,12,0) 18%,rgba(5,7,12,.55) 34%,rgba(5,7,12,.88) 48%,rgba(5,7,12,.95) 100%)}
+  .site .cty .lf{grid-template-columns:1fr;gap:10px;margin-top:16px}
+  .site .cty .lf .inp{grid-column:1;grid-row:1;height:50px}
+  .site .cty .lf .btn{grid-column:1;grid-row:2;width:100%;height:50px}
+  .site .cty form.lf .tick{grid-column:1!important;grid-row:3!important;font-size:14px;line-height:1.4;gap:10px;margin-top:2px}
+  .site .cty form.lf .tick.upd{grid-row:4!important}
+  .site .cty form.lf .ts{grid-row:5!important}
+  .site .cty .lf .tick input{width:20px;height:20px;flex:0 0 20px}
+}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip--><div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
 <div class="stage" id="stage"><div class="site"><nav class="jnav"><div class="in"><a class="logo" href="/everlweb/" aria-label="Everl home"><span class="sw"></span>everl</a><span class="sp"></span><div class="links"><a href="/everlweb/#how">How it works</a><a href="/everlweb/safety">Safety</a><a href="/everlweb/cities">Cities</a><a href="/everlweb/blog">Blog</a><a href="/everlweb/#up-for-more">Something more<span class="t18">18+</span></a></div><a class="btn dark" href="/everlweb/#get">Get Everl</a><button class="mnu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button></div></nav><main class="pg dl" id="main" tabindex="-1"><article class="dl-a">
 <header>
