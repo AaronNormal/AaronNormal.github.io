@@ -1024,6 +1024,51 @@ footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
 
 /* store badge logos never shrink */
 .badge svg{flex:none}
+
+/* Plain article pages (Delete, Terms, Privacy, Child safety) */
+
+.dl{background:var(--paper,#fff)}
+.dl .dl-a{max-width:680px;margin:0 auto;padding:88px 24px 120px}
+.dl h1{margin:0;font-size:clamp(38px,5vw,52px);line-height:1.04;letter-spacing:-.045em}
+.dl .dl-lead{margin:18px 0 0;font-size:clamp(18px,1.5vw,20px);line-height:1.5;color:var(--ink2);text-wrap:balance}
+.dl .dl-upd{margin:14px 0 0;font-size:14px;color:#8a91a3}
+.dl section{margin-top:56px}
+.dl h2{margin:0 0 14px;font-size:22px;line-height:1.25;letter-spacing:-.02em}
+.dl section p{margin:0;font-size:17px;line-height:1.6;color:var(--ink2);text-wrap:pretty}
+.dl section p+p,.dl section ol+p,.dl section p+ul{margin-top:14px}
+.dl ol.dl-steps{list-style:none;counter-reset:s;margin:0 0 16px;padding:0;display:flex;flex-direction:column;gap:12px}
+.dl ol.dl-steps li{counter-increment:s;position:relative;padding-left:40px;min-height:26px;font-size:17px;line-height:1.5;color:var(--ink)}
+.dl ol.dl-steps li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:#eef0f4;color:var(--ink);font-size:13.5px;font-weight:600;display:grid;place-items:center}
+.dl section ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.dl section ul li{position:relative;padding-left:22px;font-size:17px;line-height:1.55;color:var(--ink2);text-wrap:pretty}
+.dl section ul li::before{content:"";position:absolute;left:4px;top:.68em;width:6px;height:6px;border-radius:50%;background:#b4bac7}
+.dl section b{color:var(--ink);font-weight:600}
+.dl a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+@media (max-width:700px){.dl .dl-a{padding:56px 20px 88px}.dl section{margin-top:44px}}
+
+.dl .dl-draft{margin:14px 0 0;padding-left:16px;position:relative;font-size:15px;line-height:1.5;color:#6b7284;text-wrap:pretty}
+.dl .dl-draft::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:50%;background:#f0a020}
+.dl-legal section{margin-top:44px}
+.dl-legal section ul li{font-size:16.5px}
+
+/* Help: soft answer cards and a calm contact card (27 Nov) */
+.acc details{border:0!important;border-radius:16px;background:#f4f5f8;padding:0 20px;margin:0 0 8px;transition:background .2s}
+.acc details:hover{background:#eef0f4}
+.acc summary{padding:18px 0!important;letter-spacing:-.01em;text-wrap:balance}
+.acc summary::after{content:""!important;width:28px!important;height:28px!important;border:0!important;border-radius:50%;background:#fff url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%230b0f1c%27 stroke-width=%272.2%27 stroke-linecap=%27round%27%3E%3Cpath d=%27M12 6v12M6 12h12%27/%3E%3C/svg%3E") center/14px no-repeat;transform:none!important;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.acc details[open] summary::after{transform:rotate(45deg)!important}
+.acc .ans{padding-bottom:18px}
+.acc .ans p{margin:0;color:var(--ink2);line-height:1.6;text-wrap:pretty}
+.contact{background:#f4f5f8!important;color:var(--ink)!important}
+.contact h2{color:var(--ink)}
+.contact .sub,.contact .meta,.contact .fl,.cform .fnote{color:#5b6274!important}
+.contact .meta a{color:var(--ink)!important;font-weight:600}
+.contact .inp{background:#fff!important;border:1px solid rgba(11,15,28,.1)!important;color:var(--ink)!important}
+.contact .inp::placeholder{color:#8a91a3!important}
+.contact .inp:focus{outline:2px solid var(--ink);outline-offset:0;border-color:transparent!important}
+.contact .chips span{background:#fff;color:var(--ink);border-color:rgba(11,15,28,.1)}
+.contact .chips input:checked+span{background:#0b0f1c!important;color:#fff!important;border-color:#0b0f1c!important}
+.contact .btn{background:#0b0f1c!important;color:#fff!important}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip-->
 
 <div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
@@ -1100,7 +1145,7 @@ footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
   
 </div></section>
 
-<!--ev:mc--></main><!--/ev:mc--><div class="dr" id="drawer" hidden><div class="dr-bg" data-close></div><aside class="dr-panel" role="dialog" aria-modal="true" aria-label="Menu"><div class="dr-top"><a class="logo" href="/everlweb/" aria-label="Everl home"><span class="sw"></span>everl</a><button class="dr-x" type="button" data-close aria-label="Close menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><nav class="dr-links" aria-label="Site"><a href="/everlweb/#how">How it works</a><a href="/everlweb/safety">Safety</a><a href="/everlweb/cities">Cities</a><a href="/everlweb/blog">Blog</a><a href="/everlweb/#up-for-more">Something more<span class="t18">18+</span></a></nav><nav class="dr-small" aria-label="More"><a href="/everlweb/help">Help</a><a href="/everlweb/help#contact">Contact</a><!--ev:login--><a href="https://everl.com/account">Log in</a><!--/ev:login--></nav><div class="dr-foot"><a class="dr-get" href="#get" data-close>Get Everl</a><div class="dr-row"><span>Free on iPhone and Android</span><span class="dr-soc"><a href="https://www.instagram.com/everlapp" target="_blank" rel="noopener" aria-label="Everl on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=61593360002124" target="_blank" rel="noopener" aria-label="Everl on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M13.5 21.5v-7.6h2.6l.4-3h-3V9c0-.9.3-1.5 1.5-1.5h1.6V4.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V11H7.8v3h2.6v7.5z"/></svg></a></span></div></div></aside></div><footer class="f"><div class="in fx"><div class="fx-brand"><a class="logo" href="/everlweb/" aria-label="Everl home"><span class="sw"></span>everl</a><p class="fx-tag">Switch on when you&rsquo;re free. Meet people nearby who are up for the same thing.</p><span class="soc"><a class="ig" href="https://www.instagram.com/everlapp" target="_blank" rel="noopener" aria-label="Everl on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a><a class="ig" href="https://www.facebook.com/profile.php?id=61593360002124" target="_blank" rel="noopener" aria-label="Everl on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M13.5 21.5v-7.6h2.6l.4-3h-3V9c0-.9.3-1.5 1.5-1.5h1.6V4.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V11H7.8v3h2.6v7.5z"/></svg></a></span></div><nav class="fx-cols" aria-label="Footer"><div><b>Everl</b><a href="/everlweb/cities">Cities</a><a href="/everlweb/safety">Safety</a><a href="/everlweb/blog">Blog</a><a href="/everlweb/plus">Everl+</a><a href="/everlweb/#up-for-more">Something more<span class="t18">18+</span></a></div><div><b>Support</b><a href="/everlweb/help">Help</a><a href="/everlweb/help#contact">Contact</a><!--ev:login--><a href="https://everl.com/account">Log in</a><!--/ev:login--></div><div><b>Legal</b><a href="/everlweb/terms">Terms</a><a href="/everlweb/privacy">Privacy</a><a href="/everlweb/child-safety">Child safety standards</a></div></nav><div class="fx-bot"><span class="copy">© 2026 Everl. 18+ only.</span><!--ev:co--><!-- COMPANY_LINE --><!--/ev:co--></div></div></footer>
+<!--ev:mc--></main><!--/ev:mc--><div class="dr" id="drawer" hidden><div class="dr-bg" data-close></div><aside class="dr-panel" role="dialog" aria-modal="true" aria-label="Menu"><div class="dr-top"><a class="logo" href="/everlweb/" aria-label="Everl home"><span class="sw"></span>everl</a><button class="dr-x" type="button" data-close aria-label="Close menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><nav class="dr-links" aria-label="Site"><a href="/everlweb/#how">How it works</a><a href="/everlweb/#safety">Safety</a><a href="/everlweb/#cities">Cities</a><a href="/everlweb/blog">Blog</a><a href="/everlweb/#up-for-more">Something more<span class="t18">18+</span></a></nav><nav class="dr-small" aria-label="More"><a href="/everlweb/help">Help</a><a href="/everlweb/help#contact">Contact</a></nav><div class="dr-foot"><a class="dr-get" href="#get" data-close>Get Everl</a><div class="dr-row"><span>Free on iPhone and Android</span><span class="dr-soc"><a href="https://www.instagram.com/everlapp" target="_blank" rel="noopener" aria-label="Everl on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=61593360002124" target="_blank" rel="noopener" aria-label="Everl on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M13.5 21.5v-7.6h2.6l.4-3h-3V9c0-.9.3-1.5 1.5-1.5h1.6V4.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V11H7.8v3h2.6v7.5z"/></svg></a></span></div></div></aside></div><footer class="f"><div class="in fx"><div class="fx-brand"><a class="logo" href="/everlweb/" aria-label="Everl home"><span class="sw"></span>everl</a><p class="fx-tag">Switch on when you&rsquo;re free. Meet people nearby who are up for the same thing.</p><span class="soc"><a class="ig" href="https://www.instagram.com/everlapp" target="_blank" rel="noopener" aria-label="Everl on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a><a class="ig" href="https://www.facebook.com/profile.php?id=61593360002124" target="_blank" rel="noopener" aria-label="Everl on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" stroke="none" d="M13.5 21.5v-7.6h2.6l.4-3h-3V9c0-.9.3-1.5 1.5-1.5h1.6V4.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V11H7.8v3h2.6v7.5z"/></svg></a></span></div><nav class="fx-cols" aria-label="Footer"><div><b>Everl</b><a href="/everlweb/#cities">Cities</a><a href="/everlweb/#safety">Safety</a><a href="/everlweb/blog">Blog</a><a href="/everlweb/plus">Everl+</a><a href="/everlweb/#up-for-more">Something more<span class="t18">18+</span></a></div><div><b>Support</b><a href="/everlweb/help">Help</a><a href="/everlweb/help#contact">Contact</a></div><div><b>Legal</b><a href="/everlweb/terms">Terms</a><a href="/everlweb/privacy">Privacy</a><a href="/everlweb/child-safety">Child safety standards</a></div></nav><div class="fx-bot"><span class="copy">© 2026 Everl. 18+ only.</span><!--ev:co--><!-- COMPANY_LINE --><!--/ev:co--></div></div></footer>
 
 <div class="dock" id="dock"><a class="btn dark store" href="#get">Get Everl<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
 
