@@ -323,6 +323,46 @@ a.back{display:inline-block;margin-top:6px;color:var(--ink2)}
 .story .bh{margin:0;font-size:clamp(30px,4.6cqi,50px);line-height:1.04;letter-spacing:-.04em;font-weight:700;color:#fff;max-width:16ch;text-wrap:balance}
 .story .bh .dim{display:block;color:#5d6478}
 .story .end{margin-top:22px;text-wrap:pretty}
+
+/* ===== 27 Nov: site-wide consistency with the new homepage ===== */
+/* Footer: grouped columns, no rule (26 Nov) */
+footer.f{border-top:0!important;background:#0e1322!important}
+footer.f .in.fx{display:grid!important;grid-template-columns:1.2fr 2fr;gap:40px 48px;padding-top:64px;padding-bottom:40px}
+footer.f .fx-brand{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+footer.f .fx-brand .logo{margin:0;display:inline-flex;align-items:center;gap:10px;font-size:24px;font-weight:600;letter-spacing:-.02em;color:#fff;padding:0}
+footer.f .fx-tag{margin:0;max-width:30ch;color:#9aa1b3;font-size:14.5px;line-height:1.5;text-wrap:balance}
+footer.f .fx-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+footer.f .fx-cols div{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+footer.f .fx-cols b{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6f7689;margin-bottom:2px}
+footer.f .fx-cols a{color:#c9cedb;font-size:14.5px;padding:0!important}
+footer.f .fx-cols a:hover{color:#fff}
+footer.f .fx-bot{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:22px}
+footer.f .fx-bot .copy{flex-basis:auto!important;text-align:left!important;opacity:1;color:#6f7689;font-size:13px}
+footer.f .fx-bot .co{color:#6f7689;font-size:13px}
+@media (max-width:760px){
+ footer.f .in.fx{grid-template-columns:1fr;gap:36px;padding-top:48px}
+ footer.f .fx-cols{grid-template-columns:1fr 1fr;row-gap:32px}
+ footer.f .fx-cols a{padding:4px 0!important}
+}
+/* Something more 18+ tag (menus and footer) */
+.t18{display:inline-block;margin-left:6px;padding:2px 6px;border-radius:6px;font:600 10px/1.2 "Geist Mono",ui-monospace,monospace;letter-spacing:.04em;color:#7c5ce0;background:rgba(139,92,246,.12);vertical-align:2px;font-style:normal}
+footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
+/* Article FAQs: soft cards and a circled plus, no divider lines */
+.abody details{border:0!important;border-radius:16px;background:#f4f5f8;padding:0 20px;margin:0 0 8px}
+.abody summary{padding:18px 0!important;font-size:17px!important;align-items:center;letter-spacing:-.01em;text-wrap:balance}
+.abody summary::after{content:""!important;flex:none;width:28px;height:28px;border-radius:50%;background:#fff url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%230b0f1c%27 stroke-width=%272.2%27 stroke-linecap=%27round%27%3E%3Cpath d=%27M12 6v12M6 12h12%27/%3E%3C/svg%3E") center/14px no-repeat;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.abody details[open] summary::after{transform:rotate(45deg)}
+.abody details p{padding-bottom:18px;margin:0}
+/* Blog download card: the homepage's night skyline */
+.jcta{position:relative;isolation:isolate;overflow:hidden;background:#05070c url(/everlweb/img/hero-w-skyline-1920.webp) 50% 78%/cover no-repeat!important}
+.jcta::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(5,7,12,.92) 0,rgba(5,7,12,.7) 45%,rgba(5,7,12,.35) 100%)}
+.jcta h3{color:#fff;text-wrap:balance}
+@media (max-width:700px){.jcta{background-image:url(/everlweb/img/hero-m-skyline-1116.webp)!important;background-position:50% 70%!important}.jcta::before{background:linear-gradient(180deg,rgba(5,7,12,.85) 0,rgba(5,7,12,.55) 60%,rgba(5,7,12,.75) 100%)}}
+/* Blog home intro: no lone word */
+.jhead p{text-wrap:balance}
+
+/* store badge logos never shrink */
+.badge svg{flex:none}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip--><p><a href="/everlweb/">Go to the Everl homepage</a></p><!--ev:polishjs--><script>(function(){var d=document.getElementById('drawer');if(!d)return;var H=document.documentElement,sy=0;
 function sibs(){var p=d.parentElement;return p?[].slice.call(p.children).filter(function(e){return e!==d&&e.tagName!=='SCRIPT'}):[]}
 function sync(){var open=!d.hidden;if(open){sy=scrollY;H.style.overflow='hidden';sibs().forEach(function(e){e.setAttribute('inert','')})}else{H.style.overflow='';sibs().forEach(function(e){e.removeAttribute('inert')})}}
