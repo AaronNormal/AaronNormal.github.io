@@ -1268,7 +1268,6 @@ footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
           <button type="submit" id="go">Start my 3 free days</button>
           <ul class="assure"><li>Secure payment</li><li>Cancel any time</li><li>Discreet on your statement</li></ul>
           <p class="fine" id="fine">One payment. Nothing renews.</p>
-          <p class="pv">Preview only: no payment is taken.</p>
           
         <!--ev:fx--><input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" hidden aria-hidden="true"><input type="hidden" name="plan" value=""><div class="ts" data-sitekey=""></div><!--/ev:fx--></form></div>
       </div>
@@ -1307,7 +1306,7 @@ function upd(){var p=plan(),t=d(3),N=document.getElementById('ordname'),D=docume
 var tl=document.getElementById('tl');function tlu(){if(tl)tl.classList.toggle('off',plan()==='pass')}document.querySelectorAll('input[name=plan]').forEach(function(r){r.addEventListener('change',function(){upd();tlu()})});upd();tlu();
 f.addEventListener('submit',function(e){e.preventDefault();if(!f.checkValidity()){f.reportValidity();return}
  var em=f.elements.email.value.trim(),tpl=document.getElementById('donetpl').content.cloneNode(true);
- tpl.getElementById('dmsg').textContent='Download Everl and sign in with '+em+'. Everl+ will already be on. (Preview only: no payment was taken.)';
+ tpl.getElementById('dmsg').textContent='Download Everl and sign in with '+em+'. Everl+ will already be on.';
  var box=document.getElementById('paybox');box.innerHTML='';box.appendChild(tpl);box.scrollIntoView({block:'nearest',behavior:'smooth'})});
 })();</script><script>(function(){var r=document.querySelectorAll('.pxp .js-on');if(!r.length)return;if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion:reduce)').matches){r.forEach(function(u){u.classList.add('on')});return}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.45});r.forEach(function(u){io.observe(u)})})();</script><script>(function(){var c=document.getElementById('ck');if(!c)return;c.classList.add('js');var st=document.getElementById('ckst');
@@ -1403,7 +1402,7 @@ new MutationObserver(sync).observe(d,{attributes:true,attributeFilter:['hidden']
 d.addEventListener('keydown',function(e){if(e.key!=='Tab')return;var f=[].slice.call(d.querySelectorAll('a[href],button:not([disabled])')).filter(function(x){return x.offsetParent!==null});if(!f.length)return;var a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}});})();
 ;(function(){window.evInbox=function(city,f){var em='';try{em=(f&&f.querySelector('input[type=email]')||{}).value||''}catch(e){}
 var d=document.getElementById('evinbox');if(!d){d=document.createElement('dialog');d.id='evinbox';d.className='evib';d.setAttribute('aria-labelledby','evib-h');
-d.innerHTML='<div class="evib-c"><span class="evib-sw" aria-hidden="true"></span><h2 id="evib-h">Check your inbox.</h2><p class="evib-p"></p><p class="evib-s">Nothing there after a minute? Check junk, or <button type="button" class="evib-again">send it again</button>.</p><button type="button" class="evib-ok" autofocus>Done</button><p class="evib-pv">Preview only: nothing was sent.</p></div>';
+d.innerHTML='<div class="evib-c"><span class="evib-sw" aria-hidden="true"></span><h2 id="evib-h">Check your inbox.</h2><p class="evib-p"></p><p class="evib-s">Nothing there after a minute? Check junk, or <button type="button" class="evib-again">send it again</button>.</p><button type="button" class="evib-ok" autofocus>Done</button></div>';
 (document.querySelector('.site')||document.body).appendChild(d);
 d.querySelector('.evib-ok').addEventListener('click',function(){d.close()});
 d.querySelector('.evib-again').addEventListener('click',function(){d.close();var i=f&&f.querySelector('input[type=email]');i&&i.focus()});
