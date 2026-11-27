@@ -423,7 +423,9 @@ footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
 .evib-s{margin:14px auto 0;max-width:34ch;font-size:14px;line-height:1.5;color:#8a92a5;text-wrap:balance}
 .evib-again{border:0;background:none;padding:0;font:inherit;color:#fff;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .evib-ok{display:block;width:100%;margin-top:24px;height:52px;border:0;border-radius:99px;background:#fff;color:#0b0f1c;font:600 16px "Geist",system-ui,sans-serif;cursor:pointer}
-.evib-ok:focus-visible,.evib-again:focus-visible{outline:3px solid #34C759;outline-offset:3px}
+.evib-again:focus,.evib-ok:focus{outline:none}
+.evib-ok:focus-visible{box-shadow:0 0 0 3px rgba(255,255,255,.35)}
+.evib-again:focus-visible{text-decoration-thickness:2px}
 .evib-pv{margin:14px 0 0;font-size:12px;color:#5be07f}
 @media (prefers-reduced-motion:reduce){.evib-c,.evib-sw,.evib-sw::after{transition:none}}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip--><p><a href="/everlweb/">Go to the Everl homepage</a></p><!--ev:polishjs--><script>(function(){var d=document.getElementById('drawer');if(!d)return;var H=document.documentElement,sy=0;
@@ -433,7 +435,7 @@ new MutationObserver(sync).observe(d,{attributes:true,attributeFilter:['hidden']
 d.addEventListener('keydown',function(e){if(e.key!=='Tab')return;var f=[].slice.call(d.querySelectorAll('a[href],button:not([disabled])')).filter(function(x){return x.offsetParent!==null});if(!f.length)return;var a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}});})();
 ;(function(){window.evInbox=function(city,f){var em='';try{em=(f&&f.querySelector('input[type=email]')||{}).value||''}catch(e){}
 var d=document.getElementById('evinbox');if(!d){d=document.createElement('dialog');d.id='evinbox';d.className='evib';d.setAttribute('aria-labelledby','evib-h');
-d.innerHTML='<div class="evib-c"><span class="evib-sw" aria-hidden="true"></span><h2 id="evib-h">Check your inbox.</h2><p class="evib-p"></p><p class="evib-s">Nothing there after a minute? Check junk, or <button type="button" class="evib-again">send it again</button>.</p><button type="button" class="evib-ok">Done</button><p class="evib-pv">Preview only: nothing was sent.</p></div>';
+d.innerHTML='<div class="evib-c"><span class="evib-sw" aria-hidden="true"></span><h2 id="evib-h">Check your inbox.</h2><p class="evib-p"></p><p class="evib-s">Nothing there after a minute? Check junk, or <button type="button" class="evib-again">send it again</button>.</p><button type="button" class="evib-ok" autofocus>Done</button><p class="evib-pv">Preview only: nothing was sent.</p></div>';
 (document.querySelector('.site')||document.body).appendChild(d);
 d.querySelector('.evib-ok').addEventListener('click',function(){d.close()});
 d.querySelector('.evib-again').addEventListener('click',function(){d.close();var i=f&&f.querySelector('input[type=email]');i&&i.focus()});
