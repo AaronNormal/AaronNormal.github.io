@@ -785,6 +785,28 @@ footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
   .dr-small{margin-top:4px!important}
   .dr-small a{font-size:24px!important;font-weight:600!important;letter-spacing:-.02em;color:#0b0f1c!important;padding:15px 0!important}
 }
+/* ---- Phone hero: same sheen as the Everl+ hero line, on "You just don't know it yet." (27 Nov). ---- */
+@media (max-width:760px){
+  .nx .s1.sky h1 .dim{background:linear-gradient(100deg,#9aa1b3 0%,#9aa1b3 36%,#f4f6fb 47%,#ffffff 50%,#f4f6fb 53%,#9aa1b3 64%,#9aa1b3 100%);background-size:250% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;color:transparent!important;animation:evsheen 4.5s cubic-bezier(.4,0,.2,1) 1s infinite}
+  html.sky-light .nx .s1.sky h1 .dim{background-image:linear-gradient(100deg,#5f6d8a 0%,#5f6d8a 36%,#2b3550 47%,#0b0f1c 50%,#2b3550 53%,#5f6d8a 64%,#5f6d8a 100%)}
+}
+@keyframes evsheen{0%{background-position:100% 0}45%,100%{background-position:0 0}}
+@media (max-width:760px) and (prefers-reduced-motion:reduce){.nx .s1.sky h1 .dim{animation:none;background:none;color:#9aa1b3!important}html.sky-light .nx .s1.sky h1 .dim{color:#5f6d8a!important}}
+/* Phones: switch screen content starts higher, less empty dark after the hero (27 Nov). */
+@media (max-width:760px){.nx .s2{justify-content:flex-start!important;padding-top:16svh!important}}
+/* ---- Story: the "You're on" switch turns on as the screen arrives, like the activity chips (27 Nov; all widths, Aaron's call). ---- */
+.site .stry .st-b .st-sw{background:#3a3f4d;box-shadow:none;transition:background .35s ease .15s,box-shadow .35s ease .15s}
+.site .stry .st-b .st-sw::after{right:auto;left:2px;transition:left .35s cubic-bezier(.2,.8,.2,1) .15s}
+.site .stry .st-b.arr .st-sw{background:#34C759;box-shadow:0 0 12px rgba(52,199,89,.45)}
+.site .stry .st-b.arr .st-sw::after{left:calc(100% - 20px)}
+@media (max-width:760px){.site .stry .st-b.arr .st-sw::after{left:calc(100% - 18px)}}
+/* ---- Phones: story screens move like the activity screens (same hold, same rise). ---- */
+@media (max-width:760px){
+  .site .stry .st-scr{height:100lvh}
+  .site .stry .st-gap,.site .stry .st-gap2{height:12lvh!important}
+}
+/* Phones: city line under the Leeds card, question on one line and the link whole on the next (27 Nov). */
+@media (max-width:760px){.ccx-else a{display:block;width:max-content;margin:4px auto 0}}
 </style><!--/ev:polish--></head><body><!--ev:skip--><a class="skip" href="#main">Skip to content</a><!--/ev:skip--><div hidden aria-hidden="true" id="pvstub"><button id="vLap"></button><button id="vPhone"></button><button id="showToday"></button><button id="closeOv"></button><div id="ov"></div></div>
 <div class="stage" id="stage"><div class="site"><nav class="jnav"><div class="in"><a class="logo" href="/everlweb/" aria-label="Everl home"><span class="sw"></span>everl</a><span class="sp"></span><div class="links"><a href="/everlweb/#how">How it works</a><a href="/everlweb/safety">Safety</a><a href="/everlweb/cities">Cities</a><a href="/everlweb/blog" class="on">Blog</a><a href="/everlweb/#up-for-more">Something more<span class="t18">18+</span></a></div><a class="btn dark" href="/everlweb/#get">Get Everl</a><button class="mnu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button></div></nav>
 <main class="in" id="main" tabindex="-1">
@@ -819,7 +841,7 @@ var dock=document.getElementById('dock'),seen=new Set();
 if(dock&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?seen.add(e.target):seen.delete(e.target)});dock.classList.toggle('evh',seen.size>0)});document.querySelectorAll('.badges,a.req,a.hget,.close .btn').forEach(function(el){if(!el.closest('#dock'))io.observe(el)})}
 document.querySelectorAll('.scr .loc').forEach(function(l){l.innerHTML=l.innerHTML.replace(/[A-Z][A-Z\u2019']+/g,function(w){return w[0]+w.slice(1).toLowerCase()})});
 var android=/Android/.test(navigator.userAgent),ob=document.querySelectorAll('.s1 .cap2 .badges.sb .badge');ob.forEach(function(b){var gp=!!b.querySelector('svg.gp');if(android===gp)b.classList.add('own');var t=b.querySelector('b');if(t){t.className='bl';t.textContent=gp?'Get it on Google Play':'Download on the App Store'}b.href='https://everl.com/app';b.setAttribute('aria-label',gp?'Get Everl on Google Play':'Download Everl on the App Store')});
-var SC=[].slice.call(document.querySelectorAll('.stry .st-scr .st-c'));if(SC.length){var sf=function(){SC.forEach(function(c){var r=c.parentNode.getBoundingClientRect(),p=Math.max(0,Math.min(1,(innerHeight-r.top)/(innerHeight*.7)));c.style.opacity=(.15+.85*p).toFixed(3);c.style.transform='translate3d(0,'+((1-p)*56).toFixed(1)+'px,0)'})};addEventListener('scroll',sf,{passive:true});addEventListener('resize',sf);sf()}
+var SC=[].slice.call(document.querySelectorAll('.stry .st-scr'));if(SC.length){var nat=function(el){var t=el.parentNode.getBoundingClientRect().top+scrollY,c=el.parentNode.firstElementChild;while(c&&c!==el){t+=c.offsetHeight;c=c.nextElementSibling}return t};var sf=function(){var y=scrollY,vh=innerHeight,k=2e-6*Math.pow(800/vh,2);SC.forEach(function(sc){var c=sc.querySelector('.st-c');if(!c)return;var n=nat(sc)+.18*vh,o=1-k*Math.pow(y-n,2),tr=Math.max(-80,Math.min(80,(n-y)*.1));c.style.opacity=Math.max(0,Math.min(1,o)).toFixed(3);c.style.transform='translate3d(0,'+tr.toFixed(1)+'px,0)'})};addEventListener('scroll',function(){requestAnimationFrame(sf)},{passive:true});sf()}
 (function(){var c1=document.querySelector('.s1.sky .cap'),c2=document.querySelector('.s1.sky .cap2');if(!c1||!c2)return;var lay=function(){var b=parseFloat(getComputedStyle(c2).bottom)||40;c1.style.bottom=(b+c2.offsetHeight+24)+'px'};lay();addEventListener('load',lay);var lw=innerWidth;addEventListener('resize',function(){if(innerWidth!==lw){lw=innerWidth;lay()}});setTimeout(lay,400)})();
 var cap=document.querySelector('.s1 .cap2');if(cap){var f=function(){var y=scrollY;cap.style.opacity=Math.max(0,1-y/260);cap.style.pointerEvents=y>200?'none':''};addEventListener('scroll',f,{passive:true});f()}
 })();</script><!--/ev:mobjs--></body></html>
