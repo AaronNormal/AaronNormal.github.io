@@ -714,7 +714,7 @@ footer.f .t18,.dr .t18,.dark .t18{color:#c9b8ff;background:rgba(139,92,246,.2)}
   .nx .stk{height:112lvh}
   .nx .stk:last-of-type{height:100lvh}
   /* each screen stays put while the next one slides over it: same 112lvh step, the next wrapper overlaps by 100lvh (27 Nov) */
-  .site .nx .stk{height:212lvh!important}
+  .site .nx .stk{height:255lvh!important} /* 55lvh hold before the next screen starts covering (27 Nov: 12lvh cut off too early) */
   .site .nx .stk+.stk{margin-top:-100lvh}
   .site .nx .stk:last-of-type{height:100lvh!important}
 }
